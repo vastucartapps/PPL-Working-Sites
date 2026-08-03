@@ -1,0 +1,75 @@
+---
+import { LocationData } from '../config/locations';
+
+export interface Props {
+  location?: LocationData;
+}
+
+const { location } = Astro.props;
+const currentCity = location ? location.name : 'Central Oregon';
+const permitOffice = location ? location.permitOffice : 'Deschutes County / City of Bend Building Safety';
+const utilityName = location ? location.utilityName : 'Pacific Power';
+const rebateAmount = location ? location.rebateAmount : '$500';
+---
+
+<div class="bg-slate-950 text-white border-2 border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl space-y-8">
+  <div class="max-w-3xl">
+    <span class="mono-tag bg-emerald-400 text-slate-950">// 4-STEP PERMIT & INSTALLATION LIFECYCLE</span>
+    <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight mt-3">
+      How Your {currentCity} EV Charger Gets Permitted & Installed
+    </h2>
+    <p class="text-xs sm:text-sm text-slate-300 font-bold mt-2">
+      Zero hassle for the homeowner. We handle 100% of local trade permits, electrical wiring, and utility cash-back paperwork.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <!-- Step 1 -->
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-3 relative">
+      <div class="font-mono text-xs text-emerald-400 font-black flex items-center justify-between">
+        <span>STEP 01</span>
+        <span class="bg-emerald-950 border border-emerald-500/40 text-emerald-400 px-2 py-0.5 rounded text-[10px]">FREE</span>
+      </div>
+      <h3 class="text-lg font-black text-white">NEC 220 Load Audit & Fixed Quote</h3>
+      <p class="text-xs text-slate-300 font-bold leading-relaxed">
+        Our master electrician calculates main panel capacity and provides a binding, fixed-price estimate with zero change orders.
+      </p>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-3 relative">
+      <div class="font-mono text-xs text-emerald-400 font-black flex items-center justify-between">
+        <span>STEP 02</span>
+        <span class="bg-emerald-950 border border-emerald-500/40 text-emerald-400 px-2 py-0.5 rounded text-[10px]">SAME-WEEK</span>
+      </div>
+      <h3 class="text-lg font-black text-white">60A EMT Conduit Hardwiring</h3>
+      <p class="text-xs text-slate-300 font-bold leading-relaxed">
+        Installation of a 60A 2-pole breaker, solid 6 AWG copper conductors, and concealed or color-matched EMT conduit.
+      </p>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-3 relative">
+      <div class="font-mono text-xs text-emerald-400 font-black flex items-center justify-between">
+        <span>STEP 03</span>
+        <span class="bg-emerald-950 border border-emerald-500/40 text-emerald-400 px-2 py-0.5 rounded text-[10px]">100% PERMITTED</span>
+      </div>
+      <h3 class="text-lg font-black text-white">Trade Inspection Sign-Off</h3>
+      <p class="text-xs text-slate-300 font-bold leading-relaxed">
+        We schedule and pass the official electrical inspection with {permitOffice}.
+      </p>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="bg-emerald-950/80 border-2 border-emerald-500 rounded-2xl p-6 space-y-3 relative">
+      <div class="font-mono text-xs text-emerald-300 font-black flex items-center justify-between">
+        <span>STEP 04</span>
+        <span class="bg-emerald-400 text-slate-950 px-2 py-0.5 rounded text-[10px] font-black">{rebateAmount} REBATE</span>
+      </div>
+      <h3 class="text-lg font-black text-white">Utility Cashback Filing</h3>
+      <p class="text-xs text-emerald-200 font-bold leading-relaxed">
+        We file all residential cash-back rebate paperwork directly with {utilityName} for guaranteed check delivery.
+      </p>
+    </div>
+  </div>
+</div>

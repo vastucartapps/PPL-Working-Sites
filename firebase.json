@@ -1,0 +1,40 @@
+{
+  "_doc": "Firebase Hosting config for THIS site only. Multi-site Firebase project (pplsi-cc51f) hosts every PPL site under one project; each site has its own Hosting Site ID matching the slug. Deploy target: ev-charger-bend-or → ev-charger-bend-or.web.app",
+  "hosting": [
+    {
+      "target": "ev-charger-bend-or",
+      "public": "out",
+      "cleanUrls": true,
+      "trailingSlash": true,
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "headers": [
+        {
+          "source": "**/*.@(jpg|jpeg|gif|png|webp|avif|svg|ico|woff|woff2)",
+          "headers": [
+            { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+          ]
+        },
+        {
+          "source": "**/*.@(js|css)",
+          "headers": [
+            { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+          ]
+        },
+        {
+          "source": "**/*.html",
+          "headers": [
+            { "key": "Cache-Control", "value": "public, max-age=3600, must-revalidate" },
+            { "key": "X-Content-Type-Options", "value": "nosniff" },
+            { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+            { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+            { "key": "Permissions-Policy", "value": "geolocation=(), microphone=(), camera=()" }
+          ]
+        }
+      ]
+    }
+  ]
+}

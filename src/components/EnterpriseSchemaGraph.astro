@@ -1,0 +1,207 @@
+---
+import { LocationData } from '../config/locations';
+import { SITE_CONFIG } from '../config/site';
+
+export interface Props {
+  location?: LocationData;
+  title: string;
+  description: string;
+  path?: string;
+  pageType?: 'home' | 'location' | 'service' | 'about' | 'contact' | 'blog' | 'comparison';
+  faqs?: Array<{ question: string; answer: string }>;
+  articleAuthor?: string;
+  publishDate?: string;
+  imageUrl?: string;
+}
+
+const {
+  location,
+  title,
+  description,
+  path = '',
+  pageType = 'location',
+  faqs = [],
+  articleAuthor = "Oregon Master Electrician Desk (CCB #248910)",
+  publishDate = "2026-01-15",
+  imageUrl = `${SITE_CONFIG.baseUrl}/images/hero-ev-charger.webp`
+} = Astro.props;
+
+const currentCity = location ? location.name : SITE_CONFIG.location.city;
+const currentState = location ? location.state : SITE_CONFIG.location.state;
+const currentPhone = location ? location.phone : SITE_CONFIG.phone;
+const currentSlug = location ? location.slug : 'bend';
+const currentUrl = location ? `https://${location.slug}.${SITE_CONFIG.domain}${path}` : `${SITE_CONFIG.baseUrl}${path}`;
+
+// Authoritative Wiki & Entity sameAs Links
+const wikiEntities = [
+  "https://en.wikipedia.org/wiki/Electrician",
+  "https://en.wikipedia.org/wiki/Charging_station",
+  "https://en.wikipedia.org/wiki/Tesla_Wall_Connector",
+  "https://en.wikipedia.org/wiki/National_Electrical_Code",
+  location ? (location.name === 'Bend' ? "https://en.wikipedia.org/wiki/Bend,_Oregon" : `https://en.wikipedia.org/wiki/${location.name},_Oregon`) : "https://en.wikipedia.org/wiki/Bend,_Oregon",
+  "https://en.wikipedia.org/wiki/Deschutes_County,_Oregon"
+];
+
+// 1. Breadcrumb Schema List
+const breadcrumbs = [
+  { "@type": "ListItem", "position": 1, "name": "Home", "item": SITE_CONFIG.baseUrl },
+  { "@type": "ListItem", "position": 2, "name": "Locations", "item": `${SITE_CONFIG.baseUrl}/locations` },
+  { "@type": "ListItem", "position": 3, "name": currentCity, "item": `${SITE_CONFIG.baseUrl}/locations/${currentSlug}` }
+];
+
+if (path && path !== '/') {
+  const cleanPathName = path.replace(/^\/|\/$/g, '').split('/').pop() || 'Page';
+  const formattedName = cleanPathName.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+  breadcrumbs.push({
+    "@type": "ListItem",
+    "position": 4,
+    "name": formattedName,
+    "item": currentUrl
+  });
+}
+
+// 2. ImageObject Schema Graph (Google GSC & Rich Results Compliant)
+const imageObjectSchema = {
+  "@type": "ImageObject",
+  "@id": `${imageUrl}#primaryimage`,
+  "url": imageUrl,
+  "contentUrl": imageUrl,
+  "caption": `${title} - EV Charger One`,
+  "width": 1920,
+  "height": 1080,
+  "license": `${SITE_CONFIG.baseUrl}/contractor-disclosure`,
+  "acquireLicensePage": `${SITE_CONFIG.baseUrl}/contact`,
+  "creditText": "EV Charger One Oregon Electrician Network",
+  "copyrightNotice": `© 2026 ${SITE_CONFIG.brandName}`
+};
+
+// 3. Nested FAQ Schema Graph
+const faqSchema = faqs.length > 0 ? {
+  "@type": "FAQPage",
+  "@id": `${currentUrl}#faq`,
+  "mainEntity": faqs.map(f => ({
+    "@type": "Question",
+    "name": f.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": f.answer
+    }
+  }))
+} : null;
+
+// 4. Organization & E-E-A-T Trust Schema Graph
+const organizationSchema = {
+  "@type": "Organization",
+  "@id": `${SITE_CONFIG.baseUrl}/#organization`,
+  "name": SITE_CONFIG.brandName,
+  "url": SITE_CONFIG.baseUrl,
+  "logo": imageObjectSchema,
+  "telephone": SITE_CONFIG.phone,
+  "sameAs": wikiEntities,
+  "knowsAbout": [
+    "NEC Article 625 EV Charging Systems",
+    "NEC Article 220 Load Calculations",
+    "200A Electrical Panel Capacity Upgrades",
+    "Tesla Wall Connector 48A Hardwiring",
+    "Pacific Power EV Cash-Back Rebates"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": SITE_CONFIG.phone,
+    "contactType": "customer service",
+    "areaServed": "US-OR",
+    "availableLanguage": "en"
+  }
+};
+
+// 5. LocalBusiness & Electrician Schema Graph (With sameAs Wiki Entities)
+const localBusinessSchema = {
+  "@type": "LocalBusiness",
+  "@id": `${currentUrl}#localbusiness`,
+  "name": `${SITE_CONFIG.brandName} - ${currentCity}`,
+  "url": currentUrl,
+  "telephone": currentPhone,
+  "priceRange": "$$",
+  "description": description,
+  "image": imageObjectSchema,
+  "sameAs": wikiEntities,
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": currentCity,
+    "addressRegion": currentState,
+    "postalCode": location ? location.zipCodes[0] : SITE_CONFIG.location.zip,
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": location ? location.geo.lat : SITE_CONFIG.location.latitude,
+    "longitude": location ? location.geo.lng : SITE_CONFIG.location.longitude
+  },
+  "areaServed": location ? [location.name, ...location.neighborhoods, location.county] : ["Bend", "Redmond", "Sisters", "Sunriver", "La Pine", "Prineville"]
+};
+
+// 6. ItemPage & Service Schema (For Service Pages)
+const serviceSchema = (pageType === 'service') ? {
+  "@type": "ItemPage",
+  "@id": `${currentUrl}#itempage`,
+  "name": title,
+  "description": description,
+  "primaryImageOfPage": imageObjectSchema,
+  "mainEntity": {
+    "@type": "Service",
+    "name": title,
+    "provider": organizationSchema,
+    "areaServed": currentCity,
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": `EV Charger Services in ${currentCity}`,
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": `Level 2 EV Charger Installation in ${currentCity}`
+          }
+        }
+      ]
+    }
+  }
+} : null;
+
+// 7. Article & Comparison Schema (For Blog & Comparison Pages)
+const articleSchema = (pageType === 'blog' || pageType === 'comparison') ? {
+  "@type": (pageType === 'comparison') ? "ItemPage" : "Article",
+  "@id": `${currentUrl}#article`,
+  "headline": title,
+  "description": description,
+  "image": imageObjectSchema,
+  "author": {
+    "@type": "Person",
+    "name": articleAuthor,
+    "jobTitle": "Master Electrician",
+    "worksFor": organizationSchema
+  },
+  "publisher": organizationSchema,
+  "datePublished": publishDate,
+  "dateModified": publishDate
+} : null;
+
+// Combined Dynamic Graph
+const schemaGraph = {
+  "@context": "https://schema.org",
+  "@graph": [
+    imageObjectSchema,
+    organizationSchema,
+    localBusinessSchema,
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": breadcrumbs
+    },
+    ...(serviceSchema ? [serviceSchema] : []),
+    ...(articleSchema ? [articleSchema] : []),
+    ...(faqSchema ? [faqSchema] : [])
+  ]
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schemaGraph)} />

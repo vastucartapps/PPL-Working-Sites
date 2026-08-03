@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import ContactForm from '../../../../components/ContactForm.astro';
+import PricingDisclaimerBox from '../../../../components/PricingDisclaimerBox.astro';
+import { LOCATIONS, LocationData } from '../../../../config/locations';
+
+export function getStaticPaths() {
+  return Object.values(LOCATIONS).map((loc) => ({
+    params: { city: loc.slug },
+    props: { location: loc }
+  }));
+}
+
+export interface Props {
+  location: LocationData;
+}
+
+const { location } = Astro.props;
+
+const services = [
+  {
+    title: `Tesla Wall Connector Installation in ${location.name}`,
+    desc: `Continuous 48A hardwired Level 2 Tesla charging station installation for ${location.name} homeowners. Dedicated 60A circuit breaker & 6 AWG copper conductors.`,
+    link: `/locations/${location.slug}/services/tesla-wall-connector`
+  },
+  {
+    title: `240V 50A NEMA 14-50 Receptacle in ${location.name}`,
+    desc: `Industrial-grade heavy-duty 240V outlet installation for ChargePoint Flex, Grizzl-E, and plug-in EV chargers across ${location.landmarks[0]}.`,
+    link: `/locations/${location.slug}/services/nema-14-50-upgrade`
+  },
+  {
+    title: `200A Electrical Panel Capacity Upgrade in ${location.name}`,
+    desc: `Main service panel load calculations under NEC Article 220 and 200-Amp panel capacity upgrades permitted by ${location.permitOffice}.`,
+    link: `/locations/${location.slug}/services/panel-capacity-upgrade`
+  },
+  {
+    title: `Commercial EV Charging Infrastructure in ${location.name}`,
+    desc: `Dual-port Level 2 commercial charging stations for businesses, hotels, and vacation rentals in ${location.name}, ${location.state}.`,
+    link: `/locations/${location.slug}/services/commercial-ev-charging`
+  }
+];
+---
+
+<BaseLayout
+  title={`Licensed Electrical Services in ${location.name}, ${location.state} | EV Charger One`}
+  description={`Level 2 EV charger installation, Tesla Wall Connector hardwiring, NEMA 14-50 outlets & 200A panel upgrades in ${location.name}, ${location.state}.`}
+  location={location}
+>
+  <section class="py-16 bg-white border-b border-brand-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <span class="mono-tag mb-4">// LICENSED SERVICES: {location.name.toUpperCase()}, {location.state}</span>
+        <h1 class="text-4xl sm:text-5xl font-black text-slate-950 tracking-tight leading-tight">
+          EV Charger & Electrical Services in <span class="text-emerald-800">{location.name}, {location.state}</span>
+        </h1>
+        <p class="text-lg text-slate-950 font-bold mt-4 leading-relaxed">
+          Licensed Oregon CCB #248910 electrician network providing NEC Article 625 continuous 48-Amp Level 2 EV charging solutions across {location.name} and {location.county}.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-brand-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <div class="lg:col-span-8 space-y-8">
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {services.map((svc) => (
+              <div class="bg-white border-2 border-brand-slate-200 rounded-3xl p-6 shadow-md hover:border-emerald-600 transition-all space-y-4">
+                <h2 class="text-xl font-black text-slate-950">
+                  {svc.title}
+                </h2>
+                <p class="text-xs text-slate-900 font-bold leading-relaxed">
+                  {svc.desc}
+                </p>
+                <a href={svc.link} class="inline-flex items-center text-xs font-mono font-black text-emerald-800 hover:underline">
+                  VIEW SERVICE DETAILS →
+                </a>
+              </div>
+            ))}
+          </div>
+
+          <PricingDisclaimerBox />
+        </div>
+
+        <div class="lg:col-span-4">
+          <ContactForm />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

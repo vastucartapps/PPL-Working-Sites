@@ -1,0 +1,145 @@
+---
+import { SITE_CONFIG } from '../config/site';
+
+const layers = [
+  {
+    id: 'layer-1',
+    num: '01',
+    title: 'MAIN PANEL AUDIT',
+    headline: 'NEC Article 220 Service Load Calculation',
+    desc: 'Before adding a continuous 48-Amp Level 2 EV charging circuit, our master electricians calculate total connected household loads. If total demand exceeds 80% of service capacity, we perform a 200A main service panel upgrade or integrate an intelligent DCC-9 load management switch.',
+    specs: ['200A Main Panel Audit', 'DCC-9 Load Switch', 'Deschutes County Permitted', 'Sub-Zero Thermal Rated'],
+    code: 'NEC 220.83 (Optional Calculation for Existing Dwelling Units)'
+  },
+  {
+    id: 'layer-2',
+    num: '02',
+    title: 'BREAKER & CONDUIT',
+    headline: 'Dedicated 60A Breaker & EMT Metal Conduit',
+    desc: 'Level 2 EV chargers draw continuous 48-Amp current for up to 8 hours. We install heavy-duty 2-pole 60A circuit breakers in your main breaker box, run 6 AWG THHN copper conductors through rigid metallic conduit, and ground the system to Oregon CCB trade specifications.',
+    specs: ['60A 2-Pole Breaker', '6 AWG THHN Copper', 'EMT Metallic Conduit', 'Dual Ground Rods'],
+    code: 'NEC Article 625.40 (Electric Vehicle Branch Circuit)'
+  },
+  {
+    id: 'layer-3',
+    num: '03',
+    title: 'COPPER WIRING',
+    headline: '99.9% Pure Solid Copper Wiring Runs',
+    desc: 'Unlike budget contractors who use aluminum wiring or undersized Romex, we exclusively install 99.9% pure solid copper conductors rated for 75°C continuous thermal operation and outdoor sub-zero gaskets.',
+    specs: ['99.9% Pure Solid Copper', '75°C Thermal Insulation', 'Zero Aluminum Failures', 'NEMA 3R Outdoor Sealed'],
+    code: 'NEC 310.16 (Conductor Ampacities & Thermal Ratings)'
+  },
+  {
+    id: 'layer-4',
+    num: '04',
+    title: '$500 REBATE',
+    headline: 'Instant $500 Pacific Power Rebate Direct Filing',
+    desc: 'We file all Oregon utility cash-back paperwork directly on your behalf. Homeowners in Pacific Power territory receive an instant $500 rebate check plus a 30% Federal 30C tax credit, bringing net installation costs under $350.',
+    specs: ['$500 Pacific Power Rebate', '30% IRS 30C Tax Credit', 'Income-Qualified Tiers', '100% Guaranteed Approval'],
+    code: 'Oregon Public Utility Commission (OPUC) Approved Program'
+  }
+];
+---
+
+<div class="bg-white border-2 border-brand-slate-200 rounded-3xl p-6 sm:p-10 shadow-2xl">
+  <div class="max-w-3xl mb-8">
+    <span class="mono-tag mb-3">// 4-STAGE ARCHITECTURE ENGINE</span>
+    <h2 class="text-3xl sm:text-4xl font-black text-slate-950 tracking-tight">
+      How We Engineer Your EV Charger
+    </h2>
+    <p class="text-xs sm:text-sm text-slate-900 font-bold mt-2">
+      Click each stage below to explore our NEC Article 625 electrical installation standards.
+    </p>
+  </div>
+
+  <!-- Tab Buttons Container -->
+  <div class="flex flex-wrap gap-3 mb-8 border-b border-brand-slate-200 pb-6">
+    {layers.map((layer, idx) => (
+      <button
+        type="button"
+        data-layer-btn={layer.id}
+        aria-label={`View ${layer.title} Stage`}
+        class={`tab-switcher-btn px-5 py-3.5 min-h-[48px] rounded-xl font-mono text-xs font-black transition-all cursor-pointer shadow-sm border-2 ${
+          idx === 0
+            ? 'bg-slate-950 text-white border-slate-950 shadow-md'
+            : 'bg-brand-slate-50 hover:bg-emerald-100 text-slate-950 border-brand-slate-300 hover:border-emerald-600'
+        }`}
+      >
+        <span>{layer.num} {layer.title}</span>
+      </button>
+    ))}
+  </div>
+
+  <!-- Content Panels -->
+  <div>
+    {layers.map((layer, idx) => (
+      <div
+        id={layer.id}
+        data-layer-content
+        class={`space-y-6 ${idx === 0 ? 'block' : 'hidden'}`}
+      >
+        <div class="bg-emerald-50/90 border-2 border-emerald-400 rounded-2xl p-6">
+          <div class="font-mono text-xs font-black text-emerald-950 uppercase tracking-widest mb-2">
+            STAGE {layer.num} // {layer.code}
+          </div>
+          <h3 class="text-2xl font-black text-slate-950 mb-3">
+            {layer.headline}
+          </h3>
+          <p class="text-sm sm:text-base text-slate-950 leading-relaxed font-bold">
+            {layer.desc}
+          </p>
+        </div>
+
+        <!-- High-Contrast Feature Pills -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {layer.specs.map(spec => (
+            <div class="bg-emerald-100 border-2 border-emerald-500 rounded-xl px-4 py-3 text-center shadow-sm">
+              <span class="font-mono text-xs font-black text-emerald-950 block">
+                ✓ {spec}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+<script is:inline>
+  function initSwitcher() {
+    const btns = document.querySelectorAll('[data-layer-btn]');
+    const contents = document.querySelectorAll('[data-layer-content]');
+
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.getAttribute('data-layer-btn');
+
+        btns.forEach(b => {
+          b.classList.remove('bg-slate-950', 'text-white', 'border-slate-950', 'shadow-md');
+          b.classList.add('bg-brand-slate-50', 'hover:bg-emerald-100', 'text-slate-950', 'border-brand-slate-300', 'hover:border-emerald-600');
+        });
+
+        btn.classList.remove('bg-brand-slate-50', 'hover:bg-emerald-100', 'text-slate-950', 'border-brand-slate-300', 'hover:border-emerald-600');
+        btn.classList.add('bg-slate-950', 'text-white', 'border-slate-950', 'shadow-md');
+
+        contents.forEach(c => {
+          if (c.id === targetId) {
+            c.classList.remove('hidden');
+            c.classList.add('block');
+          } else {
+            c.classList.remove('block');
+            c.classList.add('hidden');
+          }
+        });
+      });
+    });
+  }
+
+  if (typeof window !== 'undefined') {
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(initSwitcher);
+    } else {
+      setTimeout(initSwitcher, 100);
+    }
+  }
+</script>

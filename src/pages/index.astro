@@ -1,0 +1,333 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+import HeroInteractiveGauge from '../components/HeroInteractiveGauge.astro';
+import InteractiveSystemSwitcher from '../components/InteractiveSystemSwitcher.astro';
+import WiringDiagramSVG from '../components/WiringDiagramSVG.astro';
+import ArticleHeroCard from '../components/ArticleHeroCard.astro';
+import BLUFBlock from '../components/BLUFBlock.astro';
+import AtomicAnswerBlock from '../components/AtomicAnswerBlock.astro';
+import PrimaryButton from '../components/PrimaryButton.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+import { SITE_CONFIG } from '../config/site';
+
+const pageTitle = SITE_CONFIG.defaultTitle;
+const pageDescription = SITE_CONFIG.defaultDescription;
+
+const homepageFaqs = [
+  {
+    question: "How Much Does Level 2 EV Charger Installation Cost in Bend, OR?",
+    answer: "Standard garage Level 2 EV charger installation costs in Bend range between $650 and $1,250 depending on breaker panel proximity and wiring distance. Homeowners in Pacific Power territory qualify for an instant $500 cash-back rebate plus a 30% Federal 30C tax credit, bringing net out-of-pocket costs under $350."
+  },
+  {
+    question: "Is a Deschutes County Trade Permit Required for EV Charger Installation?",
+    answer: "Yes. All 240-volt electrical circuit installations in Bend, Redmond, and Deschutes County require a trade permit and post-installation inspection sign-off. Oregon licensed master electricians pull all required trade permits prior to installation."
+  },
+  {
+    question: "What is the Difference Between a 48A Hardwired Charger and a NEMA 14-50 Plug-in Outlet?",
+    answer: "A 48A hardwired charger (like Tesla Gen 3) delivers up to 11.5 kW output (adds ~44 miles of range per hour) on a dedicated 60A breaker. A NEMA 14-50 plug-in outlet delivers 40A max (9.6 kW output, ~28 miles/hr) on a 50A breaker with required GFCI protection."
+  },
+  {
+    question: "How Fast Can an Electrician Install My Home EV Charger in Bend?",
+    answer: "Standard residential garage installations take 3 to 5 hours on-site. We complete 100% of circuit wiring, main panel breaker installation, utility rebate application filing, and City of Bend trade permit sign-offs in a single visit."
+  }
+];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <!-- Hero Section -->
+  <section class="py-16 sm:py-20 bg-white border-b border-brand-slate-200 grid-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-7 space-y-6">
+          <span class="mono-tag mb-2">
+            ⚡ OREGON MASTER ELECTRICIANS • LICENSED NETWORK
+          </span>
+
+          <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black text-slate-950 tracking-tight leading-tight">
+            The Gold Standard in <span class="text-emerald-700">Home EV Infrastructure.</span>
+          </h1>
+
+          <BLUFBlock
+            locationName="Central Oregon"
+            solution="Dedicated 48A hardwired Tesla Wall Connector or 50A NEMA 14-50 240V circuit in Bend & Deschutes County"
+            priceRange="$315 – $650 net out-of-pocket"
+            rebateInfo="$500 Pacific Power / Midstate Electric rebate handled"
+            recommendation="Hardwired 60A circuit breaker with 99.9% 6 AWG THHN copper wire in EMT conduit"
+          />
+
+          <p class="text-base sm:text-lg text-slate-800 leading-relaxed font-semibold">
+            We engineer Level 2 home EV charger installations across Bend and Central Oregon. Licensed electricians, NEC Article 625 code compliance, $500 Pacific Power rebates handled, and 100% permit sign-off.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-3 pt-4 border-t border-brand-slate-200">
+            <span class="font-mono text-xs font-black text-slate-950 bg-white border-2 border-brand-slate-300 px-3.5 py-1.5 rounded-xl shadow-sm">
+              ⚡ + 8x FASTER CHARGING
+            </span>
+            <span class="font-mono text-xs font-black text-emerald-950 bg-emerald-100 border-2 border-emerald-400 px-3.5 py-1.5 rounded-xl shadow-sm">
+              💰 $500 PACIFIC POWER REBATE
+            </span>
+            <span class="font-mono text-xs font-black text-slate-950 bg-white border-2 border-brand-slate-300 px-3.5 py-1.5 rounded-xl shadow-sm">
+              ✓ 100% PERMIT COMPLIANT
+            </span>
+          </div>
+
+          <div class="flex items-center gap-4 pt-2">
+            <PrimaryButton
+              href={`tel:${SITE_CONFIG.phoneClean}`}
+              text={`CALL: ${SITE_CONFIG.phone}`}
+              icon="phone"
+            />
+            <span class="text-xs text-slate-950 font-mono font-bold">
+              ★ 4.9 Rating (128 Verified Installs)
+            </span>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5" id="quote-form">
+          <ContactForm />
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Clickable Hardware Portfolio Showcase Section -->
+  <section class="py-16 bg-slate-950 text-white border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <span class="mono-tag">⚡ VERIFIED HARDWARE PORTFOLIO</span>
+        <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight">
+          Craftsmanship Engineered for Central Oregon
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base font-normal">
+          Click any card to inspect technical engineering specifications, trade permit requirements, and utility rebates.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <a href="/services/tesla-wall-connector" class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl card-hover block">
+          <img
+            src="/images/hero-ev-charger.webp"
+            alt="Tesla Wall Connector Residential Garage Installation"
+            width="800"
+            height="450"
+            loading="lazy"
+            decoding="async"
+            class="w-full h-48 object-cover"
+          />
+          <div class="p-4 space-y-1">
+            <div class="font-mono text-[10px] text-emerald-400 font-bold uppercase">Tesla 48A Hardwire</div>
+            <h3 class="text-sm font-bold text-white hover:text-emerald-400 transition-colors">Residential Garage EVSE →</h3>
+          </div>
+        </a>
+
+        <a href="/services/panel-capacity-upgrade" class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl card-hover block">
+          <img
+            src="/images/electrical-panel-upgrade-200a.webp"
+            alt="200-Amp Electrical Main Panel Upgrade"
+            width="800"
+            height="450"
+            loading="lazy"
+            decoding="async"
+            class="w-full h-48 object-cover"
+          />
+          <div class="p-4 space-y-1">
+            <div class="font-mono text-[10px] text-emerald-400 font-bold uppercase">200A Main Panel Upgrade</div>
+            <h3 class="text-sm font-bold text-white hover:text-emerald-400 transition-colors">Heavy-Up Copper Wiring →</h3>
+          </div>
+        </a>
+
+        <a href="/ev-charger-repair-and-troubleshooting-bend-or" class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl card-hover block">
+          <img
+            src="/images/electrician-at-work.webp"
+            alt="Oregon Master Electrician Testing Breaker Panel"
+            width="800"
+            height="450"
+            loading="lazy"
+            decoding="async"
+            class="w-full h-48 object-cover"
+          />
+          <div class="p-4 space-y-1">
+            <div class="font-mono text-[10px] text-emerald-400 font-bold uppercase">CCB Master Electrician</div>
+            <h3 class="text-sm font-bold text-white hover:text-emerald-400 transition-colors">Thermal Diagnostics & Sign-Off →</h3>
+          </div>
+        </a>
+
+        <a href="/services/commercial-ev-charging" class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl card-hover block">
+          <img
+            src="/images/commercial-ev-charging-station.webp"
+            alt="Commercial Dual Port Level 2 EV Pedestals"
+            width="800"
+            height="450"
+            loading="lazy"
+            decoding="async"
+            class="w-full h-48 object-cover"
+          />
+          <div class="p-4 space-y-1">
+            <div class="font-mono text-[10px] text-emerald-400 font-bold uppercase">Commercial Fleet Hub</div>
+            <h3 class="text-sm font-bold text-white hover:text-emerald-400 transition-colors">Dual-Port 208V Pedestals →</h3>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4-Card 2x2 High-Intent Micro-Answer Grid with Direct Interlinking Links -->
+  <section class="py-16 bg-white border-b border-brand-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-8">
+        <span class="mono-tag mb-3">// EXPERT EV CHARGING ANSWERS</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-950">
+          EV Charger Installation FAQs & Guidance
+        </h2>
+        <p class="text-sm text-slate-950 font-bold mt-2">
+          Clear, expert answers to key questions about Level 2 EV charging in Central Oregon.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <AtomicAnswerBlock
+          heading="How Do I Find a Licensed EV Charger Installation Electrician Near Me?"
+          triggerPhrase="The key takeaway is"
+          answer="hiring a licensed EV charger electrician requires verifying an active Oregon CCB license, proof of $2,000,000 commercial liability insurance, and NEC Article 625 certification. EV Charger One dispatches master electricians across Bend and Deschutes County within 24 to 48 hours."
+          href="/about"
+        />
+
+        <AtomicAnswerBlock
+          heading="What Breaker & Wire Size is Required for a 48A Tesla Wall Connector?"
+          triggerPhrase="In summary,"
+          answer="installing a continuous 48-Amp Tesla Wall Connector requires a dedicated 60-Amp 2-pole circuit breaker wired with 99.9% pure 6 AWG THHN copper conductors in rigid metal EMT conduit. According to NEC Article 625 continuous load code, 60A breaker capacity prevents thermal breakdown."
+          href="/tesla-wall-connector-installation-bend-or"
+        />
+
+        <AtomicAnswerBlock
+          heading="How Much Does Electric Car Charger Installation Cost Near Me?"
+          triggerPhrase="According to Oregon electrical code,"
+          answer="standard garage Level 2 electric car charger installation near you costs between $650 and $1,250. Homeowners in Pacific Power utility territory receive an instant $500 cash-back rebate, reducing total net out-of-pocket costs to $315–$650."
+          href="/pacific-power-ev-charger-rebate-oregon-guide"
+        />
+
+        <AtomicAnswerBlock
+          heading="Why Do I Need an EV Electrician Instead of a Handyman?"
+          triggerPhrase="The key takeaway is"
+          answer="continuous 48-Amp EV loads draw 11.5 kW of thermal energy uninterrupted for 8 hours. Non-licensed handyman installations using cheap $10 receptacles overheat and melt, whereas Oregon CCB master electricians install heavy-duty Hubbell industrial receptacles and hardwired EMT conduit."
+          href="/ev-charger-repair-and-troubleshooting-bend-or"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Engineering Blog Guide Feature Grid -->
+  <section class="py-16 bg-brand-slate-50 border-b border-brand-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <div class="max-w-3xl space-y-2">
+        <span class="mono-tag">// TECHNICAL ENGINEERING GUIDES</span>
+        <h2 class="text-3xl font-black text-slate-950">Deep Technical Hardware Articles</h2>
+        <p class="text-slate-700 text-sm font-bold">Comprehensive engineering benchmarks, NEC load calculations, and utility rebate filing guides.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <a href="/ford-f150-lightning-charge-station-pro-bend-or" class="bg-white border-2 border-slate-900 rounded-2xl overflow-hidden shadow-xl card-hover block">
+          <img src="/images/ford-lightning-charger.webp" alt="Ford F-150 Lightning Charge Station Pro 80A" width="600" height="400" loading="lazy" decoding="async" class="w-full h-44 object-cover" />
+          <div class="p-4 space-y-1">
+            <span class="mono-tag text-[10px] py-0.5 px-2">Ford Hardware</span>
+            <h3 class="text-base font-black text-slate-950">Ford F-150 Lightning 80A Guide</h3>
+            <p class="text-xs text-slate-700 font-normal">100A breaker wiring & bi-directional powershare.</p>
+          </div>
+        </a>
+
+        <a href="/rivian-r1t-r1s-level-2-charger-bend-or" class="bg-white border-2 border-slate-900 rounded-2xl overflow-hidden shadow-xl card-hover block">
+          <img src="/images/rivian-charger-install.webp" alt="Rivian R1T 135 kWh Pack Charging" width="600" height="400" loading="lazy" decoding="async" class="w-full h-44 object-cover" />
+          <div class="p-4 space-y-1">
+            <span class="mono-tag text-[10px] py-0.5 px-2">Rivian Specs</span>
+            <h3 class="text-base font-black text-slate-950">Rivian R1T 135 kWh Pack Guide</h3>
+            <p class="text-xs text-slate-700 font-normal">48A hardwire setup for 135 kWh packs in Sunriver.</p>
+          </div>
+        </a>
+
+        <a href="/vacation-rental-airbnb-ev-charger-installation-sunriver-or" class="bg-white border-2 border-slate-900 rounded-2xl overflow-hidden shadow-xl card-hover block">
+          <img src="/images/vacation-rental-airbnb-charger.webp" alt="Sunriver Vacation Rental Airbnb EV Charger" width="600" height="400" loading="lazy" decoding="async" class="w-full h-44 object-cover" />
+          <div class="p-4 space-y-1">
+            <span class="mono-tag text-[10px] py-0.5 px-2">Airbnb Host</span>
+            <h3 class="text-base font-black text-slate-950">Sunriver Rental EV Charging</h3>
+            <p class="text-xs text-slate-700 font-normal">RFID access cards & guest charging instructions.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Calculator Engine Section -->
+  <section class="py-16 bg-white border-b border-brand-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <HeroInteractiveGauge locationName="Bend & Central Oregon" />
+    </div>
+  </section>
+
+  <!-- Proof Metrics Section -->
+  <section class="py-20 bg-brand-slate-50 border-b border-brand-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mono-tag mb-3">// PROOF — THE NUMBERS BACK UP THE SYSTEM</div>
+      <h2 class="text-3xl font-black text-slate-950 mb-12">Certified Performance Standards</h2>
+
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 divide-y lg:divide-y-0 lg:divide-x divide-brand-slate-200">
+        <div class="pt-4 lg:pt-0 lg:px-6">
+          <div class="text-4xl sm:text-5xl font-black text-slate-950 font-mono tracking-tight">+8x</div>
+          <div class="font-mono text-xs font-bold text-emerald-950 uppercase tracking-wider mt-2">Faster Home Charging</div>
+          <p class="text-xs text-slate-950 mt-1 font-bold">48A Hardwired 240V Circuit</p>
+        </div>
+
+        <div class="pt-4 lg:pt-0 lg:px-6">
+          <div class="text-4xl sm:text-5xl font-black text-emerald-900 font-mono tracking-tight">$500</div>
+          <div class="font-mono text-xs font-bold text-slate-950 uppercase tracking-wider mt-2">Pacific Power Rebate</div>
+          <p class="text-xs text-slate-950 mt-1 font-bold">Instant Cash-Back Application</p>
+        </div>
+
+        <div class="pt-4 lg:pt-0 lg:px-6">
+          <div class="text-4xl sm:text-5xl font-black text-slate-950 font-mono tracking-tight">100%</div>
+          <div class="font-mono text-xs font-bold text-emerald-950 uppercase tracking-wider mt-2">NEC 625 Code Compliant</div>
+          <p class="text-xs text-slate-950 mt-1 font-bold">Deschutes County Permitted</p>
+        </div>
+
+        <div class="pt-4 lg:pt-0 lg:px-6">
+          <div class="text-4xl sm:text-5xl font-black text-slate-950 font-mono tracking-tight">128</div>
+          <div class="font-mono text-xs font-bold text-slate-950 uppercase tracking-wider mt-2">Verified Installs</div>
+          <p class="text-xs text-slate-950 mt-1 font-bold">4.9 Star Homeowner Rating</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive System Switcher -->
+  <section class="py-20 bg-white border-b border-brand-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <InteractiveSystemSwitcher />
+    </div>
+  </section>
+
+  <!-- Wiring Diagram SVG -->
+  <section class="py-20 bg-brand-slate-50 border-b border-brand-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <WiringDiagramSVG />
+    </div>
+  </section>
+
+  <!-- Master FAQ Accordion Component at Bottom of Page -->
+  <FAQAccordion
+    title="Bend EV Installation Questions & Guidance"
+    subtitle="Verified answers provided by licensed Oregon master electricians."
+    faqs={homepageFaqs}
+  />
+
+  <!-- Bottom Hero Contact Form Card Section -->
+  <section id="contact" class="py-20 bg-brand-slate-50 grid-bg border-t border-brand-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ArticleHeroCard
+        title="Ready to Install Your EV Charger in Bend, OR?"
+        subtitle="Lock in your $500 Pacific Power cash-back rebate. Verified master electricians respond within 1 business hour."
+      />
+    </div>
+  </section>
+</BaseLayout>

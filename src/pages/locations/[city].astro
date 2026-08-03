@@ -1,0 +1,224 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EnterpriseSchemaGraph from '../../components/EnterpriseSchemaGraph.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import ArticleHeroCard from '../../components/ArticleHeroCard.astro';
+import PricingDisclaimerBox from '../../components/PricingDisclaimerBox.astro';
+import BLUFBlock from '../../components/BLUFBlock.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
+import HyperLocalDataBlock from '../../components/HyperLocalDataBlock.astro';
+import EditorialConsensusBlock from '../../components/EditorialConsensusBlock.astro';
+import AtomicAnswerBlock from '../../components/AtomicAnswerBlock.astro';
+import PrimaryButton from '../../components/PrimaryButton.astro';
+import SecondaryButton from '../../components/SecondaryButton.astro';
+import { LOCATIONS, LocationData } from '../../config/locations';
+import { SITE_CONFIG } from '../../config/site';
+
+export function getStaticPaths() {
+  return Object.values(LOCATIONS).map((loc) => ({
+    params: { city: loc.slug },
+    props: { location: loc },
+  }));
+}
+
+export interface Props {
+  location: LocationData;
+}
+
+const { location } = Astro.props;
+
+const pageTitle = `Level 2 EV Charger Installation in ${location.name}, OR | ${SITE_CONFIG.brandName}`;
+const pageDescription = `Licensed Oregon CCB #248910 electricians installing Level 2 EV chargers & Tesla Wall Connectors in ${location.name}, ${location.state} (${location.zipCodes.join(', ')}). ${location.rebateAmount} ${location.utilityName} rebates filed.`;
+
+const locationFaqs = [
+  {
+    question: `How Much Does Level 2 EV Charger Installation Cost in ${location.name}, OR?`,
+    answer: `Level 2 EV charger installation in ${location.name}, OR costs between $650 and $1,250 depending on breaker box distance and panel capacity. Homeowners in ${location.utilityName} territory receive an instant $500 cash-back rebate plus a 30% Federal 30C tax credit, bringing net out-of-pocket costs to $315–$650.`
+  },
+  {
+    question: `What Breaker & Wire Size is Required for a 48A Tesla Wall Connector in ${location.name}?`,
+    answer: `Installing a continuous 48-Amp Tesla Wall Connector in ${location.name} requires a dedicated 60-Amp 2-pole circuit breaker wired with 99.9% pure 6 AWG THHN copper conductors in rigid metal EMT conduit. According to NEC Article 625 continuous load code, 60A breaker capacity prevents thermal breakdown.`
+  },
+  {
+    question: `What Electrical Permits Are Needed for EV Chargers in ${location.name}, OR?`,
+    answer: `All 240V Level 2 EV charging circuit installations in ${location.name} require an official trade permit issued by ${location.permitOffice}. Licensed Oregon CCB #248910 master electricians handle 100% of permit filings and post-installation municipal building inspection sign-offs.`
+  }
+];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription} location={location}>
+  <EnterpriseSchemaGraph
+    title={pageTitle}
+    description={pageDescription}
+    path={`/locations/${location.slug}`}
+    cityName={location.name}
+    zipCode={location.zipCodes[0]}
+    imageUrl={`${SITE_CONFIG.baseUrl}/images/hero-ev-charger.webp`}
+    faqs={locationFaqs}
+  />
+
+  <!-- High-Trust Hero Section with Background WebP Image Overlay -->
+  <section class="relative bg-slate-950 text-white overflow-hidden py-16 sm:py-24 border-b border-slate-800">
+    <div class="absolute inset-0 z-0 opacity-25">
+      <img
+        src="/images/hero-ev-charger.webp"
+        alt={`EV Charger Installation in ${location.name} Oregon`}
+        width="1920"
+        height="1080"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        class="w-full h-full object-cover"
+      />
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-7 space-y-6">
+          <span class="mono-tag">
+            ⚡ OREGON CCB #248910 {location.name.toUpperCase()} HUB
+          </span>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
+            Level 2 EV Charger Installation in <span class="text-emerald-400">{location.name}, OR</span>
+          </h1>
+
+          <BLUFBlock
+            locationName={location.name}
+            solution={`Continuous 48A hardwired Tesla Wall Connector or 50A NEMA 14-50 240V circuit in ${location.name} installed by Oregon CCB master electricians`}
+            priceRange="$315 – $650 net out-of-pocket"
+            rebateInfo={`${location.rebateAmount} ${location.utilityName} rebate handled`}
+            recommendation="Hardwired 60A circuit breaker with 99.9% 6 AWG THHN copper wire in EMT conduit"
+          />
+
+          <p class="text-slate-300 text-base sm:text-lg font-normal leading-relaxed">
+            Looking for a licensed EV charger installation electrician in {location.name}, OR ({location.zipCodes.join(', ')})? We dispatch certified master electricians for Tesla Wall Connectors, NEMA 14-50 240V outlets, and 200A electrical panel upgrades.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 pt-2">
+            <PrimaryButton
+              href={`tel:${location.phoneClean}`}
+              text={`Call ${location.phone}`}
+              icon="phone"
+            />
+            <SecondaryButton
+              href="#quote-form"
+              text={`Request ${location.name} Estimate`}
+              icon="arrow"
+            />
+          </div>
+        </div>
+
+        <div class="lg:col-span-5" id="quote-form">
+          <ContactForm />
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Localized Service Offerings Grid with WebP Images -->
+  <section class="py-16 bg-white border-b border-brand-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <div class="max-w-3xl space-y-2">
+        <span class="mono-tag">// LOCAL SERVICE OFFERINGS</span>
+        <h2 class="text-3xl font-black text-slate-950">Electrical Engineering Services in {location.name}</h2>
+        <p class="text-slate-700 text-sm font-bold">100% permitted by {location.permitOffice} with {location.rebateAmount} {location.utilityName} rebates filed.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <a href={`/locations/${location.slug}/services/tesla-wall-connector`} class="bg-white border-2 border-slate-900 rounded-2xl overflow-hidden shadow-xl card-hover block">
+          <img src="/images/tesla-wall-connector-install.webp" alt={`Tesla Wall Connector in ${location.name}`} width="600" height="400" loading="lazy" decoding="async" class="w-full h-40 object-cover" />
+          <div class="p-4 space-y-1">
+            <span class="mono-tag text-[10px] py-0.5 px-2">Tesla 48A</span>
+            <h3 class="text-base font-black text-slate-950">Tesla Wall Connector</h3>
+            <p class="text-xs text-slate-700 font-normal">Dedicated 60A circuit hardwiring in {location.name}.</p>
+          </div>
+        </a>
+
+        <a href={`/locations/${location.slug}/services/panel-capacity-upgrade`} class="bg-white border-2 border-slate-900 rounded-2xl overflow-hidden shadow-xl card-hover block">
+          <img src="/images/electrical-panel-upgrade-200a.webp" alt={`200A Panel Upgrade in ${location.name}`} width="600" height="400" loading="lazy" decoding="async" class="w-full h-40 object-cover" />
+          <div class="p-4 space-y-1">
+            <span class="mono-tag text-[10px] py-0.5 px-2">200A Upgrade</span>
+            <h3 class="text-base font-black text-slate-950">200A Panel Upgrade</h3>
+            <p class="text-xs text-slate-700 font-normal">NEC Article 220 load calculation & utility hookup.</p>
+          </div>
+        </a>
+
+        <a href={`/locations/${location.slug}/services/nema-14-50-upgrade`} class="bg-white border-2 border-slate-900 rounded-2xl overflow-hidden shadow-xl card-hover block">
+          <img src="/images/nema-14-50-outlet-install.webp" alt={`NEMA 14-50 Outlet in ${location.name}`} width="600" height="400" loading="lazy" decoding="async" class="w-full h-40 object-cover" />
+          <div class="p-4 space-y-1">
+            <span class="mono-tag text-[10px] py-0.5 px-2">240V Receptacle</span>
+            <h3 class="text-base font-black text-slate-950">NEMA 14-50 240V Outlet</h3>
+            <p class="text-xs text-slate-700 font-normal">50A GFCI breaker receptacle in {location.name}.</p>
+          </div>
+        </a>
+
+        <a href={`/locations/${location.slug}/services/commercial-ev-charging`} class="bg-white border-2 border-slate-900 rounded-2xl overflow-hidden shadow-xl card-hover block">
+          <img src="/images/commercial-ev-charging-station.webp" alt={`Commercial EV Charging in ${location.name}`} width="600" height="400" loading="lazy" decoding="async" class="w-full h-40 object-cover" />
+          <div class="p-4 space-y-1">
+            <span class="mono-tag text-[10px] py-0.5 px-2">Commercial Hub</span>
+            <h3 class="text-base font-black text-slate-950">Commercial EV Pedestals</h3>
+            <p class="text-xs text-slate-700 font-normal">Dual-port 208V OCPP pedestals in {location.name}.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hyper-Local Municipal Data Section -->
+  <HyperLocalDataBlock location={location} />
+
+  <!-- Atomic Answer Blocks with Interlinking -->
+  <section class="py-16 bg-brand-slate-50 border-b border-brand-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <div class="max-w-3xl">
+        <span class="mono-tag mb-3">// LOCAL ENGINEERING ANSWERS</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-950">
+          EV Charger Guidance for {location.name} Homeowners
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <AtomicAnswerBlock
+          heading={`What Breaker Size is Required for Tesla Charging in ${location.name}?`}
+          triggerPhrase="In summary,"
+          answer={`installing a continuous 48-Amp Tesla Wall Connector in ${location.name} requires a dedicated 60-Amp 2-pole circuit breaker wired with 99.9% pure 6 AWG THHN copper conductors in rigid metal EMT conduit.`}
+          href="/tesla-wall-connector-installation-bend-or"
+        />
+
+        <AtomicAnswerBlock
+          heading={`How Do I Claim the ${location.rebateAmount} ${location.utilityName} Rebate?`}
+          triggerPhrase="The key takeaway is"
+          answer={`our licensed electricians file 100% of rebate paperwork with ${location.utilityName} directly on your behalf upon installation sign-off.`}
+          href="/pacific-power-ev-charger-rebate-oregon-guide"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial Consensus Review Section -->
+  <EditorialConsensusBlock location={location} />
+
+  <!-- FAQ Accordion Component -->
+  <FAQAccordion
+    title={`EV Charger Installation FAQs (${location.name}, OR)`}
+    faqs={locationFaqs}
+  />
+
+  <section class="py-16 bg-brand-slate-50 border-b border-brand-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <PricingDisclaimerBox />
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ArticleHeroCard
+        title={`Ready to Install Your EV Charger in ${location.name}, OR?`}
+        subtitle={`Speak directly with our Oregon CCB #248910 master electricians serving ${location.name} and ${location.county}.`}
+      />
+    </div>
+  </section>
+</BaseLayout>

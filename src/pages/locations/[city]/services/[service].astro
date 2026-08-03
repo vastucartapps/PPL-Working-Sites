@@ -1,0 +1,187 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import EnterpriseSchemaGraph from '../../../../components/EnterpriseSchemaGraph.astro';
+import ContactForm from '../../../../components/ContactForm.astro';
+import ArticleHeroCard from '../../../../components/ArticleHeroCard.astro';
+import PageHeroTrustCard from '../../../../components/PageHeroTrustCard.astro';
+import BLUFBlock from '../../../../components/BLUFBlock.astro';
+import FAQAccordion from '../../../../components/FAQAccordion.astro';
+import HyperLocalDataBlock from '../../../../components/HyperLocalDataBlock.astro';
+import EditorialConsensusBlock from '../../../../components/EditorialConsensusBlock.astro';
+import PricingDisclaimerBox from '../../../../components/PricingDisclaimerBox.astro';
+import Breadcrumbs from '../../../../components/Breadcrumbs.astro';
+import PrimaryButton from '../../../../components/PrimaryButton.astro';
+import SecondaryButton from '../../../../components/SecondaryButton.astro';
+import { LOCATIONS, LocationData } from '../../../../config/locations';
+import { LOCALIZED_ARTICLE_DATA, LocalizedArticleContext } from '../../../../config/articleLocalization';
+import { SITE_CONFIG } from '../../../../config/site';
+
+export const SERVICE_SLUGS = [
+  'tesla-wall-connector',
+  'nema-14-50-upgrade',
+  'panel-capacity-upgrade',
+  'commercial-ev-charging'
+];
+
+export function getStaticPaths() {
+  const paths: any[] = [];
+  const locationsList = Object.values(LOCATIONS);
+
+  for (const loc of locationsList) {
+    for (const service of SERVICE_SLUGS) {
+      paths.push({
+        params: { city: loc.slug, service },
+        props: { location: loc, service }
+      });
+    }
+  }
+  return paths;
+}
+
+export interface Props {
+  location: LocationData;
+  service: string;
+}
+
+const { location, service } = Astro.props;
+const localData: LocalizedArticleContext = LOCALIZED_ARTICLE_DATA[location.slug] || LOCALIZED_ARTICLE_DATA['bend'];
+
+const serviceTitles: Record<string, string> = {
+  'tesla-wall-connector': 'Tesla Wall Connector Installation',
+  'nema-14-50-upgrade': 'NEMA 14-50 240V Outlet Upgrade',
+  'panel-capacity-upgrade': '200-Amp Electrical Panel Upgrade',
+  'commercial-ev-charging': 'Commercial Level 2 EV Charging Installation'
+};
+
+const titleText = serviceTitles[service] || 'EV Charger Installation Service';
+const pageTitle = `${titleText} in ${localData.cityName}, ${localData.state} | ${SITE_CONFIG.brandName}`;
+const pageDescription = `Licensed Oregon electrician ${titleText} in ${localData.cityName}, ${localData.state}. ${localData.utility.name} ${localData.utility.rebateAmount} rebate filing & ${localData.permit.office} trade permits.`;
+
+const serviceFaqs = [
+  {
+    question: `1. How Much Does ${titleText} Cost in ${localData.cityName}, ${localData.state}?`,
+    answer: `${titleText} in ${localData.cityName} ranges between $650 and $1,250 depending on breaker panel distance and panel capacity. Homeowners in ${localData.utility.name} territory qualify for an instant ${localData.utility.rebateAmount} cash-back rebate, bringing net costs down to $315–$650.`
+  },
+  {
+    question: `2. Which Building Permit Office Issues Trade Permits for ${localData.cityName}?`,
+    answer: `All 240V electrical installations in ${localData.cityName} require trade permits issued by the ${localData.permit.office} under the ${localData.permit.buildingCodeYear}. Our licensed master electricians pull all trade permits prior to work.`
+  },
+  {
+    question: `3. What Circuit Breaker & Wire Size is Required for ${titleText}?`,
+    answer: `Hardwiring a continuous 48A charger requires a dedicated 60A 2-pole circuit breaker wired with 99.9% pure 6 AWG THHN copper conductors inside EMT metal conduit (${localData.climate.conduitDeratingFactor}).`
+  },
+  {
+    question: `4. Does ${localData.utility.name} Offer Cash-Back Rebates for EV Chargers in ${localData.cityName}?`,
+    answer: `Yes. ${localData.utility.name} offers up to ${localData.utility.rebateAmount} in instant cash-back rebates through the ${localData.utility.rebateProgram}. We handle 100% of paperwork submission for you.`
+  },
+  {
+    question: `5. How Does ${localData.cityName}'s Elevation (${localData.climate.elevationFeet} ft) Impact Winter EV Charging?`,
+    answer: `At ${localData.climate.elevationFeet} feet elevation in ${localData.cityName}, winter cold snaps reaching ${localData.climate.winterMinTempF}°F cause EV battery packs to consume thermal pre-heating power. Hardwired 48A charging ensures thermal pre-heating is powered directly from the grid.`
+  },
+  {
+    question: `6. Can I Install a NEMA 14-50 Plug-in Receptacle Instead of Hardwiring?`,
+    answer: `Yes. However, plug-in NEMA 14-50 outlets are capped at 32A–40A continuous draw (9.6 kW max) and require a 50A GFCI circuit breaker under Oregon code. Hardwiring delivers full 48A (11.5 kW output).`
+  },
+  {
+    question: `7. Which Neighborhoods in ${localData.cityName} Are Served by Our Electrician Network?`,
+    answer: `We dispatch certified master electricians across ${localData.cityName} including ${localData.neighborhoods.join(', ')} and surrounding ${localData.county} corridors.`
+  },
+  {
+    question: `8. How Fast Can an Electrician Complete My Service in ${localData.cityName}?`,
+    answer: `Standard residential garage installations take 3 to 5 hours on-site. We complete 100% of circuit wiring, main panel breaker installation, trade permit filings, and utility rebate application submission in a single visit.`
+  }
+];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription} location={location}>
+  <EnterpriseSchemaGraph
+    title={pageTitle}
+    description={pageDescription}
+    path={`/locations/${location.slug}/services/${service}`}
+    cityName={localData.cityName}
+    zipCode={location.zipCodes[0]}
+    faqs={serviceFaqs}
+  />
+
+  <Breadcrumbs pathName={`${titleText} (${localData.cityName})`} />
+
+  <!-- Hero Section -->
+  <section class="py-16 sm:py-20 bg-white border-b border-brand-slate-200 grid-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-7 space-y-6">
+          <span class="mono-tag">
+            ⚡ {localData.cityName.toUpperCase()}, {localData.state} SERVICE HUB
+          </span>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-950 tracking-tight leading-tight">
+            {titleText} in <span class="text-emerald-700">{localData.cityName}, {localData.state}</span>
+          </h1>
+
+          <!-- BLUF Block -->
+          <BLUFBlock
+            locationName={`${localData.cityName}, ${localData.state}`}
+            solution={`Continuous 48A hardwired installation or 50A 240V circuit in ${localData.cityName} installed by licensed Oregon master electricians`}
+            priceRange="$315 – $650 net out-of-pocket after rebate"
+            rebateInfo={`${localData.utility.rebateAmount} ${localData.utility.name} rebate handled directly by electrician`}
+            recommendation={`Hardwired 60A circuit breaker with ${localData.permit.office} trade permit sign-off`}
+          />
+
+          <p class="text-base text-slate-800 leading-relaxed font-semibold">
+            Looking for certified electricians for {titleText.toLowerCase()} in {localData.cityName}, {localData.state}? We dispatch licensed master electricians for hardwired Level 2 chargers, 200A panel upgrades, and utility rebate filing.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 pt-2">
+            <PrimaryButton
+              href={`tel:${localData.phoneClean}`}
+              text={`Call ${localData.phone}`}
+              icon="phone"
+            />
+            <SecondaryButton
+              href="#quote-form"
+              text={`Request ${localData.cityName} Estimate`}
+              icon="arrow"
+            />
+          </div>
+        </div>
+
+        <div class="lg:col-span-5" id="quote-form">
+          <ContactForm />
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Hyper-Local Municipal Data Section -->
+  <HyperLocalDataBlock location={location} />
+
+  <!-- Editorial Consensus Review Section -->
+  <EditorialConsensusBlock location={location} />
+
+  <!-- 8 Dynamic Localized FAQs -->
+  <FAQAccordion
+    title={`${titleText} FAQs (${localData.cityName}, ${localData.state})`}
+    faqs={serviceFaqs}
+  />
+
+  <section class="py-20 bg-brand-slate-50 grid-bg border-t border-brand-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <PricingDisclaimerBox
+        locationName={localData.cityName}
+        utilityName={localData.utility.name}
+        rebateAmount={localData.utility.rebateAmount}
+      />
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ArticleHeroCard
+        title={`Ready to Schedule ${titleText} in ${localData.cityName}?`}
+        subtitle={`Speak directly with our Oregon CCB master electricians serving ${localData.cityName} and ${localData.county}.`}
+      />
+    </div>
+  </section>
+</BaseLayout>

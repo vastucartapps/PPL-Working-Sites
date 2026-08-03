@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EnterpriseSchemaGraph from '../../components/EnterpriseSchemaGraph.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import ArticleHeroCard from '../../components/ArticleHeroCard.astro';
+import PricingDisclaimerBox from '../../components/PricingDisclaimerBox.astro';
+import BLUFBlock from '../../components/BLUFBlock.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PrimaryButton from '../../components/PrimaryButton.astro';
+import SecondaryButton from '../../components/SecondaryButton.astro';
+import { SITE_CONFIG } from '../../config/site';
+
+const pageTitle = `NEMA 14-50 Outlet Installation in Bend, OR | ${SITE_CONFIG.brandName}`;
+const pageDescription = "Heavy-duty Hubbell NEMA 14-50 240V outlet installation for EV chargers in Bend, OR. Industrial receptacles installed by Oregon CCB master electricians.";
+
+const nemaFaqs = [
+  {
+    question: "Why Is an Industrial-Grade NEMA 14-50 Receptacle Required for EV Charging?",
+    answer: "Standard $10 residential NEMA 14-50 outlets melt under continuous 40-Amp EV loads. Oregon CCB licensed master electricians install industrial-grade Hubbell or Bryant heavy-duty copper receptacles engineered for 8-hour continuous thermal loads."
+  },
+  {
+    question: "Do I Need GFCI Breaker Protection for a NEMA 14-50 EV Outlet?",
+    answer: "Yes. Under NEC 2023 Article 625 code, all 240V plug-in EV charger receptacles installed in garages or outdoor locations require GFCI 2-pole circuit breaker protection."
+  }
+];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <EnterpriseSchemaGraph
+    title={pageTitle}
+    description={pageDescription}
+    path="/services/nema-14-50-upgrade"
+    pageType="service"
+    faqs={nemaFaqs}
+  />
+
+  <Breadcrumbs pathName="NEMA 14-50 Upgrade" />
+
+  <section class="py-16 sm:py-20 bg-white border-b border-brand-slate-200 grid-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-7 space-y-6">
+          <span class="mono-tag">240V RECEPTACLE INFRASTRUCTURE</span>
+
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-950 tracking-tight leading-tight">
+            NEMA 14-50 240V Outlet Installation in <span class="text-emerald-700">Bend, OR</span>
+          </h1>
+
+          <!-- BLUF Block -->
+          <BLUFBlock
+            locationName="Bend, OR"
+            solution="Heavy-duty Hubbell 50A 240V industrial receptacle wired with 6 AWG copper wire and 50A GFCI circuit breaker"
+            priceRange="$315 – $650 net out-of-pocket"
+            rebateInfo="$500 Pacific Power cash-back rebate application handled"
+            recommendation="Industrial-grade receptacle to prevent thermal breakdown and receptacle melting"
+          />
+
+          <p class="text-sm sm:text-base text-slate-800 leading-relaxed font-semibold">
+            Looking for a certified NEMA 14-50 240V outlet electrician in Bend, OR? We install industrial heavy-duty receptacles built specifically for plug-in EV chargers.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 pt-2">
+            <PrimaryButton
+              href={`tel:${SITE_CONFIG.phoneClean}`}
+              text={`CALL: ${SITE_CONFIG.phone}`}
+              icon="phone"
+            />
+            <SecondaryButton
+              href="#quote-form"
+              text="Request Outlet Quote"
+            />
+          </div>
+        </div>
+
+        <div class="lg:col-span-5" id="quote-form">
+          <ContactForm />
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Accordion Component -->
+  <FAQAccordion
+    title="NEMA 14-50 Receptacle FAQs"
+    faqs={nemaFaqs}
+  />
+
+  <section class="py-16 bg-brand-slate-50 border-b border-brand-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <PricingDisclaimerBox />
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ArticleHeroCard
+        title="Install Your NEMA 14-50 Outlet in Bend, OR"
+        subtitle="Speak directly with our Oregon CCB master electricians serving Deschutes County."
+      />
+    </div>
+  </section>
+</BaseLayout>

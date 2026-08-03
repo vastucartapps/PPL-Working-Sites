@@ -1,0 +1,152 @@
+---
+import ArticleTemplate from '../../../components/ArticleTemplate.astro';
+import { LOCATIONS, LocationData } from '../../../config/locations';
+import { LOCALIZED_ARTICLE_DATA, LocalizedArticleContext } from '../../../config/articleLocalization';
+
+export const BLOG_SLUGS = [
+  '200-amp-electrical-panel-upgrade-bend-or',
+  'bend-electrician-rates-2026',
+  'central-electric-coop-ev-rebates-deschutes-county',
+  'chargepoint-home-flex-vs-tesla-wall-connector',
+  'commercial-fleet-ev-charger-installation-redmond-or',
+  'detached-garage-underground-conduit-ev-charger-bend-or',
+  'do-i-need-200-amp-panel-for-ev-charger',
+  'emporia-ev-charger-installation-guide',
+  'ev-charger-installation-corvallis-or',
+  'ev-charger-installation-redmond-or',
+  'ev-charger-installation-salem-or',
+  'ev-charger-repair-and-troubleshooting-bend-or',
+  'federal-30c-tax-credit-ev-charger-installation',
+  'ford-f150-lightning-charge-station-pro-bend-or',
+  'garage-subpanel-installation-for-ev-charger-bend-or',
+  'grizzl-e-smart-ev-charger-cold-weather-review',
+  'hardwired-vs-plugin-ev-charger',
+  'heat-pump-plus-ev-charger-electrical-panel-load-bend-or',
+  'how-much-does-it-cost-to-install-ev-charger-in-garage',
+  'level-2-ev-charger-installation-bend-or',
+  'nacs-vs-j1772-ev-charger-adapter-guide-2026',
+  'nec-article-220-ev-charger-load-calculation',
+  'pacific-power-ev-charger-rebate-oregon-guide',
+  'pacific-power-ev-rebates',
+  'permits-deschutes-county',
+  'rivian-r1t-r1s-level-2-charger-bend-or',
+  'solar-panel-ev-charger-integration-bend-or',
+  'tesla-cybertruck-ev-charger-installation-bend-or',
+  'tesla-wall-connector-installation-bend-or',
+  'vacation-rental-airbnb-ev-charger-installation-sunriver-or'
+];
+
+export function getStaticPaths() {
+  const paths: any[] = [];
+  const locationsList = Object.values(LOCATIONS);
+
+  for (const loc of locationsList) {
+    for (const slug of BLOG_SLUGS) {
+      paths.push({
+        params: { city: loc.slug, slug },
+        props: { location: loc, slug }
+      });
+    }
+  }
+  return paths;
+}
+
+export interface Props {
+  location: LocationData;
+  slug: string;
+}
+
+const { location, slug } = Astro.props;
+const localData: LocalizedArticleContext = LOCALIZED_ARTICLE_DATA[location.slug] || LOCALIZED_ARTICLE_DATA['bend'];
+
+const readableTitle = slug
+  .replace(/-/g, ' ')
+  .replace(/\b\w/g, (l) => l.toUpperCase())
+  .replace('Or', 'OR')
+  .replace('Ev', 'EV')
+  .replace('Nec', 'NEC')
+  .replace('Nema', 'NEMA')
+  .replace('Nacs', 'NACS');
+
+const fullTitle = `${readableTitle} in ${localData.cityName}, ${localData.state}`;
+
+let featuredImageSrc = '/images/hero-ev-charger.webp';
+if (slug.includes('tesla')) {
+  featuredImageSrc = '/images/tesla-wall-connector-install.webp';
+} else if (slug.includes('panel') || slug.includes('load')) {
+  featuredImageSrc = '/images/electrical-panel-upgrade-200a.webp';
+} else if (slug.includes('repair') || slug.includes('troubleshooting')) {
+  featuredImageSrc = '/images/electrician-at-work.webp';
+}
+
+const localizedSpecs = [
+  { label: 'Electric Utility Provider', value: `${localData.utility.name} (${localData.utility.type})` },
+  { label: 'Utility Cash-Back Rebate', value: `${localData.utility.rebateAmount} Instant Cash Rebate (${localData.utility.rebateProgram})` },
+  { label: 'Municipal Permit Office', value: localData.permit.office },
+  { label: 'Building Specialty Code', value: localData.permit.buildingCodeYear },
+  { label: 'Elevation & Winter Low', value: `${localData.climate.elevationFeet} ft Elevation • ${localData.climate.winterMinTempF}°F Winter Low (+${localData.climate.thermalPreheatOverheadPct}% Load)` },
+  { label: 'Conductor Thermal Standard', value: localData.climate.conduitDeratingFactor }
+];
+
+const localizedSections = [
+  {
+    heading: `1. ${localData.cityName} Electrical Infrastructure & Grid Sizing`,
+    content: `Installing a Level 2 electric vehicle charger in ${localData.cityName}, ${localData.state} requires careful branch circuit load balancing under the ${localData.permit.buildingCodeYear}. Served by ${localData.utility.name}, local residential properties require dedicated 240-volt branch circuits engineered for continuous 8-hour thermal loads.`
+  },
+  {
+    heading: `2. NEC Article 625 Sizing & Conductor Selection`,
+    content: `Under National Electrical Code (NEC) Article 625.41, continuous EV charging loads require an overcurrent protection device (circuit breaker) rated for 125% of maximum continuous output (48A x 1.25 = 60A breaker). Licensed Oregon master electricians serving ${localData.cityName} install 99.9% pure 6 AWG THHN copper conductors inside rigid EMT conduit.`
+  },
+  {
+    heading: `3. Claiming the ${localData.utility.rebateAmount} ${localData.utility.name} Rebate in ${localData.cityName}`,
+    content: `Homeowners in ${localData.cityName} qualify for an instant ${localData.utility.rebateAmount} cash-back rebate through the ${localData.utility.rebateProgram}. Our partner electrician network files all required trade permits with the ${localData.permit.office} and handles 100% of utility rebate paperwork submission directly on your behalf.`
+  }
+];
+
+const localizedFaqs = [
+  { question: `1. What Utility Rebates Apply to EV Charger Installation in ${localData.cityName}?`, answer: `Homeowners in ${localData.cityName} receive an instant ${localData.utility.rebateAmount} cash-back rebate through the ${localData.utility.rebateProgram}. Our licensed Oregon master electricians submit all rebate paperwork directly on your behalf.` },
+  { question: `2. Which Municipal Building Permit Office Handles EV Charging Permits in ${localData.cityName}?`, answer: `All 240V Level 2 EV charger installations in ${localData.cityName} require trade permits issued by the ${localData.permit.office} under the ${localData.permit.buildingCodeYear}.` },
+  { question: `3. How Does ${localData.cityName}'s Elevation (${localData.climate.elevationFeet} ft) Affect Winter EV Charging?`, answer: `At ${localData.climate.elevationFeet} feet elevation with winter lows reaching ${localData.climate.winterMinTempF}°F in ${localData.cityName}, thermal pre-heating adds up to ${localData.climate.thermalPreheatOverheadPct}% overhead load. A hardwired 48A charger on a dedicated 60A breaker ensures maximum charging speed.` },
+  { question: `4. What Breaker & Wire Sizing is Required for 48A EV Chargers in ${localData.cityName}?`, answer: `Installing a 48A hardwired charger in ${localData.cityName} requires a dedicated 60-Amp 2-pole breaker wired with 99.9% pure 6 AWG THHN copper conductors in EMT rigid conduit.` },
+  { question: `5. Which Neighborhoods in ${localData.cityName} Are Served by Our Electrician Network?`, answer: `We dispatch certified master electricians across ${localData.cityName} including ${localData.neighborhoods.join(', ')} and surrounding ${localData.county} corridors.` },
+  { question: `6. Can I Install a NEMA 14-50 240V Plug-in Outlet Instead of Hardwiring in ${localData.cityName}?`, answer: `Yes. However, plug-in NEMA 14-50 outlets are capped at 32A–40A continuous draw (9.6 kW max) and require a 50A GFCI circuit breaker under Oregon code.` },
+  { question: `7. What is the Electric Utility Rate Schedule in ${localData.cityName}?`, answer: `${localData.cityName} operates under ${localData.utility.name} (${localData.utility.type}) with a baseline residential rate of approximately ${localData.utility.ratePerKWh}.` },
+  { question: `8. How Fast Can an Electrician Complete My EV Charger Installation in ${localData.cityName}?`, answer: `Standard residential garage installations take 3 to 5 hours on-site in a single visit.` }
+];
+
+const localizedInternalLinks = [
+  { text: `Tesla Wall Connector Installation (${localData.cityName})`, href: `/locations/${location.slug}/tesla-wall-connector-installation-bend-or` },
+  { text: `200A Electrical Panel Upgrade (${localData.cityName})`, href: `/locations/${location.slug}/200-amp-electrical-panel-upgrade-bend-or` },
+  { text: `EV Charger Repair & Troubleshooting`, href: `/locations/${location.slug}/ev-charger-repair-and-troubleshooting-bend-or` },
+  { text: `Rivian R1T & R1S Level 2 Charging`, href: `/locations/${location.slug}/rivian-r1t-r1s-level-2-charger-bend-or` }
+];
+---
+
+<ArticleTemplate
+  title={fullTitle}
+  category={`${localData.cityName} Engineering`}
+  readTime="14 min read"
+  canonicalPath={`/locations/${location.slug}/${slug}`}
+  bluf={{
+    solution: `Hardwired 48A Level 2 EV charger installation in ${localData.cityName} with 99.9% 6 AWG copper wire and dedicated 60A breaker`,
+    priceRange: '$315 – $650 net out-of-pocket after rebate',
+    rebateInfo: `${localData.utility.rebateAmount} ${localData.utility.name} rebate handled directly by electrician`,
+    recommendation: `Hardwired 60A breaker with ${localData.permit.office} trade permit sign-off`
+  }}
+  specs={localizedSpecs}
+  sections={localizedSections}
+  featuredImage={{
+    src: featuredImageSrc,
+    alt: `${fullTitle} Featured Installation Image`
+  }}
+  sectionalImage={{
+    src: '/images/sectional-conduit-wiring.webp',
+    alt: `${fullTitle} Conduit & Wiring Sectional Illustration`,
+    caption: `${localData.cityName} EMT Conduit & 6 AWG THHN Copper Wiring (NEC 625)`
+  }}
+  faqs={localizedFaqs}
+  internalLinks={localizedInternalLinks}
+  location={location}
+  cityName={localData.cityName}
+  state={localData.state}
+/>

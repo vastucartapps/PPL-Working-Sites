@@ -1,0 +1,41 @@
+---
+import { LocationData } from '../config/locations';
+
+export interface Props {
+  location: LocationData;
+}
+
+const { location } = Astro.props;
+const { reviewConsensus } = location;
+---
+
+<!-- Phase 4 Module B: Editorial Review Consensus Block (Raw Semantic HTML) -->
+<section class="my-12 bg-emerald-950 text-white border-2 border-emerald-500 rounded-3xl p-8 shadow-2xl space-y-6">
+  <div class="flex flex-wrap items-center justify-between gap-4 border-b border-emerald-800/80 pb-4">
+    <div>
+      <span class="mono-tag bg-emerald-900/90 text-emerald-400 border border-emerald-500/50 mb-2 inline-block">
+        🌟 VERIFIED LOCAL REVIEWS CONSENSUS
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight leading-tight">
+        What local customers say about EV Charger One in {location.name}
+      </h2>
+    </div>
+    
+    <div class="bg-emerald-900/90 border border-emerald-500/50 px-5 py-3 rounded-2xl text-center font-mono">
+      <div class="text-3xl font-black text-emerald-400">{reviewConsensus.rating} / 5.0</div>
+      <div class="text-xs text-slate-300 font-bold">Based on {reviewConsensus.reviewCount}+ Local Reviews</div>
+    </div>
+  </div>
+
+  <div class="editorial-consensus-block bg-slate-950/80 border border-emerald-500/40 rounded-2xl p-6 text-slate-200 text-sm sm:text-base font-bold leading-relaxed space-y-3">
+    <p>
+      {reviewConsensus.sentimentSummary}
+    </p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-3 border-t border-emerald-900 font-mono text-xs text-emerald-400">
+      <div>✓ 100% Permitted Work</div>
+      <div>✓ Direct Utility Rebates</div>
+      <div>✓ Zero Hidden Weekend Fees</div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,246 @@
+---
+export interface Props {
+  locationName?: string;
+}
+
+const { locationName = "Bend & Central Oregon" } = Astro.props;
+---
+
+<div class="bg-white border-2 border-brand-slate-200 rounded-3xl p-6 sm:p-8 shadow-2xl">
+  <!-- Calculator Header -->
+  <div class="border-b border-brand-slate-200 pb-5 mb-6">
+    <div class="flex items-center gap-2 font-mono text-xs font-bold text-emerald-800 mb-2">
+      <span class="w-2.5 h-2.5 rounded-full bg-emerald-600 animate-pulse"></span>
+      <span>INTERACTIVE EV ENGINE // {locationName.toUpperCase()}</span>
+    </div>
+    <h2 class="text-2xl sm:text-4xl font-black text-slate-950 tracking-tight">
+      EV Charging Speed & Cost Estimator ({locationName})
+    </h2>
+    <p class="text-xs sm:text-sm text-slate-900 font-bold mt-1">
+      Select your EV model and daily driving distance to calculate exact 240V charging speeds and net rebate cost in {locationName}.
+    </p>
+  </div>
+
+  <!-- Interactive Controls Form -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mb-8">
+    <!-- EV Vehicle Selector -->
+    <div class="sm:col-span-2 md:col-span-1">
+      <label for="calc-vehicle" class="block font-mono text-[11px] font-black uppercase tracking-wider text-slate-950 mb-2">
+        1. Select Vehicle Model:
+      </label>
+      <select
+        id="calc-vehicle"
+        aria-label="Select Your Electric Vehicle Model"
+        class="w-full bg-white border-2 border-brand-slate-300 rounded-xl px-4 py-3 text-slate-950 font-bold text-xs sm:text-sm focus:outline-none focus:border-emerald-600 cursor-pointer shadow-sm"
+      >
+        <option value="75" selected class="bg-white text-slate-950 font-bold">Tesla Model Y / Model 3 LR (75 kWh)</option>
+        <option value="123" class="bg-white text-slate-950 font-bold">Tesla Cybertruck Dual Motor (123 kWh)</option>
+        <option value="131" class="bg-white text-slate-950 font-bold">Ford F-150 Lightning Extended (131 kWh)</option>
+        <option value="135" class="bg-white text-slate-950 font-bold">Rivian R1T / R1S Large Pack (135 kWh)</option>
+        <option value="77" class="bg-white text-slate-950 font-bold">Hyundai Ioniq 5 / Kia EV6 (77.4 kWh)</option>
+        <option value="85" class="bg-white text-slate-950 font-bold">Chevy Blazer EV (85 kWh)</option>
+      </select>
+    </div>
+
+    <!-- Battery Slider with Accessible Label -->
+    <div>
+      <div class="flex justify-between items-center mb-2 font-mono text-[11px] font-black text-slate-950">
+        <label for="calc-start-pct" class="cursor-pointer">2. Starting Charge Level:</label>
+        <span id="calc-start-pct-disp" class="text-emerald-800 font-black">20% START</span>
+      </div>
+      <input
+        type="range"
+        id="calc-start-pct"
+        aria-label="Starting Charge Level Percentage"
+        min="5"
+        max="50"
+        value="20"
+        class="w-full accent-emerald-600 cursor-pointer h-2 bg-slate-200 rounded-lg"
+      />
+      <div class="flex justify-between text-[10px] font-mono text-slate-900 font-bold mt-1">
+        <span>5% (Depleted)</span>
+        <span>Target: 80% Daily</span>
+      </div>
+    </div>
+
+    <!-- Distance / Panel Run -->
+    <div class="sm:col-span-2 md:col-span-1">
+      <label for="calc-run-dist" class="block font-mono text-[11px] font-black uppercase tracking-wider text-slate-950 mb-2">
+        3. Distance to Breaker Panel:
+      </label>
+      <select
+        id="calc-run-dist"
+        aria-label="Distance to Breaker Panel"
+        class="w-full bg-white border-2 border-brand-slate-300 rounded-xl px-4 py-3 text-slate-950 font-bold text-xs sm:text-sm focus:outline-none focus:border-emerald-600 cursor-pointer shadow-sm"
+      >
+        <option value="650" class="bg-white text-slate-950 font-bold">Short Run (Under 15 ft) — $650</option>
+        <option value="950" selected class="bg-white text-slate-950 font-bold">Medium Run (15 – 30 ft) — $950</option>
+        <option value="1350" class="bg-white text-slate-950 font-bold">Long Run (30 – 60 ft) — $1,350</option>
+        <option value="1850" class="bg-white text-slate-950 font-bold">Finished Basement / Attic Run — $1,850</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Speed Comparison Cards -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+    <!-- Level 1 (Slow) -->
+    <div class="bg-brand-slate-50 border-2 border-brand-slate-200 rounded-2xl p-5 text-center relative flex flex-col justify-between shadow-sm">
+      <div>
+        <span class="font-mono text-[10px] font-black uppercase tracking-wider text-rose-900 bg-rose-100 border border-rose-300 px-2.5 py-1 rounded-md inline-block">
+          Standard 120V Outlet (Level 1)
+        </span>
+        <div id="time-l1" class="text-3xl sm:text-4xl font-black text-slate-950 my-3">
+          36.9 hrs
+        </div>
+        <p class="text-xs text-slate-900 font-bold">
+          Gains ~3.5 miles range / hr
+        </p>
+      </div>
+      <div class="border-t border-brand-slate-200 pt-3 mt-4 text-[11px] font-mono font-bold text-slate-900">
+        ⚡ 1.44 kW Output Rate
+      </div>
+    </div>
+
+    <!-- NEMA 14-50 240V -->
+    <div class="bg-cyan-50/60 border-2 border-cyan-400 rounded-2xl p-5 text-center relative flex flex-col justify-between shadow-sm">
+      <div>
+        <span class="font-mono text-[10px] font-black uppercase tracking-wider text-cyan-950 bg-cyan-100 border border-cyan-400 px-2.5 py-1 rounded-md inline-block">
+          NEMA 14-50 Plug-In (240V 40A)
+        </span>
+        <div id="time-l2-plug" class="text-3xl sm:text-4xl font-black text-cyan-950 my-3">
+          5.2 hrs
+        </div>
+        <p class="text-xs text-slate-950 font-bold">
+          Gains ~28 miles range / hr
+        </p>
+      </div>
+      <div class="border-t border-cyan-300 pt-3 mt-4 text-[11px] font-mono font-bold text-cyan-950">
+        ⚡ 9.6 kW Output Rate
+      </div>
+    </div>
+
+    <!-- Hardwired 48A (Fastest) -->
+    <div class="bg-emerald-50 border-2 border-emerald-500 rounded-2xl p-5 text-center relative flex flex-col justify-between shadow-md mt-3 md:mt-0">
+      <span class="absolute -top-3 right-4 font-mono text-[9px] font-black uppercase tracking-widest bg-emerald-800 text-white px-2.5 py-0.5 rounded-full shadow-sm">
+        FASTEST HOME CHARGER
+      </span>
+      <div>
+        <span class="font-mono text-[10px] font-black uppercase tracking-wider text-emerald-950 bg-emerald-100 border border-emerald-400 px-2.5 py-1 rounded-md inline-block">
+          Hardwired 48A (Tesla / ChargePoint)
+        </span>
+        <div id="time-l2-hardwired" class="text-3xl sm:text-4xl font-black text-emerald-950 my-3">
+          4.2 hrs
+        </div>
+        <p class="text-xs text-emerald-950 font-black bg-emerald-100/90 px-2 py-1 rounded-lg">
+          Gains ~44 miles range / hr (12x Faster!)
+        </p>
+      </div>
+      <div class="border-t border-emerald-300 pt-3 mt-4 text-[11px] font-mono font-bold text-emerald-950">
+        ⚡ 11.52 kW Output Rate
+      </div>
+    </div>
+  </div>
+
+  <!-- Rebate & Net Cost Breakdown Bar -->
+  <div class="bg-white border-2 border-brand-slate-300 rounded-2xl p-4 sm:p-6 shadow-md">
+    <div class="flex items-center gap-2 font-mono text-xs font-black uppercase tracking-wider text-slate-950 mb-4">
+      <span>💰 Pacific Power & Federal Tax Savings Breakdown</span>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-center text-center font-mono">
+      <div class="p-3.5 bg-brand-slate-50 rounded-xl border border-brand-slate-300">
+        <div class="text-[11px] text-slate-900 font-bold uppercase">Base Installation</div>
+        <div id="calc-base-cost" class="text-xl font-black text-slate-950 mt-1">$950.00</div>
+      </div>
+
+      <div class="p-3.5 bg-emerald-50 rounded-xl border border-emerald-400">
+        <div class="text-[11px] text-emerald-950 font-bold uppercase">Pacific Power Rebate</div>
+        <div class="text-xl font-black text-emerald-900 mt-1">-$500.00</div>
+      </div>
+
+      <div class="p-3.5 bg-cyan-50 rounded-xl border border-cyan-400">
+        <div class="text-[11px] text-cyan-950 font-bold uppercase">30C Federal Credit (30%)</div>
+        <div id="calc-tax-credit" class="text-xl font-black text-cyan-950 mt-1">-$135.00</div>
+      </div>
+
+      <div class="p-3.5 bg-slate-950 text-white rounded-xl shadow-lg border border-slate-800">
+        <div class="text-[11px] text-emerald-400 font-bold uppercase">Net Out-of-Pocket</div>
+        <div id="calc-net-cost" class="text-2xl font-black text-white mt-1">$315.00</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Primary CTA Action Button -->
+  <div class="mt-6 text-center">
+    <a
+      href="/contact"
+      aria-label="Lock In $500 Pacific Power Rebate & Get Free Estimate"
+      class="btn-primary w-full sm:w-auto text-center py-4 px-8 text-xs sm:text-sm font-black text-white shadow-xl inline-block"
+    >
+      <span>⚡ Lock In $500 Pacific Power Rebate & Get Free Estimate</span>
+    </a>
+  </div>
+</div>
+
+<script is:inline>
+  (function() {
+    function initCalc() {
+      var vehicleSelect = document.getElementById('calc-vehicle');
+      var slider = document.getElementById('calc-start-pct');
+      var sliderDisp = document.getElementById('calc-start-pct-disp');
+      var runDistSelect = document.getElementById('calc-run-dist');
+
+      var timeL1 = document.getElementById('time-l1');
+      var timeL2Plug = document.getElementById('time-l2-plug');
+      var timeL2Hardwired = document.getElementById('time-l2-hardwired');
+
+      var baseCostDisp = document.getElementById('calc-base-cost');
+      var taxCreditDisp = document.getElementById('calc-tax-credit');
+      var netCostDisp = document.getElementById('calc-net-cost');
+
+      function calculate() {
+        if (!vehicleSelect || !slider || !runDistSelect) return;
+
+        var batterySize = parseFloat(vehicleSelect.value);
+        var startPct = parseFloat(slider.value);
+        var targetPct = 80;
+        var neededKwh = batterySize * ((targetPct - startPct) / 100);
+
+        if (sliderDisp) {
+          sliderDisp.textContent = startPct + '% START';
+        }
+
+        var hoursL1 = (neededKwh / 1.44).toFixed(1);
+        var hoursL2Plug = (neededKwh / 9.60).toFixed(1);
+        var hoursL2Hardwired = (neededKwh / 11.52).toFixed(1);
+
+        if (timeL1) timeL1.textContent = hoursL1 + ' hrs';
+        if (timeL2Plug) timeL2Plug.textContent = hoursL2Plug + ' hrs';
+        if (timeL2Hardwired) timeL2Hardwired.textContent = hoursL2Hardwired + ' hrs';
+
+        var baseCost = parseFloat(runDistSelect.value);
+        var rebate = 500.00;
+        var netBeforeTax = Math.max(0, baseCost - rebate);
+        var taxCredit = netBeforeTax * 0.30;
+        var finalNet = netBeforeTax - taxCredit;
+
+        if (baseCostDisp) baseCostDisp.textContent = '$' + baseCost.toFixed(2);
+        if (taxCreditDisp) taxCreditDisp.textContent = '-$' + taxCredit.toFixed(2);
+        if (netCostDisp) netCostDisp.textContent = '$' + finalNet.toFixed(2);
+      }
+
+      if (vehicleSelect && slider && runDistSelect) {
+        vehicleSelect.addEventListener('change', calculate);
+        slider.addEventListener('input', calculate);
+        runDistSelect.addEventListener('change', calculate);
+        calculate();
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initCalc);
+    } else {
+      initCalc();
+    }
+  })();
+</script>

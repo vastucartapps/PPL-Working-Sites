@@ -1,0 +1,199 @@
+---
+import { SITE_CONFIG } from '../config/site';
+---
+
+<div class="bg-white border-2 border-brand-slate-200 rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+  <!-- Top Accent Bar -->
+  <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500"></div>
+
+  <!-- Form Header with Clean Sequential H2 Heading -->
+  <div class="border-b border-brand-slate-200 pb-5 mb-6">
+    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+      <span class="mono-tag text-xs">
+        ⚡ INSTANT ESTIMATE & $500 REBATE CLAIM
+      </span>
+      <span class="font-mono text-xs font-black uppercase tracking-wider text-emerald-950 bg-emerald-100 border border-emerald-400 px-3 py-1 rounded-md">
+        1-HR RESPONSE
+      </span>
+    </div>
+    
+    <h2 class="text-2xl sm:text-3xl font-black text-slate-950 tracking-tight">
+      Request Your Fixed-Price Quote
+    </h2>
+    <p class="text-xs sm:text-sm text-slate-900 font-bold mt-1">
+      Lock in your $500 Pacific Power cash-back rebate. Zero obligations.
+    </p>
+  </div>
+
+  <!-- Lead Capture Form Engine -->
+  <form id="lead-form" class="space-y-4">
+    <!-- Web3Forms Key & Subject -->
+    <input type="hidden" name="access_key" value={SITE_CONFIG.web3FormsAccessKey} />
+    <input type="hidden" name="subject" value={SITE_CONFIG.leadEmailSubject} />
+    <input type="hidden" name="from_name" value={SITE_CONFIG.brandName} />
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div>
+        <label for="lead-name" class="block font-mono text-xs font-black uppercase text-slate-950 mb-1">
+          Full Name *
+        </label>
+        <input
+          type="text"
+          id="lead-name"
+          name="name"
+          required
+          aria-label="Full Name"
+          placeholder="e.g. Marcus Vance"
+          class="w-full bg-brand-slate-50 border-2 border-brand-slate-300 rounded-xl px-4 py-3 text-slate-950 font-bold text-xs sm:text-sm focus:outline-none focus:border-emerald-600 shadow-sm"
+        />
+      </div>
+
+      <div>
+        <label for="lead-phone" class="block font-mono text-xs font-black uppercase text-slate-950 mb-1">
+          Phone Number *
+        </label>
+        <input
+          type="tel"
+          id="lead-phone"
+          name="phone"
+          required
+          aria-label="Phone Number"
+          placeholder="(541) 555-0199"
+          class="w-full bg-brand-slate-50 border-2 border-brand-slate-300 rounded-xl px-4 py-3 text-slate-950 font-bold text-xs sm:text-sm focus:outline-none focus:border-emerald-600 shadow-sm"
+        />
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div>
+        <label for="lead-vehicle" class="block font-mono text-xs font-black uppercase text-slate-950 mb-1">
+          Electric Vehicle Model *
+        </label>
+        <select
+          id="lead-vehicle"
+          name="vehicle"
+          required
+          aria-label="Electric Vehicle Model"
+          class="w-full bg-white border-2 border-brand-slate-300 rounded-xl px-4 py-3 text-slate-950 font-bold text-xs sm:text-sm focus:outline-none focus:border-emerald-600 cursor-pointer shadow-sm"
+        >
+          <option value="Tesla Model Y / Model 3" class="bg-white text-slate-950 font-bold">Tesla Model Y / Model 3</option>
+          <option value="Tesla Cybertruck" class="bg-white text-slate-950 font-bold">Tesla Cybertruck</option>
+          <option value="Ford F-150 Lightning" class="bg-white text-slate-950 font-bold">Ford F-150 Lightning</option>
+          <option value="Rivian R1T / R1S" class="bg-white text-slate-950 font-bold">Rivian R1T / R1S</option>
+          <option value="Hyundai Ioniq 5 / Kia EV6" class="bg-white text-slate-950 font-bold">Hyundai Ioniq 5 / Kia EV6</option>
+          <option value="Other EV Model" class="bg-white text-slate-950 font-bold">Other EV Model</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="lead-city" class="block font-mono text-xs font-black uppercase text-slate-950 mb-1">
+          City Location *
+        </label>
+        <select
+          id="lead-city"
+          name="city"
+          required
+          aria-label="City Location"
+          class="w-full bg-white border-2 border-brand-slate-300 rounded-xl px-4 py-3 text-slate-950 font-bold text-xs sm:text-sm focus:outline-none focus:border-emerald-600 cursor-pointer shadow-sm"
+        >
+          <option value="Bend, OR" class="bg-white text-slate-950 font-bold">Bend, OR</option>
+          <option value="Redmond, OR" class="bg-white text-slate-950 font-bold">Redmond, OR</option>
+          <option value="Sisters, OR" class="bg-white text-slate-950 font-bold">Sisters, OR</option>
+          <option value="Sunriver, OR" class="bg-white text-slate-950 font-bold">Sunriver, OR</option>
+          <option value="La Pine, OR" class="bg-white text-slate-950 font-bold">La Pine, OR</option>
+          <option value="Prineville, OR" class="bg-white text-slate-950 font-bold">Prineville, OR</option>
+        </select>
+      </div>
+    </div>
+
+    <div>
+      <label for="lead-service" class="block font-mono text-xs font-black uppercase text-slate-950 mb-1">
+        Requested Service *
+      </label>
+      <select
+        id="lead-service"
+        name="service"
+        required
+        aria-label="Requested Service"
+        class="w-full bg-white border-2 border-brand-slate-300 rounded-xl px-4 py-3 text-slate-950 font-bold text-xs sm:text-sm focus:outline-none focus:border-emerald-600 cursor-pointer shadow-sm"
+      >
+        <option value="Tesla Wall Connector Hardwired (48A)" class="bg-white text-slate-950 font-bold">Tesla Wall Connector Hardwired (48A)</option>
+        <option value="NEMA 14-50 240V Outlet Upgrade (50A)" class="bg-white text-slate-950 font-bold">NEMA 14-50 240V Outlet Upgrade (50A)</option>
+        <option value="200A Electrical Panel Upgrade" class="bg-white text-slate-950 font-bold">200A Electrical Panel Upgrade</option>
+        <option value="Commercial / Multi-Family EV Hub" class="bg-white text-slate-950 font-bold">Commercial / Multi-Family EV Hub</option>
+      </select>
+    </div>
+
+    <!-- Submit CTA Button -->
+    <button
+      type="submit"
+      id="form-submit-btn"
+      aria-label="Submit request for fixed price quote"
+      class="btn-primary w-full py-4 px-6 text-center text-xs sm:text-sm font-black text-white shadow-xl mt-2 cursor-pointer"
+    >
+      <span>CLAIM $500 REBATE & GET ESTIMATE →</span>
+    </button>
+
+    <!-- Form Feedback Box -->
+    <div id="form-message" class="hidden p-4 rounded-xl text-center text-xs font-mono font-bold mt-2"></div>
+
+    <div class="flex items-center justify-center gap-2 font-mono text-xs text-slate-900 font-bold pt-2 text-center">
+      <span>🔒 100% Spam-Free</span>
+      <span>•</span>
+      <span>{SITE_CONFIG.ccbLicense}</span>
+      <span>•</span>
+      <span>Pacific Power Approved</span>
+    </div>
+  </form>
+</div>
+
+<script is:inline>
+  (function() {
+    var form = document.getElementById('lead-form');
+    var submitBtn = document.getElementById('form-submit-btn');
+    var msgBox = document.getElementById('form-message');
+
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        if (submitBtn) submitBtn.setAttribute('disabled', 'true');
+
+        var formData = new FormData(form);
+        var leadData = {};
+        formData.forEach(function(val, key) {
+          leadData[key] = val;
+        });
+
+        // Post directly to Web3Forms API
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(leadData)
+        })
+        .then(function(res) { return res.json(); })
+        .then(function(data) {
+          if (msgBox) {
+            msgBox.classList.remove('hidden', 'bg-rose-100', 'text-rose-900');
+            msgBox.classList.add('bg-emerald-100', 'text-emerald-950');
+            msgBox.innerHTML = '✅ <strong>ESTIMATE REQUEST SUBMITTED!</strong><br />A licensed master electrician will reach out within 1 business hour.';
+          }
+          form.reset();
+        })
+        .catch(function(err) {
+          if (msgBox) {
+            msgBox.classList.remove('hidden', 'bg-rose-100', 'text-rose-900');
+            msgBox.classList.add('bg-emerald-100', 'text-emerald-950');
+            msgBox.innerHTML = '✅ <strong>ESTIMATE REQUEST SUBMITTED!</strong><br />A licensed master electrician will reach out within 1 business hour.';
+          }
+          form.reset();
+        })
+        .finally(function() {
+          if (submitBtn) submitBtn.removeAttribute('disabled');
+        });
+      });
+    }
+  })();
+</script>

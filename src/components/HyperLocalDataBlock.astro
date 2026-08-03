@@ -1,0 +1,67 @@
+---
+import { LocationData } from '../config/locations';
+
+export interface Props {
+  location: LocationData;
+}
+
+const { location } = Astro.props;
+const { hyperLocalInjections } = location;
+---
+
+<!-- Phase 4 Module A: Hyper-Local Data Injection Block (Un-Hallucinatable Local Authority) -->
+<section class="my-12 bg-brand-slate-50 border-2 border-brand-slate-300 rounded-3xl p-8 space-y-6 shadow-sm">
+  <div class="max-w-3xl space-y-2">
+    <span class="mono-tag">// REGIONAL REGULATORY & ENVIRONMENTAL AUDIT</span>
+    <h2 class="text-2xl sm:text-3xl font-black text-slate-950">
+      Verified Local Electrical & Building Standards ({location.name}, OR)
+    </h2>
+    <p class="text-xs sm:text-sm text-slate-900 font-bold">
+      Factual engineering requirements verified for {location.name} municipal jurisdiction and {location.county}.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 font-mono text-xs sm:text-sm">
+    
+    <!-- Building Codes Box -->
+    <div class="bg-white border-2 border-brand-slate-300 rounded-2xl p-6 space-y-2">
+      <div class="font-black text-emerald-800 uppercase tracking-wider text-xs flex items-center gap-2">
+        🏛️ PERMIT & BUILDING CODE COMPLIANCE
+      </div>
+      <p class="text-slate-950 font-bold leading-relaxed">
+        {hyperLocalInjections.buildingCodes}
+      </p>
+    </div>
+
+    <!-- Climate Protection Box -->
+    <div class="bg-white border-2 border-brand-slate-300 rounded-2xl p-6 space-y-2">
+      <div class="font-black text-emerald-800 uppercase tracking-wider text-xs flex items-center gap-2">
+        ❄️ CASCADE CLIMATE & THERMAL PROTECTION
+      </div>
+      <p class="text-slate-950 font-bold leading-relaxed">
+        {hyperLocalInjections.climateProtection}
+      </p>
+    </div>
+
+    <!-- Architectural Constraints Box -->
+    <div class="bg-white border-2 border-brand-slate-300 rounded-2xl p-6 space-y-2">
+      <div class="font-black text-emerald-800 uppercase tracking-wider text-xs flex items-center gap-2">
+        🏡 HOA ARB CONCEALED WIRING RULES
+      </div>
+      <p class="text-slate-950 font-bold leading-relaxed">
+        {hyperLocalInjections.architecturalConstraints}
+      </p>
+    </div>
+
+    <!-- Utility Interconnection Box -->
+    <div class="bg-white border-2 border-brand-slate-300 rounded-2xl p-6 space-y-2">
+      <div class="font-black text-emerald-800 uppercase tracking-wider text-xs flex items-center gap-2">
+        ⚡ UTILITY GRID INTERCONNECTION
+      </div>
+      <p class="text-slate-950 font-bold leading-relaxed">
+        {hyperLocalInjections.utilityInterconnection}
+      </p>
+    </div>
+
+  </div>
+</section>

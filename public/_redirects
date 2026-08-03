@@ -1,0 +1,9 @@
+# Cloudflare Pages 301 Edge Redirects for Index Transfer
+https://ev-charger-bend-or.web.app/* https://bendevchargers.com/:splat 301!
+https://ev-charger-bend-or.firebaseapp.com/* https://bendevchargers.com/:splat 301!
+
+# Flat URL Architecture Forced 301 Edge Redirects (301! forces Cloudflare edge override)
+/locations/:city/blog/:slug /locations/:city/:slug 301!
+/locations/:city/blog /locations/:city/ 301!
+/blog/:slug /:slug 301!
+/blog / 301!

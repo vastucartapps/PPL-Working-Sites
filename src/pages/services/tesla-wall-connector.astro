@@ -1,0 +1,194 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EnterpriseSchemaGraph from '../../components/EnterpriseSchemaGraph.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import ArticleHeroCard from '../../components/ArticleHeroCard.astro';
+import PricingDisclaimerBox from '../../components/PricingDisclaimerBox.astro';
+import BLUFBlock from '../../components/BLUFBlock.astro';
+import AtomicAnswerBlock from '../../components/AtomicAnswerBlock.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PrimaryButton from '../../components/PrimaryButton.astro';
+import SecondaryButton from '../../components/SecondaryButton.astro';
+import { SITE_CONFIG } from '../../config/site';
+
+const pageTitle = `Tesla Wall Connector Installation in Bend, OR | ${SITE_CONFIG.brandName}`;
+const pageDescription = "Certified 48A Tesla Wall Connector installation in Bend, OR. Hardwired 60A circuit breakers, 6 AWG copper wire, Deschutes County permits, and $500 Pacific Power rebates.";
+
+const teslaFaqs = [
+  {
+    question: "What breaker size is required for a 48A Tesla Wall Connector?",
+    answer: "Installing a continuous 48A Tesla Wall Connector requires a dedicated 60-Amp 2-pole breaker wired with 99.9% 6 AWG THHN copper wire in rigid metal conduit per NEC Article 625 code."
+  }
+];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <EnterpriseSchemaGraph
+    title={pageTitle}
+    description={pageDescription}
+    path="/services/tesla-wall-connector"
+    pageType="service"
+    imageUrl={`${SITE_CONFIG.baseUrl}/images/tesla-wall-connector-install.webp`}
+    faqs={teslaFaqs}
+  />
+
+  <Breadcrumbs pathName="Tesla Wall Connector" />
+
+  <!-- Hero Section with Background WebP Image Overlay -->
+  <section class="relative bg-slate-950 text-white overflow-hidden py-16 sm:py-24 border-b border-slate-800">
+    <div class="absolute inset-0 z-0 opacity-25">
+      <img
+        src="/images/tesla-wall-connector-install.webp"
+        alt="Tesla Wall Connector 48A Hardwired Installation"
+        width="1920"
+        height="1080"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        class="w-full h-full object-cover"
+      />
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-7 space-y-6">
+          <span class="mono-tag">
+            HARDWIRE 48A TESLA SPECS
+          </span>
+
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
+            Tesla Wall Connector Installation in <span class="text-emerald-400">Bend, OR</span>
+          </h1>
+
+          <BLUFBlock
+            locationName="Bend, OR"
+            solution="Hardwired 48A Tesla Gen 3 Wall Connector on a dedicated 60A circuit breaker"
+            priceRange="$315 – $650 net out-of-pocket after $500 Pacific Power rebate"
+            rebateInfo="$500 Pacific Power cash-back rebate application filed by electrician"
+            recommendation="Hardwired 60A breaker with 99.9% 6 AWG THHN copper wire in EMT conduit"
+          />
+
+          <p class="text-slate-300 text-base sm:text-lg font-normal leading-relaxed">
+            Maximum Level 2 home charging speed for Tesla Model Y, Model 3, Model S, Model X, and Cybertruck. We install 3rd Generation Tesla Wall Connectors hardwired directly to a dedicated 60-Amp circuit.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 pt-2">
+            <PrimaryButton
+              href={`tel:${SITE_CONFIG.phoneClean}`}
+              text={`CALL: ${SITE_CONFIG.phone}`}
+              icon="phone"
+            />
+            <SecondaryButton
+              href="#quote-form"
+              text="Request Tesla Quote"
+            />
+          </div>
+        </div>
+
+        <div class="lg:col-span-5" id="quote-form">
+          <ContactForm />
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Mid-Section Hardware Illustration Section -->
+  <section class="py-16 bg-white border-b border-brand-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-6 rounded-2xl overflow-hidden shadow-2xl border-2 border-slate-900">
+          <img
+            src="/images/sectional-conduit-wiring.webp"
+            alt="6 AWG Copper Wire in EMT Conduit for Tesla Wall Connector"
+            width="1280"
+            height="720"
+            loading="lazy"
+            decoding="async"
+            class="w-full h-auto object-cover"
+          />
+        </div>
+        <div class="lg:col-span-6 space-y-4">
+          <span class="mono-tag">// NEC ARTICLE 625 CONDUIT COMPLIANCE</span>
+          <h2 class="text-2xl sm:text-4xl font-black text-slate-950">99.9% Pure Copper EMT Conduit Pulls</h2>
+          <p class="text-slate-700 font-normal leading-relaxed">
+            We pull 6 AWG THHN copper conductors through 3/4-inch EMT rigid metal conduit. Under NEC 334, NM-B Romex wire is prohibited on 60A circuit breakers. EMT conduit prevents thermal breakdown across continuous 48-Amp charging loads.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tesla Answer Grid -->
+  <section class="py-16 bg-brand-slate-50 border-b border-brand-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-8">
+        <span class="mono-tag mb-3">// TESLA CHARGING FAQs</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-950">
+          Tesla Wall Connector FAQs & Guidance
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <AtomicAnswerBlock
+          heading="What Breaker & Wire Size is Required for a 48A Tesla Wall Connector?"
+          triggerPhrase="In summary,"
+          answer="installing a continuous 48-Amp Tesla Wall Connector requires a dedicated 60-Amp 2-pole circuit breaker wired with 99.9% pure 6 AWG THHN copper conductors in rigid metal EMT conduit. According to NEC Article 625 continuous load code, 60A breaker capacity prevents thermal breakdown."
+        />
+
+        <AtomicAnswerBlock
+          heading="Can a Tesla Wall Connector Charge Non-Tesla Electric Vehicles?"
+          triggerPhrase="The key takeaway is"
+          answer="the Tesla Universal Wall Connector features an integrated J1772 adapter holster, enabling it to charge all non-Tesla EVs (such as Rivian, Ford, Hyundai, and Kia) natively without third-party adapters."
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Specs Table -->
+  <section class="py-16 bg-white border-b border-brand-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-10">
+        <span class="mono-tag mb-3">// HARDWARE WIRING SPECS</span>
+        <h2 class="text-3xl font-black text-slate-950">Tesla Gen 3 Wall Connector Installation Specs</h2>
+      </div>
+
+      <div class="overflow-x-auto my-6">
+        <table class="w-full text-left text-xs font-mono border-collapse border border-brand-slate-300">
+          <thead>
+            <tr class="bg-slate-950 text-white">
+              <th class="p-3 border border-slate-800">Technical Parameter</th>
+              <th class="p-3 border border-slate-800">Tesla Wall Connector Specification</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-brand-slate-200 bg-emerald-50/60">
+              <td class="p-3 font-bold text-slate-950">Maximum Power Rating</td>
+              <td class="p-3 font-black text-emerald-800">48 Amps continuous (11.5 kW @ 240V)</td>
+            </tr>
+            <tr class="border-b border-brand-slate-200 bg-white">
+              <td class="p-3 font-bold text-slate-950">Required Breaker Size</td>
+              <td class="p-3 text-slate-900 font-semibold">60 Amp 2-Pole Double-Pole Breaker</td>
+            </tr>
+            <tr class="border-b border-brand-slate-200 bg-brand-slate-50">
+              <td class="p-3 font-bold text-slate-950">Conductor Wire Spec</td>
+              <td class="p-3 text-slate-900 font-semibold">6 AWG THHN Copper in EMT Conduit</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <PricingDisclaimerBox />
+    </div>
+  </section>
+
+  <section class="py-16 bg-brand-slate-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ArticleHeroCard
+        title="Ready to Install Your Tesla Wall Connector?"
+        subtitle="Speak with our master electricians across Bend, Redmond, and Deschutes County."
+      />
+    </div>
+  </section>
+</BaseLayout>

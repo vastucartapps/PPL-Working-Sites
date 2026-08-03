@@ -1,0 +1,74 @@
+---
+import ArticleTemplate from '../components/ArticleTemplate.astro';
+import { getTopicData } from '../config/articleTopics';
+
+export const BLOG_SLUGS = [
+  '200-amp-electrical-panel-upgrade-bend-or',
+  'bend-electrician-rates-2026',
+  'central-electric-coop-ev-rebates-deschutes-county',
+  'chargepoint-home-flex-vs-tesla-wall-connector',
+  'commercial-fleet-ev-charger-installation-redmond-or',
+  'detached-garage-underground-conduit-ev-charger-bend-or',
+  'do-i-need-200-amp-panel-for-ev-charger',
+  'emporia-ev-charger-installation-guide',
+  'ev-charger-installation-corvallis-or',
+  'ev-charger-installation-redmond-or',
+  'ev-charger-installation-salem-or',
+  'ev-charger-repair-and-troubleshooting-bend-or',
+  'federal-30c-tax-credit-ev-charger-installation',
+  'ford-f150-lightning-charge-station-pro-bend-or',
+  'garage-subpanel-installation-for-ev-charger-bend-or',
+  'grizzl-e-smart-ev-charger-cold-weather-review',
+  'hardwired-vs-plugin-ev-charger',
+  'heat-pump-plus-ev-charger-electrical-panel-load-bend-or',
+  'how-much-does-it-cost-to-install-ev-charger-in-garage',
+  'level-2-ev-charger-installation-bend-or',
+  'nacs-vs-j1772-ev-charger-adapter-guide-2026',
+  'nec-article-220-ev-charger-load-calculation',
+  'pacific-power-ev-charger-rebate-oregon-guide',
+  'pacific-power-ev-rebates',
+  'permits-deschutes-county',
+  'rivian-r1t-r1s-level-2-charger-bend-or',
+  'solar-panel-ev-charger-integration-bend-or',
+  'tesla-cybertruck-ev-charger-installation-bend-or',
+  'tesla-wall-connector-installation-bend-or',
+  'vacation-rental-airbnb-ev-charger-installation-sunriver-or'
+];
+
+export function getStaticPaths() {
+  return BLOG_SLUGS.map((slug) => ({
+    params: { slug },
+    props: { slug }
+  }));
+}
+
+export interface Props {
+  slug: string;
+}
+
+const { slug } = Astro.props;
+const topic = getTopicData(slug);
+---
+
+<ArticleTemplate
+  title={topic.title}
+  category={topic.category}
+  readTime={topic.readTime}
+  canonicalPath={`/${slug}`}
+  bluf={topic.bluf}
+  specs={topic.specs}
+  sections={topic.sections}
+  featuredImage={{
+    src: topic.featuredImageSrc,
+    alt: `${topic.title} Featured Installation Image`
+  }}
+  sectionalImage={{
+    src: topic.sectionalImageSrc,
+    alt: `${topic.title} Technical Wiring & Conduit Sectional Illustration`,
+    caption: '6 AWG THHN Copper Wire Pulled in EMT Rigid Metal Conduit (NEC 625)'
+  }}
+  faqs={topic.faqs}
+  internalLinks={topic.internalLinks}
+  cityName="Bend & Central Oregon"
+  state="OR"
+/>

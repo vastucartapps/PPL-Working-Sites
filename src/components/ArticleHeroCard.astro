@@ -1,0 +1,59 @@
+---
+import { SITE_CONFIG } from '../config/site';
+import PrimaryButton from './PrimaryButton.astro';
+import SecondaryButton from './SecondaryButton.astro';
+
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  locationName?: string;
+}
+
+const {
+  title = "Ready for Your Level 2 EV Charger Installation?",
+  subtitle = `Lock in your ${SITE_CONFIG.rebateAmount} Pacific Power cash-back rebate today. Licensed Oregon electrical partners respond within 1 business hour.`,
+  locationName = "Bend, OR"
+} = Astro.props;
+---
+
+<div class="my-8 bg-slate-950 text-white rounded-3xl p-8 sm:p-12 shadow-2xl relative overflow-hidden border border-slate-800">
+  <!-- Ambient Emerald Glow -->
+  <div class="absolute -top-24 -right-24 w-72 h-72 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
+    <div class="space-y-4 text-left max-w-2xl">
+      <span class="mono-tag">
+        ⚡ FREE FIXED-PRICE ESTIMATE & $500 REBATE
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-black leading-tight text-white tracking-tight">
+        {title}
+      </h2>
+      <p class="text-xs sm:text-sm text-slate-200 leading-relaxed font-bold">
+        {subtitle}
+      </p>
+      
+      <!-- High-Contrast Vibrant Pill Badges -->
+      <div class="flex flex-wrap items-center gap-3 text-xs font-mono font-bold pt-2">
+        <span class="bg-emerald-950 border border-emerald-500/50 text-emerald-300 px-3.5 py-1.5 rounded-xl shadow-sm">
+          ✓ Oregon Licensed Contractor Network
+        </span>
+        <span class="bg-emerald-950 border border-emerald-500/50 text-emerald-300 px-3.5 py-1.5 rounded-xl shadow-sm">
+          ✓ 100% Permitted & Insured
+        </span>
+      </div>
+    </div>
+
+    <!-- 100/100 Universal Button Hierarchy -->
+    <div class="flex flex-col sm:flex-row lg:flex-col gap-4 w-full lg:w-auto shrink-0">
+      <PrimaryButton
+        href="/contact"
+        text={`CLAIM ${SITE_CONFIG.rebateAmount} REBATE →`}
+      />
+      <SecondaryButton
+        href={`tel:${SITE_CONFIG.phoneClean}`}
+        text={`CALL: ${SITE_CONFIG.phone}`}
+        icon="phone"
+      />
+    </div>
+  </div>
+</div>

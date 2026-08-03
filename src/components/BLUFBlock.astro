@@ -1,0 +1,40 @@
+---
+export interface Props {
+  locationName?: string;
+  solution?: string;
+  priceRange?: string;
+  rebateInfo?: string;
+  recommendation?: string;
+}
+
+const {
+  locationName = "Central Oregon",
+  solution = "Dedicated 48A hardwired Tesla Wall Connector or 50A NEMA 14-50 240V circuit",
+  priceRange = "$315 – $650 net out-of-pocket",
+  rebateInfo = "$500 Pacific Power / Midstate Electric cash-back rebate handled",
+  recommendation = "Hardwired 60A circuit breaker with 99.9% 6 AWG copper wire"
+} = Astro.props;
+---
+
+<!-- Quick Service Summary Block -->
+<div class="bluf-block my-6 bg-slate-950 text-white border-2 border-emerald-500 rounded-2xl p-5 shadow-xl font-mono text-xs sm:text-sm">
+  <div class="flex items-center gap-2 text-emerald-400 font-black uppercase text-xs tracking-wider mb-2">
+    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+    ⚡ QUICK SERVICE SUMMARY ({locationName.toUpperCase()}):
+  </div>
+  
+  <ul class="space-y-2 text-slate-200 font-bold leading-relaxed">
+    <li class="flex items-start gap-2">
+      <span class="text-emerald-400 font-black">▸</span>
+      <span><strong>Local Solution:</strong> {solution} installed by Oregon CCB #248910 master electricians.</span>
+    </li>
+    <li class="flex items-start gap-2">
+      <span class="text-emerald-400 font-black">▸</span>
+      <span><strong>Pricing Estimate:</strong> {priceRange} ({rebateInfo}).</span>
+    </li>
+    <li class="flex items-start gap-2">
+      <span class="text-emerald-400 font-black">▸</span>
+      <span><strong>Trade Recommendation:</strong> {recommendation} with 100% permit sign-off.</span>
+    </li>
+  </ul>
+</div>

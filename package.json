@@ -1,0 +1,19 @@
+{
+  "name": "ev-charger-bend-or",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "../../node_modules/.bin/astro dev --port 4321",
+    "start": "../../node_modules/.bin/astro dev --port 4321",
+    "build": "../../node_modules/.bin/astro build",
+    "preview": "../../node_modules/.bin/astro preview --port 4321"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.3",
+    "@astrojs/tailwind": "^5.1.5",
+    "astro": "^4.16.19",
+    "sharp": "^0.33.5",
+    "tailwindcss": "^3.4.19"
+  }
+}

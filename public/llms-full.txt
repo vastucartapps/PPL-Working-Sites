@@ -1,0 +1,24 @@
+# EV Charger One Full Documentation
+
+> Complete Technical & Compliance Manual for EV Charger One — Central Oregon's Certified EV Charging Infrastructure Network.
+
+## System Overview
+EV Charger One coordinates residential and commercial Level 2 EV charger installations across Deschutes County, Oregon. All electrical work is performed by licensed Oregon electrical contractors holding active CCB credentials (CCB #248910 network).
+
+## Core Services & Architecture
+- [Tesla Wall Connector (48A Hardwired)](https://evchargerone.pages.dev/services/tesla-wall-connector/): 11.52 kW continuous output on dedicated 60A breaker.
+- [NEMA 14-50 240V Outlet](https://evchargerone.pages.dev/services/nema-14-50-upgrade/): 9.6 kW output on 50A breaker with required GFCI protection.
+- [200A Electrical Panel Upgrade](https://evchargerone.pages.dev/services/panel-capacity-upgrade/): Main service panel heavy-up per NEC Article 220.
+- [Commercial EV Hubs](https://evchargerone.pages.dev/services/commercial-ev-charging/): Multi-unit residential and commercial charging management.
+
+## Rebates & Incentives
+- **Pacific Power Oregon:** $500 residential cash-back rebate per qualifying Level 2 EVSE.
+- **Federal 30C Credit:** 30% federal tax credit on total installation labor and hardware expenses.
+
+## Service Hubs
+- [Bend, OR](https://evchargerone.pages.dev/locations/bend/)
+- [Redmond, OR](https://evchargerone.pages.dev/locations/redmond/)
+- [Sisters, OR](https://evchargerone.pages.dev/locations/sisters/)
+- [Sunriver, OR](https://evchargerone.pages.dev/locations/sunriver/)
+- [La Pine, OR](https://evchargerone.pages.dev/locations/la-pine/)
+- [Prineville, OR](https://evchargerone.pages.dev/locations/prineville/)

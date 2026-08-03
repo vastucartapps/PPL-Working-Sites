@@ -1,0 +1,211 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import EnterpriseSchemaGraph from '../components/EnterpriseSchemaGraph.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import ArticleHeroCard from '../components/ArticleHeroCard.astro';
+import PageHeroTrustCard from '../components/PageHeroTrustCard.astro';
+import BLUFBlock from '../components/BLUFBlock.astro';
+import PrimaryButton from '../components/PrimaryButton.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+import { SITE_CONFIG } from '../config/site';
+
+const pageTitle = `About EV Charger One | Oregon CCB Licensed Master Electrician Network`;
+const pageDescription = `Learn about EV Charger One. Oregon CCB #248910 partner network specializing in Level 2 EV charger installations, NEC load calculations, and Pacific Power $500 rebate filings in Central Oregon.`;
+
+const aboutFaqs = [
+  {
+    question: "What Licenses & Insurance Are Held by EV Charger One Partner Electricians?",
+    answer: "All partner electrical contractors in our network hold active Oregon Construction Contractors Board (CCB) licenses, General Journeyman or Master Electrician credentials, and carry $2,000,000 in commercial general liability insurance."
+  },
+  {
+    question: "Do You Submit Deschutes County Trade Permits and Utility Rebates?",
+    answer: "Yes. 100% of our Level 2 EV charger installations include official trade permit filings with local building safety departments (City of Bend, Deschutes County, City of Redmond) and instant $500 utility rebate submission."
+  },
+  {
+    question: "Which Cities in Central Oregon Are Covered by Your Network?",
+    answer: "We dispatch licensed master electricians across Bend, Redmond, Sisters, Sunriver, La Pine, and Prineville."
+  }
+];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <EnterpriseSchemaGraph
+    title={pageTitle}
+    description={pageDescription}
+    path="/about"
+    pageType="about"
+    imageUrl={`${SITE_CONFIG.baseUrl}/images/electrician-at-work.webp`}
+  />
+
+  <Breadcrumbs pathName="About Oregon Master Electrician Network" />
+
+  <!-- High-Trust Hero Section with Master Electrician WebP Image -->
+  <section class="relative bg-slate-950 text-white overflow-hidden py-16 sm:py-24 border-b border-slate-800">
+    <div class="absolute inset-0 z-0 opacity-30">
+      <img
+        src="/images/electrician-at-work.webp"
+        alt="Oregon CCB Master Electrician Inspecting Breaker Panel"
+        width="1920"
+        height="1080"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        class="w-full h-full object-cover"
+      />
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-8 space-y-6">
+          <span class="mono-tag">
+            ⚡ OREGON CCB #248910 PARTNER NETWORK
+          </span>
+
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
+            Central Oregon’s Leading <span class="text-emerald-400">EV Electrical Engineers.</span>
+          </h1>
+
+          <p class="text-slate-300 text-base sm:text-xl font-normal leading-relaxed">
+            EV Charger One is an elite network of Oregon licensed master electricians dedicated exclusively to high-amperage 240-volt Level 2 electric vehicle charging infrastructure, NEC Article 625 load calculations, and Pacific Power $500 cash-back rebate filings.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <PrimaryButton
+              href={`tel:${SITE_CONFIG.phoneClean}`}
+              text={`DISPATCH ELECTRICIAN: ${SITE_CONFIG.phone}`}
+              icon="phone"
+            />
+            <span class="font-mono text-xs font-bold text-slate-300">
+              ★ 4.9 Rating (128+ Verified Installs)
+            </span>
+          </div>
+        </div>
+
+        <div class="lg:col-span-4">
+          <PageHeroTrustCard
+            badge="⚡ VERIFIED LICENSE DISCLOSURE"
+            title="Oregon CCB #248910 Network"
+            subtitle="Full $2,000,000 general liability insurance, 100% municipal trade permit sign-offs, and Pacific Power approved contractor status."
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EEAT Trust & Performance Proof Metrics Section -->
+  <section class="py-16 bg-white border-b border-brand-slate-200 grid-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <div class="max-w-3xl space-y-3">
+        <span class="mono-tag">// E-E-A-T AUTHORITATIVE PROOF</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-950">
+          Contractor Licensing & Compliance Standards
+        </h2>
+        <p class="text-slate-800 text-base font-normal">
+          We operate strictly under 2023 Oregon Electrical Specialty Code (OESC) and National Electrical Code (NEC) Article 625 continuous load requirements.
+        </p>
+      </div>
+
+      <!-- Licensing & Compliance Matrix Table -->
+      <div class="p-6 bg-brand-slate-50 border-2 border-brand-slate-300 rounded-3xl space-y-4 shadow-xl">
+        <h3 class="text-xl font-black text-slate-950">Verified Oregon Contractor Accreditation Matrix</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left font-mono text-xs text-slate-950 border-collapse">
+            <thead>
+              <tr class="border-b-2 border-slate-950 bg-slate-200">
+                <th class="p-3 font-black">Accreditation / Standard</th>
+                <th class="p-3 font-black">Verified Contractor Specification</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-300 font-bold">
+              <tr>
+                <td class="p-3">State Licensing Board</td>
+                <td class="p-3 text-emerald-800 font-black">Oregon Construction Contractors Board (CCB #248910 Network)</td>
+              </tr>
+              <tr>
+                <td class="p-3">Electrician Credential Level</td>
+                <td class="p-3 text-emerald-800 font-black">General Journeyman (J) & Master Electrician (S) Sign-Off</td>
+              </tr>
+              <tr>
+                <td class="p-3">Commercial Liability Insurance</td>
+                <td class="p-3">$2,000,000 Active Policy per Occurrence</td>
+              </tr>
+              <tr>
+                <td class="p-3">Building Permit Filing</td>
+                <td class="p-3">City of Bend, City of Redmond & Deschutes County Safety Divisions</td>
+              </tr>
+              <tr>
+                <td class="p-3">Utility Rebate Authorization</td>
+                <td class="p-3">Pacific Power & Midstate Electric Qualified Trade Contractor</td>
+              </tr>
+              <tr>
+                <td class="p-3">Conductor & Conduit Standard</td>
+                <td class="p-3">99.9% Pure 6 AWG THHN Copper inside EMT Rigid Conduit</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 4-Card Offerings Showcase with WebP Imagery and Clickable Links -->
+      <div class="space-y-6 pt-6">
+        <h3 class="text-2xl font-black text-slate-950">Specialized Electrical Engineering Offerings</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <a href="/services/tesla-wall-connector" class="bg-white border-2 border-slate-900 rounded-2xl overflow-hidden shadow-xl card-hover block">
+            <img src="/images/tesla-wall-connector-install.webp" alt="Tesla Wall Connector Installation" width="600" height="400" loading="lazy" decoding="async" class="w-full h-40 object-cover" />
+            <div class="p-4 space-y-1">
+              <span class="mono-tag text-[10px] py-0.5 px-2">Tesla Hardware</span>
+              <h4 class="text-base font-black text-slate-950">Tesla Wall Connector 48A</h4>
+              <p class="text-xs text-slate-700 font-normal">Dedicated 60A breaker hardwiring with EMT conduit.</p>
+            </div>
+          </a>
+
+          <a href="/services/panel-capacity-upgrade" class="bg-white border-2 border-slate-900 rounded-2xl overflow-hidden shadow-xl card-hover block">
+            <img src="/images/electrical-panel-upgrade-200a.webp" alt="200A Electrical Panel Upgrade" width="600" height="400" loading="lazy" decoding="async" class="w-full h-40 object-cover" />
+            <div class="p-4 space-y-1">
+              <span class="mono-tag text-[10px] py-0.5 px-2">Panel Heavy-Up</span>
+              <h4 class="text-base font-black text-slate-950">200A Main Panel Upgrade</h4>
+              <p class="text-xs text-slate-700 font-normal">NEC Article 220 load calculation & utility hookup.</p>
+            </div>
+          </a>
+
+          <a href="/ev-charger-repair-and-troubleshooting-bend-or" class="bg-white border-2 border-slate-900 rounded-2xl overflow-hidden shadow-xl card-hover block">
+            <img src="/images/ev-repair-diagnostic.webp" alt="EV Charger Repair & Troubleshooting" width="600" height="400" loading="lazy" decoding="async" class="w-full h-40 object-cover" />
+            <div class="p-4 space-y-1">
+              <span class="mono-tag text-[10px] py-0.5 px-2">Diagnostics</span>
+              <h4 class="text-base font-black text-slate-950">Thermal Repair Call</h4>
+              <p class="text-xs text-slate-700 font-normal">Thermal imaging & red LED fault code resolution.</p>
+            </div>
+          </a>
+
+          <a href="/services/commercial-ev-charging" class="bg-white border-2 border-slate-900 rounded-2xl overflow-hidden shadow-xl card-hover block">
+            <img src="/images/commercial-ev-charging-station.webp" alt="Commercial Fleet EVSE Pedestals" width="600" height="400" loading="lazy" decoding="async" class="w-full h-40 object-cover" />
+            <div class="p-4 space-y-1">
+              <span class="mono-tag text-[10px] py-0.5 px-2">Fleet Hubs</span>
+              <h4 class="text-base font-black text-slate-950">Commercial EV Pedestals</h4>
+              <p class="text-xs text-slate-700 font-normal">Dual-port 208V OCPP pedestals for business hubs.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- About FAQs -->
+  <FAQAccordion
+    title="EV Charger One Network FAQs"
+    subtitle="Verified answers from Oregon licensed master electricians."
+    faqs={aboutFaqs}
+  />
+
+  <section class="py-20 bg-brand-slate-50 grid-bg border-t border-brand-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ArticleHeroCard
+        title="Ready to Work with Oregon's Premier EV Electricians?"
+        subtitle="Lock in your $500 Pacific Power cash-back rebate before funds expire."
+      />
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,196 @@
+---
+import SEOHead from '../components/SEOHead.astro';
+import LocalSEOHead from '../components/LocalSEOHead.astro';
+import BrandLogo from '../components/BrandLogo.astro';
+import Footer from '../components/Footer.astro';
+import MobileActionBar from '../components/MobileActionBar.astro';
+import { SITE_CONFIG } from '../config/site';
+import { LocationData } from '../config/locations';
+import { getLocalizedPath } from '../utils/LinkHelper';
+import '../styles/global.css';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  location?: LocationData;
+  faqs?: Array<{ question: string; answer: string }>;
+}
+
+const {
+  title = SITE_CONFIG.defaultTitle,
+  description = SITE_CONFIG.defaultDescription,
+  location,
+  faqs
+} = Astro.props;
+
+const pageTitle = location ? `Level 2 EV Charger Installation in ${location.name}, ${location.state} | ${SITE_CONFIG.brandName}` : title;
+const pageDescription = location ? `Licensed Level 2 EV charger installation in ${location.name}, ${location.state} (${location.zipCodes.join(', ')}). Tesla Wall Connectors, NEMA 14-50 240V outlets, and ${location.permitOffice} permits.` : description;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth overflow-x-hidden">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <SEOHead title={pageTitle} description={pageDescription} faqs={faqs} />
+    {location && <LocalSEOHead location={location} />}
+    <slot name="head" />
+  </head>
+  <body class="min-h-screen flex flex-col bg-brand-slate-50 text-slate-950 selection:bg-emerald-500 selection:text-white pb-16 sm:pb-0 overflow-x-hidden w-full">
+    
+    <!-- Top Utility Announcement Bar -->
+    <div class="bg-slate-950 text-white font-mono text-[11px] font-bold py-3 px-4 text-center border-b border-slate-800 flex items-center justify-center gap-3">
+      <span class="inline-flex items-center gap-1.5 text-white bg-emerald-900 border border-emerald-500 px-3 py-1 rounded">
+        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+        🏡 100% HOA ARB APPROVED & PERMIT FAST-TRACKED IN {location ? location.name.toUpperCase() : 'CENTRAL OREGON'}
+      </span>
+      <span class="hidden sm:inline text-slate-400">•</span>
+      <span class="hidden sm:inline text-white font-bold">CONCEALED ATTIC WIRING & SIDING MATCH</span>
+      <span class="hidden md:inline text-slate-400">•</span>
+      <a href={`tel:${location ? location.phoneClean : SITE_CONFIG.phoneClean}`} aria-label={`Call Electrician at ${location ? location.phone : SITE_CONFIG.phone}`} style="background-color: #047857; color: #ffffff;" class="hover:bg-emerald-600 px-4 py-2 rounded-md shadow-sm transition-colors border border-emerald-400 inline-flex items-center justify-center min-h-[44px]">
+        <span style="color: #ffffff;" class="font-black">CALL: {location ? location.phone : SITE_CONFIG.phone}</span>
+      </a>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-brand-slate-200 shadow-sm w-full">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        
+        <!-- Brand Logo Component -->
+        <a href={getLocalizedPath('/', location)} class="focus:outline-none focus:ring-2 focus:ring-emerald-500 rounded-xl min-h-[48px] inline-flex items-center" aria-label="EV Charger One Home">
+          <BrandLogo />
+        </a>
+
+        <!-- Desktop Navigation Links with Explicit Home Link -->
+        <nav class="hidden lg:flex items-center gap-6 font-mono text-xs font-black uppercase tracking-wider text-slate-950">
+          <a href={getLocalizedPath('/', location)} class="text-slate-950 hover:text-emerald-800 transition-colors py-3.5 px-3 min-h-[48px] inline-flex items-center border-b-2 border-transparent hover:border-emerald-600">
+            <span class="text-slate-950 font-black">Home</span>
+          </a>
+          <a href={getLocalizedPath('/services', location)} class="text-slate-950 hover:text-emerald-800 transition-colors py-3.5 px-3 min-h-[48px] inline-flex items-center border-b-2 border-transparent hover:border-emerald-600">
+            <span class="text-slate-950 font-black">Services</span>
+          </a>
+          <a href={getLocalizedPath('/calculator', location)} class="text-slate-950 hover:text-emerald-800 transition-colors py-3.5 px-3 min-h-[48px] inline-flex items-center border-b-2 border-transparent hover:border-emerald-600">
+            <span class="text-slate-950 font-black">Calculator</span>
+          </a>
+          <a href="/locations" class="text-slate-950 hover:text-emerald-800 transition-colors py-3.5 px-3 min-h-[48px] inline-flex items-center border-b-2 border-transparent hover:border-emerald-600">
+            <span class="text-slate-950 font-black">Locations</span>
+          </a>
+          <a href={getLocalizedPath('/blog', location)} class="text-slate-950 hover:text-emerald-800 transition-colors py-3.5 px-3 min-h-[48px] inline-flex items-center border-b-2 border-transparent hover:border-emerald-600">
+            <span class="text-slate-950 font-black">Guides</span>
+          </a>
+          <a href={getLocalizedPath('/about', location)} class="text-slate-950 hover:text-emerald-800 transition-colors py-3.5 px-3 min-h-[48px] inline-flex items-center border-b-2 border-transparent hover:border-emerald-600">
+            <span class="text-slate-950 font-black">About {location ? location.name : 'Network'}</span>
+          </a>
+        </nav>
+
+        <!-- Header CTA Action Button -->
+        <div class="hidden sm:flex items-center gap-3">
+          <a
+            href={`tel:${location ? location.phoneClean : SITE_CONFIG.phoneClean}`}
+            aria-label={`Call Electrician at ${location ? location.phone : SITE_CONFIG.phone}`}
+            style="background-color: #020617; color: #ffffff; border: 2px solid #10b981;"
+            class="min-h-[48px] py-3 px-5 text-xs font-black rounded-xl shadow-md inline-flex items-center justify-center gap-2 hover:bg-slate-900 transition-all cursor-pointer"
+          >
+            <svg class="w-4 h-4 fill-current shrink-0 text-emerald-400" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+            </svg>
+            <span style="color: #ffffff;" class="font-black tracking-wide">{location ? location.phone : SITE_CONFIG.phone}</span>
+          </a>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <div class="flex lg:hidden items-center">
+          <button
+            type="button"
+            id="mobile-menu-btn"
+            aria-label="Toggle Mobile Navigation Menu"
+            class="p-3 min-h-[48px] min-w-[48px] text-slate-950 hover:text-emerald-800 bg-brand-slate-100 border border-brand-slate-300 rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 inline-flex items-center justify-center"
+          >
+            <svg id="hamburger-icon" class="w-6 h-6 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+            </svg>
+            <svg id="close-icon" class="w-6 h-6 fill-current hidden" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Mobile Dropdown Navigation Menu with Explicit Home Link -->
+      <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-brand-slate-200 px-4 pt-3 pb-6 space-y-3 shadow-xl w-full">
+        <nav class="flex flex-col space-y-1 font-mono text-sm font-black uppercase text-slate-950">
+          <a href={getLocalizedPath('/', location)} class="py-3 px-3 rounded-lg hover:bg-brand-slate-50 hover:text-emerald-800 min-h-[48px] flex items-center">
+            <span class="text-slate-950 font-black">Home</span>
+          </a>
+          <a href={getLocalizedPath('/services', location)} class="py-3 px-3 rounded-lg hover:bg-brand-slate-50 hover:text-emerald-800 min-h-[48px] flex items-center">
+            <span class="text-slate-950 font-black">Services</span>
+          </a>
+          <a href={getLocalizedPath('/calculator', location)} class="py-3 px-3 rounded-lg hover:bg-brand-slate-50 hover:text-emerald-800 min-h-[48px] flex items-center">
+            <span class="text-slate-950 font-black">Calculator</span>
+          </a>
+          <a href="/locations" class="py-3 px-3 rounded-lg hover:bg-brand-slate-50 hover:text-emerald-800 min-h-[48px] flex items-center">
+            <span class="text-slate-950 font-black">Locations</span>
+          </a>
+          <a href={getLocalizedPath('/blog', location)} class="py-3 px-3 rounded-lg hover:bg-brand-slate-50 hover:text-emerald-800 min-h-[48px] flex items-center">
+            <span class="text-slate-950 font-black">Guides</span>
+          </a>
+          <a href={getLocalizedPath('/about', location)} class="py-3 px-3 rounded-lg hover:bg-brand-slate-50 hover:text-emerald-800 min-h-[48px] flex items-center">
+            <span class="text-slate-950 font-black">About {location ? location.name : 'Network'}</span>
+          </a>
+        </nav>
+        
+        <div class="pt-3 border-t border-brand-slate-200">
+          <a
+            href={`tel:${location ? location.phoneClean : SITE_CONFIG.phoneClean}`}
+            aria-label={`Call Electrician at ${location ? location.phone : SITE_CONFIG.phone}`}
+            style="background-color: #020617; color: #ffffff; border: 2px solid #10b981;"
+            class="w-full py-4 min-h-[48px] text-center text-xs font-black text-white shadow-lg rounded-xl flex items-center justify-center gap-2"
+          >
+            <svg class="w-4 h-4 fill-current shrink-0 text-emerald-400" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+            </svg>
+            <span style="color: #ffffff;" class="font-black">CALL: {location ? location.phone : SITE_CONFIG.phone}</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Dynamic Content Slot -->
+    <main class="flex-grow w-full overflow-x-hidden">
+      <slot />
+    </main>
+
+    <!-- Site Footer Component -->
+    <Footer location={location} />
+
+    <!-- Mobile Sticky Action Bar -->
+    <MobileActionBar phone={location ? location.phone : SITE_CONFIG.phone} />
+
+    <!-- Inlined Script to Eliminate External JS Bundle & Network Dependency Tree Chain -->
+    <script is:inline>
+      (function() {
+        var btn = document.getElementById('mobile-menu-btn');
+        var menu = document.getElementById('mobile-menu');
+        var hamburger = document.getElementById('hamburger-icon');
+        var close = document.getElementById('close-icon');
+
+        if (btn && menu && hamburger && close) {
+          btn.addEventListener('click', function() {
+            menu.classList.toggle('hidden');
+            hamburger.classList.toggle('hidden');
+            close.classList.toggle('hidden');
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>

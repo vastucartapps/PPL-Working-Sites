@@ -1,0 +1,68 @@
+{
+  "bend": {
+    "slug": "bend",
+    "cityName": "Bend",
+    "stateAbbr": "OR",
+    "stateFull": "Oregon",
+    "countyName": "Deschutes County",
+    "zipCode": "97701",
+    "phone": "(541) 555-0199",
+    "serviceRadius": "15 miles",
+    "landmarks": ["Pilot Butte", "Old Mill District", "Cascade Lakes", "Downtown Bend"]
+  },
+  "redmond": {
+    "slug": "redmond",
+    "cityName": "Redmond",
+    "stateAbbr": "OR",
+    "stateFull": "Oregon",
+    "countyName": "Deschutes County",
+    "zipCode": "97756",
+    "phone": "(541) 555-0199",
+    "serviceRadius": "20 miles",
+    "landmarks": ["Smith Rock State Park", "Roberts Field Airport", "Dry Canyon Trail"]
+  },
+  "sisters": {
+    "slug": "sisters",
+    "cityName": "Sisters",
+    "stateAbbr": "OR",
+    "stateFull": "Oregon",
+    "countyName": "Deschutes County",
+    "zipCode": "97759",
+    "phone": "(541) 555-0199",
+    "serviceRadius": "15 miles",
+    "landmarks": ["Three Sisters Mountains", "Black Butte Ranch", "Hood Avenue"]
+  },
+  "sunriver": {
+    "slug": "sunriver",
+    "cityName": "Sunriver",
+    "stateAbbr": "OR",
+    "stateFull": "Oregon",
+    "countyName": "Deschutes County",
+    "zipCode": "97707",
+    "phone": "(541) 555-0199",
+    "serviceRadius": "10 miles",
+    "landmarks": ["Sunriver Resort", "Benham Falls", "Deschutes River"]
+  },
+  "la-pine": {
+    "slug": "la-pine",
+    "cityName": "La Pine",
+    "stateAbbr": "OR",
+    "stateFull": "Oregon",
+    "countyName": "Deschutes County",
+    "zipCode": "97739",
+    "phone": "(541) 555-0199",
+    "serviceRadius": "25 miles",
+    "landmarks": ["Newberry National Volcanic Monument", "Paulina Lake"]
+  },
+  "prineville": {
+    "slug": "prineville",
+    "cityName": "Prineville",
+    "stateAbbr": "OR",
+    "stateFull": "Oregon",
+    "countyName": "Crook County",
+    "zipCode": "97754",
+    "phone": "(541) 555-0199",
+    "serviceRadius": "20 miles",
+    "landmarks": ["Ochoco Reservoir", "Bowman Dam", "Crook County Courthouse"]
+  }
+}

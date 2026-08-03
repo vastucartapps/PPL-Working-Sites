@@ -1,0 +1,266 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import EnterpriseSchemaGraph from './EnterpriseSchemaGraph.astro';
+import Breadcrumbs from './Breadcrumbs.astro';
+import ArticleHeroCard from './ArticleHeroCard.astro';
+import PageHeroTrustCard from './PageHeroTrustCard.astro';
+import BLUFBlock from './BLUFBlock.astro';
+import FAQAccordion from './FAQAccordion.astro';
+import PricingDisclaimerBox from './PricingDisclaimerBox.astro';
+import { LocationData } from '../config/locations';
+import { SITE_CONFIG } from '../config/site';
+
+export interface Section {
+  heading: string;
+  content: string;
+}
+
+export interface Spec {
+  label: string;
+  value: string;
+}
+
+export interface FAQ {
+  question: string;
+  answer: string;
+}
+
+export interface InternalLink {
+  text: string;
+  href: string;
+}
+
+export interface Props {
+  title: string;
+  category: string;
+  readTime: string;
+  canonicalPath: string;
+  bluf: {
+    solution: string;
+    priceRange: string;
+    rebateInfo: string;
+    recommendation: string;
+  };
+  specs: Spec[];
+  sections: Section[];
+  featuredImage: {
+    src: string;
+    alt: string;
+  };
+  sectionalImage: {
+    src: string;
+    alt: string;
+    caption: string;
+  };
+  faqs: FAQ[];
+  internalLinks: InternalLink[];
+  location?: LocationData;
+  cityName?: string;
+  state?: string;
+}
+
+const {
+  title,
+  category,
+  readTime,
+  canonicalPath,
+  bluf,
+  specs,
+  sections,
+  featuredImage,
+  sectionalImage,
+  faqs,
+  internalLinks,
+  location,
+  cityName = 'Bend & Central Oregon',
+  state = 'OR'
+} = Astro.props;
+
+const pageTitle = `${title} | EV Charger One`;
+const pageDescription = `Technical Level 2 EV charging engineering guide for ${cityName}, ${state}. Pacific Power & Midstate Electric rebate filings, NEC Article 625 code compliance, and 48A hardwired installation standards.`;
+---
+
+<BaseLayout title={pageTitle} description={pageDescription} location={location}>
+  <EnterpriseSchemaGraph
+    title={pageTitle}
+    description={pageDescription}
+    path={canonicalPath}
+    cityName={cityName}
+    pageType="blog"
+    imageUrl={`${SITE_CONFIG.baseUrl}${featuredImage.src}`}
+    faqs={faqs}
+  />
+
+  <Breadcrumbs pathName={title} />
+
+  <!-- Premium Hero Section with Original Dark Overlay Background Image -->
+  <section class="relative bg-slate-950 text-white overflow-hidden py-16 sm:py-24 border-b border-slate-800">
+    <div class="absolute inset-0 z-0 opacity-20">
+      <img
+        src={featuredImage.src}
+        alt={featuredImage.alt}
+        width="800"
+        height="450"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        class="w-full h-full object-cover"
+      />
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl space-y-6">
+        <div class="flex items-center gap-3 font-mono text-xs font-bold uppercase tracking-wider text-emerald-400">
+          <span class="mono-tag">{category}</span>
+          <span>•</span>
+          <span>{readTime}</span>
+          <span>•</span>
+          <span>{cityName} Hub</span>
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
+          {title}
+        </h1>
+
+        <p class="text-slate-300 text-base sm:text-lg font-normal leading-relaxed">
+          Technical standard operating procedure (SOP) for 48A hardwired Level 2 electric vehicle charging, circuit protection, and utility rebate sign-offs in {cityName}.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Article Main Content Body -->
+  <article class="py-16 bg-white grid-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div class="lg:col-span-8 space-y-10">
+          
+          <!-- BLUF (Bottom Line Up Front) Quick Summary Card -->
+          <BLUFBlock
+            locationName={cityName}
+            solution={bluf.solution}
+            priceRange={bluf.priceRange}
+            rebateInfo={bluf.rebateInfo}
+            recommendation={bluf.recommendation}
+          />
+
+          <!-- Image 1 of 2: Featured Technical Hardware Card Inline in Article Body -->
+          <div class="my-6 rounded-2xl overflow-hidden border-2 border-slate-900 shadow-xl bg-slate-950">
+            <img
+              src={featuredImage.src}
+              alt={featuredImage.alt}
+              width="800"
+              height="450"
+              loading="lazy"
+              decoding="async"
+              class="w-full h-auto object-cover max-h-[460px]"
+            />
+            <div class="p-4 bg-slate-950 text-slate-300 font-mono text-xs border-t border-slate-800 flex items-center justify-between">
+              <span>⚡ {title} Featured Hardware Setup</span>
+              <span class="text-emerald-400 font-bold">IMAGE 1 OF 2</span>
+            </div>
+          </div>
+
+          <!-- Technical Specifications & NEC Matrix Table -->
+          <div class="p-6 bg-brand-slate-50 border-2 border-brand-slate-300 rounded-2xl space-y-4">
+            <h2 class="text-xl font-black text-slate-950">Technical Specifications & NEC Engineering Matrix</h2>
+            <div class="overflow-x-auto">
+              <table class="w-full text-left font-mono text-xs text-slate-950 border-collapse">
+                <thead>
+                  <tr class="border-b-2 border-slate-950 bg-slate-200">
+                    <th class="p-2.5 font-black">Technical Specification</th>
+                    <th class="p-2.5 font-black">Verified Engineering Standard</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-300 font-bold">
+                  {specs.map((spec) => (
+                    <tr>
+                      <td class="p-2.5">{spec.label}</td>
+                      <td class="p-2.5 text-emerald-800 font-black">{spec.value}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Clean Typography Body Copy (font-normal for body text) -->
+          <div class="prose prose-slate max-w-none text-slate-800 font-normal space-y-8 text-base sm:text-lg leading-relaxed">
+            
+            <!-- Section 1 -->
+            {sections[0] && (
+              <div class="space-y-4">
+                <h2 class="text-2xl sm:text-3xl font-black text-slate-950 tracking-tight leading-snug">{sections[0].heading}</h2>
+                <p class="font-normal text-slate-800 leading-relaxed whitespace-pre-line">{sections[0].content}</p>
+              </div>
+            )}
+
+            <!-- Image 2 of 2: Mid-Section Technical Illustration WebP Image Inline in Article Body -->
+            <div class="my-8 rounded-2xl overflow-hidden border-2 border-slate-900 shadow-xl bg-slate-950">
+              <img
+                src={sectionalImage.src}
+                alt={sectionalImage.alt}
+                width="658"
+                height="370"
+                loading="lazy"
+                decoding="async"
+                class="w-full h-auto object-cover max-h-[420px]"
+              />
+              <div class="p-4 bg-slate-950 text-slate-300 font-mono text-xs border-t border-slate-800 flex items-center justify-between">
+                <span>⚡ {sectionalImage.caption}</span>
+                <span class="text-emerald-400 font-bold">IMAGE 2 OF 2 (NEC 625)</span>
+              </div>
+            </div>
+
+            <!-- Remaining Sections -->
+            {sections.slice(1).map((sec) => (
+              <div class="space-y-4">
+                <h2 class="text-2xl sm:text-3xl font-black text-slate-950 tracking-tight leading-snug">{sec.heading}</h2>
+                <p class="font-normal text-slate-800 leading-relaxed whitespace-pre-line">{sec.content}</p>
+              </div>
+            ))}
+
+            <!-- Contextual Internal Cross-Links Box -->
+            <div class="p-6 bg-emerald-50 border-2 border-emerald-400 rounded-2xl space-y-3 font-mono text-xs text-slate-950 my-8">
+              <div class="font-black text-emerald-950 uppercase">🔗 Related Technical Guides & Local Hubs:</div>
+              <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 font-bold underline text-emerald-900">
+                {internalLinks.map((link) => (
+                  <li><a href={link.href}>{link.text}</a></li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-4 space-y-6">
+          <PageHeroTrustCard
+            badge={`⚡ ${cityName.toUpperCase()} DISPATCH`}
+            title={`EV Electrician in ${cityName}`}
+            subtitle={`Speak directly with Oregon CCB licensed master electricians serving ${cityName} and surrounding corridors.`}
+          />
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- 8 Topic-Specific Verified Technical FAQs -->
+  <FAQAccordion
+    title={`${title} FAQs (8 Verified Answers)`}
+    faqs={faqs}
+  />
+
+  <section class="py-16 bg-brand-slate-50 border-b border-brand-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <PricingDisclaimerBox />
+    </div>
+  </section>
+
+  <section class="py-20 bg-brand-slate-50 grid-bg border-t border-brand-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ArticleHeroCard
+        title={`Ready to Install Your EV Charger in ${cityName}?`}
+        subtitle="Lock in your $500 Pacific Power or Midstate Electric cash-back rebate before funds expire."
+      />
+    </div>
+  </section>
+</BaseLayout>

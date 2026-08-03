@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="404 Page Not Found | EV Charger One" description="The page you requested does not exist.">
+  <section class="py-24 bg-white grid-bg min-h-[60vh] flex items-center justify-center">
+    <div class="max-w-md mx-auto px-4 text-center space-y-6">
+      <div class="text-6xl font-black text-emerald-700">404</div>
+      <h1 class="text-3xl font-black text-slate-950 tracking-tight">Page Not Found</h1>
+      <p class="text-slate-700 text-sm font-bold">
+        The requested URL does not exist or has been moved.
+      </p>
+      <a
+        href="/"
+        class="inline-block btn-primary px-6 py-3 text-xs font-black text-white rounded-xl shadow-lg"
+      >
+        ← RETURN TO HOME PAGE
+      </a>
+    </div>
+  </section>
+</BaseLayout>

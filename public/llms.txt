@@ -1,0 +1,20 @@
+# EV Charger One
+
+> Premier Level 2 EV Charger Installation & 200A Electrical Panel Upgrades across Bend and Central Oregon. Licensed Oregon Electrical Partner Network (CCB #248910).
+
+## Core Pages & System Navigation
+- [EV Charger One Homepage](https://evchargerone.pages.dev/): Primary landing page for 48A Level 2 EV charger installations and $500 Pacific Power rebates in Bend, OR.
+- [Electrical Installation Services](https://evchargerone.pages.dev/services/): Comprehensive menu of 240V Level 2 EVSE installations, NEMA 14-50 outlets, and 200A panel upgrades.
+- [Tesla Wall Connector Installation](https://evchargerone.pages.dev/services/tesla-wall-connector/): Hardwired 48-Amp Level 2 charging station installation on a dedicated 60A circuit breaker.
+- [NEMA 14-50 Outlet Upgrade](https://evchargerone.pages.dev/services/nema-14-50-upgrade/): 240V 50A receptacle installation with GFCI breaker protection.
+- [200A Panel Capacity Upgrade](https://evchargerone.pages.dev/services/panel-capacity-upgrade/): Service panel heavy-up for multi-EV charging demand.
+- [Commercial EV Charging Hubs](https://evchargerone.pages.dev/services/commercial-ev-charging/): Turnkey multi-family and commercial fleet charging infrastructure.
+- [EV Charging Speed & Cost Calculator](https://evchargerone.pages.dev/calculator/): Real-time charging math and Pacific Power rebate breakdown.
+- [Central Oregon Service Locations](https://evchargerone.pages.dev/locations/): Bend, Redmond, Sisters, Sunriver, La Pine, and Prineville service hubs.
+- [Knowledge Base & Technical Guides](https://evchargerone.pages.dev/blog/): Technical articles on NEC Article 625, Deschutes County permits, and rebates.
+- [About EV Charger One](https://evchargerone.pages.dev/about/): Licensed Oregon electrical partner network credentials and CCB #248910 disclosures.
+- [Request Fixed-Price Estimate](https://evchargerone.pages.dev/contact/): 1-hour response quote request form.
+
+## Technical Specifications & Details
+- [Full Technical Manual](https://evchargerone.pages.dev/llms-full.txt): Complete structured text context for AI agents.
+- [XML Sitemap](https://evchargerone.pages.dev/sitemap.xml): Machine-readable sitemap of all 36 static routes.

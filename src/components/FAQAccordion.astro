@@ -1,0 +1,58 @@
+---
+export interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  faqs: FAQItem[];
+  class?: string;
+}
+
+const {
+  title = "Frequently Asked Questions",
+  subtitle = "Clear, expert answers to key questions about Level 2 EV charging in Central Oregon.",
+  faqs,
+  class: className = ""
+} = Astro.props;
+---
+
+<section class={`py-16 bg-white border-b border-brand-slate-200 ${className}`}>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mb-10">
+      <span class="mono-tag mb-3">// EXPERT GUIDANCE & FAQs</span>
+      <h2 class="text-3xl sm:text-4xl font-black text-slate-950 tracking-tight">
+        {title}
+      </h2>
+      {subtitle && (
+        <p class="text-sm text-slate-800 font-bold mt-2">
+          {subtitle}
+        </p>
+      )}
+    </div>
+
+    <div class="max-w-4xl space-y-4">
+      {faqs.map((faq, index) => (
+        <details
+          class="faq-item group bg-brand-slate-50 border-2 border-brand-slate-200 rounded-2xl p-5 shadow-sm transition-all duration-200 open:bg-white open:border-emerald-500 open:shadow-md cursor-pointer"
+          open={index === 0}
+        >
+          <summary class="flex items-center justify-between font-mono font-black text-slate-950 text-base sm:text-lg tracking-tight list-none select-none">
+            <span class="pr-4 flex items-start gap-3">
+              <span class="text-emerald-700 font-black">Q{index + 1}.</span>
+              <span>{faq.question}</span>
+            </span>
+            <span class="faq-icon text-emerald-700 font-black text-xl transition-transform duration-200 group-open:rotate-180 shrink-0">
+              ▼
+            </span>
+          </summary>
+          <div class="mt-4 pt-4 border-t border-brand-slate-200 text-xs sm:text-sm font-semibold text-slate-800 leading-relaxed font-sans">
+            <p>{faq.answer}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

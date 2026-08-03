@@ -1,0 +1,70 @@
+---
+import { SITE_CONFIG } from '../config/site';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  type?: string;
+  faqs?: Array<{ question: string; answer: string }>;
+}
+
+const {
+  title = SITE_CONFIG.defaultTitle,
+  description = SITE_CONFIG.defaultDescription,
+  image = `${SITE_CONFIG.baseUrl}/images/hero-ev-charger-800w.webp`,
+  type = 'website',
+  faqs = []
+} = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, SITE_CONFIG.baseUrl).href;
+---
+
+<link rel="canonical" href={canonicalUrl} />
+<link rel="author" type="text/plain" href="/llms.txt" />
+
+<!-- Preload Hero Image on Stream Byte 1 for Instant LCP -->
+<link rel="preload" as="image" href={image} fetchpriority="high" type="image/webp" />
+
+<!-- Google Search Console Property Verification Meta Tag -->
+{SITE_CONFIG.googleSiteVerification && (
+  <meta name="google-site-verification" content={SITE_CONFIG.googleSiteVerification} />
+)}
+
+<!-- Google Analytics GA4 Tag -->
+{SITE_CONFIG.googleAnalyticsId && (
+  <>
+    <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${SITE_CONFIG.googleAnalyticsId}`}></script>
+    <script is:inline set:html={`
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '${SITE_CONFIG.googleAnalyticsId}');
+
+      // Zero-Overhead Call Button Event Tracker (0 KiB JS, 0ms LCP)
+      document.addEventListener('click', function(e) {
+        var link = e.target.closest('a[href^="tel:"]');
+        if (link) {
+          gtag('event', 'click_to_call', {
+            'event_category': 'lead_conversion',
+            'event_label': link.getAttribute('href'),
+            'page_location': window.location.href
+          });
+        }
+      }, { passive: true });
+    `} />
+  </>
+)}
+
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={image} />
+<meta property="og:site_name" content={SITE_CONFIG.brandName} />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={canonicalUrl} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={image} />

@@ -1,0 +1,49 @@
+---
+export interface Props {
+  faqs?: Array<{ question: string; answer: string }>;
+  title?: string;
+}
+
+const {
+  title = "Frequently Asked Questions",
+  faqs = [
+    {
+      question: "How much does it cost to install a Tesla Wall Connector in Bend, OR?",
+      answer: "Typical garage installation costs for a 48A hardwired Tesla Wall Connector in Bend range between $650 and $1,250 depending on wire run distance. Homeowners qualify for up to $500 in instant Pacific Power cash-back rebates plus a 30% Federal 30C tax credit, bringing net costs under $350."
+    },
+    {
+      question: "Do I need a Deschutes County trade permit for Tesla Wall Connector installation?",
+      answer: "Yes. All 240V Level 2 EV charging station installations in Bend, Redmond, and Deschutes County require a trade permit and post-installation inspection sign-off. We pull all required permits prior to installation."
+    },
+    {
+      question: "Can non-Tesla electric vehicles charge using the Tesla Gen 3 Wall Connector?",
+      answer: "Yes! The Universal Tesla Wall Connector features a built-in J1772 adapter latch that charges non-Tesla EVs (Rivian, Ford F-150 Lightning, Hyundai Ioniq 5, etc.) without external adapters."
+    },
+    {
+      question: "What breaker size is required for maximum 48A Tesla Wall Connector speed?",
+      answer: "A dedicated double-pole 60A circuit breaker is required to achieve the maximum continuous 48A output (11.52 kW), adding up to 44 miles of range per hour."
+    }
+  ]
+} = Astro.props;
+---
+
+<div class="my-12 bg-brand-slate-50 border-2 border-brand-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm">
+  <div class="mb-6">
+    <span class="mono-tag mb-2">// FREQUENTLY ASKED QUESTIONS</span>
+    <h2 class="text-2xl font-black text-slate-950 tracking-tight">{title}</h2>
+  </div>
+
+  <div class="space-y-4">
+    {faqs.map(faq => (
+      <details class="group bg-white border-2 border-brand-slate-200 rounded-2xl p-5 [&_summary::-webkit-details-marker]:none shadow-sm">
+        <summary class="flex items-center justify-between font-black text-base text-slate-950 cursor-pointer">
+          <span>{faq.question}</span>
+          <span class="text-emerald-700 font-mono text-xl group-open:rotate-45 transition-transform">+</span>
+        </summary>
+        <p class="text-xs sm:text-sm text-slate-900 font-bold mt-3 leading-relaxed border-t border-brand-slate-200 pt-3">
+          {faq.answer}
+        </p>
+      </details>
+    ))}
+  </div>
+</div>

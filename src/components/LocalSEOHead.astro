@@ -1,0 +1,73 @@
+---
+import { LocationData } from '../config/locations';
+import { SITE_CONFIG } from '../config/site';
+
+export interface Props {
+  location: LocationData;
+}
+
+const { location } = Astro.props;
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Electrician",
+      "@id": `${SITE_CONFIG.baseUrl}/locations/${location.slug}/#organization`,
+      "name": `${SITE_CONFIG.brandName} - ${location.name}`,
+      "url": `https://${location.slug}.${SITE_CONFIG.domain}`,
+      "telephone": location.phone,
+      "priceRange": "$$",
+      "description": `Licensed Level 2 EV charger installation services in ${location.name}, ${location.state}. Tesla Wall Connector & 240V 50A NEMA 14-50 installers. ${location.rebateAmount} ${location.utilityName} rebates processed.`,
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": location.name,
+        "addressRegion": location.state,
+        "postalCode": location.zipCodes[0],
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": location.geo.lat,
+        "longitude": location.geo.lng
+      },
+      "areaServed": [
+        location.name,
+        ...location.neighborhoods,
+        location.county
+      ],
+      "knowsAbout": [
+        "Level 2 EV Charger Installation",
+        "Tesla Wall Connector Hardwiring",
+        "NEMA 14-50 240V Outlet Upgrade",
+        "200A Electrical Panel Capacity Upgrade",
+        "NEC Article 625 Load Calculations"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": `EV Charger Installation Services in ${location.name}, ${location.state}`,
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": `Tesla Wall Connector Installation in ${location.name}, ${location.state}`,
+              "description": `Dedicated 60-Amp circuit breaker & 6 AWG copper wiring for continuous 48A home charging in ${location.name}.`
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": `240V 50A NEMA 14-50 Outlet Installation in ${location.name}, ${location.state}`,
+              "description": `Industrial Hubbell 240V receptacle installation for plug-in Level 2 EV chargers in ${location.name}.`
+            }
+          }
+        ]
+      }
+    }
+  ]
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schemaData)} />

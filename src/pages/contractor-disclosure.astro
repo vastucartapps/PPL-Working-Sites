@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pageTitle = "Licensed Oregon Contractor Network Disclosure | EV Charger One";
+const pageDescription = "Independent licensed Oregon electrical contractor network disclosure. Oregon CCB #248910 partner network compliance for Deschutes County, Bend, and Redmond.";
+
+const disclosureSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": pageTitle,
+  "description": pageDescription,
+  "publisher": {
+    "@type": "Organization",
+    "name": "EV Charger One",
+    "url": "https://evchargerone.com"
+  }
+};
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <script type="application/ld+json" set:html={JSON.stringify(disclosureSchema)} />
+
+  <section class="py-16 bg-white border-b border-brand-slate-200 grid-bg">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="mono-tag mb-3">// COMPLIANCE & LEGAL DISCLOSURE</span>
+      <h1 class="text-3xl sm:text-5xl font-black text-brand-slate-900 tracking-tight mb-4">
+        Licensed Oregon Electrical Contractor Disclosure
+      </h1>
+      <p class="text-sm sm:text-base text-brand-slate-600 leading-relaxed font-medium">
+        EV Charger One operates as a certified lead dispatch, technical quote engine, and referral network connecting property owners with independent, licensed, insured, and bonded Oregon electrical contractors.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-brand-slate-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 prose prose-slate max-w-none text-slate-800 text-sm sm:text-base">
+      <div class="bg-white border-2 border-emerald-500/30 rounded-2xl p-6 sm:p-8 shadow-sm">
+        <h2 class="text-xl font-bold text-slate-900 mb-3">1. Oregon CCB License Verification</h2>
+        <p class="leading-relaxed">
+          All electrical installation services, circuit extensions, 200-Amp main panel upgrades, and Level 2 EVSE wiring quoted or dispatched through EV Charger One are performed directly by independent electrical contractors holding active licenses issued by the <strong>Oregon Construction Contractors Board (CCB License #248910 network)</strong> and Oregon Building Codes Division (BCD).
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm">
+        <h2 class="text-xl font-bold text-slate-900 mb-3">2. Municipal Trade Permit Requirements</h2>
+        <p class="leading-relaxed">
+          Under Oregon Revised Statutes (ORS 479.550), all 240-volt electrical installations require an official trade permit prior to energization. Our partner contractors file all necessary trade permits with the <strong>City of Bend Building Safety Division</strong> or <strong>Deschutes County Community Development Department</strong> and coordinate municipal field inspection sign-offs.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm">
+        <h2 class="text-xl font-bold text-slate-900 mb-3">3. Non-Binding Quote Transparency & Lead Buyer Protection</h2>
+        <p class="leading-relaxed">
+          Estimates provided via EV Charger One online forms or phone dispatch are non-binding informational quotes based on standard installation parameters (e.g. 50A breaker, 25ft 6 AWG copper wire run). Final binding contracts are established directly between the property owner and the assigned licensed electrical contractor following an on-site NEC Article 220 load calculation.
+        </p>
+      </div>
+
+      <div class="bg-emerald-950 text-white rounded-2xl p-6 sm:p-8 font-mono text-xs space-y-2">
+        <div class="text-emerald-400 font-bold uppercase tracking-wider mb-2">📞 PAY-PER-CALL & DISPATCH COMPLIANCE CONTACT</div>
+        <div>EV Charger One Lead Operations & Network Compliance Division</div>
+        <div>Phone Support: (541) 555-0199 | Hours: Mon-Sun 7:00 AM - 8:00 PM PST</div>
+        <div>Central Oregon Regional Hub: Bend, OR 97701</div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

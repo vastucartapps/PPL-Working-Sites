@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import HeroInteractiveGauge from '../../../components/HeroInteractiveGauge.astro';
+import ArticleHeroCard from '../../../components/ArticleHeroCard.astro';
+import { LOCATIONS, LocationData } from '../../../config/locations';
+
+export function getStaticPaths() {
+  return Object.values(LOCATIONS).map((loc) => ({
+    params: { city: loc.slug },
+    props: { location: loc }
+  }));
+}
+
+export interface Props {
+  location: LocationData;
+}
+
+const { location } = Astro.props;
+---
+
+<BaseLayout
+  title={`${location.name} EV Charging Speed & Cost Calculator | Oregon CCB #248910`}
+  description={`Calculate 48A Level 2 EV charging speed, monthly electricity savings, and installation costs in ${location.name}, ${location.state} with ${location.utilityName} rebates.`}
+  location={location}
+>
+  <section class="py-16 bg-white border-b border-brand-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <span class="mono-tag mb-4">// {location.name.toUpperCase()} UTILITY RATES CALCULATOR</span>
+        <h1 class="text-4xl sm:text-5xl font-black text-slate-950 tracking-tight leading-tight">
+          EV Charging Cost & Speed Calculator for <span class="text-emerald-800">{location.name}, {location.state}</span>
+        </h1>
+        <p class="text-lg text-slate-950 font-bold mt-4 leading-relaxed">
+          Compare Level 1 120V trickle charging vs 48A Level 2 Tesla Wall Connector speed and estimated {location.utilityName} monthly electricity costs in {location.name}.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-brand-slate-50 border-b border-brand-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-emerald-100 border-2 border-emerald-500 rounded-2xl p-6 font-mono text-xs font-black text-emerald-950 mb-8">
+        ⚡ {location.name.toUpperCase()} LOCAL UTILITY SPECIFICATION: {location.utilityName} residential electric rates applied with instant {location.rebateAmount} cash-back rebate eligibility.
+      </div>
+      <HeroInteractiveGauge locationName={location.name} />
+    </div>
+  </section>
+
+  <section class="py-20 bg-brand-slate-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ArticleHeroCard
+        title={`Ready to Install Your Home EV Charger in ${location.name}?`}
+        subtitle={`Claim your ${location.rebateAmount} ${location.utilityName} cash-back rebate before funds expire.`}
+      />
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Prototype A base typography — Inter body + Barlow Condensed display.
+   Bend EV Charger Pros palette: Electric Blue + EV Green (clean-energy; blue = electrical trust, green = EV/charge CTA). */
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply text-neutral-800 bg-white antialiased;
+    font-family: var(--font-inter), Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-brand;
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+  .display {
+    font-family: var(--font-barlow), 'Barlow Condensed', Inter, system-ui, sans-serif;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    font-weight: 800;
+  }
+  .stat-num {
+    font-family: var(--font-barlow), 'Barlow Condensed', Inter, system-ui, sans-serif;
+    font-weight: 800;
+    line-height: 1;
+  }
+  /* Eyebrow uses red-700 (#B91C1C, 7.1:1 on white — WCAG AA pass). On dark blue
+     backgrounds, override with !text-accent (DC2626 on #0C4A6E = 4.8:1, AA pass). */
+  .eyebrow {
+    @apply text-xs font-bold uppercase tracking-[0.2em] text-red-700;
+    font-family: var(--font-barlow), 'Barlow Condensed', Inter, system-ui, sans-serif;
+  }
+  /* Header accent rule — clean solid bar (replaces the old diagonal hazard
+     stripe, which read as construction tape rather than enterprise). */
+  .ribbon {
+    background: theme('colors.accent.DEFAULT');
+    height: 3px;
+  }
+  .lift {
+    transition: transform .25s, box-shadow .25s;
+  }
+  .lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px -18px rgba(12, 74, 110, 0.35);
+  }
+  details > summary { list-style: none; cursor: pointer; }
+  details > summary::-webkit-details-marker { display: none; }
+  details[open] .chev { transform: rotate(180deg); }
+  .chev { transition: transform .25s; }
+  .faq-answer p + p { margin-top: 0.75rem; }
+  .prose-article {
+    @apply text-neutral-700 leading-relaxed;
+    max-width: none;
+  }
+  .prose-article h2 {
+    font-family: var(--font-barlow), 'Barlow Condensed', Inter, system-ui, sans-serif;
+    text-transform: uppercase;
+    @apply text-3xl md:text-4xl mt-12 mb-4 text-brand font-extrabold;
+  }
+  .prose-article h3 {
+    font-family: var(--font-barlow), 'Barlow Condensed', Inter, system-ui, sans-serif;
+    @apply text-2xl md:text-3xl mt-10 mb-3 text-brand font-extrabold;
+  }
+  .prose-article h4 { @apply text-xl md:text-2xl mt-8 mb-2 text-brand font-bold; }
+  .prose-article p { @apply my-5 text-base sm:text-lg text-neutral-700; }
+  .prose-article ul, .prose-article ol { @apply my-5 pl-6 text-base sm:text-lg; }
+  .prose-article ul { @apply list-disc; }
+  .prose-article ol { @apply list-decimal; }
+  .prose-article li { @apply my-2; }
+  .prose-article a {
+    @apply text-brand font-semibold underline underline-offset-2 decoration-2 decoration-accent hover:decoration-brand transition-colors;
+  }
+  .prose-article strong { @apply font-semibold text-brand; }
+  .prose-article blockquote {
+    @apply my-6 border-l-4 border-accent bg-red-50 px-5 py-4 italic text-neutral-800;
+  }
+  .prose-article table { @apply my-6 w-full text-sm border-collapse; }
+  .prose-article thead { @apply bg-brand text-white; }
+  .prose-article th, .prose-article td { @apply px-4 py-3 text-left border border-neutral-200; }
+  .prose-article tbody tr:nth-child(even) { @apply bg-neutral-50; }
+  .tldr {
+    @apply text-lg text-neutral-800 leading-relaxed font-medium border-l-4 border-accent pl-5 my-8 italic;
+  }
+  @media (max-width: 1024px) {
+    main { padding-bottom: 72px; }
+  }
+  *:focus-visible { outline-offset: 2px; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-accent text-accent-fg font-bold uppercase tracking-wide px-7 py-3.5 rounded transition;
+  }
+  .btn-primary:hover { @apply bg-accent-dark; }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 border-2 border-white text-white font-bold uppercase tracking-wide px-7 py-3.5 rounded transition;
+  }
+  .btn-ghost:hover { @apply bg-white text-brand; }
+  .btn-navy {
+    @apply inline-flex items-center justify-center gap-2 bg-brand text-white font-bold uppercase tracking-wide px-7 py-3.5 rounded transition hover:bg-brand-light;
+  }
+  /* GEO passage-answer block — the self-contained 40-75 word direct answer that
+     sits immediately under a question-style H2 so an LLM can lift it cleanly.
+     Per SOP §37. */
+  .geo-answer {
+    @apply text-lg text-neutral-800 leading-relaxed font-medium border-l-4 border-accent pl-4 my-4;
+  }
+}

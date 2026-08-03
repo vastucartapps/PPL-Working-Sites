@@ -1,0 +1,118 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeroTrustCard from '../../components/PageHeroTrustCard.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const pageTitle = "EV Charger Installation Services | EV Charger One";
+const pageDescription = "Explore Level 2 EV charging station installation services. Tesla Wall Connectors, NEMA 14-50 240V outlets, 200A panel upgrades, and commercial charging hubs in Oregon.";
+
+const services = [
+  {
+    num: "001",
+    slug: "tesla-wall-connector",
+    title: "Tesla Wall Connector & Hardwired 48A",
+    desc: "Hardwired 48-Amp Level 2 charging station installation on a dedicated 60A circuit breaker. Adds up to 44 miles of range per hour with weather-sealed enclosure for Oregon winters.",
+    specs: ["48A Continuous Output", "60A Circuit Breaker", "240V Dedicated Line", "NEMA 3R Outdoor Rated"]
+  },
+  {
+    num: "002",
+    slug: "nema-14-50-upgrade",
+    title: "240V NEMA 14-50 Outlet Upgrade",
+    desc: "Heavy-duty industrial-grade NEMA 14-50 receptacle installation for universal plug-in EV chargers. Includes GFCI breaker protection per NEC 2023 code requirements.",
+    specs: ["40A Continuous Output", "50A Circuit Breaker", "Industrial Hubbell Outlet", "GFCI Breaker Protection"]
+  },
+  {
+    num: "003",
+    slug: "panel-capacity-upgrade",
+    title: "200A Electrical Panel Capacity Upgrade",
+    desc: "Heavy-up main service panel upgrade from 100A to 200A. Ensures your main electrical panel safely handles high-power EV charging circuits alongside heat pumps and hot tubs.",
+    specs: ["200A Main Breaker", "Whole-Home Load Calculation", "Utility Service Hookup", "Deschutes County Inspected"]
+  },
+  {
+    num: "004",
+    slug: "commercial-ev-charging",
+    title: "Commercial & Multi-Family EV Hubs",
+    desc: "Turnkey commercial Level 2 EV charging hubs for workplaces, retail centers, and HOA multi-family developments. Load management, access billing, and fleet integration.",
+    specs: ["Dual-Port EVSE Stations", "OCPP Cloud Billing", "Load Balancing Controls", "Commercial Utility Incentives"]
+  }
+];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <Breadcrumbs pathName="Services" />
+
+  <!-- Hero Banner with Ultra-Relevant Direct Call Trust Card (Zero Blank Whitespace!) -->
+  <section class="relative py-16 sm:py-20 border-b border-brand-slate-200 grid-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Col: Service Vision -->
+        <div class="lg:col-span-7 space-y-6">
+          <span class="mono-tag">// ALL SERVICES</span>
+          <h1 class="text-4xl sm:text-6xl font-black text-slate-950 leading-tight">
+            Precision EV charging.<br />
+            <span class="text-emerald-800">Engineered for safety & speed.</span>
+          </h1>
+          <p class="text-base sm:text-lg text-slate-950 font-bold leading-relaxed">
+            From hardwired 48A Tesla Wall Connectors to 200A main service panel capacity upgrades, every installation is engineered by licensed Oregon CCB #248910 electricians and backed by full trade permits.
+          </p>
+
+          <div class="flex flex-wrap gap-3 font-mono text-xs font-black text-slate-950 pt-2">
+            <span class="bg-white border-2 border-brand-slate-300 px-3 py-1.5 rounded-lg shadow-sm">✓ 48A Hardwired Tesla</span>
+            <span class="bg-white border-2 border-brand-slate-300 px-3 py-1.5 rounded-lg shadow-sm">✓ NEMA 14-50 240V</span>
+            <span class="bg-white border-2 border-brand-slate-300 px-3 py-1.5 rounded-lg shadow-sm">✓ 200A Panel Heavy-Ups</span>
+          </div>
+        </div>
+
+        <!-- Right Col: Ultra-Relevant Direct Call Trust Card -->
+        <div class="lg:col-span-5">
+          <PageHeroTrustCard
+            badge="⚡ SERVICE DISPATCH HOTLINE"
+            title="Speak to a Master Electrician"
+            subtitle="Get technical answers on circuit breakers, conduit runs, or panel ampacity directly from licensed Oregon contractors."
+            bullet1="✓ 100% Licensed Oregon CCB #248910"
+            bullet2="✓ Free NEC Article 220 Load Calculation"
+            bullet3="✓ 24-Hour Estimate Guarantee"
+          />
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Cards Section -->
+  <section class="py-20 bg-white border-b border-brand-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="space-y-12">
+        {services.map(svc => (
+          <div class="bg-brand-slate-50 border-2 border-brand-slate-300 hover:border-emerald-600 rounded-3xl p-8 sm:p-12 transition-all hover:shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-8 space-y-4">
+              <div class="font-mono text-xs font-black text-emerald-800">// SERVICE {svc.num}</div>
+              <h2 class="text-2xl sm:text-3xl font-black text-slate-950">
+                <a href={`/services/${svc.slug}`} class="hover:text-emerald-800 transition-colors">{svc.title}</a>
+              </h2>
+              <p class="text-sm text-slate-900 font-bold leading-relaxed">
+                {svc.desc}
+              </p>
+              
+              <!-- Specs Pills -->
+              <div class="flex flex-wrap gap-2 pt-2">
+                {svc.specs.map(spec => (
+                  <span class="font-mono text-xs font-black text-slate-950 bg-white border border-brand-slate-300 px-3 py-1 rounded-md shadow-sm">
+                    ✓ {spec}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div class="lg:col-span-4 text-left lg:text-right">
+              <a href={`/services/${svc.slug}`} class="btn-primary w-full sm:w-auto inline-flex items-center justify-center py-4 px-6 text-xs font-black text-white shadow-xl">
+                <span>VIEW SERVICE DETAILS →</span>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

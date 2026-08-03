@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EnterpriseSchemaGraph from '../../components/EnterpriseSchemaGraph.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import ArticleHeroCard from '../../components/ArticleHeroCard.astro';
+import PricingDisclaimerBox from '../../components/PricingDisclaimerBox.astro';
+import BLUFBlock from '../../components/BLUFBlock.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PrimaryButton from '../../components/PrimaryButton.astro';
+import SecondaryButton from '../../components/SecondaryButton.astro';
+import { SITE_CONFIG } from '../../config/site';
+
+const pageTitle = `200-Amp Electrical Panel Upgrade Bend, OR | ${SITE_CONFIG.brandName}`;
+const pageDescription = "100A to 200A main service panel capacity upgrades in Bend, OR. Heavy-up breaker box replacements for Level 2 EV charging by Oregon CCB master electricians.";
+
+const panelFaqs = [
+  {
+    question: "Do I Need a 200-Amp Main Service Panel Upgrade for an EV Charger?",
+    answer: "If your home currently operates on an older 100-Amp main electrical panel with electric heating or hot water, adding a continuous 48-Amp EV charger will overload your service. A 200-Amp panel upgrade provides full NEC Article 220 capacity."
+  },
+  {
+    question: "How Long Does a 200-Amp Service Panel Upgrade Take in Bend, OR?",
+    answer: "A main panel upgrade takes 1 business day. We schedule the utility disconnect with Pacific Power, install the new 200A breaker panel and meter base, and coordinate City of Bend building inspection sign-off."
+  }
+];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <EnterpriseSchemaGraph
+    title={pageTitle}
+    description={pageDescription}
+    path="/services/panel-capacity-upgrade"
+    pageType="service"
+    faqs={panelFaqs}
+  />
+
+  <Breadcrumbs pathName="Panel Capacity Upgrade" />
+
+  <section class="py-16 sm:py-20 bg-white border-b border-brand-slate-200 grid-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-7 space-y-6">
+          <span class="mono-tag">SERVICE PANEL CAPACITY UPGRADE</span>
+
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-950 tracking-tight leading-tight">
+            200-Amp Electrical Panel Upgrade in <span class="text-emerald-700">Bend, OR</span>
+          </h1>
+
+          <!-- BLUF Block -->
+          <BLUFBlock
+            locationName="Bend, OR"
+            solution="Heavy-up 100A to 200A main breaker panel replacement with new meter base and whole-home surge protection"
+            priceRange="$1,850 – $3,450 net after rebates"
+            rebateInfo="IRS Section 30C tax credit and utility rebates applicable"
+            recommendation="200A main breaker panel replacement to support simultaneous 48A EV charging and heat pump loads"
+          />
+
+          <p class="text-sm sm:text-base text-slate-800 leading-relaxed font-semibold">
+            Is your 100-Amp breaker box out of capacity? We perform 200A main electrical panel upgrades across Bend and Deschutes County to power Level 2 EV chargers safely.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 pt-2">
+            <PrimaryButton
+              href={`tel:${SITE_CONFIG.phoneClean}`}
+              text={`CALL: ${SITE_CONFIG.phone}`}
+              icon="phone"
+            />
+            <SecondaryButton
+              href="#quote-form"
+              text="Request Panel Quote"
+            />
+          </div>
+        </div>
+
+        <div class="lg:col-span-5" id="quote-form">
+          <ContactForm />
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Accordion Component -->
+  <FAQAccordion
+    title="Panel Capacity Upgrade FAQs"
+    faqs={panelFaqs}
+  />
+
+  <section class="py-16 bg-brand-slate-50 border-b border-brand-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <PricingDisclaimerBox />
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ArticleHeroCard
+        title="Upgrade Your Panel to 200A in Bend, OR"
+        subtitle="Speak directly with our Oregon CCB master electricians for panel load calculations."
+      />
+    </div>
+  </section>
+</BaseLayout>

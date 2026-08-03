@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import EnterpriseSchemaGraph from '../components/EnterpriseSchemaGraph.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { SITE_CONFIG } from '../config/site';
+
+const pageTitle = "Contact Electrician Network | EV Charger Installation Bend OR";
+const pageDescription = "Get in touch with Oregon CCB #248910 licensed master electricians for Level 2 EV charger installations across Bend, Redmond, and Sisters, OR.";
+
+const contactFaqs = [
+  {
+    question: "How quickly can an electrician inspect my panel for an EV charger?",
+    answer: "Our licensed Oregon master electricians respond within 24 hours to conduct an NEC Article 220 service load audit and schedule your installation."
+  }
+];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <EnterpriseSchemaGraph
+    title={pageTitle}
+    description={pageDescription}
+    path="/contact"
+    pageType="contact"
+    faqs={contactFaqs}
+  />
+
+  <Breadcrumbs pathName="Contact Dispatch" />
+
+  <section class="py-16 sm:py-20 bg-white grid-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <div class="lg:col-span-7 space-y-6">
+          <span class="mono-tag">// DIRECT DISPATCH DESK</span>
+          <h1 class="text-4xl sm:text-6xl font-black text-slate-950 tracking-tight leading-tight">
+            Connect With a <span class="text-emerald-800">Master Electrician</span>
+          </h1>
+          <p class="text-base sm:text-lg text-slate-950 font-bold leading-relaxed">
+            Need a Level 2 EV charger installed in Bend, Redmond, Sisters, Sunriver, La Pine, or Prineville? Request your fixed-price quote or contact our licensed electrical dispatch desk directly.
+          </p>
+
+          <div class="p-8 bg-slate-950 text-white rounded-3xl space-y-6 border-2 border-emerald-500 shadow-2xl">
+            <h2 class="text-xl font-black text-white">📞 DIRECT ELECTRICIAN DISPATCH</h2>
+            <div class="text-3xl font-black text-emerald-400">
+              {SITE_CONFIG.phone}
+            </div>
+            <p class="text-xs text-slate-300 font-bold">
+              Oregon Construction Contractors Board CCB #248910 Partner Network. 100% Permitted & Insured.
+            </p>
+            <a
+              href={`tel:${SITE_CONFIG.phoneClean}`}
+              aria-label={`Call Electrician at ${SITE_CONFIG.phone}`}
+              style="background-color: #047857; color: #ffffff;"
+              class="w-full py-4 px-6 text-center text-sm font-black rounded-xl shadow-xl hover:bg-emerald-600 transition-colors inline-flex items-center justify-center gap-2 min-h-[48px]"
+            >
+              <span style="color: #ffffff;" class="font-black">CALL: {SITE_CONFIG.phone}</span>
+            </a>
+          </div>
+
+          <div class="bg-brand-slate-50 border-2 border-brand-slate-300 rounded-3xl p-8 space-y-4">
+            <h2 class="text-2xl font-black text-slate-950">Service Area Coverage:</h2>
+            <ul class="space-y-3 font-mono text-xs text-slate-950 font-bold">
+              <li class="p-3 bg-white border border-brand-slate-200 rounded-xl">📍 <strong>Bend, OR:</strong> 97701, 97702, 97703</li>
+              <li class="p-3 bg-white border border-brand-slate-200 rounded-xl">📍 <strong>Redmond, OR:</strong> 97756</li>
+              <li class="p-3 bg-white border border-brand-slate-200 rounded-xl">📍 <strong>Sisters, OR:</strong> 97759</li>
+              <li class="p-3 bg-white border border-brand-slate-200 rounded-xl">📍 <strong>Sunriver, OR:</strong> 97707</li>
+              <li class="p-3 bg-white border border-brand-slate-200 rounded-xl">📍 <strong>Prineville, OR:</strong> 97754</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5">
+          <ContactForm />
+        </div>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>

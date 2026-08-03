@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "pplsi-cc51f"
+  },
+  "targets": {
+    "pplsi-cc51f": {
+      "hosting": {
+        "ev-charger-bend-or": [
+          "ev-charger-bend-or"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,177 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import EnterpriseSchemaGraph from '../components/EnterpriseSchemaGraph.astro';
+import HeroInteractiveGauge from '../components/HeroInteractiveGauge.astro';
+import PageHeroTrustCard from '../components/PageHeroTrustCard.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import AtomicAnswerBlock from '../components/AtomicAnswerBlock.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+import ArticleHeroCard from '../components/ArticleHeroCard.astro';
+import { SITE_CONFIG } from '../config/site';
+
+const pageTitle = "NEC Article 220 EV Charger Load & Panel Capacity Calculator | Bend, OR";
+const pageDescription = "Interactive NEC Article 220 EV charger load calculation tool for Bend & Central Oregon. Calculate 240V Level 2 charging speeds, 200A panel capacity, breaker ampacity, and Pacific Power $500 rebate savings.";
+
+const calculatorFaqs = [
+  {
+    question: "What is an NEC Article 220 Load Calculation for EV Charger Installation?",
+    answer: "An NEC Article 220 load calculation determines your home's total continuous and non-continuous electrical load in volt-amperes (VA). It evaluates existing HVAC, range, water heater, and lighting loads against your main breaker rating (100A, 150A, or 200A) to ensure adding a 60A EV breaker will not exceed panel limits."
+  },
+  {
+    question: "How Many Amps Does a Level 2 EV Charger Require?",
+    answer: "A standard 48A hardwired Level 2 EV charger requires a dedicated 60A 2-pole 240V circuit breaker under NEC 625.41 continuous load code. A 40A plug-in charger requires a 50A GFCI circuit breaker."
+  },
+  {
+    question: "What Happens If My Panel Load Calculation Exceeds 80% Capacity?",
+    answer: "If adding a 60A EV breaker pushes total calculated load above 80% of your main breaker rating (160A on a 200A panel), you must perform a 200A panel heavy-up upgrade or install a smart energy management load-shedding device."
+  },
+  {
+    question: "How Much Does an EV Panel Capacity Upgrade Cost in Bend, OR?",
+    answer: "Upgrading a 100A panel to a 200A main service panel costs between $1,850 and $3,200 installed in Bend, including City of Bend trade permits and utility power disconnect sign-offs."
+  }
+];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <EnterpriseSchemaGraph
+    title={pageTitle}
+    description={pageDescription}
+    path="/calculator"
+    pageType="calculator"
+    imageUrl={`${SITE_CONFIG.baseUrl}/images/electrical-panel-upgrade-200a.webp`}
+    faqs={calculatorFaqs}
+  />
+
+  <Breadcrumbs pathName="EV Load Calculator" />
+
+  <!-- Hero Section -->
+  <section class="py-16 sm:py-20 bg-slate-950 text-white border-b border-slate-800 grid-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-7 space-y-6">
+          <span class="mono-tag">⚡ NEC ARTICLE 220 COMPUTATION ENGINE</span>
+          
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
+            EV Charger Panel Load & <span class="text-emerald-400">Amperage Calculator</span>
+          </h1>
+          
+          <p class="text-slate-300 text-base sm:text-lg font-normal leading-relaxed">
+            Calculate your home's electrical service panel headroom, 240V Level 2 charging speeds (miles added per hour), continuous breaker ampacity, and Pacific Power $500 rebate savings across Bend, Redmond, and Central Oregon.
+          </p>
+
+          <div class="flex flex-wrap gap-2 pt-2 font-mono text-xs font-bold text-slate-300">
+            <span class="bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-lg">⚡ Tesla 48A (11.5 kW)</span>
+            <span class="bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-lg">⚡ Ford Lightning 80A (19.2 kW)</span>
+            <span class="bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-lg">⚡ Rivian 48A (11.5 kW)</span>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5">
+          <PageHeroTrustCard
+            badge="📊 FREE TECHNICAL AUDIT"
+            title="Questions About Panel Capacity?"
+            subtitle="Speak to a licensed Oregon electrician to verify if your main breaker panel has adequate headroom for a 60A EV circuit."
+            bullet1="✓ Free NEC 220 Household Load Audit"
+            bullet2="✓ 200A Panel Upgrade Assessment"
+            bullet3="✓ Binding Fixed-Price Quote"
+          />
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Gauge Engine Section -->
+  <section class="py-16 bg-brand-slate-50 border-b border-brand-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <HeroInteractiveGauge locationName="Bend & Central Oregon" />
+    </div>
+  </section>
+
+  <!-- Deep Engineering Prose Section: NEC Article 220 Math -->
+  <section class="py-16 bg-white border-b border-brand-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <div class="max-w-3xl space-y-3">
+        <span class="mono-tag">// ENGINEERING METHODOLOGY</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-950">
+          Understanding NEC Article 220 Household Load Calculation Math
+        </h2>
+        <p class="text-slate-700 font-normal leading-relaxed">
+          Before installing a 240-volt Level 2 electric vehicle charger in Bend, OR, Oregon Electrical Specialty Code requires a formal branch circuit load calculation. Electric vehicle chargers operate as continuous loads under NEC 625.41, drawing 100% rated power for 3 hours or longer.
+        </p>
+      </div>
+
+      <!-- Load Math Matrix Table -->
+      <div class="bg-brand-slate-50 border-2 border-slate-900 rounded-3xl p-6 shadow-xl space-y-4">
+        <h3 class="text-xl font-black text-slate-950">NEC 220 Standard Calculation Formula Matrix</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left font-mono text-xs text-slate-950 border-collapse">
+            <thead>
+              <tr class="bg-slate-950 text-white">
+                <th class="p-3 border border-slate-800 font-black">Load Category</th>
+                <th class="p-3 border border-slate-800 font-black">NEC Code Reference</th>
+                <th class="p-3 border border-slate-800 font-black">Demand Factor Applied</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-300 font-bold">
+              <tr>
+                <td class="p-3">General Lighting & Receptacles</td>
+                <td class="p-3">NEC 220.12</td>
+                <td class="p-3 text-emerald-800">3 VA per sq. ft. (First 3,000 VA @ 100%, Remainder @ 35%)</td>
+              </tr>
+              <tr>
+                <td class="p-3">Small Appliance & Laundry Circuits</td>
+                <td class="p-3">NEC 220.52</td>
+                <td class="p-3 text-emerald-800">1,500 VA per circuit (Min 3 circuits = 4,500 VA)</td>
+              </tr>
+              <tr>
+                <td class="p-3">Fast-Electric EV Charger (Continuous)</td>
+                <td class="p-3">NEC 625.41</td>
+                <td class="p-3 text-emerald-800 font-black">125% of Continuous Amperage (48A x 1.25 = 60A Breaker)</td>
+              </tr>
+              <tr>
+                <td class="p-3">Electric Space Heating / Heat Pump</td>
+                <td class="p-3">NEC 220.51</td>
+                <td class="p-3 text-emerald-800">100% of Nameplate Rating</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Atomic Answer Micro-Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <AtomicAnswerBlock
+          heading="How Do I Know If My 200A Panel Can Support a Tesla 48A Charger?"
+          triggerPhrase="In summary,"
+          answer="if your home total calculated non-EV load is below 140 Amps (33,600 VA), a 200A main panel has sufficient capacity to support a dedicated 60A Tesla Wall Connector circuit without requiring a panel upgrade."
+          href="/200-amp-electrical-panel-upgrade-bend-or"
+        />
+
+        <AtomicAnswerBlock
+          heading="What Wire Size Eliminates Voltage Drop Over Long Garage Circuit Runs?"
+          triggerPhrase="The key takeaway is"
+          answer="for circuit runs exceeding 75 feet from main panel to garage, installing 6 AWG THHN copper wire inside rigid EMT conduit keeps voltage drop below 2%, preventing charger error shutdowns during winter battery pre-heating."
+          href="/hardwired-vs-plugin-ev-charger"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculator FAQs -->
+  <FAQAccordion
+    title="EV Load Calculation FAQs"
+    subtitle="Verified answers from Oregon CCB licensed master electricians."
+    faqs={calculatorFaqs}
+  />
+
+  <section class="py-20 bg-brand-slate-50 border-t border-brand-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ArticleHeroCard
+        title="Need an On-Site Panel Load Calculation in Bend?"
+        subtitle="Speak directly to our licensed Oregon electrician team. Fixed-price binding estimates delivered in 1 business hour."
+      />
+    </div>
+  </section>
+</BaseLayout>

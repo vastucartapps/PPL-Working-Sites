@@ -1,0 +1,40 @@
+---
+import { LocationData } from '../config/locations';
+
+export interface Props {
+  location?: LocationData;
+  pathName?: string;
+}
+
+const { location, pathName } = Astro.props;
+
+const currentCity = location ? location.name : 'Bend';
+const currentSlug = location ? location.slug : 'bend';
+
+const items = [
+  { name: 'Home', url: '/' },
+  { name: 'Locations', url: '/locations' },
+  { name: currentCity, url: `/locations/${currentSlug}` }
+];
+
+if (pathName) {
+  items.push({ name: pathName, url: '#' });
+}
+---
+
+<nav aria-label="Breadcrumb" class="py-3 px-4 bg-brand-slate-100 border-b border-brand-slate-200">
+  <ol class="max-w-7xl mx-auto flex items-center gap-2 font-mono text-xs font-black text-slate-950 flex-wrap">
+    {items.map((item, idx) => (
+      <li class="flex items-center gap-2">
+        {idx > 0 && <span class="text-slate-400">›</span>}
+        {idx === items.length - 1 ? (
+          <span class="text-emerald-800 font-black">{item.name}</span>
+        ) : (
+          <a href={item.url} class="text-slate-950 hover:text-emerald-800 transition-colors">
+            {item.name}
+          </a>
+        )}
+      </li>
+    ))}
+  </ol>
+</nav>
