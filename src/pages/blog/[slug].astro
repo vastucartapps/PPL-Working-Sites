@@ -1,0 +1,43 @@
+---
+import ArticleTemplate from '../../components/ArticleTemplate.astro';
+import { getTopicData, TOPIC_ARTICLES_DATA } from '../../config/articleTopics';
+import { BLOG_SLUGS } from '../[slug].astro';
+
+export function getStaticPaths() {
+  const allSlugs = Object.keys(TOPIC_ARTICLES_DATA);
+  return allSlugs.map((slug) => ({
+    params: { slug },
+    props: { slug }
+  }));
+}
+
+export interface Props {
+  slug: string;
+}
+
+const { slug } = Astro.props;
+const topic = getTopicData(slug);
+---
+
+<ArticleTemplate
+  title={topic.title}
+  category={topic.category}
+  readTime={topic.readTime}
+  canonicalPath={`/blog/${slug}`}
+  bluf={topic.bluf}
+  specs={topic.specs}
+  sections={topic.sections}
+  featuredImage={{
+    src: topic.featuredImageSrc,
+    alt: `${topic.title} Featured Installation Image`
+  }}
+  sectionalImage={{
+    src: topic.sectionalImageSrc,
+    alt: `${topic.title} Technical Wiring & Conduit Sectional Illustration`,
+    caption: '6 AWG THHN Copper Wire Pulled in EMT Rigid Metal Conduit (NEC 625)'
+  }}
+  faqs={topic.faqs}
+  internalLinks={topic.internalLinks}
+  cityName="Bend & Central Oregon"
+  state="OR"
+/>

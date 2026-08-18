@@ -22,8 +22,8 @@ export interface TopicContent {
 }
 
 export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
-  "s01-01-01-60a-circuit-breaker-6-awg-thhn-copper-wiring-load-calculation-bend": {
-    "slug": "s01-01-01-60a-circuit-breaker-6-awg-thhn-copper-wiring-load-calculation-bend",
+  "60a-circuit-breaker-6-awg-thhn-copper-wiring-load-calculation-bend": {
+    "slug": "60a-circuit-breaker-6-awg-thhn-copper-wiring-load-calculation-bend",
     "title": "60A Circuit Breaker & 6 AWG THHN Copper Wiring Load Calculation Guide for Bend OR Homes",
     "category": "Electrical Calculations & Code",
     "readTime": "22 min read",
