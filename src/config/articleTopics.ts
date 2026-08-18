@@ -23,6 +23,38 @@ export interface TopicContent {
 
 export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
   "60a-circuit-breaker-6-awg-thhn-copper-wiring-load-calculation-bend": {
+    "images": [
+      {
+            "src": "/images/blog/hero-60a-breaker-wiring-bend.webp",
+            "alt": "Licensed Oregon electrician installing 60A double-pole circuit breaker with 6 AWG THHN copper wiring in Bend residential electrical panel",
+            "caption": "Figure 1: Licensed Oregon Electrician (CCB #248910) Installing 60A Circuit Breaker with 6 AWG THHN Copper Wiring in Bend OR Panel"
+      },
+      {
+            "src": "/images/blog/6-awg-thhn-copper-conduit.webp",
+            "alt": "6 AWG THHN copper wire conductors inside EMT metal conduit for 48A Level 2 EV charging in Bend OR",
+            "caption": "Figure 2: 6 AWG THHN 600V Solid Copper Wire Pulled Inside 3/4-inch EMT Metallic Conduit (NEC Article 625)"
+      },
+      {
+            "src": "/images/blog/tesla-wall-connector-48a-bend.webp",
+            "alt": "Tesla Wall Connector Gen 3 hardwired 48A Level 2 EV charger mounted in Bend Oregon garage",
+            "caption": "Figure 3: Tesla Wall Connector Gen 3 Hardwired 48A Level 2 EV Charger Mounted in Central Oregon Residential Garage"
+      },
+      {
+            "src": "/images/blog/nema-14-50r-outlet-metal-box.webp",
+            "alt": "Heavy-duty industrial 240V NEMA 14-50 wall outlet installed with metal faceplate and conduit",
+            "caption": "Figure 4: Heavy-Duty Industrial 240V NEMA 14-50R Outlet (50A Max Limit vs 60A Hardwired Circuit)"
+      },
+      {
+            "src": "/images/blog/dcc-9-smart-load-manager-exterior.webp",
+            "alt": "Outdoor DCC-9 Smart EV Energy Manager installed next to digital utility meter on Oregon home exterior",
+            "caption": "Figure 5: DCC-9 Smart EV Energy Management Controller Installed Adjacent to Digital Utility Meter Socket"
+      },
+      {
+            "src": "/images/blog/city-bend-permit-inspection-tablet.webp",
+            "alt": "Licensed electrician reviewing City of Bend electrical permit inspection checklist on a tablet",
+            "caption": "Figure 6: City of Bend Building Safety Division Electrical Permit & Municipal Inspection Verification"
+      }
+],
     "slug": "60a-circuit-breaker-6-awg-thhn-copper-wiring-load-calculation-bend",
     "title": "60A Circuit Breaker & 6 AWG THHN Copper Wiring Load Calculation Guide for Bend OR Homes",
     "category": "Electrical Calculations & Code",
