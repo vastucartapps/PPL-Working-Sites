@@ -15,7 +15,6 @@ export interface Props {
   faqs?: Array<{ question: string; answer: string }>;
   articleAuthor?: string;
   publishDate?: string;
-  howToSteps?: Array<{ name: string; text: string }>;
 }
 
 const {
@@ -26,14 +25,7 @@ const {
   images = [],
   faqs = [],
   articleAuthor = "Oregon Master Electrician Desk (CCB #248910)",
-  publishDate = "2026-01-15",
-  howToSteps = [
-    { name: "Calculate Circuit Load", text: "Apply the NEC 625 125% continuous load multiplier (48A x 1.25 = 60A breaker requirement)." },
-    { name: "Select Conductor Gauge", text: "Specify 6 AWG THHN copper wire with 65A rating at 75°C terminals inside EMT metal conduit." },
-    { name: "Verify Panel Capacity", text: "Perform an NEC 220 load calculation on existing panel demand or install a DCC-9 smart load manager." },
-    { name: "Pull Municipal Permit", text: "Submit single-line wiring diagrams to the City of Bend Building Safety Division or Deschutes County." },
-    { name: "Execute Installation & Sign-Off", text: "Mount 60A breaker, torque lug terminals to 45-50 in-lbs, and obtain official municipal inspector sign-off." }
-  ]
+  publishDate = "2026-01-15"
 } = Astro.props;
 
 const currentUrl = `${SITE_CONFIG.baseUrl}${path}`;
@@ -49,70 +41,30 @@ const wikiEntities = [
   "https://en.wikipedia.org/wiki/Deschutes_County,_Oregon"
 ];
 
-// 1. Organization Schema
-const orgEntity = {
+// Build individual standalone Schema Objects for universal validator recognition
+const orgSchema = {
+  "@context": "https://schema.org",
   "@type": "Organization",
   "@id": `${SITE_CONFIG.baseUrl}/#organization`,
   "name": SITE_CONFIG.brandName,
-  "legalName": SITE_CONFIG.legalName || "EV Charger One Oregon Electrical Partner Network",
+  "legalName": "EV Charger One Oregon Electrical Network",
   "url": SITE_CONFIG.baseUrl,
   "logo": `${SITE_CONFIG.baseUrl}/images/brand-logo.webp`,
   "telephone": SITE_CONFIG.phone,
-  "email": SITE_CONFIG.contactEmail || "service@evchargerone.com",
   "sameAs": wikiEntities
 };
 
-// 2. WebSite Schema
-const webSiteEntity = {
-  "@type": "WebSite",
-  "@id": `${SITE_CONFIG.baseUrl}/#website`,
-  "url": SITE_CONFIG.baseUrl,
-  "name": SITE_CONFIG.brandName,
-  "publisher": { "@id": `${SITE_CONFIG.baseUrl}/#organization` }
-};
-
-// 3. Person (Author) Schema
-const authorEntity = {
+const authorSchema = {
+  "@context": "https://schema.org",
   "@type": "Person",
   "@id": `${SITE_CONFIG.baseUrl}/#author`,
   "name": articleAuthor,
-  "jobTitle": "Master Electrician & Electrical Safety Auditor",
+  "jobTitle": "Master Electrician",
   "worksFor": { "@id": `${SITE_CONFIG.baseUrl}/#organization` }
 };
 
-// 4. ContactPoint Schema
-const contactPointEntity = {
-  "@type": "ContactPoint",
-  "@id": `${SITE_CONFIG.baseUrl}/#contactpoint`,
-  "telephone": SITE_CONFIG.phone,
-  "contactType": "customer service",
-  "areaServed": "US-OR",
-  "availableLanguage": "en"
-};
-
-// 5. PostalAddress Schema
-const postalAddressEntity = {
-  "@type": "PostalAddress",
-  "@id": `${SITE_CONFIG.baseUrl}/#address`,
-  "addressLocality": "Bend",
-  "addressRegion": "OR",
-  "postalCode": "97701",
-  "addressCountry": "US"
-};
-
-// 6. WebPage Schema
-const webPageEntity = {
-  "@type": "WebPage",
-  "@id": `${currentUrl}#webpage`,
-  "url": currentUrl,
-  "name": title,
-  "description": description,
-  "breadcrumb": { "@id": `${currentUrl}#breadcrumb` },
-  "speakable": { "@id": `${currentUrl}#speakable` }
-};
-
-// 7. BreadcrumbList Schema
-const breadcrumbEntity = {
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "@id": `${currentUrl}#breadcrumb`,
   "itemListElement": [
@@ -122,109 +74,42 @@ const breadcrumbEntity = {
   ]
 };
 
-// 8. SpeakableSpecification Schema
-const speakableEntity = {
-  "@type": "SpeakableSpecification",
-  "@id": `${currentUrl}#speakable`,
-  "cssSelector": ["h1", ".tldr", ".geo-answer"]
-};
-
-// 9. TechArticle Schema
-const techArticleEntity = {
+const techArticleSchema = {
+  "@context": "https://schema.org",
   "@type": "TechArticle",
   "@id": `${currentUrl}#article`,
   "headline": title,
   "description": description,
   "mainEntityOfPage": currentUrl,
-  "image": mainImageUrl,
-  "author": { "@id": `${SITE_CONFIG.baseUrl}/#author` },
-  "publisher": { "@id": `${SITE_CONFIG.baseUrl}/#organization` },
+  "image": images.map(img => `${SITE_CONFIG.baseUrl}${img.src}`),
+  "author": authorSchema,
+  "publisher": orgSchema,
   "datePublished": publishDate,
   "dateModified": publishDate,
   "proficientLevel": "Expert",
-  "dependencies": "NEC 2023 Article 625, City of Bend Electrical Permit, Oregon CCB #248910"
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": ["h1", ".tldr", ".geo-answer"]
+  }
 };
 
-// 10. DefinedTermSet Schema
-const definedTermSetEntity = {
-  "@type": "DefinedTermSet",
-  "@id": `${SITE_CONFIG.baseUrl}/#definedtermset`,
-  "name": "NEC 2023 Article 625 EV Charging Standard Terms"
-};
-
-// 11 & 12. DefinedTerm Schemas (x2)
-const term1Entity = {
-  "@type": "DefinedTerm",
-  "@id": `${SITE_CONFIG.baseUrl}/#term-continuous-load`,
-  "name": "Continuous Electrical Load",
-  "description": "An electrical load where maximum current is expected to continue for 3 hours or more, requiring 125% overcurrent protection under NEC 625.42.",
-  "inDefinedTermSet": { "@id": `${SITE_CONFIG.baseUrl}/#definedtermset` }
-};
-
-const term2Entity = {
-  "@type": "DefinedTerm",
-  "@id": `${SITE_CONFIG.baseUrl}/#term-thhn-copper`,
-  "name": "6 AWG THHN Copper Conductor",
-  "description": "Thermoplastic High Heat-resistant Nylon-coated copper wire rated for 65A at 75°C terminal temperature rating.",
-  "inDefinedTermSet": { "@id": `${SITE_CONFIG.baseUrl}/#definedtermset` }
-};
-
-// 13. Service Schema
-const serviceEntity = {
-  "@type": "Service",
-  "@id": `${currentUrl}#service`,
-  "name": "60A Dedicated Circuit Level 2 EV Charger Installation",
-  "serviceType": "Electrical Contractor Service",
-  "provider": { "@id": `${SITE_CONFIG.baseUrl}/#organization` },
-  "areaServed": cityName,
-  "hasOfferCatalog": { "@id": `${currentUrl}#offercatalog` }
-};
-
-// 14. OfferCatalog Schema
-const offerCatalogEntity = {
-  "@type": "OfferCatalog",
-  "@id": `${currentUrl}#offercatalog`,
-  "name": `EV Charger Electrical Services in ${cityName}`,
-  "itemListElement": [
-    {
-      "@type": "Offer",
-      "name": "Hardwired 48A EV Charger 60A Circuit Installation",
-      "priceCurrency": "USD",
-      "price": "850.00",
-      "priceValidUntil": "2026-12-31"
-    }
-  ]
-};
-
-// 15. HowTo Schema
-const howToEntity = {
+const howToSchema = {
+  "@context": "https://schema.org",
   "@type": "HowTo",
   "@id": `${currentUrl}#howto`,
   "name": `How to Calculate & Install a 60A EV Charger Circuit in ${cityName}`,
-  "description": "Step-by-step engineering protocol for installing a 60A circuit breaker and 6 AWG THHN copper wire for 48A Level 2 EV charging.",
-  "step": howToSteps.map((s, idx) => ({
-    "@type": "HowToStep",
-    "position": idx + 1,
-    "name": s.name,
-    "text": s.text
-  }))
+  "description": "Engineering protocol for installing a 60A breaker and 6 AWG THHN copper wire for 48A Level 2 EV charging.",
+  "step": [
+    { "@type": "HowToStep", "position": 1, "name": "Calculate Continuous Load", "text": "Apply NEC 625 125% continuous load multiplier (48A x 1.25 = 60A breaker requirement)." },
+    { "@type": "HowToStep", "position": 2, "name": "Specify 6 AWG THHN Copper Conductor", "text": "Pull 6 AWG THHN copper wire rated for 65A at 75°C terminals inside EMT conduit." },
+    { "@type": "HowToStep", "position": 3, "name": "Verify Panel Capacity (NEC Article 220)", "text": "Perform load calculation on main service panel or install a DCC-9 smart load manager." },
+    { "@type": "HowToStep", "position": 4, "name": "Pull City of Bend Electrical Permit", "text": "Submit single-line wiring diagram to City of Bend Building Safety Division." },
+    { "@type": "HowToStep", "position": 5, "name": "Execute Installation & Inspection", "text": "Torque breaker lugs to 45-50 in-lbs and receive municipal inspector sign-off." }
+  ]
 };
 
-// 16-21. ImageObject Schemas (x6 for Hero + 5 Body Images)
-const imageSchemas = images.map((img, idx) => ({
-  "@type": "ImageObject",
-  "@id": `${SITE_CONFIG.baseUrl}${img.src}#image${idx + 1}`,
-  "url": `${SITE_CONFIG.baseUrl}${img.src}`,
-  "contentUrl": `${SITE_CONFIG.baseUrl}${img.src}`,
-  "caption": img.caption || img.alt,
-  "description": img.alt,
-  "width": 1280,
-  "height": 714,
-  "author": { "@id": `${SITE_CONFIG.baseUrl}/#organization` }
-}));
-
-// 22. FAQPage Schema
-const faqEntity = faqs.length > 0 ? {
+const faqSchema = faqs.length > 0 ? {
+  "@context": "https://schema.org",
   "@type": "FAQPage",
   "@id": `${currentUrl}#faq`,
   "mainEntity": faqs.map(f => ({
@@ -237,29 +122,23 @@ const faqEntity = faqs.length > 0 ? {
   }))
 } : null;
 
-// Combined Flat @graph payload containing ALL 22 Entities
-const fullGraphPayload = {
+// Individual ImageObject Schemas for all 6 Images
+const imageSchemas = images.map((img, idx) => ({
   "@context": "https://schema.org",
-  "@graph": [
-    orgEntity,
-    webSiteEntity,
-    authorEntity,
-    contactPointEntity,
-    postalAddressEntity,
-    webPageEntity,
-    breadcrumbEntity,
-    speakableEntity,
-    techArticleEntity,
-    definedTermSetEntity,
-    term1Entity,
-    term2Entity,
-    serviceEntity,
-    offerCatalogEntity,
-    howToEntity,
-    ...imageSchemas,
-    ...(faqEntity ? [faqEntity] : [])
-  ]
-};
+  "@type": "ImageObject",
+  "@id": `${SITE_CONFIG.baseUrl}${img.src}#image${idx + 1}`,
+  "url": `${SITE_CONFIG.baseUrl}${img.src}`,
+  "caption": img.caption,
+  "description": img.alt,
+  "width": 1280,
+  "height": 714
+}));
 ---
 
-<script type="application/ld+json" set:html={JSON.stringify(fullGraphPayload)} />
+<script type="application/ld+json" set:html={JSON.stringify(techArticleSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
+{faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
+{imageSchemas.map(imgSchema => (
+  <script type="application/ld+json" set:html={JSON.stringify(imgSchema)} />
+))}

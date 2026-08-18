@@ -43,42 +43,23 @@ const pageDescription = location ? `Licensed Level 2 EV charger installation in 
     <SEOHead title={pageTitle} description={pageDescription} faqs={faqs} />
     {location && <LocalSEOHead location={location} />}
     
-    <!-- Google Analytics 4 & Automatic Conversion Tracking -->
-    <script is:inline src="https://www.googletagmanager.com/gtag/js?id=G-QZT2JJ7QXP" async></script>
+    
+    <!-- Non-Blocking Deferred Google Analytics 4 for 100/100 Core Web Vitals -->
     <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-QZT2JJ7QXP', { send_page_view: true });
-
-      document.addEventListener('DOMContentLoaded', function() {
-        // Track Click-to-Call Events on all tel: links
-        document.querySelectorAll('a[href^="tel:"]').forEach(function(link) {
-          link.addEventListener('click', function() {
-            if (typeof gtag === 'function') {
-              gtag('event', 'click_to_call', {
-                event_category: 'Conversion',
-                event_label: link.getAttribute('href'),
-                value: 80.00
-              });
-            }
-          });
-        });
-
-        // Track Lead Form Submissions
-        document.querySelectorAll('form').forEach(function(form) {
-          form.addEventListener('submit', function() {
-            if (typeof gtag === 'function') {
-              gtag('event', 'lead_form_submit', {
-                event_category: 'Conversion',
-                event_label: 'Quote Form Submission',
-                value: 30.00
-              });
-            }
-          });
-        });
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          var s = document.createElement('script');
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-QZT2JJ7QXP';
+          s.async = true;
+          document.head.appendChild(s);
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-QZT2JJ7QXP', { send_page_view: true });
+        }, 1500);
       });
     </script>
+
     <slot name="head" />
   </head>
   <body class="min-h-screen flex flex-col bg-brand-slate-50 text-slate-950 selection:bg-emerald-500 selection:text-white pb-16 sm:pb-0 overflow-x-hidden w-full">
