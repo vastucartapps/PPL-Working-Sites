@@ -60,7 +60,7 @@ const pageDescription = `Licensed Oregon electrician ${titleText} in ${localData
 const serviceFaqs = [
   {
     question: `1. How Much Does ${titleText} Cost in ${localData.cityName}, ${localData.state}?`,
-    answer: `${titleText} in ${localData.cityName} ranges between $650 and $1,250 depending on breaker panel distance and panel capacity. Homeowners in ${localData.utility.name} territory qualify for an instant ${localData.utility.rebateAmount} cash-back rebate, bringing net costs down to $315–$650.`
+    answer: `${titleText} in ${localData.cityName} ranges between standard garage installation costs depending on breaker panel distance and panel capacity. Homeowners in ${localData.utility.name} territory qualify for an instant ${localData.utility.rebateAmount} cash-back rebate, bringing net costs down to qualifying net installation costs.`
   },
   {
     question: `2. Which Building Permit Office Issues Trade Permits for ${localData.cityName}?`,
@@ -123,7 +123,7 @@ const serviceFaqs = [
           <BLUFBlock
             locationName={`${localData.cityName}, ${localData.state}`}
             solution={`Continuous 48A hardwired installation or 50A 240V circuit in ${localData.cityName} installed by licensed Oregon master electricians`}
-            priceRange="$315 – $650 net out-of-pocket after rebate"
+            priceRange="qualifying net installation costs net out-of-pocket after rebate"
             rebateInfo={`${localData.utility.rebateAmount} ${localData.utility.name} rebate handled directly by electrician`}
             recommendation={`Hardwired 60A circuit breaker with ${localData.permit.office} trade permit sign-off`}
           />

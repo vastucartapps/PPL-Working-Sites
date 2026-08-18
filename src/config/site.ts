@@ -1,42 +1,46 @@
 export const SITE_CONFIG = {
-  // Brand & Niche Identifiers
-  brandName: "{{BRAND_NAME}}",          // e.g., "Bend Roofing Masters"
-  domain: "{{DOMAIN_NAME}}",            // e.g., "bendroofingmasters.com"
-  baseUrl: "https://{{DOMAIN_NAME}}",
-  defaultTitle: "{{DEFAULT_TITLE}}",    // e.g., "Roof Replacement Bend OR | Licensed Roofing Contractors"
-  defaultDescription: "{{DEFAULT_DESCRIPTION}}",
+  // Brand & Master Meta
+  brandName: "EV Charger One",
+  domain: "evchargerone.com",
+  baseUrl: "https://evchargerone.com",
+  defaultTitle: "⚡ #1 Level 2 EV Charger Installation Bend OR | (888) 217-4060",
+  defaultDescription: "Licensed 240V Level 2 EV charger installation across Bend & Central Oregon. Same-day Tesla Wall Connector & NEMA 14-50 installers. Call (888) 217-4060 for instant estimate.",
 
   // GOOGLE ANALYTICS & GOOGLE SEARCH CONSOLE VERIFICATION
-  googleAnalyticsId: "{{GA4_ID}}",
-  googleSiteVerification: "{{GSC_VERIFICATION_TOKEN}}",
+  googleAnalyticsId: "G-QZT2JJ7QXP",
+  googleSiteVerification: "GSC_VERIFICATION_TOKEN",
 
   // SINGLE SOURCE OF TRUTH (SSOT) PAY-PER-CALL ROUTING
-  phone: "{{PHONE_FORMATTED}}",          // e.g., "(888) 504-4842"
-  phoneClean: "{{PHONE_CLEAN}}",        // e.g., "8885044842"
-  operatingHours: "Mon-Sun 24/7 Emergency Service",
+  phone: "(888) 217-4060",
+  phoneClean: "18882174060",
+  operatingHours: "Mon-Sun 7:00 AM - 8:00 PM PST",
 
   // Lead Dispatch Webhook & Form Endpoint
   web3FormsAccessKey: "{{WEB3FORMS_ACCESS_KEY}}",
-  leadEmailSubject: "🔥 NEW HIGH-INTENT LEAD - {{BRAND_NAME}}",
+  leadEmailSubject: "🔥 NEW HIGH-INTENT LEAD - EV Charger One",
 
   // Legal & Contractor Credentials
-  ccbLicense: "{{STATE_LICENSE_PARTNER_NETWORK}}", // e.g., "Oregon CCB Partner Network"
-  ccbLicenseNumber: "{{STATE_LICENSE_NUMBER}}",
-  utilityPartner: "{{LOCAL_UTILITY_PARTNER}}",
-  rebateAmount: "{{REBATE_AMOUNT}}",
+  ccbLicense: "Oregon CCB #248910 Partner Network",
+  ccbLicenseNumber: "CCB #248910",
+  utilityPartner: "Pacific Power Oregon",
+  rebateAmount: "utility rebate",
 
   // Regional HQ Location
   location: {
-    city: "{{HQ_CITY}}",
-    state: "{{HQ_STATE}}",
-    zip: "{{HQ_ZIP}}",
-    county: "{{HQ_COUNTY}}",
-    latitude: 0.0,
-    longitude: 0.0
+    city: "Bend",
+    state: "OR",
+    zip: "97701",
+    county: "Deschutes County",
+    latitude: 44.0582,
+    longitude: -121.3153
   },
 
   // Service Cities Array
   cities: [
-    { name: "{{HQ_CITY}}", zip: "{{HQ_ZIP}}" }
+    { name: "Bend", zip: "97701" },
+    { name: "Redmond", zip: "97756" },
+    { name: "Sisters", zip: "97759" },
+    { name: "Sunriver", zip: "97707" },
+    { name: "La Pine", zip: "97739" }
   ]
 };

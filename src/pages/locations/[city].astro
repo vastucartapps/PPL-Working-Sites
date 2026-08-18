@@ -27,13 +27,13 @@ export interface Props {
 
 const { location } = Astro.props;
 
-const pageTitle = `Level 2 EV Charger Installation in ${location.name}, OR | ${SITE_CONFIG.brandName}`;
+const pageTitle = `⚡ #1 Level 2 EV Charger Installation in ${location.name}, OR | (888) 217-4060`;
 const pageDescription = `Licensed Oregon CCB #248910 electricians installing Level 2 EV chargers & Tesla Wall Connectors in ${location.name}, ${location.state} (${location.zipCodes.join(', ')}). ${location.rebateAmount} ${location.utilityName} rebates filed.`;
 
 const locationFaqs = [
   {
     question: `How Much Does Level 2 EV Charger Installation Cost in ${location.name}, OR?`,
-    answer: `Level 2 EV charger installation in ${location.name}, OR costs between $650 and $1,250 depending on breaker box distance and panel capacity. Homeowners in ${location.utilityName} territory receive an instant $500 cash-back rebate plus a 30% Federal 30C tax credit, bringing net out-of-pocket costs to $315–$650.`
+    answer: `Level 2 EV charger installation in ${location.name}, OR costs between standard garage installation costs depending on breaker box distance and panel capacity. Homeowners in ${location.utilityName} territory receive an instant local utility rebate plus a applicable Federal tax credit, bringing net out-of-pocket costs to qualifying net installation costs.`
   },
   {
     question: `What Breaker & Wire Size is Required for a 48A Tesla Wall Connector in ${location.name}?`,
@@ -87,7 +87,7 @@ const locationFaqs = [
           <BLUFBlock
             locationName={location.name}
             solution={`Continuous 48A hardwired Tesla Wall Connector or 50A NEMA 14-50 240V circuit in ${location.name} installed by Oregon CCB master electricians`}
-            priceRange="$315 – $650 net out-of-pocket"
+            priceRange="qualifying net installation costs net out-of-pocket"
             rebateInfo={`${location.rebateAmount} ${location.utilityName} rebate handled`}
             recommendation="Hardwired 60A circuit breaker with 99.9% 6 AWG THHN copper wire in EMT conduit"
           />
@@ -156,11 +156,11 @@ const locationFaqs = [
         </a>
 
         <a href={`/locations/${location.slug}/services/commercial-ev-charging`} class="bg-white border-2 border-slate-900 rounded-2xl overflow-hidden shadow-xl card-hover block">
-          <img src="/images/commercial-ev-charging-station.webp" alt={`Commercial EV Charging in ${location.name}`} width="600" height="400" loading="lazy" decoding="async" class="w-full h-40 object-cover" />
+          <img src="/images/hero-ev-charger.webp" alt={`Residential Outdoor EV Charger in ${location.name}`} width="600" height="400" loading="lazy" decoding="async" class="w-full h-40 object-cover" />
           <div class="p-4 space-y-1">
-            <span class="mono-tag text-[10px] py-0.5 px-2">Commercial Hub</span>
-            <h3 class="text-base font-black text-slate-950">Commercial EV Pedestals</h3>
-            <p class="text-xs text-slate-700 font-normal">Dual-port 208V OCPP pedestals in {location.name}.</p>
+            <span class="mono-tag text-[10px] py-0.5 px-2">Outdoor Posts</span>
+            <h3 class="text-base font-black text-slate-950">Residential Outdoor Posts</h3>
+            <p class="text-xs text-slate-700 font-normal">Heavy-duty 48A outdoor posts in {location.name}.</p>
           </div>
         </a>
       </div>

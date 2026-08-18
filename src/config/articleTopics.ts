@@ -28,13 +28,13 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "category": "Hardware Engineering",
     "readTime": "18 min read",
     "featuredImageSrc": "/images/electrical-panel-upgrade-200a-800w.webp",
-    "sectionalImageSrc": "/images/commercial-ev-charging-station-658w.webp",
+    "sectionalImageSrc": "/images/hero-ev-charger.webp",
     "featuredImageAlt": "200 Amp Electrical Panel Upgrade Bend OR Hardwired Installation in Bend & Central Oregon Oregon on 60A Circuit",
     "sectionalImageAlt": "200 Amp Electrical Panel Upgrade Bend OR Technical Wiring & Conduit Sectional Illustration in Bend & Central Oregon",
     "bluf": {
       "solution": "Hardwired continuous 48A Level 2 EV charger installation for 200 Amp Electrical Panel Upgrade Bend OR in Bend & Central Oregon with 99.9% 6 AWG copper conductors and 60A breaker.",
-      "priceRange": "$315 – $650 net out-of-pocket after $500 rebate",
-      "rebateInfo": "$500 Pacific Power cash-back rebate handled directly by electrician",
+      "priceRange": "qualifying net installation costs net out-of-pocket after utility rebate",
+      "rebateInfo": "local utility cash-back rebate handled directly by electrician",
       "recommendation": "Hardwired 60A 2-pole circuit breaker with Bend & Central Oregon municipal trade permit sign-off."
     },
     "specs": [
@@ -56,7 +56,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "label": "Rebate Qualification",
-        "value": "$500 Pacific Power / Midstate Incentive"
+        "value": "utility rebate Pacific Power / Midstate Incentive"
       },
       {
         "label": "Permit Sign-Off Authority",
@@ -89,8 +89,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "content": "Before adding a 60A 2-pole breaker to an existing panel, electricians conduct a formal NEC Article 220 load calculation. This calculation factors in household square footage (3 Watts/sq ft), small appliance branch circuits (1,500 VA each), laundry circuit (1,500 VA), and major appliance nameplate ratings (electric heat, heat pumps, ranges, dryers).\n\nIf total calculated load plus the 60A EV circuit (14,400 VA) exceeds 80% of main panel busbar capacity (160A for a 200A panel), panel capacity expansion or smart load shedding technology (such as an Emporia Smart EVSE or DCC-9 energy management module) must be installed to prevent main breaker overloads."
       },
       {
-        "heading": "5. Utility Rebate Filing ($500 Instant Incentive) & Municipal Permits",
-        "content": "Homeowners and commercial property managers in Bend & Central Oregon qualify for an instant $500 cash-back rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the $500 rebate typically range between $315 and $650."
+        "heading": "5. Utility Rebate Filing (utility rebate Instant Incentive) & Municipal Permits",
+        "content": "Homeowners in Bend & Central Oregon qualify for an instant local utility rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the utility rebate typically range between qualifying net installation costs."
       },
       {
         "heading": "6. Commissioning, Torque Inspection & Final Safety Verification",
@@ -104,7 +104,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "question": "2. How Much Does 200 Amp Electrical Panel Upgrade Bend OR Cost in Bend & Central Oregon?",
-        "answer": "Standard residential garage Level 2 EV charger installation costs range between $650 and $1,250 depending on breaker panel distance. Net out-of-pocket costs drop to $315–$650 after rebate."
+        "answer": "Standard residential garage Level 2 EV charger installation costs range between standard garage installation costs depending on breaker panel distance. Net out-of-pocket costs drop to qualifying net installation costs after rebate."
       },
       {
         "question": "3. Is a Building Permit Required for 200 Amp Electrical Panel Upgrade Bend OR in Bend & Central Oregon?",
@@ -115,8 +115,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "answer": "A 48A hardwired charger delivers 11.52 kW output on a 60A breaker. A NEMA 14-50 plug-in outlet is capped at 32A–40A output on a 50A GFCI breaker."
       },
       {
-        "question": "5. How Does the $500 Electric Utility Rebate Work in Bend & Central Oregon?",
-        "answer": "Pacific Power and Midstate Electric offer an instant $500 cash-back rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
+        "question": "5. How Does the utility rebate Electric Utility Rebate Work in Bend & Central Oregon?",
+        "answer": "Pacific Power and Midstate Electric offer an instant local utility rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
       },
       {
         "question": "6. Do I Need a 200-Amp Main Electrical Panel Upgrade?",
@@ -161,8 +161,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "sectionalImageAlt": "Bend Electrician Rates 2026 Technical Wiring & Conduit Sectional Illustration in Bend & Central Oregon",
     "bluf": {
       "solution": "Hardwired continuous 48A Level 2 EV charger installation for Bend Electrician Rates 2026 in Bend & Central Oregon with 99.9% 6 AWG copper conductors and 60A breaker.",
-      "priceRange": "$315 – $650 net out-of-pocket after $500 rebate",
-      "rebateInfo": "$500 Pacific Power cash-back rebate handled directly by electrician",
+      "priceRange": "qualifying net installation costs net out-of-pocket after utility rebate",
+      "rebateInfo": "local utility cash-back rebate handled directly by electrician",
       "recommendation": "Hardwired 60A 2-pole circuit breaker with Bend & Central Oregon municipal trade permit sign-off."
     },
     "specs": [
@@ -184,7 +184,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "label": "Rebate Qualification",
-        "value": "$500 Pacific Power / Midstate Incentive"
+        "value": "utility rebate Pacific Power / Midstate Incentive"
       },
       {
         "label": "Permit Sign-Off Authority",
@@ -217,8 +217,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "content": "Before adding a 60A 2-pole breaker to an existing panel, electricians conduct a formal NEC Article 220 load calculation. This calculation factors in household square footage (3 Watts/sq ft), small appliance branch circuits (1,500 VA each), laundry circuit (1,500 VA), and major appliance nameplate ratings (electric heat, heat pumps, ranges, dryers).\n\nIf total calculated load plus the 60A EV circuit (14,400 VA) exceeds 80% of main panel busbar capacity (160A for a 200A panel), panel capacity expansion or smart load shedding technology (such as an Emporia Smart EVSE or DCC-9 energy management module) must be installed to prevent main breaker overloads."
       },
       {
-        "heading": "5. Utility Rebate Filing ($500 Instant Incentive) & Municipal Permits",
-        "content": "Homeowners and commercial property managers in Bend & Central Oregon qualify for an instant $500 cash-back rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the $500 rebate typically range between $315 and $650."
+        "heading": "5. Utility Rebate Filing (utility rebate Instant Incentive) & Municipal Permits",
+        "content": "Homeowners in Bend & Central Oregon qualify for an instant local utility rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the utility rebate typically range between qualifying net installation costs."
       },
       {
         "heading": "6. Commissioning, Torque Inspection & Final Safety Verification",
@@ -232,7 +232,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "question": "2. How Much Does Bend Electrician Rates 2026 Cost in Bend & Central Oregon?",
-        "answer": "Standard residential garage Level 2 EV charger installation costs range between $650 and $1,250 depending on breaker panel distance. Net out-of-pocket costs drop to $315–$650 after rebate."
+        "answer": "Standard residential garage Level 2 EV charger installation costs range between standard garage installation costs depending on breaker panel distance. Net out-of-pocket costs drop to qualifying net installation costs after rebate."
       },
       {
         "question": "3. Is a Building Permit Required for Bend Electrician Rates 2026 in Bend & Central Oregon?",
@@ -243,8 +243,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "answer": "A 48A hardwired charger delivers 11.52 kW output on a 60A breaker. A NEMA 14-50 plug-in outlet is capped at 32A–40A output on a 50A GFCI breaker."
       },
       {
-        "question": "5. How Does the $500 Electric Utility Rebate Work in Bend & Central Oregon?",
-        "answer": "Pacific Power and Midstate Electric offer an instant $500 cash-back rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
+        "question": "5. How Does the utility rebate Electric Utility Rebate Work in Bend & Central Oregon?",
+        "answer": "Pacific Power and Midstate Electric offer an instant local utility rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
       },
       {
         "question": "6. Do I Need a 200-Amp Main Electrical Panel Upgrade?",
@@ -289,8 +289,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "sectionalImageAlt": "Central Electric Coop EV Rebates Deschutes County Technical Wiring & Conduit Sectional Illustration in Bend & Central Oregon",
     "bluf": {
       "solution": "Hardwired continuous 48A Level 2 EV charger installation for Central Electric Coop EV Rebates Deschutes County in Bend & Central Oregon with 99.9% 6 AWG copper conductors and 60A breaker.",
-      "priceRange": "$315 – $650 net out-of-pocket after $500 rebate",
-      "rebateInfo": "$500 Pacific Power cash-back rebate handled directly by electrician",
+      "priceRange": "qualifying net installation costs net out-of-pocket after utility rebate",
+      "rebateInfo": "local utility cash-back rebate handled directly by electrician",
       "recommendation": "Hardwired 60A 2-pole circuit breaker with Bend & Central Oregon municipal trade permit sign-off."
     },
     "specs": [
@@ -312,7 +312,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "label": "Rebate Qualification",
-        "value": "$500 Pacific Power / Midstate Incentive"
+        "value": "utility rebate Pacific Power / Midstate Incentive"
       },
       {
         "label": "Permit Sign-Off Authority",
@@ -345,8 +345,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "content": "Before adding a 60A 2-pole breaker to an existing panel, electricians conduct a formal NEC Article 220 load calculation. This calculation factors in household square footage (3 Watts/sq ft), small appliance branch circuits (1,500 VA each), laundry circuit (1,500 VA), and major appliance nameplate ratings (electric heat, heat pumps, ranges, dryers).\n\nIf total calculated load plus the 60A EV circuit (14,400 VA) exceeds 80% of main panel busbar capacity (160A for a 200A panel), panel capacity expansion or smart load shedding technology (such as an Emporia Smart EVSE or DCC-9 energy management module) must be installed to prevent main breaker overloads."
       },
       {
-        "heading": "5. Utility Rebate Filing ($500 Instant Incentive) & Municipal Permits",
-        "content": "Homeowners and commercial property managers in Bend & Central Oregon qualify for an instant $500 cash-back rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the $500 rebate typically range between $315 and $650."
+        "heading": "5. Utility Rebate Filing (utility rebate Instant Incentive) & Municipal Permits",
+        "content": "Homeowners in Bend & Central Oregon qualify for an instant local utility rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the utility rebate typically range between qualifying net installation costs."
       },
       {
         "heading": "6. Commissioning, Torque Inspection & Final Safety Verification",
@@ -360,7 +360,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "question": "2. How Much Does Central Electric Coop EV Rebates Deschutes County Cost in Bend & Central Oregon?",
-        "answer": "Standard residential garage Level 2 EV charger installation costs range between $650 and $1,250 depending on breaker panel distance. Net out-of-pocket costs drop to $315–$650 after rebate."
+        "answer": "Standard residential garage Level 2 EV charger installation costs range between standard garage installation costs depending on breaker panel distance. Net out-of-pocket costs drop to qualifying net installation costs after rebate."
       },
       {
         "question": "3. Is a Building Permit Required for Central Electric Coop EV Rebates Deschutes County in Bend & Central Oregon?",
@@ -371,8 +371,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "answer": "A 48A hardwired charger delivers 11.52 kW output on a 60A breaker. A NEMA 14-50 plug-in outlet is capped at 32A–40A output on a 50A GFCI breaker."
       },
       {
-        "question": "5. How Does the $500 Electric Utility Rebate Work in Bend & Central Oregon?",
-        "answer": "Pacific Power and Midstate Electric offer an instant $500 cash-back rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
+        "question": "5. How Does the utility rebate Electric Utility Rebate Work in Bend & Central Oregon?",
+        "answer": "Pacific Power and Midstate Electric offer an instant local utility rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
       },
       {
         "question": "6. Do I Need a 200-Amp Main Electrical Panel Upgrade?",
@@ -417,8 +417,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "sectionalImageAlt": "Chargepoint Home Flex Vs Tesla Wall Connector Technical Wiring & Conduit Sectional Illustration in Bend & Central Oregon",
     "bluf": {
       "solution": "Hardwired continuous 48A Level 2 EV charger installation for Chargepoint Home Flex Vs Tesla Wall Connector in Bend & Central Oregon with 99.9% 6 AWG copper conductors and 60A breaker.",
-      "priceRange": "$315 – $650 net out-of-pocket after $500 rebate",
-      "rebateInfo": "$500 Pacific Power cash-back rebate handled directly by electrician",
+      "priceRange": "qualifying net installation costs net out-of-pocket after utility rebate",
+      "rebateInfo": "local utility cash-back rebate handled directly by electrician",
       "recommendation": "Hardwired 60A 2-pole circuit breaker with Bend & Central Oregon municipal trade permit sign-off."
     },
     "specs": [
@@ -440,7 +440,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "label": "Rebate Qualification",
-        "value": "$500 Pacific Power / Midstate Incentive"
+        "value": "utility rebate Pacific Power / Midstate Incentive"
       },
       {
         "label": "Permit Sign-Off Authority",
@@ -473,8 +473,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "content": "Before adding a 60A 2-pole breaker to an existing panel, electricians conduct a formal NEC Article 220 load calculation. This calculation factors in household square footage (3 Watts/sq ft), small appliance branch circuits (1,500 VA each), laundry circuit (1,500 VA), and major appliance nameplate ratings (electric heat, heat pumps, ranges, dryers).\n\nIf total calculated load plus the 60A EV circuit (14,400 VA) exceeds 80% of main panel busbar capacity (160A for a 200A panel), panel capacity expansion or smart load shedding technology (such as an Emporia Smart EVSE or DCC-9 energy management module) must be installed to prevent main breaker overloads."
       },
       {
-        "heading": "5. Utility Rebate Filing ($500 Instant Incentive) & Municipal Permits",
-        "content": "Homeowners and commercial property managers in Bend & Central Oregon qualify for an instant $500 cash-back rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the $500 rebate typically range between $315 and $650."
+        "heading": "5. Utility Rebate Filing (utility rebate Instant Incentive) & Municipal Permits",
+        "content": "Homeowners in Bend & Central Oregon qualify for an instant local utility rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the utility rebate typically range between qualifying net installation costs."
       },
       {
         "heading": "6. Commissioning, Torque Inspection & Final Safety Verification",
@@ -488,7 +488,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "question": "2. How Much Does Chargepoint Home Flex Vs Tesla Wall Connector Cost in Bend & Central Oregon?",
-        "answer": "Standard residential garage Level 2 EV charger installation costs range between $650 and $1,250 depending on breaker panel distance. Net out-of-pocket costs drop to $315–$650 after rebate."
+        "answer": "Standard residential garage Level 2 EV charger installation costs range between standard garage installation costs depending on breaker panel distance. Net out-of-pocket costs drop to qualifying net installation costs after rebate."
       },
       {
         "question": "3. Is a Building Permit Required for Chargepoint Home Flex Vs Tesla Wall Connector in Bend & Central Oregon?",
@@ -499,8 +499,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "answer": "A 48A hardwired charger delivers 11.52 kW output on a 60A breaker. A NEMA 14-50 plug-in outlet is capped at 32A–40A output on a 50A GFCI breaker."
       },
       {
-        "question": "5. How Does the $500 Electric Utility Rebate Work in Bend & Central Oregon?",
-        "answer": "Pacific Power and Midstate Electric offer an instant $500 cash-back rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
+        "question": "5. How Does the utility rebate Electric Utility Rebate Work in Bend & Central Oregon?",
+        "answer": "Pacific Power and Midstate Electric offer an instant local utility rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
       },
       {
         "question": "6. Do I Need a 200-Amp Main Electrical Panel Upgrade?",
@@ -534,19 +534,19 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       }
     ]
   },
-  "commercial-fleet-ev-charger-installation-redmond-or": {
-    "slug": "commercial-fleet-ev-charger-installation-redmond-or",
-    "title": "Commercial Fleet EV Charger Installation Redmond OR Technical Engineering Guide",
+  "outdoor-garage-ev-charger-installation-redmond-or": {
+    "slug": "outdoor-garage-ev-charger-installation-redmond-or",
+    "title": "Outdoor Garage EV Charger Installation Redmond OR Technical Engineering Guide",
     "category": "Hardware Engineering",
     "readTime": "18 min read",
-    "featuredImageSrc": "/images/commercial-ev-charging-station-800w.webp",
+    "featuredImageSrc": "/images/hero-ev-charger.webp",
     "sectionalImageSrc": "/images/solar-ev-integration-658w.webp",
-    "featuredImageAlt": "Commercial Fleet EV Charger Installation Redmond OR Hardwired Installation in Redmond Oregon on 60A Circuit",
-    "sectionalImageAlt": "Commercial Fleet EV Charger Installation Redmond OR Technical Wiring & Conduit Sectional Illustration in Redmond",
+    "featuredImageAlt": "Outdoor Garage EV Charger Installation Redmond OR Hardwired Installation in Redmond Oregon on 60A Circuit",
+    "sectionalImageAlt": "Outdoor Garage EV Charger Installation Redmond OR Technical Wiring & Conduit Sectional Illustration in Redmond",
     "bluf": {
-      "solution": "Hardwired continuous 48A Level 2 EV charger installation for Commercial Fleet EV Charger Installation Redmond OR in Redmond with 99.9% 6 AWG copper conductors and 60A breaker.",
-      "priceRange": "$315 – $650 net out-of-pocket after $500 rebate",
-      "rebateInfo": "$500 Pacific Power cash-back rebate handled directly by electrician",
+      "solution": "Hardwired continuous 48A Level 2 EV charger installation for Outdoor Garage EV Charger Installation Redmond OR in Redmond with 99.9% 6 AWG copper conductors and 60A breaker.",
+      "priceRange": "qualifying net installation costs net out-of-pocket after utility rebate",
+      "rebateInfo": "local utility cash-back rebate handled directly by electrician",
       "recommendation": "Hardwired 60A 2-pole circuit breaker with Redmond municipal trade permit sign-off."
     },
     "specs": [
@@ -568,7 +568,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "label": "Rebate Qualification",
-        "value": "$500 Pacific Power / Midstate Incentive"
+        "value": "utility rebate Pacific Power / Midstate Incentive"
       },
       {
         "label": "Permit Sign-Off Authority",
@@ -585,8 +585,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     ],
     "sections": [
       {
-        "heading": "1. Comprehensive Technical Engineering Overview of Commercial Fleet EV Charger Installation Redmond OR",
-        "content": "Commercial fleet electrification in Redmond requires multi-port Level 2 pedestals with OCPP 1.6J open charge point protocol support, load sharing algorithms across 208V 3-phase electrical panels, and commercial Pacific Power demand charge mitigation.\n\nExecuting a professional Level 2 electric vehicle charging installation in Redmond, Oregon demands strict compliance with National Electrical Code (NEC) standards and Oregon Electrical Specialty Code (OESC) amendments. Continuous EV charging loads draw high amperage uninterrupted for 8 to 12 hours straight. Under NEC 625.41, continuous loads require branch circuit overcurrent protection rated for 125% of the continuous operating current.\n\nFor standard 48-Amp continuous EV chargers, an electrician must install a dedicated 60-Amp 2-pole 240V circuit breaker. Operating a 48A charger on an undersized 50A circuit breaker causes continuous thermal stress, leading to nuisance breaker tripping and potential terminal bar degradation within 30 to 45 minutes of active charging."
+        "heading": "1. Comprehensive Technical Engineering Overview of Outdoor Garage EV Charger Installation Redmond OR",
+        "content": "Residential Level 2 charger installation in Redmond requires multi-port Level 2 pedestals with OCPP 1.6J open charge point protocol support, load sharing algorithms across 208V 3-phase electrical panels, and commercial Pacific Power demand charge mitigation.\n\nExecuting a professional Level 2 electric vehicle charging installation in Redmond, Oregon demands strict compliance with National Electrical Code (NEC) standards and Oregon Electrical Specialty Code (OESC) amendments. Continuous EV charging loads draw high amperage uninterrupted for 8 to 12 hours straight. Under NEC 625.41, continuous loads require branch circuit overcurrent protection rated for 125% of the continuous operating current.\n\nFor standard 48-Amp continuous EV chargers, an electrician must install a dedicated 60-Amp 2-pole 240V circuit breaker. Operating a 48A charger on an undersized 50A circuit breaker causes continuous thermal stress, leading to nuisance breaker tripping and potential terminal bar degradation within 30 to 45 minutes of active charging."
       },
       {
         "heading": "2. NEC Article 625 & OESC 2023 Branch Circuit Math & Derating",
@@ -601,8 +601,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "content": "Before adding a 60A 2-pole breaker to an existing panel, electricians conduct a formal NEC Article 220 load calculation. This calculation factors in household square footage (3 Watts/sq ft), small appliance branch circuits (1,500 VA each), laundry circuit (1,500 VA), and major appliance nameplate ratings (electric heat, heat pumps, ranges, dryers).\n\nIf total calculated load plus the 60A EV circuit (14,400 VA) exceeds 80% of main panel busbar capacity (160A for a 200A panel), panel capacity expansion or smart load shedding technology (such as an Emporia Smart EVSE or DCC-9 energy management module) must be installed to prevent main breaker overloads."
       },
       {
-        "heading": "5. Utility Rebate Filing ($500 Instant Incentive) & Municipal Permits",
-        "content": "Homeowners and commercial property managers in Redmond qualify for an instant $500 cash-back rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Redmond Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the $500 rebate typically range between $315 and $650."
+        "heading": "5. Utility Rebate Filing (utility rebate Instant Incentive) & Municipal Permits",
+        "content": "Homeowners in Redmond qualify for an instant local utility rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Redmond Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the utility rebate typically range between qualifying net installation costs."
       },
       {
         "heading": "6. Commissioning, Torque Inspection & Final Safety Verification",
@@ -611,15 +611,15 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     ],
     "faqs": [
       {
-        "question": "1. What Breaker & Wire Size is Required for Commercial Fleet EV Charger Installation Redmond OR in Redmond?",
+        "question": "1. What Breaker & Wire Size is Required for Outdoor Garage EV Charger Installation Redmond OR in Redmond?",
         "answer": "Hardwiring a continuous 48A EV charger requires a dedicated 60A 2-pole circuit breaker wired with 99.9% pure 6 AWG THHN copper conductors inside rigid 3/4\" EMT conduit."
       },
       {
-        "question": "2. How Much Does Commercial Fleet EV Charger Installation Redmond OR Cost in Redmond?",
-        "answer": "Standard residential garage Level 2 EV charger installation costs range between $650 and $1,250 depending on breaker panel distance. Net out-of-pocket costs drop to $315–$650 after rebate."
+        "question": "2. How Much Does Outdoor Garage EV Charger Installation Redmond OR Cost in Redmond?",
+        "answer": "Standard residential garage Level 2 EV charger installation costs range between standard garage installation costs depending on breaker panel distance. Net out-of-pocket costs drop to qualifying net installation costs after rebate."
       },
       {
-        "question": "3. Is a Building Permit Required for Commercial Fleet EV Charger Installation Redmond OR in Redmond?",
+        "question": "3. Is a Building Permit Required for Outdoor Garage EV Charger Installation Redmond OR in Redmond?",
         "answer": "Yes. All 240V electrical circuit installations require trade permits issued by the local building safety division and post-installation inspection sign-offs."
       },
       {
@@ -627,8 +627,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "answer": "A 48A hardwired charger delivers 11.52 kW output on a 60A breaker. A NEMA 14-50 plug-in outlet is capped at 32A–40A output on a 50A GFCI breaker."
       },
       {
-        "question": "5. How Does the $500 Electric Utility Rebate Work in Redmond?",
-        "answer": "Pacific Power and Midstate Electric offer an instant $500 cash-back rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
+        "question": "5. How Does the utility rebate Electric Utility Rebate Work in Redmond?",
+        "answer": "Pacific Power and Midstate Electric offer an instant local utility rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
       },
       {
         "question": "6. Do I Need a 200-Amp Main Electrical Panel Upgrade?",
@@ -673,8 +673,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "sectionalImageAlt": "Detached Garage Underground Conduit EV Charger Bend OR Technical Wiring & Conduit Sectional Illustration in Bend & Central Oregon",
     "bluf": {
       "solution": "Hardwired continuous 48A Level 2 EV charger installation for Detached Garage Underground Conduit EV Charger Bend OR in Bend & Central Oregon with 99.9% 6 AWG copper conductors and 60A breaker.",
-      "priceRange": "$315 – $650 net out-of-pocket after $500 rebate",
-      "rebateInfo": "$500 Pacific Power cash-back rebate handled directly by electrician",
+      "priceRange": "qualifying net installation costs net out-of-pocket after utility rebate",
+      "rebateInfo": "local utility cash-back rebate handled directly by electrician",
       "recommendation": "Hardwired 60A 2-pole circuit breaker with Bend & Central Oregon municipal trade permit sign-off."
     },
     "specs": [
@@ -696,7 +696,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "label": "Rebate Qualification",
-        "value": "$500 Pacific Power / Midstate Incentive"
+        "value": "utility rebate Pacific Power / Midstate Incentive"
       },
       {
         "label": "Permit Sign-Off Authority",
@@ -729,8 +729,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "content": "Before adding a 60A 2-pole breaker to an existing panel, electricians conduct a formal NEC Article 220 load calculation. This calculation factors in household square footage (3 Watts/sq ft), small appliance branch circuits (1,500 VA each), laundry circuit (1,500 VA), and major appliance nameplate ratings (electric heat, heat pumps, ranges, dryers).\n\nIf total calculated load plus the 60A EV circuit (14,400 VA) exceeds 80% of main panel busbar capacity (160A for a 200A panel), panel capacity expansion or smart load shedding technology (such as an Emporia Smart EVSE or DCC-9 energy management module) must be installed to prevent main breaker overloads."
       },
       {
-        "heading": "5. Utility Rebate Filing ($500 Instant Incentive) & Municipal Permits",
-        "content": "Homeowners and commercial property managers in Bend & Central Oregon qualify for an instant $500 cash-back rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the $500 rebate typically range between $315 and $650."
+        "heading": "5. Utility Rebate Filing (utility rebate Instant Incentive) & Municipal Permits",
+        "content": "Homeowners in Bend & Central Oregon qualify for an instant local utility rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the utility rebate typically range between qualifying net installation costs."
       },
       {
         "heading": "6. Commissioning, Torque Inspection & Final Safety Verification",
@@ -744,7 +744,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "question": "2. How Much Does Detached Garage Underground Conduit EV Charger Bend OR Cost in Bend & Central Oregon?",
-        "answer": "Standard residential garage Level 2 EV charger installation costs range between $650 and $1,250 depending on breaker panel distance. Net out-of-pocket costs drop to $315–$650 after rebate."
+        "answer": "Standard residential garage Level 2 EV charger installation costs range between standard garage installation costs depending on breaker panel distance. Net out-of-pocket costs drop to qualifying net installation costs after rebate."
       },
       {
         "question": "3. Is a Building Permit Required for Detached Garage Underground Conduit EV Charger Bend OR in Bend & Central Oregon?",
@@ -755,8 +755,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "answer": "A 48A hardwired charger delivers 11.52 kW output on a 60A breaker. A NEMA 14-50 plug-in outlet is capped at 32A–40A output on a 50A GFCI breaker."
       },
       {
-        "question": "5. How Does the $500 Electric Utility Rebate Work in Bend & Central Oregon?",
-        "answer": "Pacific Power and Midstate Electric offer an instant $500 cash-back rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
+        "question": "5. How Does the utility rebate Electric Utility Rebate Work in Bend & Central Oregon?",
+        "answer": "Pacific Power and Midstate Electric offer an instant local utility rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
       },
       {
         "question": "6. Do I Need a 200-Amp Main Electrical Panel Upgrade?",
@@ -801,8 +801,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "sectionalImageAlt": "Do I Need 200 Amp Panel For EV Charger Technical Wiring & Conduit Sectional Illustration in Bend & Central Oregon",
     "bluf": {
       "solution": "Hardwired continuous 48A Level 2 EV charger installation for Do I Need 200 Amp Panel For EV Charger in Bend & Central Oregon with 99.9% 6 AWG copper conductors and 60A breaker.",
-      "priceRange": "$315 – $650 net out-of-pocket after $500 rebate",
-      "rebateInfo": "$500 Pacific Power cash-back rebate handled directly by electrician",
+      "priceRange": "qualifying net installation costs net out-of-pocket after utility rebate",
+      "rebateInfo": "local utility cash-back rebate handled directly by electrician",
       "recommendation": "Hardwired 60A 2-pole circuit breaker with Bend & Central Oregon municipal trade permit sign-off."
     },
     "specs": [
@@ -824,7 +824,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "label": "Rebate Qualification",
-        "value": "$500 Pacific Power / Midstate Incentive"
+        "value": "utility rebate Pacific Power / Midstate Incentive"
       },
       {
         "label": "Permit Sign-Off Authority",
@@ -857,8 +857,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "content": "Before adding a 60A 2-pole breaker to an existing panel, electricians conduct a formal NEC Article 220 load calculation. This calculation factors in household square footage (3 Watts/sq ft), small appliance branch circuits (1,500 VA each), laundry circuit (1,500 VA), and major appliance nameplate ratings (electric heat, heat pumps, ranges, dryers).\n\nIf total calculated load plus the 60A EV circuit (14,400 VA) exceeds 80% of main panel busbar capacity (160A for a 200A panel), panel capacity expansion or smart load shedding technology (such as an Emporia Smart EVSE or DCC-9 energy management module) must be installed to prevent main breaker overloads."
       },
       {
-        "heading": "5. Utility Rebate Filing ($500 Instant Incentive) & Municipal Permits",
-        "content": "Homeowners and commercial property managers in Bend & Central Oregon qualify for an instant $500 cash-back rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the $500 rebate typically range between $315 and $650."
+        "heading": "5. Utility Rebate Filing (utility rebate Instant Incentive) & Municipal Permits",
+        "content": "Homeowners in Bend & Central Oregon qualify for an instant local utility rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the utility rebate typically range between qualifying net installation costs."
       },
       {
         "heading": "6. Commissioning, Torque Inspection & Final Safety Verification",
@@ -872,7 +872,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "question": "2. How Much Does Do I Need 200 Amp Panel For EV Charger Cost in Bend & Central Oregon?",
-        "answer": "Standard residential garage Level 2 EV charger installation costs range between $650 and $1,250 depending on breaker panel distance. Net out-of-pocket costs drop to $315–$650 after rebate."
+        "answer": "Standard residential garage Level 2 EV charger installation costs range between standard garage installation costs depending on breaker panel distance. Net out-of-pocket costs drop to qualifying net installation costs after rebate."
       },
       {
         "question": "3. Is a Building Permit Required for Do I Need 200 Amp Panel For EV Charger in Bend & Central Oregon?",
@@ -883,8 +883,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "answer": "A 48A hardwired charger delivers 11.52 kW output on a 60A breaker. A NEMA 14-50 plug-in outlet is capped at 32A–40A output on a 50A GFCI breaker."
       },
       {
-        "question": "5. How Does the $500 Electric Utility Rebate Work in Bend & Central Oregon?",
-        "answer": "Pacific Power and Midstate Electric offer an instant $500 cash-back rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
+        "question": "5. How Does the utility rebate Electric Utility Rebate Work in Bend & Central Oregon?",
+        "answer": "Pacific Power and Midstate Electric offer an instant local utility rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
       },
       {
         "question": "6. Do I Need a 200-Amp Main Electrical Panel Upgrade?",
@@ -929,8 +929,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "sectionalImageAlt": "Emporia EV Charger Installation Guide Technical Wiring & Conduit Sectional Illustration in Bend & Central Oregon",
     "bluf": {
       "solution": "Hardwired continuous 48A Level 2 EV charger installation for Emporia EV Charger Installation Guide in Bend & Central Oregon with 99.9% 6 AWG copper conductors and 60A breaker.",
-      "priceRange": "$315 – $650 net out-of-pocket after $500 rebate",
-      "rebateInfo": "$500 Pacific Power cash-back rebate handled directly by electrician",
+      "priceRange": "qualifying net installation costs net out-of-pocket after utility rebate",
+      "rebateInfo": "local utility cash-back rebate handled directly by electrician",
       "recommendation": "Hardwired 60A 2-pole circuit breaker with Bend & Central Oregon municipal trade permit sign-off."
     },
     "specs": [
@@ -952,7 +952,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "label": "Rebate Qualification",
-        "value": "$500 Pacific Power / Midstate Incentive"
+        "value": "utility rebate Pacific Power / Midstate Incentive"
       },
       {
         "label": "Permit Sign-Off Authority",
@@ -985,8 +985,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "content": "Before adding a 60A 2-pole breaker to an existing panel, electricians conduct a formal NEC Article 220 load calculation. This calculation factors in household square footage (3 Watts/sq ft), small appliance branch circuits (1,500 VA each), laundry circuit (1,500 VA), and major appliance nameplate ratings (electric heat, heat pumps, ranges, dryers).\n\nIf total calculated load plus the 60A EV circuit (14,400 VA) exceeds 80% of main panel busbar capacity (160A for a 200A panel), panel capacity expansion or smart load shedding technology (such as an Emporia Smart EVSE or DCC-9 energy management module) must be installed to prevent main breaker overloads."
       },
       {
-        "heading": "5. Utility Rebate Filing ($500 Instant Incentive) & Municipal Permits",
-        "content": "Homeowners and commercial property managers in Bend & Central Oregon qualify for an instant $500 cash-back rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the $500 rebate typically range between $315 and $650."
+        "heading": "5. Utility Rebate Filing (utility rebate Instant Incentive) & Municipal Permits",
+        "content": "Homeowners in Bend & Central Oregon qualify for an instant local utility rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the utility rebate typically range between qualifying net installation costs."
       },
       {
         "heading": "6. Commissioning, Torque Inspection & Final Safety Verification",
@@ -1000,7 +1000,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "question": "2. How Much Does Emporia EV Charger Installation Guide Cost in Bend & Central Oregon?",
-        "answer": "Standard residential garage Level 2 EV charger installation costs range between $650 and $1,250 depending on breaker panel distance. Net out-of-pocket costs drop to $315–$650 after rebate."
+        "answer": "Standard residential garage Level 2 EV charger installation costs range between standard garage installation costs depending on breaker panel distance. Net out-of-pocket costs drop to qualifying net installation costs after rebate."
       },
       {
         "question": "3. Is a Building Permit Required for Emporia EV Charger Installation Guide in Bend & Central Oregon?",
@@ -1011,8 +1011,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "answer": "A 48A hardwired charger delivers 11.52 kW output on a 60A breaker. A NEMA 14-50 plug-in outlet is capped at 32A–40A output on a 50A GFCI breaker."
       },
       {
-        "question": "5. How Does the $500 Electric Utility Rebate Work in Bend & Central Oregon?",
-        "answer": "Pacific Power and Midstate Electric offer an instant $500 cash-back rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
+        "question": "5. How Does the utility rebate Electric Utility Rebate Work in Bend & Central Oregon?",
+        "answer": "Pacific Power and Midstate Electric offer an instant local utility rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
       },
       {
         "question": "6. Do I Need a 200-Amp Main Electrical Panel Upgrade?",
@@ -1057,8 +1057,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "sectionalImageAlt": "EV Charger Installation Corvallis OR Technical Wiring & Conduit Sectional Illustration in Corvallis",
     "bluf": {
       "solution": "Hardwired continuous 48A Level 2 EV charger installation for EV Charger Installation Corvallis OR in Corvallis with 99.9% 6 AWG copper conductors and 60A breaker.",
-      "priceRange": "$315 – $650 net out-of-pocket after $500 rebate",
-      "rebateInfo": "$500 Pacific Power cash-back rebate handled directly by electrician",
+      "priceRange": "qualifying net installation costs net out-of-pocket after utility rebate",
+      "rebateInfo": "local utility cash-back rebate handled directly by electrician",
       "recommendation": "Hardwired 60A 2-pole circuit breaker with Corvallis municipal trade permit sign-off."
     },
     "specs": [
@@ -1080,7 +1080,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "label": "Rebate Qualification",
-        "value": "$500 Pacific Power / Midstate Incentive"
+        "value": "utility rebate Pacific Power / Midstate Incentive"
       },
       {
         "label": "Permit Sign-Off Authority",
@@ -1113,8 +1113,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "content": "Before adding a 60A 2-pole breaker to an existing panel, electricians conduct a formal NEC Article 220 load calculation. This calculation factors in household square footage (3 Watts/sq ft), small appliance branch circuits (1,500 VA each), laundry circuit (1,500 VA), and major appliance nameplate ratings (electric heat, heat pumps, ranges, dryers).\n\nIf total calculated load plus the 60A EV circuit (14,400 VA) exceeds 80% of main panel busbar capacity (160A for a 200A panel), panel capacity expansion or smart load shedding technology (such as an Emporia Smart EVSE or DCC-9 energy management module) must be installed to prevent main breaker overloads."
       },
       {
-        "heading": "5. Utility Rebate Filing ($500 Instant Incentive) & Municipal Permits",
-        "content": "Homeowners and commercial property managers in Corvallis qualify for an instant $500 cash-back rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Corvallis Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the $500 rebate typically range between $315 and $650."
+        "heading": "5. Utility Rebate Filing (utility rebate Instant Incentive) & Municipal Permits",
+        "content": "Homeowners in Corvallis qualify for an instant local utility rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Corvallis Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the utility rebate typically range between qualifying net installation costs."
       },
       {
         "heading": "6. Commissioning, Torque Inspection & Final Safety Verification",
@@ -1128,7 +1128,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "question": "2. How Much Does EV Charger Installation Corvallis OR Cost in Corvallis?",
-        "answer": "Standard residential garage Level 2 EV charger installation costs range between $650 and $1,250 depending on breaker panel distance. Net out-of-pocket costs drop to $315–$650 after rebate."
+        "answer": "Standard residential garage Level 2 EV charger installation costs range between standard garage installation costs depending on breaker panel distance. Net out-of-pocket costs drop to qualifying net installation costs after rebate."
       },
       {
         "question": "3. Is a Building Permit Required for EV Charger Installation Corvallis OR in Corvallis?",
@@ -1139,8 +1139,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "answer": "A 48A hardwired charger delivers 11.52 kW output on a 60A breaker. A NEMA 14-50 plug-in outlet is capped at 32A–40A output on a 50A GFCI breaker."
       },
       {
-        "question": "5. How Does the $500 Electric Utility Rebate Work in Corvallis?",
-        "answer": "Pacific Power and Midstate Electric offer an instant $500 cash-back rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
+        "question": "5. How Does the utility rebate Electric Utility Rebate Work in Corvallis?",
+        "answer": "Pacific Power and Midstate Electric offer an instant local utility rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
       },
       {
         "question": "6. Do I Need a 200-Amp Main Electrical Panel Upgrade?",
@@ -1185,8 +1185,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "sectionalImageAlt": "EV Charger Installation Redmond OR Technical Wiring & Conduit Sectional Illustration in Redmond",
     "bluf": {
       "solution": "Hardwired continuous 48A Level 2 EV charger installation for EV Charger Installation Redmond OR in Redmond with 99.9% 6 AWG copper conductors and 60A breaker.",
-      "priceRange": "$315 – $650 net out-of-pocket after $500 rebate",
-      "rebateInfo": "$500 Pacific Power cash-back rebate handled directly by electrician",
+      "priceRange": "qualifying net installation costs net out-of-pocket after utility rebate",
+      "rebateInfo": "local utility cash-back rebate handled directly by electrician",
       "recommendation": "Hardwired 60A 2-pole circuit breaker with Redmond municipal trade permit sign-off."
     },
     "specs": [
@@ -1208,7 +1208,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "label": "Rebate Qualification",
-        "value": "$500 Pacific Power / Midstate Incentive"
+        "value": "utility rebate Pacific Power / Midstate Incentive"
       },
       {
         "label": "Permit Sign-Off Authority",
@@ -1241,8 +1241,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "content": "Before adding a 60A 2-pole breaker to an existing panel, electricians conduct a formal NEC Article 220 load calculation. This calculation factors in household square footage (3 Watts/sq ft), small appliance branch circuits (1,500 VA each), laundry circuit (1,500 VA), and major appliance nameplate ratings (electric heat, heat pumps, ranges, dryers).\n\nIf total calculated load plus the 60A EV circuit (14,400 VA) exceeds 80% of main panel busbar capacity (160A for a 200A panel), panel capacity expansion or smart load shedding technology (such as an Emporia Smart EVSE or DCC-9 energy management module) must be installed to prevent main breaker overloads."
       },
       {
-        "heading": "5. Utility Rebate Filing ($500 Instant Incentive) & Municipal Permits",
-        "content": "Homeowners and commercial property managers in Redmond qualify for an instant $500 cash-back rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Redmond Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the $500 rebate typically range between $315 and $650."
+        "heading": "5. Utility Rebate Filing (utility rebate Instant Incentive) & Municipal Permits",
+        "content": "Homeowners in Redmond qualify for an instant local utility rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Redmond Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the utility rebate typically range between qualifying net installation costs."
       },
       {
         "heading": "6. Commissioning, Torque Inspection & Final Safety Verification",
@@ -1256,7 +1256,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "question": "2. How Much Does EV Charger Installation Redmond OR Cost in Redmond?",
-        "answer": "Standard residential garage Level 2 EV charger installation costs range between $650 and $1,250 depending on breaker panel distance. Net out-of-pocket costs drop to $315–$650 after rebate."
+        "answer": "Standard residential garage Level 2 EV charger installation costs range between standard garage installation costs depending on breaker panel distance. Net out-of-pocket costs drop to qualifying net installation costs after rebate."
       },
       {
         "question": "3. Is a Building Permit Required for EV Charger Installation Redmond OR in Redmond?",
@@ -1267,8 +1267,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "answer": "A 48A hardwired charger delivers 11.52 kW output on a 60A breaker. A NEMA 14-50 plug-in outlet is capped at 32A–40A output on a 50A GFCI breaker."
       },
       {
-        "question": "5. How Does the $500 Electric Utility Rebate Work in Redmond?",
-        "answer": "Pacific Power and Midstate Electric offer an instant $500 cash-back rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
+        "question": "5. How Does the utility rebate Electric Utility Rebate Work in Redmond?",
+        "answer": "Pacific Power and Midstate Electric offer an instant local utility rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
       },
       {
         "question": "6. Do I Need a 200-Amp Main Electrical Panel Upgrade?",
@@ -1313,8 +1313,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "sectionalImageAlt": "EV Charger Installation Salem OR Technical Wiring & Conduit Sectional Illustration in Salem",
     "bluf": {
       "solution": "Hardwired continuous 48A Level 2 EV charger installation for EV Charger Installation Salem OR in Salem with 99.9% 6 AWG copper conductors and 60A breaker.",
-      "priceRange": "$315 – $650 net out-of-pocket after $500 rebate",
-      "rebateInfo": "$500 Pacific Power cash-back rebate handled directly by electrician",
+      "priceRange": "qualifying net installation costs net out-of-pocket after utility rebate",
+      "rebateInfo": "local utility cash-back rebate handled directly by electrician",
       "recommendation": "Hardwired 60A 2-pole circuit breaker with Salem municipal trade permit sign-off."
     },
     "specs": [
@@ -1336,7 +1336,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "label": "Rebate Qualification",
-        "value": "$500 Pacific Power / Midstate Incentive"
+        "value": "utility rebate Pacific Power / Midstate Incentive"
       },
       {
         "label": "Permit Sign-Off Authority",
@@ -1369,8 +1369,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "content": "Before adding a 60A 2-pole breaker to an existing panel, electricians conduct a formal NEC Article 220 load calculation. This calculation factors in household square footage (3 Watts/sq ft), small appliance branch circuits (1,500 VA each), laundry circuit (1,500 VA), and major appliance nameplate ratings (electric heat, heat pumps, ranges, dryers).\n\nIf total calculated load plus the 60A EV circuit (14,400 VA) exceeds 80% of main panel busbar capacity (160A for a 200A panel), panel capacity expansion or smart load shedding technology (such as an Emporia Smart EVSE or DCC-9 energy management module) must be installed to prevent main breaker overloads."
       },
       {
-        "heading": "5. Utility Rebate Filing ($500 Instant Incentive) & Municipal Permits",
-        "content": "Homeowners and commercial property managers in Salem qualify for an instant $500 cash-back rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Salem Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the $500 rebate typically range between $315 and $650."
+        "heading": "5. Utility Rebate Filing (utility rebate Instant Incentive) & Municipal Permits",
+        "content": "Homeowners in Salem qualify for an instant local utility rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Salem Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the utility rebate typically range between qualifying net installation costs."
       },
       {
         "heading": "6. Commissioning, Torque Inspection & Final Safety Verification",
@@ -1384,7 +1384,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "question": "2. How Much Does EV Charger Installation Salem OR Cost in Salem?",
-        "answer": "Standard residential garage Level 2 EV charger installation costs range between $650 and $1,250 depending on breaker panel distance. Net out-of-pocket costs drop to $315–$650 after rebate."
+        "answer": "Standard residential garage Level 2 EV charger installation costs range between standard garage installation costs depending on breaker panel distance. Net out-of-pocket costs drop to qualifying net installation costs after rebate."
       },
       {
         "question": "3. Is a Building Permit Required for EV Charger Installation Salem OR in Salem?",
@@ -1395,8 +1395,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "answer": "A 48A hardwired charger delivers 11.52 kW output on a 60A breaker. A NEMA 14-50 plug-in outlet is capped at 32A–40A output on a 50A GFCI breaker."
       },
       {
-        "question": "5. How Does the $500 Electric Utility Rebate Work in Salem?",
-        "answer": "Pacific Power and Midstate Electric offer an instant $500 cash-back rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
+        "question": "5. How Does the utility rebate Electric Utility Rebate Work in Salem?",
+        "answer": "Pacific Power and Midstate Electric offer an instant local utility rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
       },
       {
         "question": "6. Do I Need a 200-Amp Main Electrical Panel Upgrade?",
@@ -1441,8 +1441,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "sectionalImageAlt": "EV Charger Repair And Troubleshooting Bend OR Technical Wiring & Conduit Sectional Illustration in Bend & Central Oregon",
     "bluf": {
       "solution": "Hardwired continuous 48A Level 2 EV charger installation for EV Charger Repair And Troubleshooting Bend OR in Bend & Central Oregon with 99.9% 6 AWG copper conductors and 60A breaker.",
-      "priceRange": "$315 – $650 net out-of-pocket after $500 rebate",
-      "rebateInfo": "$500 Pacific Power cash-back rebate handled directly by electrician",
+      "priceRange": "qualifying net installation costs net out-of-pocket after utility rebate",
+      "rebateInfo": "local utility cash-back rebate handled directly by electrician",
       "recommendation": "Hardwired 60A 2-pole circuit breaker with Bend & Central Oregon municipal trade permit sign-off."
     },
     "specs": [
@@ -1464,7 +1464,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "label": "Rebate Qualification",
-        "value": "$500 Pacific Power / Midstate Incentive"
+        "value": "utility rebate Pacific Power / Midstate Incentive"
       },
       {
         "label": "Permit Sign-Off Authority",
@@ -1497,8 +1497,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "content": "Before adding a 60A 2-pole breaker to an existing panel, electricians conduct a formal NEC Article 220 load calculation. This calculation factors in household square footage (3 Watts/sq ft), small appliance branch circuits (1,500 VA each), laundry circuit (1,500 VA), and major appliance nameplate ratings (electric heat, heat pumps, ranges, dryers).\n\nIf total calculated load plus the 60A EV circuit (14,400 VA) exceeds 80% of main panel busbar capacity (160A for a 200A panel), panel capacity expansion or smart load shedding technology (such as an Emporia Smart EVSE or DCC-9 energy management module) must be installed to prevent main breaker overloads."
       },
       {
-        "heading": "5. Utility Rebate Filing ($500 Instant Incentive) & Municipal Permits",
-        "content": "Homeowners and commercial property managers in Bend & Central Oregon qualify for an instant $500 cash-back rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the $500 rebate typically range between $315 and $650."
+        "heading": "5. Utility Rebate Filing (utility rebate Instant Incentive) & Municipal Permits",
+        "content": "Homeowners in Bend & Central Oregon qualify for an instant local utility rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the utility rebate typically range between qualifying net installation costs."
       },
       {
         "heading": "6. Commissioning, Torque Inspection & Final Safety Verification",
@@ -1512,7 +1512,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "question": "2. How Much Does EV Charger Repair And Troubleshooting Bend OR Cost in Bend & Central Oregon?",
-        "answer": "Standard residential garage Level 2 EV charger installation costs range between $650 and $1,250 depending on breaker panel distance. Net out-of-pocket costs drop to $315–$650 after rebate."
+        "answer": "Standard residential garage Level 2 EV charger installation costs range between standard garage installation costs depending on breaker panel distance. Net out-of-pocket costs drop to qualifying net installation costs after rebate."
       },
       {
         "question": "3. Is a Building Permit Required for EV Charger Repair And Troubleshooting Bend OR in Bend & Central Oregon?",
@@ -1523,8 +1523,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "answer": "A 48A hardwired charger delivers 11.52 kW output on a 60A breaker. A NEMA 14-50 plug-in outlet is capped at 32A–40A output on a 50A GFCI breaker."
       },
       {
-        "question": "5. How Does the $500 Electric Utility Rebate Work in Bend & Central Oregon?",
-        "answer": "Pacific Power and Midstate Electric offer an instant $500 cash-back rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
+        "question": "5. How Does the utility rebate Electric Utility Rebate Work in Bend & Central Oregon?",
+        "answer": "Pacific Power and Midstate Electric offer an instant local utility rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
       },
       {
         "question": "6. Do I Need a 200-Amp Main Electrical Panel Upgrade?",
@@ -1569,8 +1569,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "sectionalImageAlt": "Federal 30c Tax Credit EV Charger Installation Technical Wiring & Conduit Sectional Illustration in Bend & Central Oregon",
     "bluf": {
       "solution": "Hardwired continuous 48A Level 2 EV charger installation for Federal 30c Tax Credit EV Charger Installation in Bend & Central Oregon with 99.9% 6 AWG copper conductors and 60A breaker.",
-      "priceRange": "$315 – $650 net out-of-pocket after $500 rebate",
-      "rebateInfo": "$500 Pacific Power cash-back rebate handled directly by electrician",
+      "priceRange": "qualifying net installation costs net out-of-pocket after utility rebate",
+      "rebateInfo": "local utility cash-back rebate handled directly by electrician",
       "recommendation": "Hardwired 60A 2-pole circuit breaker with Bend & Central Oregon municipal trade permit sign-off."
     },
     "specs": [
@@ -1592,7 +1592,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "label": "Rebate Qualification",
-        "value": "$500 Pacific Power / Midstate Incentive"
+        "value": "utility rebate Pacific Power / Midstate Incentive"
       },
       {
         "label": "Permit Sign-Off Authority",
@@ -1625,8 +1625,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "content": "Before adding a 60A 2-pole breaker to an existing panel, electricians conduct a formal NEC Article 220 load calculation. This calculation factors in household square footage (3 Watts/sq ft), small appliance branch circuits (1,500 VA each), laundry circuit (1,500 VA), and major appliance nameplate ratings (electric heat, heat pumps, ranges, dryers).\n\nIf total calculated load plus the 60A EV circuit (14,400 VA) exceeds 80% of main panel busbar capacity (160A for a 200A panel), panel capacity expansion or smart load shedding technology (such as an Emporia Smart EVSE or DCC-9 energy management module) must be installed to prevent main breaker overloads."
       },
       {
-        "heading": "5. Utility Rebate Filing ($500 Instant Incentive) & Municipal Permits",
-        "content": "Homeowners and commercial property managers in Bend & Central Oregon qualify for an instant $500 cash-back rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the $500 rebate typically range between $315 and $650."
+        "heading": "5. Utility Rebate Filing (utility rebate Instant Incentive) & Municipal Permits",
+        "content": "Homeowners in Bend & Central Oregon qualify for an instant local utility rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the utility rebate typically range between qualifying net installation costs."
       },
       {
         "heading": "6. Commissioning, Torque Inspection & Final Safety Verification",
@@ -1640,7 +1640,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "question": "2. How Much Does Federal 30c Tax Credit EV Charger Installation Cost in Bend & Central Oregon?",
-        "answer": "Standard residential garage Level 2 EV charger installation costs range between $650 and $1,250 depending on breaker panel distance. Net out-of-pocket costs drop to $315–$650 after rebate."
+        "answer": "Standard residential garage Level 2 EV charger installation costs range between standard garage installation costs depending on breaker panel distance. Net out-of-pocket costs drop to qualifying net installation costs after rebate."
       },
       {
         "question": "3. Is a Building Permit Required for Federal 30c Tax Credit EV Charger Installation in Bend & Central Oregon?",
@@ -1651,8 +1651,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "answer": "A 48A hardwired charger delivers 11.52 kW output on a 60A breaker. A NEMA 14-50 plug-in outlet is capped at 32A–40A output on a 50A GFCI breaker."
       },
       {
-        "question": "5. How Does the $500 Electric Utility Rebate Work in Bend & Central Oregon?",
-        "answer": "Pacific Power and Midstate Electric offer an instant $500 cash-back rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
+        "question": "5. How Does the utility rebate Electric Utility Rebate Work in Bend & Central Oregon?",
+        "answer": "Pacific Power and Midstate Electric offer an instant local utility rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
       },
       {
         "question": "6. Do I Need a 200-Amp Main Electrical Panel Upgrade?",
@@ -1692,13 +1692,13 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "category": "Hardware Engineering",
     "readTime": "18 min read",
     "featuredImageSrc": "/images/electrical-panel-upgrade-200a-800w.webp",
-    "sectionalImageSrc": "/images/commercial-ev-charging-station-658w.webp",
+    "sectionalImageSrc": "/images/hero-ev-charger.webp",
     "featuredImageAlt": "Ford F150 Lightning Charge Station Pro Bend OR Hardwired Installation in Bend & Central Oregon Oregon on 60A Circuit",
     "sectionalImageAlt": "Ford F150 Lightning Charge Station Pro Bend OR Technical Wiring & Conduit Sectional Illustration in Bend & Central Oregon",
     "bluf": {
       "solution": "Hardwired continuous 48A Level 2 EV charger installation for Ford F150 Lightning Charge Station Pro Bend OR in Bend & Central Oregon with 99.9% 6 AWG copper conductors and 60A breaker.",
-      "priceRange": "$315 – $650 net out-of-pocket after $500 rebate",
-      "rebateInfo": "$500 Pacific Power cash-back rebate handled directly by electrician",
+      "priceRange": "qualifying net installation costs net out-of-pocket after utility rebate",
+      "rebateInfo": "local utility cash-back rebate handled directly by electrician",
       "recommendation": "Hardwired 60A 2-pole circuit breaker with Bend & Central Oregon municipal trade permit sign-off."
     },
     "specs": [
@@ -1720,7 +1720,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "label": "Rebate Qualification",
-        "value": "$500 Pacific Power / Midstate Incentive"
+        "value": "utility rebate Pacific Power / Midstate Incentive"
       },
       {
         "label": "Permit Sign-Off Authority",
@@ -1753,8 +1753,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "content": "Before adding a 60A 2-pole breaker to an existing panel, electricians conduct a formal NEC Article 220 load calculation. This calculation factors in household square footage (3 Watts/sq ft), small appliance branch circuits (1,500 VA each), laundry circuit (1,500 VA), and major appliance nameplate ratings (electric heat, heat pumps, ranges, dryers).\n\nIf total calculated load plus the 60A EV circuit (14,400 VA) exceeds 80% of main panel busbar capacity (160A for a 200A panel), panel capacity expansion or smart load shedding technology (such as an Emporia Smart EVSE or DCC-9 energy management module) must be installed to prevent main breaker overloads."
       },
       {
-        "heading": "5. Utility Rebate Filing ($500 Instant Incentive) & Municipal Permits",
-        "content": "Homeowners and commercial property managers in Bend & Central Oregon qualify for an instant $500 cash-back rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the $500 rebate typically range between $315 and $650."
+        "heading": "5. Utility Rebate Filing (utility rebate Instant Incentive) & Municipal Permits",
+        "content": "Homeowners in Bend & Central Oregon qualify for an instant local utility rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the utility rebate typically range between qualifying net installation costs."
       },
       {
         "heading": "6. Commissioning, Torque Inspection & Final Safety Verification",
@@ -1768,7 +1768,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "question": "2. How Much Does Ford F150 Lightning Charge Station Pro Bend OR Cost in Bend & Central Oregon?",
-        "answer": "Standard residential garage Level 2 EV charger installation costs range between $650 and $1,250 depending on breaker panel distance. Net out-of-pocket costs drop to $315–$650 after rebate."
+        "answer": "Standard residential garage Level 2 EV charger installation costs range between standard garage installation costs depending on breaker panel distance. Net out-of-pocket costs drop to qualifying net installation costs after rebate."
       },
       {
         "question": "3. Is a Building Permit Required for Ford F150 Lightning Charge Station Pro Bend OR in Bend & Central Oregon?",
@@ -1779,8 +1779,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "answer": "A 48A hardwired charger delivers 11.52 kW output on a 60A breaker. A NEMA 14-50 plug-in outlet is capped at 32A–40A output on a 50A GFCI breaker."
       },
       {
-        "question": "5. How Does the $500 Electric Utility Rebate Work in Bend & Central Oregon?",
-        "answer": "Pacific Power and Midstate Electric offer an instant $500 cash-back rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
+        "question": "5. How Does the utility rebate Electric Utility Rebate Work in Bend & Central Oregon?",
+        "answer": "Pacific Power and Midstate Electric offer an instant local utility rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
       },
       {
         "question": "6. Do I Need a 200-Amp Main Electrical Panel Upgrade?",
@@ -1825,8 +1825,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "sectionalImageAlt": "Garage Subpanel Installation For EV Charger Bend OR Technical Wiring & Conduit Sectional Illustration in Bend & Central Oregon",
     "bluf": {
       "solution": "Hardwired continuous 48A Level 2 EV charger installation for Garage Subpanel Installation For EV Charger Bend OR in Bend & Central Oregon with 99.9% 6 AWG copper conductors and 60A breaker.",
-      "priceRange": "$315 – $650 net out-of-pocket after $500 rebate",
-      "rebateInfo": "$500 Pacific Power cash-back rebate handled directly by electrician",
+      "priceRange": "qualifying net installation costs net out-of-pocket after utility rebate",
+      "rebateInfo": "local utility cash-back rebate handled directly by electrician",
       "recommendation": "Hardwired 60A 2-pole circuit breaker with Bend & Central Oregon municipal trade permit sign-off."
     },
     "specs": [
@@ -1848,7 +1848,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "label": "Rebate Qualification",
-        "value": "$500 Pacific Power / Midstate Incentive"
+        "value": "utility rebate Pacific Power / Midstate Incentive"
       },
       {
         "label": "Permit Sign-Off Authority",
@@ -1881,8 +1881,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "content": "Before adding a 60A 2-pole breaker to an existing panel, electricians conduct a formal NEC Article 220 load calculation. This calculation factors in household square footage (3 Watts/sq ft), small appliance branch circuits (1,500 VA each), laundry circuit (1,500 VA), and major appliance nameplate ratings (electric heat, heat pumps, ranges, dryers).\n\nIf total calculated load plus the 60A EV circuit (14,400 VA) exceeds 80% of main panel busbar capacity (160A for a 200A panel), panel capacity expansion or smart load shedding technology (such as an Emporia Smart EVSE or DCC-9 energy management module) must be installed to prevent main breaker overloads."
       },
       {
-        "heading": "5. Utility Rebate Filing ($500 Instant Incentive) & Municipal Permits",
-        "content": "Homeowners and commercial property managers in Bend & Central Oregon qualify for an instant $500 cash-back rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the $500 rebate typically range between $315 and $650."
+        "heading": "5. Utility Rebate Filing (utility rebate Instant Incentive) & Municipal Permits",
+        "content": "Homeowners in Bend & Central Oregon qualify for an instant local utility rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the utility rebate typically range between qualifying net installation costs."
       },
       {
         "heading": "6. Commissioning, Torque Inspection & Final Safety Verification",
@@ -1896,7 +1896,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "question": "2. How Much Does Garage Subpanel Installation For EV Charger Bend OR Cost in Bend & Central Oregon?",
-        "answer": "Standard residential garage Level 2 EV charger installation costs range between $650 and $1,250 depending on breaker panel distance. Net out-of-pocket costs drop to $315–$650 after rebate."
+        "answer": "Standard residential garage Level 2 EV charger installation costs range between standard garage installation costs depending on breaker panel distance. Net out-of-pocket costs drop to qualifying net installation costs after rebate."
       },
       {
         "question": "3. Is a Building Permit Required for Garage Subpanel Installation For EV Charger Bend OR in Bend & Central Oregon?",
@@ -1907,8 +1907,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "answer": "A 48A hardwired charger delivers 11.52 kW output on a 60A breaker. A NEMA 14-50 plug-in outlet is capped at 32A–40A output on a 50A GFCI breaker."
       },
       {
-        "question": "5. How Does the $500 Electric Utility Rebate Work in Bend & Central Oregon?",
-        "answer": "Pacific Power and Midstate Electric offer an instant $500 cash-back rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
+        "question": "5. How Does the utility rebate Electric Utility Rebate Work in Bend & Central Oregon?",
+        "answer": "Pacific Power and Midstate Electric offer an instant local utility rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
       },
       {
         "question": "6. Do I Need a 200-Amp Main Electrical Panel Upgrade?",
@@ -1953,8 +1953,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "sectionalImageAlt": "Grizzl E Smart EV Charger Cold Weather Review Technical Wiring & Conduit Sectional Illustration in Bend & Central Oregon",
     "bluf": {
       "solution": "Hardwired continuous 48A Level 2 EV charger installation for Grizzl E Smart EV Charger Cold Weather Review in Bend & Central Oregon with 99.9% 6 AWG copper conductors and 60A breaker.",
-      "priceRange": "$315 – $650 net out-of-pocket after $500 rebate",
-      "rebateInfo": "$500 Pacific Power cash-back rebate handled directly by electrician",
+      "priceRange": "qualifying net installation costs net out-of-pocket after utility rebate",
+      "rebateInfo": "local utility cash-back rebate handled directly by electrician",
       "recommendation": "Hardwired 60A 2-pole circuit breaker with Bend & Central Oregon municipal trade permit sign-off."
     },
     "specs": [
@@ -1976,7 +1976,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "label": "Rebate Qualification",
-        "value": "$500 Pacific Power / Midstate Incentive"
+        "value": "utility rebate Pacific Power / Midstate Incentive"
       },
       {
         "label": "Permit Sign-Off Authority",
@@ -2009,8 +2009,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "content": "Before adding a 60A 2-pole breaker to an existing panel, electricians conduct a formal NEC Article 220 load calculation. This calculation factors in household square footage (3 Watts/sq ft), small appliance branch circuits (1,500 VA each), laundry circuit (1,500 VA), and major appliance nameplate ratings (electric heat, heat pumps, ranges, dryers).\n\nIf total calculated load plus the 60A EV circuit (14,400 VA) exceeds 80% of main panel busbar capacity (160A for a 200A panel), panel capacity expansion or smart load shedding technology (such as an Emporia Smart EVSE or DCC-9 energy management module) must be installed to prevent main breaker overloads."
       },
       {
-        "heading": "5. Utility Rebate Filing ($500 Instant Incentive) & Municipal Permits",
-        "content": "Homeowners and commercial property managers in Bend & Central Oregon qualify for an instant $500 cash-back rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the $500 rebate typically range between $315 and $650."
+        "heading": "5. Utility Rebate Filing (utility rebate Instant Incentive) & Municipal Permits",
+        "content": "Homeowners in Bend & Central Oregon qualify for an instant local utility rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the utility rebate typically range between qualifying net installation costs."
       },
       {
         "heading": "6. Commissioning, Torque Inspection & Final Safety Verification",
@@ -2024,7 +2024,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "question": "2. How Much Does Grizzl E Smart EV Charger Cold Weather Review Cost in Bend & Central Oregon?",
-        "answer": "Standard residential garage Level 2 EV charger installation costs range between $650 and $1,250 depending on breaker panel distance. Net out-of-pocket costs drop to $315–$650 after rebate."
+        "answer": "Standard residential garage Level 2 EV charger installation costs range between standard garage installation costs depending on breaker panel distance. Net out-of-pocket costs drop to qualifying net installation costs after rebate."
       },
       {
         "question": "3. Is a Building Permit Required for Grizzl E Smart EV Charger Cold Weather Review in Bend & Central Oregon?",
@@ -2035,8 +2035,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "answer": "A 48A hardwired charger delivers 11.52 kW output on a 60A breaker. A NEMA 14-50 plug-in outlet is capped at 32A–40A output on a 50A GFCI breaker."
       },
       {
-        "question": "5. How Does the $500 Electric Utility Rebate Work in Bend & Central Oregon?",
-        "answer": "Pacific Power and Midstate Electric offer an instant $500 cash-back rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
+        "question": "5. How Does the utility rebate Electric Utility Rebate Work in Bend & Central Oregon?",
+        "answer": "Pacific Power and Midstate Electric offer an instant local utility rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
       },
       {
         "question": "6. Do I Need a 200-Amp Main Electrical Panel Upgrade?",
@@ -2081,8 +2081,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "sectionalImageAlt": "Hardwired Vs Plugin EV Charger Technical Wiring & Conduit Sectional Illustration in Bend & Central Oregon",
     "bluf": {
       "solution": "Hardwired continuous 48A Level 2 EV charger installation for Hardwired Vs Plugin EV Charger in Bend & Central Oregon with 99.9% 6 AWG copper conductors and 60A breaker.",
-      "priceRange": "$315 – $650 net out-of-pocket after $500 rebate",
-      "rebateInfo": "$500 Pacific Power cash-back rebate handled directly by electrician",
+      "priceRange": "qualifying net installation costs net out-of-pocket after utility rebate",
+      "rebateInfo": "local utility cash-back rebate handled directly by electrician",
       "recommendation": "Hardwired 60A 2-pole circuit breaker with Bend & Central Oregon municipal trade permit sign-off."
     },
     "specs": [
@@ -2104,7 +2104,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "label": "Rebate Qualification",
-        "value": "$500 Pacific Power / Midstate Incentive"
+        "value": "utility rebate Pacific Power / Midstate Incentive"
       },
       {
         "label": "Permit Sign-Off Authority",
@@ -2137,8 +2137,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "content": "Before adding a 60A 2-pole breaker to an existing panel, electricians conduct a formal NEC Article 220 load calculation. This calculation factors in household square footage (3 Watts/sq ft), small appliance branch circuits (1,500 VA each), laundry circuit (1,500 VA), and major appliance nameplate ratings (electric heat, heat pumps, ranges, dryers).\n\nIf total calculated load plus the 60A EV circuit (14,400 VA) exceeds 80% of main panel busbar capacity (160A for a 200A panel), panel capacity expansion or smart load shedding technology (such as an Emporia Smart EVSE or DCC-9 energy management module) must be installed to prevent main breaker overloads."
       },
       {
-        "heading": "5. Utility Rebate Filing ($500 Instant Incentive) & Municipal Permits",
-        "content": "Homeowners and commercial property managers in Bend & Central Oregon qualify for an instant $500 cash-back rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the $500 rebate typically range between $315 and $650."
+        "heading": "5. Utility Rebate Filing (utility rebate Instant Incentive) & Municipal Permits",
+        "content": "Homeowners in Bend & Central Oregon qualify for an instant local utility rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the utility rebate typically range between qualifying net installation costs."
       },
       {
         "heading": "6. Commissioning, Torque Inspection & Final Safety Verification",
@@ -2152,7 +2152,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "question": "2. How Much Does Hardwired Vs Plugin EV Charger Cost in Bend & Central Oregon?",
-        "answer": "Standard residential garage Level 2 EV charger installation costs range between $650 and $1,250 depending on breaker panel distance. Net out-of-pocket costs drop to $315–$650 after rebate."
+        "answer": "Standard residential garage Level 2 EV charger installation costs range between standard garage installation costs depending on breaker panel distance. Net out-of-pocket costs drop to qualifying net installation costs after rebate."
       },
       {
         "question": "3. Is a Building Permit Required for Hardwired Vs Plugin EV Charger in Bend & Central Oregon?",
@@ -2163,8 +2163,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "answer": "A 48A hardwired charger delivers 11.52 kW output on a 60A breaker. A NEMA 14-50 plug-in outlet is capped at 32A–40A output on a 50A GFCI breaker."
       },
       {
-        "question": "5. How Does the $500 Electric Utility Rebate Work in Bend & Central Oregon?",
-        "answer": "Pacific Power and Midstate Electric offer an instant $500 cash-back rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
+        "question": "5. How Does the utility rebate Electric Utility Rebate Work in Bend & Central Oregon?",
+        "answer": "Pacific Power and Midstate Electric offer an instant local utility rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
       },
       {
         "question": "6. Do I Need a 200-Amp Main Electrical Panel Upgrade?",
@@ -2203,14 +2203,14 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "title": "Heat Pump Plus EV Charger Electrical Panel Load Bend OR Technical Engineering Guide",
     "category": "Hardware Engineering",
     "readTime": "18 min read",
-    "featuredImageSrc": "/images/commercial-ev-charging-station-800w.webp",
+    "featuredImageSrc": "/images/hero-ev-charger.webp",
     "sectionalImageSrc": "/images/solar-ev-integration-658w.webp",
     "featuredImageAlt": "Heat Pump Plus EV Charger Electrical Panel Load Bend OR Hardwired Installation in Bend & Central Oregon Oregon on 60A Circuit",
     "sectionalImageAlt": "Heat Pump Plus EV Charger Electrical Panel Load Bend OR Technical Wiring & Conduit Sectional Illustration in Bend & Central Oregon",
     "bluf": {
       "solution": "Hardwired continuous 48A Level 2 EV charger installation for Heat Pump Plus EV Charger Electrical Panel Load Bend OR in Bend & Central Oregon with 99.9% 6 AWG copper conductors and 60A breaker.",
-      "priceRange": "$315 – $650 net out-of-pocket after $500 rebate",
-      "rebateInfo": "$500 Pacific Power cash-back rebate handled directly by electrician",
+      "priceRange": "qualifying net installation costs net out-of-pocket after utility rebate",
+      "rebateInfo": "local utility cash-back rebate handled directly by electrician",
       "recommendation": "Hardwired 60A 2-pole circuit breaker with Bend & Central Oregon municipal trade permit sign-off."
     },
     "specs": [
@@ -2232,7 +2232,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "label": "Rebate Qualification",
-        "value": "$500 Pacific Power / Midstate Incentive"
+        "value": "utility rebate Pacific Power / Midstate Incentive"
       },
       {
         "label": "Permit Sign-Off Authority",
@@ -2265,8 +2265,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "content": "Before adding a 60A 2-pole breaker to an existing panel, electricians conduct a formal NEC Article 220 load calculation. This calculation factors in household square footage (3 Watts/sq ft), small appliance branch circuits (1,500 VA each), laundry circuit (1,500 VA), and major appliance nameplate ratings (electric heat, heat pumps, ranges, dryers).\n\nIf total calculated load plus the 60A EV circuit (14,400 VA) exceeds 80% of main panel busbar capacity (160A for a 200A panel), panel capacity expansion or smart load shedding technology (such as an Emporia Smart EVSE or DCC-9 energy management module) must be installed to prevent main breaker overloads."
       },
       {
-        "heading": "5. Utility Rebate Filing ($500 Instant Incentive) & Municipal Permits",
-        "content": "Homeowners and commercial property managers in Bend & Central Oregon qualify for an instant $500 cash-back rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the $500 rebate typically range between $315 and $650."
+        "heading": "5. Utility Rebate Filing (utility rebate Instant Incentive) & Municipal Permits",
+        "content": "Homeowners in Bend & Central Oregon qualify for an instant local utility rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the utility rebate typically range between qualifying net installation costs."
       },
       {
         "heading": "6. Commissioning, Torque Inspection & Final Safety Verification",
@@ -2280,7 +2280,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "question": "2. How Much Does Heat Pump Plus EV Charger Electrical Panel Load Bend OR Cost in Bend & Central Oregon?",
-        "answer": "Standard residential garage Level 2 EV charger installation costs range between $650 and $1,250 depending on breaker panel distance. Net out-of-pocket costs drop to $315–$650 after rebate."
+        "answer": "Standard residential garage Level 2 EV charger installation costs range between standard garage installation costs depending on breaker panel distance. Net out-of-pocket costs drop to qualifying net installation costs after rebate."
       },
       {
         "question": "3. Is a Building Permit Required for Heat Pump Plus EV Charger Electrical Panel Load Bend OR in Bend & Central Oregon?",
@@ -2291,8 +2291,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "answer": "A 48A hardwired charger delivers 11.52 kW output on a 60A breaker. A NEMA 14-50 plug-in outlet is capped at 32A–40A output on a 50A GFCI breaker."
       },
       {
-        "question": "5. How Does the $500 Electric Utility Rebate Work in Bend & Central Oregon?",
-        "answer": "Pacific Power and Midstate Electric offer an instant $500 cash-back rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
+        "question": "5. How Does the utility rebate Electric Utility Rebate Work in Bend & Central Oregon?",
+        "answer": "Pacific Power and Midstate Electric offer an instant local utility rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
       },
       {
         "question": "6. Do I Need a 200-Amp Main Electrical Panel Upgrade?",
@@ -2337,8 +2337,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "sectionalImageAlt": "How Much Does It Cost To Install EV Charger In Garage Technical Wiring & Conduit Sectional Illustration in Bend & Central Oregon",
     "bluf": {
       "solution": "Hardwired continuous 48A Level 2 EV charger installation for How Much Does It Cost To Install EV Charger In Garage in Bend & Central Oregon with 99.9% 6 AWG copper conductors and 60A breaker.",
-      "priceRange": "$315 – $650 net out-of-pocket after $500 rebate",
-      "rebateInfo": "$500 Pacific Power cash-back rebate handled directly by electrician",
+      "priceRange": "qualifying net installation costs net out-of-pocket after utility rebate",
+      "rebateInfo": "local utility cash-back rebate handled directly by electrician",
       "recommendation": "Hardwired 60A 2-pole circuit breaker with Bend & Central Oregon municipal trade permit sign-off."
     },
     "specs": [
@@ -2360,7 +2360,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "label": "Rebate Qualification",
-        "value": "$500 Pacific Power / Midstate Incentive"
+        "value": "utility rebate Pacific Power / Midstate Incentive"
       },
       {
         "label": "Permit Sign-Off Authority",
@@ -2393,8 +2393,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "content": "Before adding a 60A 2-pole breaker to an existing panel, electricians conduct a formal NEC Article 220 load calculation. This calculation factors in household square footage (3 Watts/sq ft), small appliance branch circuits (1,500 VA each), laundry circuit (1,500 VA), and major appliance nameplate ratings (electric heat, heat pumps, ranges, dryers).\n\nIf total calculated load plus the 60A EV circuit (14,400 VA) exceeds 80% of main panel busbar capacity (160A for a 200A panel), panel capacity expansion or smart load shedding technology (such as an Emporia Smart EVSE or DCC-9 energy management module) must be installed to prevent main breaker overloads."
       },
       {
-        "heading": "5. Utility Rebate Filing ($500 Instant Incentive) & Municipal Permits",
-        "content": "Homeowners and commercial property managers in Bend & Central Oregon qualify for an instant $500 cash-back rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the $500 rebate typically range between $315 and $650."
+        "heading": "5. Utility Rebate Filing (utility rebate Instant Incentive) & Municipal Permits",
+        "content": "Homeowners in Bend & Central Oregon qualify for an instant local utility rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the utility rebate typically range between qualifying net installation costs."
       },
       {
         "heading": "6. Commissioning, Torque Inspection & Final Safety Verification",
@@ -2408,7 +2408,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "question": "2. How Much Does How Much Does It Cost To Install EV Charger In Garage Cost in Bend & Central Oregon?",
-        "answer": "Standard residential garage Level 2 EV charger installation costs range between $650 and $1,250 depending on breaker panel distance. Net out-of-pocket costs drop to $315–$650 after rebate."
+        "answer": "Standard residential garage Level 2 EV charger installation costs range between standard garage installation costs depending on breaker panel distance. Net out-of-pocket costs drop to qualifying net installation costs after rebate."
       },
       {
         "question": "3. Is a Building Permit Required for How Much Does It Cost To Install EV Charger In Garage in Bend & Central Oregon?",
@@ -2419,8 +2419,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "answer": "A 48A hardwired charger delivers 11.52 kW output on a 60A breaker. A NEMA 14-50 plug-in outlet is capped at 32A–40A output on a 50A GFCI breaker."
       },
       {
-        "question": "5. How Does the $500 Electric Utility Rebate Work in Bend & Central Oregon?",
-        "answer": "Pacific Power and Midstate Electric offer an instant $500 cash-back rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
+        "question": "5. How Does the utility rebate Electric Utility Rebate Work in Bend & Central Oregon?",
+        "answer": "Pacific Power and Midstate Electric offer an instant local utility rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
       },
       {
         "question": "6. Do I Need a 200-Amp Main Electrical Panel Upgrade?",
@@ -2465,8 +2465,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "sectionalImageAlt": "Level 2 EV Charger Installation Bend OR Technical Wiring & Conduit Sectional Illustration in Bend & Central Oregon",
     "bluf": {
       "solution": "Hardwired continuous 48A Level 2 EV charger installation for Level 2 EV Charger Installation Bend OR in Bend & Central Oregon with 99.9% 6 AWG copper conductors and 60A breaker.",
-      "priceRange": "$315 – $650 net out-of-pocket after $500 rebate",
-      "rebateInfo": "$500 Pacific Power cash-back rebate handled directly by electrician",
+      "priceRange": "qualifying net installation costs net out-of-pocket after utility rebate",
+      "rebateInfo": "local utility cash-back rebate handled directly by electrician",
       "recommendation": "Hardwired 60A 2-pole circuit breaker with Bend & Central Oregon municipal trade permit sign-off."
     },
     "specs": [
@@ -2488,7 +2488,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "label": "Rebate Qualification",
-        "value": "$500 Pacific Power / Midstate Incentive"
+        "value": "utility rebate Pacific Power / Midstate Incentive"
       },
       {
         "label": "Permit Sign-Off Authority",
@@ -2521,8 +2521,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "content": "Before adding a 60A 2-pole breaker to an existing panel, electricians conduct a formal NEC Article 220 load calculation. This calculation factors in household square footage (3 Watts/sq ft), small appliance branch circuits (1,500 VA each), laundry circuit (1,500 VA), and major appliance nameplate ratings (electric heat, heat pumps, ranges, dryers).\n\nIf total calculated load plus the 60A EV circuit (14,400 VA) exceeds 80% of main panel busbar capacity (160A for a 200A panel), panel capacity expansion or smart load shedding technology (such as an Emporia Smart EVSE or DCC-9 energy management module) must be installed to prevent main breaker overloads."
       },
       {
-        "heading": "5. Utility Rebate Filing ($500 Instant Incentive) & Municipal Permits",
-        "content": "Homeowners and commercial property managers in Bend & Central Oregon qualify for an instant $500 cash-back rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the $500 rebate typically range between $315 and $650."
+        "heading": "5. Utility Rebate Filing (utility rebate Instant Incentive) & Municipal Permits",
+        "content": "Homeowners in Bend & Central Oregon qualify for an instant local utility rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the utility rebate typically range between qualifying net installation costs."
       },
       {
         "heading": "6. Commissioning, Torque Inspection & Final Safety Verification",
@@ -2536,7 +2536,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "question": "2. How Much Does Level 2 EV Charger Installation Bend OR Cost in Bend & Central Oregon?",
-        "answer": "Standard residential garage Level 2 EV charger installation costs range between $650 and $1,250 depending on breaker panel distance. Net out-of-pocket costs drop to $315–$650 after rebate."
+        "answer": "Standard residential garage Level 2 EV charger installation costs range between standard garage installation costs depending on breaker panel distance. Net out-of-pocket costs drop to qualifying net installation costs after rebate."
       },
       {
         "question": "3. Is a Building Permit Required for Level 2 EV Charger Installation Bend OR in Bend & Central Oregon?",
@@ -2547,8 +2547,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "answer": "A 48A hardwired charger delivers 11.52 kW output on a 60A breaker. A NEMA 14-50 plug-in outlet is capped at 32A–40A output on a 50A GFCI breaker."
       },
       {
-        "question": "5. How Does the $500 Electric Utility Rebate Work in Bend & Central Oregon?",
-        "answer": "Pacific Power and Midstate Electric offer an instant $500 cash-back rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
+        "question": "5. How Does the utility rebate Electric Utility Rebate Work in Bend & Central Oregon?",
+        "answer": "Pacific Power and Midstate Electric offer an instant local utility rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
       },
       {
         "question": "6. Do I Need a 200-Amp Main Electrical Panel Upgrade?",
@@ -2593,8 +2593,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "sectionalImageAlt": "NACS Vs J1772 EV Charger Adapter Guide 2026 Technical Wiring & Conduit Sectional Illustration in Bend & Central Oregon",
     "bluf": {
       "solution": "Hardwired continuous 48A Level 2 EV charger installation for NACS Vs J1772 EV Charger Adapter Guide 2026 in Bend & Central Oregon with 99.9% 6 AWG copper conductors and 60A breaker.",
-      "priceRange": "$315 – $650 net out-of-pocket after $500 rebate",
-      "rebateInfo": "$500 Pacific Power cash-back rebate handled directly by electrician",
+      "priceRange": "qualifying net installation costs net out-of-pocket after utility rebate",
+      "rebateInfo": "local utility cash-back rebate handled directly by electrician",
       "recommendation": "Hardwired 60A 2-pole circuit breaker with Bend & Central Oregon municipal trade permit sign-off."
     },
     "specs": [
@@ -2616,7 +2616,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "label": "Rebate Qualification",
-        "value": "$500 Pacific Power / Midstate Incentive"
+        "value": "utility rebate Pacific Power / Midstate Incentive"
       },
       {
         "label": "Permit Sign-Off Authority",
@@ -2649,8 +2649,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "content": "Before adding a 60A 2-pole breaker to an existing panel, electricians conduct a formal NEC Article 220 load calculation. This calculation factors in household square footage (3 Watts/sq ft), small appliance branch circuits (1,500 VA each), laundry circuit (1,500 VA), and major appliance nameplate ratings (electric heat, heat pumps, ranges, dryers).\n\nIf total calculated load plus the 60A EV circuit (14,400 VA) exceeds 80% of main panel busbar capacity (160A for a 200A panel), panel capacity expansion or smart load shedding technology (such as an Emporia Smart EVSE or DCC-9 energy management module) must be installed to prevent main breaker overloads."
       },
       {
-        "heading": "5. Utility Rebate Filing ($500 Instant Incentive) & Municipal Permits",
-        "content": "Homeowners and commercial property managers in Bend & Central Oregon qualify for an instant $500 cash-back rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the $500 rebate typically range between $315 and $650."
+        "heading": "5. Utility Rebate Filing (utility rebate Instant Incentive) & Municipal Permits",
+        "content": "Homeowners in Bend & Central Oregon qualify for an instant local utility rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the utility rebate typically range between qualifying net installation costs."
       },
       {
         "heading": "6. Commissioning, Torque Inspection & Final Safety Verification",
@@ -2664,7 +2664,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "question": "2. How Much Does NACS Vs J1772 EV Charger Adapter Guide 2026 Cost in Bend & Central Oregon?",
-        "answer": "Standard residential garage Level 2 EV charger installation costs range between $650 and $1,250 depending on breaker panel distance. Net out-of-pocket costs drop to $315–$650 after rebate."
+        "answer": "Standard residential garage Level 2 EV charger installation costs range between standard garage installation costs depending on breaker panel distance. Net out-of-pocket costs drop to qualifying net installation costs after rebate."
       },
       {
         "question": "3. Is a Building Permit Required for NACS Vs J1772 EV Charger Adapter Guide 2026 in Bend & Central Oregon?",
@@ -2675,8 +2675,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "answer": "A 48A hardwired charger delivers 11.52 kW output on a 60A breaker. A NEMA 14-50 plug-in outlet is capped at 32A–40A output on a 50A GFCI breaker."
       },
       {
-        "question": "5. How Does the $500 Electric Utility Rebate Work in Bend & Central Oregon?",
-        "answer": "Pacific Power and Midstate Electric offer an instant $500 cash-back rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
+        "question": "5. How Does the utility rebate Electric Utility Rebate Work in Bend & Central Oregon?",
+        "answer": "Pacific Power and Midstate Electric offer an instant local utility rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
       },
       {
         "question": "6. Do I Need a 200-Amp Main Electrical Panel Upgrade?",
@@ -2721,8 +2721,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "sectionalImageAlt": "NEC Article 220 EV Charger Load Calculation Technical Wiring & Conduit Sectional Illustration in Bend & Central Oregon",
     "bluf": {
       "solution": "Hardwired continuous 48A Level 2 EV charger installation for NEC Article 220 EV Charger Load Calculation in Bend & Central Oregon with 99.9% 6 AWG copper conductors and 60A breaker.",
-      "priceRange": "$315 – $650 net out-of-pocket after $500 rebate",
-      "rebateInfo": "$500 Pacific Power cash-back rebate handled directly by electrician",
+      "priceRange": "qualifying net installation costs net out-of-pocket after utility rebate",
+      "rebateInfo": "local utility cash-back rebate handled directly by electrician",
       "recommendation": "Hardwired 60A 2-pole circuit breaker with Bend & Central Oregon municipal trade permit sign-off."
     },
     "specs": [
@@ -2744,7 +2744,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "label": "Rebate Qualification",
-        "value": "$500 Pacific Power / Midstate Incentive"
+        "value": "utility rebate Pacific Power / Midstate Incentive"
       },
       {
         "label": "Permit Sign-Off Authority",
@@ -2777,8 +2777,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "content": "Before adding a 60A 2-pole breaker to an existing panel, electricians conduct a formal NEC Article 220 load calculation. This calculation factors in household square footage (3 Watts/sq ft), small appliance branch circuits (1,500 VA each), laundry circuit (1,500 VA), and major appliance nameplate ratings (electric heat, heat pumps, ranges, dryers).\n\nIf total calculated load plus the 60A EV circuit (14,400 VA) exceeds 80% of main panel busbar capacity (160A for a 200A panel), panel capacity expansion or smart load shedding technology (such as an Emporia Smart EVSE or DCC-9 energy management module) must be installed to prevent main breaker overloads."
       },
       {
-        "heading": "5. Utility Rebate Filing ($500 Instant Incentive) & Municipal Permits",
-        "content": "Homeowners and commercial property managers in Bend & Central Oregon qualify for an instant $500 cash-back rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the $500 rebate typically range between $315 and $650."
+        "heading": "5. Utility Rebate Filing (utility rebate Instant Incentive) & Municipal Permits",
+        "content": "Homeowners in Bend & Central Oregon qualify for an instant local utility rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the utility rebate typically range between qualifying net installation costs."
       },
       {
         "heading": "6. Commissioning, Torque Inspection & Final Safety Verification",
@@ -2792,7 +2792,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "question": "2. How Much Does NEC Article 220 EV Charger Load Calculation Cost in Bend & Central Oregon?",
-        "answer": "Standard residential garage Level 2 EV charger installation costs range between $650 and $1,250 depending on breaker panel distance. Net out-of-pocket costs drop to $315–$650 after rebate."
+        "answer": "Standard residential garage Level 2 EV charger installation costs range between standard garage installation costs depending on breaker panel distance. Net out-of-pocket costs drop to qualifying net installation costs after rebate."
       },
       {
         "question": "3. Is a Building Permit Required for NEC Article 220 EV Charger Load Calculation in Bend & Central Oregon?",
@@ -2803,8 +2803,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "answer": "A 48A hardwired charger delivers 11.52 kW output on a 60A breaker. A NEMA 14-50 plug-in outlet is capped at 32A–40A output on a 50A GFCI breaker."
       },
       {
-        "question": "5. How Does the $500 Electric Utility Rebate Work in Bend & Central Oregon?",
-        "answer": "Pacific Power and Midstate Electric offer an instant $500 cash-back rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
+        "question": "5. How Does the utility rebate Electric Utility Rebate Work in Bend & Central Oregon?",
+        "answer": "Pacific Power and Midstate Electric offer an instant local utility rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
       },
       {
         "question": "6. Do I Need a 200-Amp Main Electrical Panel Upgrade?",
@@ -2849,8 +2849,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "sectionalImageAlt": "Pacific Power EV Charger Rebate ORegon Guide Technical Wiring & Conduit Sectional Illustration in Bend & Central Oregon",
     "bluf": {
       "solution": "Hardwired continuous 48A Level 2 EV charger installation for Pacific Power EV Charger Rebate ORegon Guide in Bend & Central Oregon with 99.9% 6 AWG copper conductors and 60A breaker.",
-      "priceRange": "$315 – $650 net out-of-pocket after $500 rebate",
-      "rebateInfo": "$500 Pacific Power cash-back rebate handled directly by electrician",
+      "priceRange": "qualifying net installation costs net out-of-pocket after utility rebate",
+      "rebateInfo": "local utility cash-back rebate handled directly by electrician",
       "recommendation": "Hardwired 60A 2-pole circuit breaker with Bend & Central Oregon municipal trade permit sign-off."
     },
     "specs": [
@@ -2872,7 +2872,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "label": "Rebate Qualification",
-        "value": "$500 Pacific Power / Midstate Incentive"
+        "value": "utility rebate Pacific Power / Midstate Incentive"
       },
       {
         "label": "Permit Sign-Off Authority",
@@ -2905,8 +2905,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "content": "Before adding a 60A 2-pole breaker to an existing panel, electricians conduct a formal NEC Article 220 load calculation. This calculation factors in household square footage (3 Watts/sq ft), small appliance branch circuits (1,500 VA each), laundry circuit (1,500 VA), and major appliance nameplate ratings (electric heat, heat pumps, ranges, dryers).\n\nIf total calculated load plus the 60A EV circuit (14,400 VA) exceeds 80% of main panel busbar capacity (160A for a 200A panel), panel capacity expansion or smart load shedding technology (such as an Emporia Smart EVSE or DCC-9 energy management module) must be installed to prevent main breaker overloads."
       },
       {
-        "heading": "5. Utility Rebate Filing ($500 Instant Incentive) & Municipal Permits",
-        "content": "Homeowners and commercial property managers in Bend & Central Oregon qualify for an instant $500 cash-back rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the $500 rebate typically range between $315 and $650."
+        "heading": "5. Utility Rebate Filing (utility rebate Instant Incentive) & Municipal Permits",
+        "content": "Homeowners in Bend & Central Oregon qualify for an instant local utility rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the utility rebate typically range between qualifying net installation costs."
       },
       {
         "heading": "6. Commissioning, Torque Inspection & Final Safety Verification",
@@ -2920,7 +2920,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "question": "2. How Much Does Pacific Power EV Charger Rebate ORegon Guide Cost in Bend & Central Oregon?",
-        "answer": "Standard residential garage Level 2 EV charger installation costs range between $650 and $1,250 depending on breaker panel distance. Net out-of-pocket costs drop to $315–$650 after rebate."
+        "answer": "Standard residential garage Level 2 EV charger installation costs range between standard garage installation costs depending on breaker panel distance. Net out-of-pocket costs drop to qualifying net installation costs after rebate."
       },
       {
         "question": "3. Is a Building Permit Required for Pacific Power EV Charger Rebate ORegon Guide in Bend & Central Oregon?",
@@ -2931,8 +2931,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "answer": "A 48A hardwired charger delivers 11.52 kW output on a 60A breaker. A NEMA 14-50 plug-in outlet is capped at 32A–40A output on a 50A GFCI breaker."
       },
       {
-        "question": "5. How Does the $500 Electric Utility Rebate Work in Bend & Central Oregon?",
-        "answer": "Pacific Power and Midstate Electric offer an instant $500 cash-back rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
+        "question": "5. How Does the utility rebate Electric Utility Rebate Work in Bend & Central Oregon?",
+        "answer": "Pacific Power and Midstate Electric offer an instant local utility rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
       },
       {
         "question": "6. Do I Need a 200-Amp Main Electrical Panel Upgrade?",
@@ -2977,8 +2977,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "sectionalImageAlt": "Pacific Power EV Rebates Technical Wiring & Conduit Sectional Illustration in Bend & Central Oregon",
     "bluf": {
       "solution": "Hardwired continuous 48A Level 2 EV charger installation for Pacific Power EV Rebates in Bend & Central Oregon with 99.9% 6 AWG copper conductors and 60A breaker.",
-      "priceRange": "$315 – $650 net out-of-pocket after $500 rebate",
-      "rebateInfo": "$500 Pacific Power cash-back rebate handled directly by electrician",
+      "priceRange": "qualifying net installation costs net out-of-pocket after utility rebate",
+      "rebateInfo": "local utility cash-back rebate handled directly by electrician",
       "recommendation": "Hardwired 60A 2-pole circuit breaker with Bend & Central Oregon municipal trade permit sign-off."
     },
     "specs": [
@@ -3000,7 +3000,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "label": "Rebate Qualification",
-        "value": "$500 Pacific Power / Midstate Incentive"
+        "value": "utility rebate Pacific Power / Midstate Incentive"
       },
       {
         "label": "Permit Sign-Off Authority",
@@ -3033,8 +3033,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "content": "Before adding a 60A 2-pole breaker to an existing panel, electricians conduct a formal NEC Article 220 load calculation. This calculation factors in household square footage (3 Watts/sq ft), small appliance branch circuits (1,500 VA each), laundry circuit (1,500 VA), and major appliance nameplate ratings (electric heat, heat pumps, ranges, dryers).\n\nIf total calculated load plus the 60A EV circuit (14,400 VA) exceeds 80% of main panel busbar capacity (160A for a 200A panel), panel capacity expansion or smart load shedding technology (such as an Emporia Smart EVSE or DCC-9 energy management module) must be installed to prevent main breaker overloads."
       },
       {
-        "heading": "5. Utility Rebate Filing ($500 Instant Incentive) & Municipal Permits",
-        "content": "Homeowners and commercial property managers in Bend & Central Oregon qualify for an instant $500 cash-back rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the $500 rebate typically range between $315 and $650."
+        "heading": "5. Utility Rebate Filing (utility rebate Instant Incentive) & Municipal Permits",
+        "content": "Homeowners in Bend & Central Oregon qualify for an instant local utility rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the utility rebate typically range between qualifying net installation costs."
       },
       {
         "heading": "6. Commissioning, Torque Inspection & Final Safety Verification",
@@ -3048,7 +3048,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "question": "2. How Much Does Pacific Power EV Rebates Cost in Bend & Central Oregon?",
-        "answer": "Standard residential garage Level 2 EV charger installation costs range between $650 and $1,250 depending on breaker panel distance. Net out-of-pocket costs drop to $315–$650 after rebate."
+        "answer": "Standard residential garage Level 2 EV charger installation costs range between standard garage installation costs depending on breaker panel distance. Net out-of-pocket costs drop to qualifying net installation costs after rebate."
       },
       {
         "question": "3. Is a Building Permit Required for Pacific Power EV Rebates in Bend & Central Oregon?",
@@ -3059,8 +3059,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "answer": "A 48A hardwired charger delivers 11.52 kW output on a 60A breaker. A NEMA 14-50 plug-in outlet is capped at 32A–40A output on a 50A GFCI breaker."
       },
       {
-        "question": "5. How Does the $500 Electric Utility Rebate Work in Bend & Central Oregon?",
-        "answer": "Pacific Power and Midstate Electric offer an instant $500 cash-back rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
+        "question": "5. How Does the utility rebate Electric Utility Rebate Work in Bend & Central Oregon?",
+        "answer": "Pacific Power and Midstate Electric offer an instant local utility rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
       },
       {
         "question": "6. Do I Need a 200-Amp Main Electrical Panel Upgrade?",
@@ -3105,8 +3105,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "sectionalImageAlt": "Permits Deschutes County Technical Wiring & Conduit Sectional Illustration in Bend & Central Oregon",
     "bluf": {
       "solution": "Hardwired continuous 48A Level 2 EV charger installation for Permits Deschutes County in Bend & Central Oregon with 99.9% 6 AWG copper conductors and 60A breaker.",
-      "priceRange": "$315 – $650 net out-of-pocket after $500 rebate",
-      "rebateInfo": "$500 Pacific Power cash-back rebate handled directly by electrician",
+      "priceRange": "qualifying net installation costs net out-of-pocket after utility rebate",
+      "rebateInfo": "local utility cash-back rebate handled directly by electrician",
       "recommendation": "Hardwired 60A 2-pole circuit breaker with Bend & Central Oregon municipal trade permit sign-off."
     },
     "specs": [
@@ -3128,7 +3128,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "label": "Rebate Qualification",
-        "value": "$500 Pacific Power / Midstate Incentive"
+        "value": "utility rebate Pacific Power / Midstate Incentive"
       },
       {
         "label": "Permit Sign-Off Authority",
@@ -3161,8 +3161,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "content": "Before adding a 60A 2-pole breaker to an existing panel, electricians conduct a formal NEC Article 220 load calculation. This calculation factors in household square footage (3 Watts/sq ft), small appliance branch circuits (1,500 VA each), laundry circuit (1,500 VA), and major appliance nameplate ratings (electric heat, heat pumps, ranges, dryers).\n\nIf total calculated load plus the 60A EV circuit (14,400 VA) exceeds 80% of main panel busbar capacity (160A for a 200A panel), panel capacity expansion or smart load shedding technology (such as an Emporia Smart EVSE or DCC-9 energy management module) must be installed to prevent main breaker overloads."
       },
       {
-        "heading": "5. Utility Rebate Filing ($500 Instant Incentive) & Municipal Permits",
-        "content": "Homeowners and commercial property managers in Bend & Central Oregon qualify for an instant $500 cash-back rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the $500 rebate typically range between $315 and $650."
+        "heading": "5. Utility Rebate Filing (utility rebate Instant Incentive) & Municipal Permits",
+        "content": "Homeowners in Bend & Central Oregon qualify for an instant local utility rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the utility rebate typically range between qualifying net installation costs."
       },
       {
         "heading": "6. Commissioning, Torque Inspection & Final Safety Verification",
@@ -3176,7 +3176,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "question": "2. How Much Does Permits Deschutes County Cost in Bend & Central Oregon?",
-        "answer": "Standard residential garage Level 2 EV charger installation costs range between $650 and $1,250 depending on breaker panel distance. Net out-of-pocket costs drop to $315–$650 after rebate."
+        "answer": "Standard residential garage Level 2 EV charger installation costs range between standard garage installation costs depending on breaker panel distance. Net out-of-pocket costs drop to qualifying net installation costs after rebate."
       },
       {
         "question": "3. Is a Building Permit Required for Permits Deschutes County in Bend & Central Oregon?",
@@ -3187,8 +3187,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "answer": "A 48A hardwired charger delivers 11.52 kW output on a 60A breaker. A NEMA 14-50 plug-in outlet is capped at 32A–40A output on a 50A GFCI breaker."
       },
       {
-        "question": "5. How Does the $500 Electric Utility Rebate Work in Bend & Central Oregon?",
-        "answer": "Pacific Power and Midstate Electric offer an instant $500 cash-back rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
+        "question": "5. How Does the utility rebate Electric Utility Rebate Work in Bend & Central Oregon?",
+        "answer": "Pacific Power and Midstate Electric offer an instant local utility rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
       },
       {
         "question": "6. Do I Need a 200-Amp Main Electrical Panel Upgrade?",
@@ -3233,8 +3233,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "sectionalImageAlt": "Rivian R1t R1s Level 2 Charger Bend OR Technical Wiring & Conduit Sectional Illustration in Bend & Central Oregon",
     "bluf": {
       "solution": "Hardwired continuous 48A Level 2 EV charger installation for Rivian R1t R1s Level 2 Charger Bend OR in Bend & Central Oregon with 99.9% 6 AWG copper conductors and 60A breaker.",
-      "priceRange": "$315 – $650 net out-of-pocket after $500 rebate",
-      "rebateInfo": "$500 Pacific Power cash-back rebate handled directly by electrician",
+      "priceRange": "qualifying net installation costs net out-of-pocket after utility rebate",
+      "rebateInfo": "local utility cash-back rebate handled directly by electrician",
       "recommendation": "Hardwired 60A 2-pole circuit breaker with Bend & Central Oregon municipal trade permit sign-off."
     },
     "specs": [
@@ -3256,7 +3256,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "label": "Rebate Qualification",
-        "value": "$500 Pacific Power / Midstate Incentive"
+        "value": "utility rebate Pacific Power / Midstate Incentive"
       },
       {
         "label": "Permit Sign-Off Authority",
@@ -3289,8 +3289,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "content": "Before adding a 60A 2-pole breaker to an existing panel, electricians conduct a formal NEC Article 220 load calculation. This calculation factors in household square footage (3 Watts/sq ft), small appliance branch circuits (1,500 VA each), laundry circuit (1,500 VA), and major appliance nameplate ratings (electric heat, heat pumps, ranges, dryers).\n\nIf total calculated load plus the 60A EV circuit (14,400 VA) exceeds 80% of main panel busbar capacity (160A for a 200A panel), panel capacity expansion or smart load shedding technology (such as an Emporia Smart EVSE or DCC-9 energy management module) must be installed to prevent main breaker overloads."
       },
       {
-        "heading": "5. Utility Rebate Filing ($500 Instant Incentive) & Municipal Permits",
-        "content": "Homeowners and commercial property managers in Bend & Central Oregon qualify for an instant $500 cash-back rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the $500 rebate typically range between $315 and $650."
+        "heading": "5. Utility Rebate Filing (utility rebate Instant Incentive) & Municipal Permits",
+        "content": "Homeowners in Bend & Central Oregon qualify for an instant local utility rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the utility rebate typically range between qualifying net installation costs."
       },
       {
         "heading": "6. Commissioning, Torque Inspection & Final Safety Verification",
@@ -3304,7 +3304,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "question": "2. How Much Does Rivian R1t R1s Level 2 Charger Bend OR Cost in Bend & Central Oregon?",
-        "answer": "Standard residential garage Level 2 EV charger installation costs range between $650 and $1,250 depending on breaker panel distance. Net out-of-pocket costs drop to $315–$650 after rebate."
+        "answer": "Standard residential garage Level 2 EV charger installation costs range between standard garage installation costs depending on breaker panel distance. Net out-of-pocket costs drop to qualifying net installation costs after rebate."
       },
       {
         "question": "3. Is a Building Permit Required for Rivian R1t R1s Level 2 Charger Bend OR in Bend & Central Oregon?",
@@ -3315,8 +3315,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "answer": "A 48A hardwired charger delivers 11.52 kW output on a 60A breaker. A NEMA 14-50 plug-in outlet is capped at 32A–40A output on a 50A GFCI breaker."
       },
       {
-        "question": "5. How Does the $500 Electric Utility Rebate Work in Bend & Central Oregon?",
-        "answer": "Pacific Power and Midstate Electric offer an instant $500 cash-back rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
+        "question": "5. How Does the utility rebate Electric Utility Rebate Work in Bend & Central Oregon?",
+        "answer": "Pacific Power and Midstate Electric offer an instant local utility rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
       },
       {
         "question": "6. Do I Need a 200-Amp Main Electrical Panel Upgrade?",
@@ -3356,13 +3356,13 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "category": "Hardware Engineering",
     "readTime": "18 min read",
     "featuredImageSrc": "/images/electrical-panel-upgrade-200a-800w.webp",
-    "sectionalImageSrc": "/images/commercial-ev-charging-station-658w.webp",
+    "sectionalImageSrc": "/images/hero-ev-charger.webp",
     "featuredImageAlt": "Solar Panel EV Charger Integration Bend OR Hardwired Installation in Bend & Central Oregon Oregon on 60A Circuit",
     "sectionalImageAlt": "Solar Panel EV Charger Integration Bend OR Technical Wiring & Conduit Sectional Illustration in Bend & Central Oregon",
     "bluf": {
       "solution": "Hardwired continuous 48A Level 2 EV charger installation for Solar Panel EV Charger Integration Bend OR in Bend & Central Oregon with 99.9% 6 AWG copper conductors and 60A breaker.",
-      "priceRange": "$315 – $650 net out-of-pocket after $500 rebate",
-      "rebateInfo": "$500 Pacific Power cash-back rebate handled directly by electrician",
+      "priceRange": "qualifying net installation costs net out-of-pocket after utility rebate",
+      "rebateInfo": "local utility cash-back rebate handled directly by electrician",
       "recommendation": "Hardwired 60A 2-pole circuit breaker with Bend & Central Oregon municipal trade permit sign-off."
     },
     "specs": [
@@ -3384,7 +3384,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "label": "Rebate Qualification",
-        "value": "$500 Pacific Power / Midstate Incentive"
+        "value": "utility rebate Pacific Power / Midstate Incentive"
       },
       {
         "label": "Permit Sign-Off Authority",
@@ -3417,8 +3417,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "content": "Before adding a 60A 2-pole breaker to an existing panel, electricians conduct a formal NEC Article 220 load calculation. This calculation factors in household square footage (3 Watts/sq ft), small appliance branch circuits (1,500 VA each), laundry circuit (1,500 VA), and major appliance nameplate ratings (electric heat, heat pumps, ranges, dryers).\n\nIf total calculated load plus the 60A EV circuit (14,400 VA) exceeds 80% of main panel busbar capacity (160A for a 200A panel), panel capacity expansion or smart load shedding technology (such as an Emporia Smart EVSE or DCC-9 energy management module) must be installed to prevent main breaker overloads."
       },
       {
-        "heading": "5. Utility Rebate Filing ($500 Instant Incentive) & Municipal Permits",
-        "content": "Homeowners and commercial property managers in Bend & Central Oregon qualify for an instant $500 cash-back rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the $500 rebate typically range between $315 and $650."
+        "heading": "5. Utility Rebate Filing (utility rebate Instant Incentive) & Municipal Permits",
+        "content": "Homeowners in Bend & Central Oregon qualify for an instant local utility rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the utility rebate typically range between qualifying net installation costs."
       },
       {
         "heading": "6. Commissioning, Torque Inspection & Final Safety Verification",
@@ -3432,7 +3432,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "question": "2. How Much Does Solar Panel EV Charger Integration Bend OR Cost in Bend & Central Oregon?",
-        "answer": "Standard residential garage Level 2 EV charger installation costs range between $650 and $1,250 depending on breaker panel distance. Net out-of-pocket costs drop to $315–$650 after rebate."
+        "answer": "Standard residential garage Level 2 EV charger installation costs range between standard garage installation costs depending on breaker panel distance. Net out-of-pocket costs drop to qualifying net installation costs after rebate."
       },
       {
         "question": "3. Is a Building Permit Required for Solar Panel EV Charger Integration Bend OR in Bend & Central Oregon?",
@@ -3443,8 +3443,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "answer": "A 48A hardwired charger delivers 11.52 kW output on a 60A breaker. A NEMA 14-50 plug-in outlet is capped at 32A–40A output on a 50A GFCI breaker."
       },
       {
-        "question": "5. How Does the $500 Electric Utility Rebate Work in Bend & Central Oregon?",
-        "answer": "Pacific Power and Midstate Electric offer an instant $500 cash-back rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
+        "question": "5. How Does the utility rebate Electric Utility Rebate Work in Bend & Central Oregon?",
+        "answer": "Pacific Power and Midstate Electric offer an instant local utility rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
       },
       {
         "question": "6. Do I Need a 200-Amp Main Electrical Panel Upgrade?",
@@ -3489,8 +3489,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "sectionalImageAlt": "Tesla Cybertruck EV Charger Installation Bend OR Technical Wiring & Conduit Sectional Illustration in Bend & Central Oregon",
     "bluf": {
       "solution": "Hardwired continuous 48A Level 2 EV charger installation for Tesla Cybertruck EV Charger Installation Bend OR in Bend & Central Oregon with 99.9% 6 AWG copper conductors and 60A breaker.",
-      "priceRange": "$315 – $650 net out-of-pocket after $500 rebate",
-      "rebateInfo": "$500 Pacific Power cash-back rebate handled directly by electrician",
+      "priceRange": "qualifying net installation costs net out-of-pocket after utility rebate",
+      "rebateInfo": "local utility cash-back rebate handled directly by electrician",
       "recommendation": "Hardwired 60A 2-pole circuit breaker with Bend & Central Oregon municipal trade permit sign-off."
     },
     "specs": [
@@ -3512,7 +3512,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "label": "Rebate Qualification",
-        "value": "$500 Pacific Power / Midstate Incentive"
+        "value": "utility rebate Pacific Power / Midstate Incentive"
       },
       {
         "label": "Permit Sign-Off Authority",
@@ -3545,8 +3545,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "content": "Before adding a 60A 2-pole breaker to an existing panel, electricians conduct a formal NEC Article 220 load calculation. This calculation factors in household square footage (3 Watts/sq ft), small appliance branch circuits (1,500 VA each), laundry circuit (1,500 VA), and major appliance nameplate ratings (electric heat, heat pumps, ranges, dryers).\n\nIf total calculated load plus the 60A EV circuit (14,400 VA) exceeds 80% of main panel busbar capacity (160A for a 200A panel), panel capacity expansion or smart load shedding technology (such as an Emporia Smart EVSE or DCC-9 energy management module) must be installed to prevent main breaker overloads."
       },
       {
-        "heading": "5. Utility Rebate Filing ($500 Instant Incentive) & Municipal Permits",
-        "content": "Homeowners and commercial property managers in Bend & Central Oregon qualify for an instant $500 cash-back rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the $500 rebate typically range between $315 and $650."
+        "heading": "5. Utility Rebate Filing (utility rebate Instant Incentive) & Municipal Permits",
+        "content": "Homeowners in Bend & Central Oregon qualify for an instant local utility rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the utility rebate typically range between qualifying net installation costs."
       },
       {
         "heading": "6. Commissioning, Torque Inspection & Final Safety Verification",
@@ -3560,7 +3560,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "question": "2. How Much Does Tesla Cybertruck EV Charger Installation Bend OR Cost in Bend & Central Oregon?",
-        "answer": "Standard residential garage Level 2 EV charger installation costs range between $650 and $1,250 depending on breaker panel distance. Net out-of-pocket costs drop to $315–$650 after rebate."
+        "answer": "Standard residential garage Level 2 EV charger installation costs range between standard garage installation costs depending on breaker panel distance. Net out-of-pocket costs drop to qualifying net installation costs after rebate."
       },
       {
         "question": "3. Is a Building Permit Required for Tesla Cybertruck EV Charger Installation Bend OR in Bend & Central Oregon?",
@@ -3571,8 +3571,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "answer": "A 48A hardwired charger delivers 11.52 kW output on a 60A breaker. A NEMA 14-50 plug-in outlet is capped at 32A–40A output on a 50A GFCI breaker."
       },
       {
-        "question": "5. How Does the $500 Electric Utility Rebate Work in Bend & Central Oregon?",
-        "answer": "Pacific Power and Midstate Electric offer an instant $500 cash-back rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
+        "question": "5. How Does the utility rebate Electric Utility Rebate Work in Bend & Central Oregon?",
+        "answer": "Pacific Power and Midstate Electric offer an instant local utility rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
       },
       {
         "question": "6. Do I Need a 200-Amp Main Electrical Panel Upgrade?",
@@ -3617,8 +3617,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "sectionalImageAlt": "Tesla Wall Connector Installation Bend OR Technical Wiring & Conduit Sectional Illustration in Bend & Central Oregon",
     "bluf": {
       "solution": "Hardwired continuous 48A Level 2 EV charger installation for Tesla Wall Connector Installation Bend OR in Bend & Central Oregon with 99.9% 6 AWG copper conductors and 60A breaker.",
-      "priceRange": "$315 – $650 net out-of-pocket after $500 rebate",
-      "rebateInfo": "$500 Pacific Power cash-back rebate handled directly by electrician",
+      "priceRange": "qualifying net installation costs net out-of-pocket after utility rebate",
+      "rebateInfo": "local utility cash-back rebate handled directly by electrician",
       "recommendation": "Hardwired 60A 2-pole circuit breaker with Bend & Central Oregon municipal trade permit sign-off."
     },
     "specs": [
@@ -3640,7 +3640,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "label": "Rebate Qualification",
-        "value": "$500 Pacific Power / Midstate Incentive"
+        "value": "utility rebate Pacific Power / Midstate Incentive"
       },
       {
         "label": "Permit Sign-Off Authority",
@@ -3673,8 +3673,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "content": "Before adding a 60A 2-pole breaker to an existing panel, electricians conduct a formal NEC Article 220 load calculation. This calculation factors in household square footage (3 Watts/sq ft), small appliance branch circuits (1,500 VA each), laundry circuit (1,500 VA), and major appliance nameplate ratings (electric heat, heat pumps, ranges, dryers).\n\nIf total calculated load plus the 60A EV circuit (14,400 VA) exceeds 80% of main panel busbar capacity (160A for a 200A panel), panel capacity expansion or smart load shedding technology (such as an Emporia Smart EVSE or DCC-9 energy management module) must be installed to prevent main breaker overloads."
       },
       {
-        "heading": "5. Utility Rebate Filing ($500 Instant Incentive) & Municipal Permits",
-        "content": "Homeowners and commercial property managers in Bend & Central Oregon qualify for an instant $500 cash-back rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the $500 rebate typically range between $315 and $650."
+        "heading": "5. Utility Rebate Filing (utility rebate Instant Incentive) & Municipal Permits",
+        "content": "Homeowners in Bend & Central Oregon qualify for an instant local utility rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Bend & Central Oregon Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the utility rebate typically range between qualifying net installation costs."
       },
       {
         "heading": "6. Commissioning, Torque Inspection & Final Safety Verification",
@@ -3688,7 +3688,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "question": "2. How Much Does Tesla Wall Connector Installation Bend OR Cost in Bend & Central Oregon?",
-        "answer": "Standard residential garage Level 2 EV charger installation costs range between $650 and $1,250 depending on breaker panel distance. Net out-of-pocket costs drop to $315–$650 after rebate."
+        "answer": "Standard residential garage Level 2 EV charger installation costs range between standard garage installation costs depending on breaker panel distance. Net out-of-pocket costs drop to qualifying net installation costs after rebate."
       },
       {
         "question": "3. Is a Building Permit Required for Tesla Wall Connector Installation Bend OR in Bend & Central Oregon?",
@@ -3699,8 +3699,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "answer": "A 48A hardwired charger delivers 11.52 kW output on a 60A breaker. A NEMA 14-50 plug-in outlet is capped at 32A–40A output on a 50A GFCI breaker."
       },
       {
-        "question": "5. How Does the $500 Electric Utility Rebate Work in Bend & Central Oregon?",
-        "answer": "Pacific Power and Midstate Electric offer an instant $500 cash-back rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
+        "question": "5. How Does the utility rebate Electric Utility Rebate Work in Bend & Central Oregon?",
+        "answer": "Pacific Power and Midstate Electric offer an instant local utility rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
       },
       {
         "question": "6. Do I Need a 200-Amp Main Electrical Panel Upgrade?",
@@ -3745,8 +3745,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "sectionalImageAlt": "Vacation Rental Airbnb EV Charger Installation Sunriver OR Technical Wiring & Conduit Sectional Illustration in Sunriver",
     "bluf": {
       "solution": "Hardwired continuous 48A Level 2 EV charger installation for Vacation Rental Airbnb EV Charger Installation Sunriver OR in Sunriver with 99.9% 6 AWG copper conductors and 60A breaker.",
-      "priceRange": "$315 – $650 net out-of-pocket after $500 rebate",
-      "rebateInfo": "$500 Pacific Power cash-back rebate handled directly by electrician",
+      "priceRange": "qualifying net installation costs net out-of-pocket after utility rebate",
+      "rebateInfo": "local utility cash-back rebate handled directly by electrician",
       "recommendation": "Hardwired 60A 2-pole circuit breaker with Sunriver municipal trade permit sign-off."
     },
     "specs": [
@@ -3768,7 +3768,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "label": "Rebate Qualification",
-        "value": "$500 Pacific Power / Midstate Incentive"
+        "value": "utility rebate Pacific Power / Midstate Incentive"
       },
       {
         "label": "Permit Sign-Off Authority",
@@ -3786,7 +3786,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "sections": [
       {
         "heading": "1. Comprehensive Technical Engineering Overview of Vacation Rental Airbnb EV Charger Installation Sunriver OR",
-        "content": "Installing commercial-grade Level 2 guest EV chargers at Sunriver and Central Oregon Airbnb vacation rentals increases booking conversion by 34%. Setting up RFID card access controls, guest billing software, and durable outdoor Weatherproof NEMA 4X enclosures prevents unauthorized charging abuse.\n\nExecuting a professional Level 2 electric vehicle charging installation in Sunriver, Oregon demands strict compliance with National Electrical Code (NEC) standards and Oregon Electrical Specialty Code (OESC) amendments. Continuous EV charging loads draw high amperage uninterrupted for 8 to 12 hours straight. Under NEC 625.41, continuous loads require branch circuit overcurrent protection rated for 125% of the continuous operating current.\n\nFor standard 48-Amp continuous EV chargers, an electrician must install a dedicated 60-Amp 2-pole 240V circuit breaker. Operating a 48A charger on an undersized 50A circuit breaker causes continuous thermal stress, leading to nuisance breaker tripping and potential terminal bar degradation within 30 to 45 minutes of active charging."
+        "content": "Installing residential-grade Level 2 guest EV chargers at Sunriver and Central Oregon Airbnb vacation rentals increases booking conversion by 34%. Setting up RFID card access controls, guest billing software, and durable outdoor Weatherproof NEMA 4X enclosures prevents unauthorized charging abuse.\n\nExecuting a professional Level 2 electric vehicle charging installation in Sunriver, Oregon demands strict compliance with National Electrical Code (NEC) standards and Oregon Electrical Specialty Code (OESC) amendments. Continuous EV charging loads draw high amperage uninterrupted for 8 to 12 hours straight. Under NEC 625.41, continuous loads require branch circuit overcurrent protection rated for 125% of the continuous operating current.\n\nFor standard 48-Amp continuous EV chargers, an electrician must install a dedicated 60-Amp 2-pole 240V circuit breaker. Operating a 48A charger on an undersized 50A circuit breaker causes continuous thermal stress, leading to nuisance breaker tripping and potential terminal bar degradation within 30 to 45 minutes of active charging."
       },
       {
         "heading": "2. NEC Article 625 & OESC 2023 Branch Circuit Math & Derating",
@@ -3801,8 +3801,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "content": "Before adding a 60A 2-pole breaker to an existing panel, electricians conduct a formal NEC Article 220 load calculation. This calculation factors in household square footage (3 Watts/sq ft), small appliance branch circuits (1,500 VA each), laundry circuit (1,500 VA), and major appliance nameplate ratings (electric heat, heat pumps, ranges, dryers).\n\nIf total calculated load plus the 60A EV circuit (14,400 VA) exceeds 80% of main panel busbar capacity (160A for a 200A panel), panel capacity expansion or smart load shedding technology (such as an Emporia Smart EVSE or DCC-9 energy management module) must be installed to prevent main breaker overloads."
       },
       {
-        "heading": "5. Utility Rebate Filing ($500 Instant Incentive) & Municipal Permits",
-        "content": "Homeowners and commercial property managers in Sunriver qualify for an instant $500 cash-back rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Sunriver Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the $500 rebate typically range between $315 and $650."
+        "heading": "5. Utility Rebate Filing (utility rebate Instant Incentive) & Municipal Permits",
+        "content": "Homeowners in Sunriver qualify for an instant local utility rebate through Pacific Power's EV Supply Equipment program or Midstate Electric Cooperative incentives. To qualify for utility rebates, the installation must be completed by a licensed Oregon electrical contractor with an active Construction Contractors Board (CCB #248910) license.\n\nOur certified electrician network manages the entire municipal trade permit application with local building safety departments (Sunriver Building Division or Deschutes County Building Safety) and handles 100% of rebate paperwork. Net out-of-pocket installation costs after applying the utility rebate typically range between qualifying net installation costs."
       },
       {
         "heading": "6. Commissioning, Torque Inspection & Final Safety Verification",
@@ -3816,7 +3816,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       },
       {
         "question": "2. How Much Does Vacation Rental Airbnb EV Charger Installation Sunriver OR Cost in Sunriver?",
-        "answer": "Standard residential garage Level 2 EV charger installation costs range between $650 and $1,250 depending on breaker panel distance. Net out-of-pocket costs drop to $315–$650 after rebate."
+        "answer": "Standard residential garage Level 2 EV charger installation costs range between standard garage installation costs depending on breaker panel distance. Net out-of-pocket costs drop to qualifying net installation costs after rebate."
       },
       {
         "question": "3. Is a Building Permit Required for Vacation Rental Airbnb EV Charger Installation Sunriver OR in Sunriver?",
@@ -3827,8 +3827,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         "answer": "A 48A hardwired charger delivers 11.52 kW output on a 60A breaker. A NEMA 14-50 plug-in outlet is capped at 32A–40A output on a 50A GFCI breaker."
       },
       {
-        "question": "5. How Does the $500 Electric Utility Rebate Work in Sunriver?",
-        "answer": "Pacific Power and Midstate Electric offer an instant $500 cash-back rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
+        "question": "5. How Does the utility rebate Electric Utility Rebate Work in Sunriver?",
+        "answer": "Pacific Power and Midstate Electric offer an instant local utility rebate for Level 2 EV charger installations performed by licensed Oregon electrical contractors."
       },
       {
         "question": "6. Do I Need a 200-Amp Main Electrical Panel Upgrade?",

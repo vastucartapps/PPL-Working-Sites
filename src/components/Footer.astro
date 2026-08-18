@@ -48,7 +48,7 @@ const cityName = location ? location.name : SITE_CONFIG.location.city;
           <li><a href={getLocalizedPath('/services/tesla-wall-connector', location)} class="hover:text-white transition-colors">Tesla Wall Connector</a></li>
           <li><a href={getLocalizedPath('/services/nema-14-50-upgrade', location)} class="hover:text-white transition-colors">240V NEMA 14-50 Outlet</a></li>
           <li><a href={getLocalizedPath('/services/panel-capacity-upgrade', location)} class="hover:text-white transition-colors">200A Panel Upgrade</a></li>
-          <li><a href={getLocalizedPath('/services/commercial-ev-charging', location)} class="hover:text-white transition-colors">Commercial EV Hubs</a></li>
+          <li><a href={getLocalizedPath('/services/commercial-ev-charging', location)} class="hover:text-white transition-colors">Residential Garage Charging</a></li>
         </ul>
       </div>
 
@@ -77,9 +77,11 @@ const cityName = location ? location.name : SITE_CONFIG.location.city;
 
     </div>
 
-    <div class="border-t border-slate-800 pt-8 text-center text-slate-400 text-[11px] font-bold space-y-2">
+    <div class="border-t border-slate-800 pt-8 text-center text-slate-400 text-xs leading-relaxed space-y-3">
+      <p>
+        EV Charger One is a free service to assist homeowners in connecting with local service providers. All contractors/providers are independent and EV Charger One does not warrant or guarantee any work performed. It is the responsibility of the homeowner to verify that the hired contractor furnishes the necessary license and insurance required for the work being performed. All persons depicted in a photo or video are actors or models and not contractors listed on EV Charger One. Same-day and emergency services are subject to provider participation, location, technician availability, and demand.
+      </p>
       <p>© {new Date().getFullYear()} {SITE_CONFIG.brandName}. All rights reserved. Oregon Construction Contractors Board (CCB #248910 Partner Network).</p>
-      <p>Services provided by independent, verified licensed Oregon electrical contractors. 100% permitted by local building departments.</p>
     </div>
 
   </div>

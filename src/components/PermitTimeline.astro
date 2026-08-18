@@ -9,7 +9,7 @@ const { location } = Astro.props;
 const currentCity = location ? location.name : 'Central Oregon';
 const permitOffice = location ? location.permitOffice : 'Deschutes County / City of Bend Building Safety';
 const utilityName = location ? location.utilityName : 'Pacific Power';
-const rebateAmount = location ? location.rebateAmount : '$500';
+const rebateAmount = location ? location.rebateAmount : 'utility rebate';
 ---
 
 <div class="bg-slate-950 text-white border-2 border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl space-y-8">

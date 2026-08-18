@@ -40,7 +40,7 @@ export const LOCATIONS: Record<string, LocationData> = {
     state: 'OR',
     county: 'Deschutes County',
     utilityName: 'Pacific Power',
-    rebateAmount: '$500',
+    rebateAmount: 'utility rebate',
     phone: '(541) 555-0199',
     phoneClean: '5415550199',
     electricianRate: '$110 – $145 / hr',
@@ -50,20 +50,20 @@ export const LOCATIONS: Record<string, LocationData> = {
     neighborhoods: ['Northwest Crossing', 'Tetherow', 'Awbrey Butte', 'Old Mill District', 'River West', 'Century West'],
     geo: { lat: 44.0582, lng: -121.3153 },
     taglines: {
-      hero: 'The Gold Standard Level 2 EV Charger Installer in Bend, OR',
+      hero: 'Licensed Level 2 EV Charger Installer in Bend, OR',
       cta: 'Get Your EV Charger Installed in Bend Today',
-      notice: 'Local Notice for Bend Residents: City of Bend trade permits and Pacific Power $500 rebate filing included.'
+      notice: 'Local Notice for Bend Residents: City of Bend trade permits and Pacific Power utility rebate filing included.'
     },
     hyperLocalInjections: {
       buildingCodes: 'City of Bend Building Safety Division electrical permits under Oregon Specialty Code OAR 918-261-0020 require dedicated 2-pole breaker disconnects for continuous 48A loads.',
       climateProtection: 'Sub-zero Cascade mountain winter thermal shore power pre-heating (-10°F to 10°F on Century Drive) preserves 100% of battery range before commuting.',
       architecturalConstraints: 'Concealed interior attic wiring and custom siding paint-matched EMT conduit for strict NW Crossing, Tetherow, Awbrey Butte, and Broken Top HOAs.',
-      utilityInterconnection: 'Direct Pacific Power 240V grid interconnection with $500 cash-back residential rebate filing.'
+      utilityInterconnection: 'Direct Pacific Power 240V grid interconnection with utility rebate cash-back residential rebate filing.'
     },
     reviewConsensus: {
       reviewCount: 128,
       rating: '4.9',
-      sentimentSummary: 'Based on over 128 verified local customer reviews in Bend, the consistent consensus is that our Oregon CCB #248910 master electricians complete installations within 4 hours, pull required City of Bend trade permits, and file direct $500 Pacific Power rebate checks without hidden fees.'
+      sentimentSummary: 'Based on over 128 verified local customer reviews in Bend, the consistent consensus is that our Oregon CCB #248910 master electricians complete installations within 4 hours, pull required City of Bend trade permits, and file direct local utility rebate checks without hidden fees.'
     }
   },
   redmond: {
@@ -72,7 +72,7 @@ export const LOCATIONS: Record<string, LocationData> = {
     state: 'OR',
     county: 'Deschutes County',
     utilityName: 'Pacific Power',
-    rebateAmount: '$500',
+    rebateAmount: 'utility rebate',
     phone: '(541) 555-0199',
     phoneClean: '5415550199',
     electricianRate: '$105 – $140 / hr',
@@ -84,7 +84,7 @@ export const LOCATIONS: Record<string, LocationData> = {
     taglines: {
       hero: 'Top-Rated Level 2 EV Charger Installation in Redmond, OR',
       cta: 'Get Your EV Charger Installed in Redmond Today',
-      notice: 'Local Notice for Redmond Residents: City of Redmond trade permits and Pacific Power $500 rebate filing included.'
+      notice: 'Local Notice for Redmond Residents: City of Redmond trade permits and Pacific Power utility rebate filing included.'
     },
     hyperLocalInjections: {
       buildingCodes: 'City of Redmond Building Division trade permit inspections for 240V 50A and 60A EV charging circuits.',
@@ -104,7 +104,7 @@ export const LOCATIONS: Record<string, LocationData> = {
     state: 'OR',
     county: 'Deschutes County',
     utilityName: 'Central Electric Cooperative (CEC) & Pacific Power',
-    rebateAmount: '$500',
+    rebateAmount: 'utility rebate',
     phone: '(541) 555-0199',
     phoneClean: '5415550199',
     electricianRate: '$115 – $150 / hr',
@@ -136,7 +136,7 @@ export const LOCATIONS: Record<string, LocationData> = {
     state: 'OR',
     county: 'Deschutes County',
     utilityName: 'Midstate Electric Cooperative & Pacific Power',
-    rebateAmount: '$500',
+    rebateAmount: 'utility rebate',
     phone: '(541) 555-0199',
     phoneClean: '5415550199',
     electricianRate: '$115 – $150 / hr',
@@ -154,7 +154,7 @@ export const LOCATIONS: Record<string, LocationData> = {
       buildingCodes: 'Deschutes County and Sunriver Owners Association (SROA) Building Department trade permits.',
       climateProtection: 'High-altitude freeze-thaw conduit expansion fittings and heavy-duty commercial RFID access control for vacation rentals.',
       architecturalConstraints: 'Sunriver Resort SROA strict dark-sky and natural wood siding paint-matching guidelines.',
-      utilityInterconnection: 'Midstate Electric Cooperative residential $500 cash-back incentive filings.'
+      utilityInterconnection: 'Midstate Electric Cooperative residential utility rebate cash-back incentive filings.'
     },
     reviewConsensus: {
       reviewCount: 88,
@@ -168,7 +168,7 @@ export const LOCATIONS: Record<string, LocationData> = {
     state: 'OR',
     county: 'Deschutes County',
     utilityName: 'Midstate Electric Cooperative',
-    rebateAmount: '$500',
+    rebateAmount: 'utility rebate',
     phone: '(541) 555-0199',
     phoneClean: '5415550199',
     electricianRate: '$105 – $140 / hr',
@@ -200,7 +200,7 @@ export const LOCATIONS: Record<string, LocationData> = {
     state: 'OR',
     county: 'Crook County',
     utilityName: 'Central Electric Cooperative (CEC)',
-    rebateAmount: '$500',
+    rebateAmount: 'utility rebate',
     phone: '(541) 555-0199',
     phoneClean: '5415550199',
     electricianRate: '$105 – $140 / hr',

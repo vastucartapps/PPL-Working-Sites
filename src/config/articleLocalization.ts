@@ -40,7 +40,7 @@ export const LOCALIZED_ARTICLE_DATA: Record<string, LocalizedArticleContext> = {
     utility: {
       name: 'Pacific Power',
       type: 'Investor-Owned Utility (IOU)',
-      rebateAmount: '$500',
+      rebateAmount: 'utility rebate',
       rebateProgram: 'Pacific Power Oregon EV Supply Equipment Incentive',
       netMeteringRule: 'Schedule 135 Net Metering Service',
       ratePerKWh: '$0.118 / kWh'
@@ -70,7 +70,7 @@ export const LOCALIZED_ARTICLE_DATA: Record<string, LocalizedArticleContext> = {
     utility: {
       name: 'Pacific Power / Central Electric Co-op',
       type: 'Dual Utility Municipal District',
-      rebateAmount: '$500',
+      rebateAmount: 'utility rebate',
       rebateProgram: 'Pacific Power & CEC Commercial/Residential EV Rebate',
       netMeteringRule: 'CEC Net Metering Rate Schedule',
       ratePerKWh: '$0.112 / kWh'
@@ -100,7 +100,7 @@ export const LOCALIZED_ARTICLE_DATA: Record<string, LocalizedArticleContext> = {
     utility: {
       name: 'Central Electric Cooperative (CEC)',
       type: 'Member-Owned Electric Cooperative',
-      rebateAmount: '$500',
+      rebateAmount: 'utility rebate',
       rebateProgram: 'CEC Level 2 EV Charger Member Incentive',
       netMeteringRule: 'CEC Interconnection & Net Metering Agreement',
       ratePerKWh: '$0.109 / kWh'
@@ -130,7 +130,7 @@ export const LOCALIZED_ARTICLE_DATA: Record<string, LocalizedArticleContext> = {
     utility: {
       name: 'Midstate Electric Cooperative (MEC)',
       type: 'Rural Electric Cooperative',
-      rebateAmount: '$500',
+      rebateAmount: 'utility rebate',
       rebateProgram: 'Midstate Electric Member EV Charging Rebate',
       netMeteringRule: 'Midstate Net Metering Service Contract',
       ratePerKWh: '$0.105 / kWh'
@@ -160,7 +160,7 @@ export const LOCALIZED_ARTICLE_DATA: Record<string, LocalizedArticleContext> = {
     utility: {
       name: 'Midstate Electric Cooperative (MEC)',
       type: 'Rural Electric Cooperative',
-      rebateAmount: '$500',
+      rebateAmount: 'utility rebate',
       rebateProgram: 'Midstate Electric Member Incentive',
       netMeteringRule: 'MEC Net Metering Agreement',
       ratePerKWh: '$0.104 / kWh'
@@ -190,7 +190,7 @@ export const LOCALIZED_ARTICLE_DATA: Record<string, LocalizedArticleContext> = {
     utility: {
       name: 'Pacific Power / Central Electric Co-op',
       type: 'Crook County Electric District',
-      rebateAmount: '$500',
+      rebateAmount: 'utility rebate',
       rebateProgram: 'Crook County Residential EV Incentive',
       netMeteringRule: 'Pacific Power Schedule 135 Net Metering',
       ratePerKWh: '$0.108 / kWh'
