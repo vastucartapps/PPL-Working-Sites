@@ -4,10 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "../../node_modules/.bin/astro dev --port 4321",
-    "start": "../../node_modules/.bin/astro dev --port 4321",
-    "build": "../../node_modules/.bin/astro build",
-    "preview": "../../node_modules/.bin/astro preview --port 4321"
+    "dev": "astro dev --port 4321",
+    "start": "astro dev --port 4321",
+    "build": "astro build",
+    "preview": "astro preview --port 4321"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

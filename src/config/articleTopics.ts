@@ -22,6 +22,139 @@ export interface TopicContent {
 }
 
 export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
+  "s01-01-01-60a-circuit-breaker-6-awg-thhn-copper-wiring-load-calculation-bend": {
+    "slug": "s01-01-01-60a-circuit-breaker-6-awg-thhn-copper-wiring-load-calculation-bend",
+    "title": "60A Circuit Breaker & 6 AWG THHN Copper Wiring Load Calculation Guide for Bend OR Homes",
+    "category": "Electrical Calculations & Code",
+    "readTime": "22 min read",
+    "featuredImageSrc": "/images/blog/hero-60a-breaker-wiring-bend.webp",
+    "sectionalImageSrc": "/images/blog/6-awg-thhn-copper-conduit.webp",
+    "featuredImageAlt": "Licensed Oregon electrician installing 60A double-pole circuit breaker with 6 AWG THHN copper wiring in Bend residential electrical panel",
+    "sectionalImageAlt": "6 AWG THHN copper wire conductors inside EMT metal conduit for 48A Level 2 EV charging in Bend OR",
+    "bluf": {
+        "solution": "Hardwired 48A continuous Level 2 EV charger installation requires a dedicated 60A double-pole circuit breaker and 99.9% oxygen-free 6 AWG THHN copper conductors inside EMT conduit under NEC 2023 Article 625.",
+        "priceRange": "$850 - $1,450 complete installed cost before Pacific Power Oregon utility rebates.",
+        "rebateInfo": "$500 Pacific Power Oregon Instant Cash-Back Rebate + $1,000 Income-Qualified Rebate (Handled directly by licensed Oregon CCB #248910 electrician).",
+        "recommendation": "Always specify 6 AWG THHN copper wire in EMT conduit over Romex NM-B 6/3 due to NM-B 55A temperature rating limits under NEC 334.80."
+    },
+    "specs": [
+        {
+            "label": "Continuous Power Output",
+            "value": "48 Amps Continuous (11.52 kW at 240V AC)"
+        },
+        {
+            "label": "Circuit Breaker Rating",
+            "value": "60 Amp 2-Pole 240V Non-CTL (NEC 625.42 125% Rule)"
+        },
+        {
+            "label": "Wire Conductor Gauge",
+            "value": "6 AWG THHN Copper (65A Ampacity at 75\u00b0C Terminals)"
+        },
+        {
+            "label": "Conduit Requirement",
+            "value": "3/4-inch EMT Conduit (Max 40% Conduit Fill Rule)"
+        },
+        {
+            "label": "Voltage Drop Limit",
+            "value": "1.47% at 75 Feet Run (240V AC Single Phase)"
+        },
+        {
+            "label": "Municipal Permit",
+            "value": "City of Bend Building Safety Division Electrical Permit"
+        },
+        {
+            "label": "Utility Incentive",
+            "value": "$500 - $1,000 Pacific Power Residential Incentive"
+        }
+    ],
+    "sections": [
+        {
+            "heading": "NEC 2023 Article 625 Continuous Duty Load Rule (48A Continuous vs 60A Breaker Math)",
+            "content": "Under National Electrical Code (NEC 2023) Article 625.42, Electric Vehicle Supply Equipment (EVSE) is classified as a continuous electrical load operating at maximum current draw for 3 hours or longer. To prevent thermal breaker tripping, continuous loads require overcurrent protection rated at 125% of the continuous current draw. Therefore, a 48-Amp Level 2 EV charger requires a 60-Amp circuit breaker (48A x 1.25 = 60A).\n\nWhen calculating residential electrical load capacity for EV charger installation in Bend OR homes, electrical contractors must distinguish between continuous current rating and overcurrent protection device (OCPD) rating. A 48-amp EVSE (such as the Tesla Wall Connector Gen 3, ChargePoint Home Flex, or Emporia Level 2) draws a constant 48 amperes at 240 volts AC, delivering 11.52 kilowatts of charging power per hour. Under standard non-continuous load conditions, an electrical circuit can operate at 100% of its rated capacity. However, because EV charging sessions frequently span 6 to 10 hours overnight during Central Oregon cold snaps, thermal accumulation inside the main panelboard increases electrical resistance.\n\nInstalling a 50-amp circuit breaker on a 48-amp continuous EV charger violates NEC 625.42 and results in repeated thermal tripping after 45 to 90 minutes of continuous charging. The 50A breaker operates at 96% of its continuous thermal threshold, generating excessive internal heat that degrades the bimetallic strip inside the breaker assembly. Licensed Oregon electrical contractors (CCB #248910) mandate a dedicated 60A double-pole 240V breaker installed directly into the main service panelboard or a subpanel rated for continuous duty."
+        },
+        {
+            "heading": "6 AWG THHN Copper vs 6/3 Romex NM-B Conductor Ampacity & Thermal Limits",
+            "content": "For a 60A circuit breaker, 6 AWG THHN copper wire inside conduit is required because it has an ampacity rating of 65 Amps at 75\u00b0C terminal temperature rating. Conversely, 6/3 Romex NM-B non-metallic cable is strictly restricted to the 60\u00b0C column (55 Amps ampacity) under NEC 334.80. Because 55A is below the required 60A overcurrent protection, 6/3 Romex NM-B cannot be legally used for 48A EV charging in Oregon.\n\nConductor selection for 240-volt EV charging in Deschutes County requires analyzing terminal temperature ratings, insulation jacket thermal thresholds, and physical conduit protection. Under NEC Table 310.16, 6 AWG copper wire with THHN/THWN-2 insulation is rated for 75 Amps in the 90\u00b0C column and 65 Amps in the 75\u00b0C column. Because circuit breaker pressure wire connectors and EVSE lug terminals are UL-listed for 75\u00b0C maximum operating temperature, 6 AWG THHN copper wire is evaluated at 65 Amps ampacity\u2014providing a 5-amp safety margin above the 60A breaker rating.\n\nIn contrast, non-metallic sheathed cable (NM-B / Romex) contains paper wrapping and PVC sheathing that traps heat. NEC Article 334.80 mandates that NM-B cable must be sized using the 60\u00b0C temperature column, regardless of the individual conductor insulation rating. For 6 AWG NM-B, the 60\u00b0C ampacity limit is exactly 55 Amps. Installing 6/3 Romex NM-B on a 60A circuit breaker violates Oregon Electrical Specialty Code (OESC) and poses a severe electrical fire hazard. In Central Oregon residential installations, licensed electricians pull three individual 6 AWG THHN copper conductors (Black Phase A, Red Phase B, White Neutral if required) plus one 10 AWG green equipment grounding conductor (EGC) inside rigid EMT metal conduit or Schedule 80 PVC conduit."
+        },
+        {
+            "heading": "Voltage Drop Calculations & 75-Foot Conduit Runs in Deschutes County Homes",
+            "content": "Voltage drop over long electrical wire runs reduces charging efficiency and generates excessive conductor heat. Under National Electrical Code guidelines, total branch circuit voltage drop should not exceed 3%. For a 240V single-phase 48A load in Bend OR using 6 AWG copper wire (R = 0.491 Ohms per 1000 ft), a 75-foot run experiences a voltage drop of 3.535 Volts (1.47%), well within safe operating efficiency.\n\nIn Bend, Redmond, and Sunriver, residential garages are frequently detached or located on the opposite side of the home from the main 200A electrical service entrance. Running 240V branch circuits across finished attics, crawlspaces, or underground trenches increases total circuit length. Calculating voltage drop is essential to ensure the EV charger receives clean 240V AC power without causing low-voltage fault codes on vehicle onboard chargers.\n\nThe single-phase AC voltage drop formula is expressed as: Voltage Drop (V) = (2 x K x I x L) / CM, where K is the direct current resistance constant of copper (12.9 Ohms per mil-foot), I is continuous current (48 Amps), L is one-way circuit length in feet, and CM is circular mil area of the conductor (26,240 CM for 6 AWG). For a typical 75-foot branch circuit run in a Deschutes County home, the calculated voltage drop is: (2 x 12.9 x 48 x 75) / 26,240 = 3.53 Volts. Expressed as a percentage of nominal 240V service: (3.53 / 240) x 100 = 1.47% voltage drop. For runs exceeding 110 feet in La Pine or rural Sisters properties, electricians upsize the conductors to 4 AWG THHN copper (R = 0.308 Ohms per 1000 ft) to keep voltage drop under 1.8%."
+        },
+        {
+            "heading": "Electrical Panel Load Calculations (NEC Article 220) for Bend Homes",
+            "content": "Before adding a 60A EV charging circuit to a residential electrical panel, a load calculation under NEC Article 220 is required. In Bend OR homes with 100A or 125A main panels, existing continuous loads (heat pumps, electric water heaters, hot tubs) often exceed panel capacity. If calculated demand exceeds 80% of main breaker capacity, a 200A panel upgrade or an approved smart load management device (DCC-9) must be installed.\n\nMany Bend neighborhoods constructed prior to 2005 (such as Larkspur, Mountain View, and Midtown) feature 100A or 125A main service panels. When homeowners purchase an electric vehicle, adding a 60A dedicated circuit represents 60% of the total main panel nameplate capacity. Performing an official load calculation under NEC 220.83 (Optional Calculation for Existing Dwelling Units) is mandatory before pulling a City of Bend electrical permit.\n\nThe load calculation aggregates square footage general lighting (3 volt-amperes per sq ft), small appliance circuits (1,500 VA each), laundry circuits (1,500 VA), nameplate ratings of fixed appliances (electric ovens, dryers, heat pumps, hot tubs), and applies demand factors (100% of first 10 kVA + 40% of remainder). The 48A continuous EV load is added at 125% rating (14,400 VA). If total calculated demand exceeds 80 Amps on a 100A main breaker, the installation requires either: 1) A full 200A service entrance upgrade with Pacific Power meter socket replacement, or 2) A smart load shedding device (such as the DCC-9 EV Energy Manager or Wallbox Energy Meter) that automatically disconnects the EV charger whenever total home power consumption approaches panel limits."
+        },
+        {
+            "heading": "City of Bend & Deschutes County Building Safety Permit & Inspection Protocols",
+            "content": "Under Oregon Revised Statutes (ORS 479.550), installing a 240V EV charger circuit requires an electrical permit issued by the City of Bend Building Safety Division or Deschutes County Community Development. All work must be performed by a licensed Oregon electrical contractor (CCB #248910). Rough-in and final inspections verify breaker sizing, conductor labeling, torque specifications, and conduit grounding.\n\nFiling for a trade permit in Central Oregon is conducted through the Oregon ePermitting online portal. Licensed electrical contractors submit single-line wiring diagrams, panel schedule load calculations, and equipment specifications before commencing work. Unpermitted 240V electrical installations pose severe legal, insurance, and safety liabilities for homeowners in Deschutes County.\n\nDuring the municipal electrical inspection, the City of Bend inspector reviews five critical technical checkpoints: 1) Breaker rating matching wire ampacity (60A breaker on 6 AWG THHN copper), 2) Terminal torque setting compliance using a calibrated torque screwdriver (typically 45 to 50 in-lbs on main panel lugs), 3) Conduit support intervals (EMT straps installed within 3 feet of every box and every 10 feet along runs under NEC 358.30), 4) Expansion fittings for conduit penetrating exterior walls to withstand Central Oregon frost heave, and 5) Proper green EGC ground bonding at both panel and EVSE enclosure. Upon successful inspection, the municipal inspector uploads the official Certificate of Inspection sign-off, which is required to claim Oregon utility rebates."
+        },
+        {
+            "heading": "Pacific Power Oregon $500\u2013$1,000 Utility Rebate Claim Walkthrough (2026)",
+            "content": "Pacific Power Oregon offers a $500 instant cash-back rebate for residential Level 2 EV charger installations in Central Oregon, with low-to-moderate income households qualifying for up to $1,000. To claim the rebate, the installation must be performed by a licensed electrical contractor (CCB #248910), use an ENERGY STAR certified Level 2 charger, and include a copy of the final City of Bend electrical permit.\n\nPacific Power's Oregon EV Charging Incentive Program provides significant financial relief for Central Oregon homeowners upgrading to 48A Level 2 charging. The rebate applies to both equipment purchase costs and contractor labor fees for hardwired EVSE installations.\n\nTo ensure 100% approval, licensed electrical contractors assist homeowners with the 4-step Pacific Power claim process: 1) Purchase an ENERGY STAR qualified hardwired EVSE (Tesla Wall Connector, ChargePoint Home Flex, or JuiceBox 48), 2) Have the unit installed by an active Oregon CCB #248910 licensed contractor with municipal permit sign-off, 3) Upload itemized contractor invoices showing line-item wire gauge, breaker sizing, and permit fees to the Pacific Power portal within 60 days of installation, and 4) Receive direct check reimbursement or utility bill credit within 3 to 4 weeks. Additionally, residential installations qualify for the Federal Section 30C Alternative Fuel Infrastructure Tax Credit, covering 30% of remaining out-of-pocket costs up to $1,000."
+        }
+    ],
+    "faqs": [
+        {
+            "question": "Can I install a 60A circuit breaker for an EV charger on a 100A electrical panel in Bend OR?",
+            "answer": "Yes, but only if a formal load calculation under NEC Article 220 proves your existing home electrical demand leaves sufficient headroom. If total calculated demand exceeds 80 Amps, you must either upgrade your panel to 200A or install an approved smart load management device like the DCC-9 to automatically prevent panel overload."
+        },
+        {
+            "question": "Why is 6 AWG THHN copper wire required instead of 6/3 Romex NM-B for a 48A charger?",
+            "answer": "Under NEC 334.80, Romex NM-B wire is restricted to the 60\u00b0C temperature column, giving 6 AWG NM-B a maximum ampacity of 55 Amps\u2014which is below the required 60A breaker rating. 6 AWG THHN copper wire inside conduit is rated at 65 Amps in the 75\u00b0C column, safely exceeding the 60A breaker requirement."
+        },
+        {
+            "question": "What is the difference between a 48A hardwired EV charger and a 40A NEMA 14-50 plug-in unit?",
+            "answer": "A 48A hardwired charger is permanently connected to a 60A circuit, delivering 11.52 kW of charging power (approx 37-44 miles of range per hour). A NEMA 14-50 plug-in unit is capped at 40A continuous draw on a 50A breaker, delivering 9.6 kW (approx 28-30 miles per hour)."
+        },
+        {
+            "question": "How much does a 60A EV charger circuit installation cost in Bend & Central Oregon?",
+            "answer": "Standard 60A circuit installations in Bend range between $850 and $1,450 for labor, 6 AWG copper wire, EMT conduit, 60A breaker, and municipal permit fees. After applying the $500 Pacific Power rebate, net homeowner out-of-pocket cost is often between $350 and $950."
+        },
+        {
+            "question": "Does Pacific Power Oregon require a licensed electrician to qualify for the $500 rebate?",
+            "answer": "Yes. Pacific Power Oregon mandates that EV charger installations must be completed by a licensed Oregon electrical contractor holding an active CCB license (#248910) with a closed municipal electrical permit."
+        },
+        {
+            "question": "What electrical conduit size is required for 6 AWG THHN copper wire?",
+            "answer": "Under NEC Chapter 9 conduit fill tables, pulling three 6 AWG THHN copper conductors plus one 10 AWG ground conductor requires a minimum 3/4-inch EMT metal conduit to maintain fill capacity below the maximum 40% threshold."
+        },
+        {
+            "question": "Do I need a neutral wire for a hardwired Tesla Wall Connector installation?",
+            "answer": "No. The Tesla Wall Connector Gen 3 requires only two hot phase conductors (6 AWG Line 1 and Line 2) plus one equipment grounding conductor (10 AWG Green EGC). It does not use a neutral conductor."
+        },
+        {
+            "question": "How long does a City of Bend electrical permit inspection take for an EV charger?",
+            "answer": "City of Bend electrical permits are issued same-day or within 24 hours online. Municipal inspectors perform the physical site inspection within 1 to 2 business days after contractor scheduling."
+        },
+        {
+            "question": "What happens if an unpermitted 240V EV charger causes a home fire in Deschutes County?",
+            "answer": "Unpermitted electrical work violating ORS 479.550 allows homeowner insurance carriers to deny coverage for electrical fire claims. It also creates red-flag title disclosures during property sales in Bend, Redmond, or Sunriver."
+        },
+        {
+            "question": "Can a smart load shedder (DCC-9) prevent the need for a 200A panel upgrade?",
+            "answer": "Yes. The DCC-9 EV Energy Manager monitors total main panel current draw. If home power demand exceeds 80% of panel rating, it temporarily pauses EV charging and resumes automatically when demand drops, eliminating the need for a $2,500+ service panel upgrade."
+        }
+    ],
+    "internalLinks": [
+        {
+            "text": "200A Electrical Panel Upgrade Bend OR Guide",
+            "href": "/200-amp-electrical-panel-upgrade-bend-or"
+        },
+        {
+            "text": "Tesla Wall Connector Installation Bend OR",
+            "href": "/tesla-wall-connector-installation-bend-or"
+        },
+        {
+            "text": "Pacific Power $500 EV Charger Rebate Oregon Guide",
+            "href": "/pacific-power-ev-charger-rebate-oregon-guide"
+        },
+        {
+            "text": "City of Bend & Deschutes County Electrical Permits",
+            "href": "/permits-deschutes-county"
+        }
+    ]
+},
+
   "200-amp-electrical-panel-upgrade-bend-or": {
     "slug": "200-amp-electrical-panel-upgrade-bend-or",
     "title": "200 Amp Electrical Panel Upgrade Bend OR Technical Engineering Guide",
