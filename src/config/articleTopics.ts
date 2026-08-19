@@ -56,7 +56,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
       }
 ],
     "slug": "60a-circuit-breaker-6-awg-thhn-copper-wiring-load-calculation-bend",
-    "title": "60A Circuit Breaker & 6 AWG THHN Copper Wiring Load Calculation Guide for Bend OR Homes",
+    "title": "60A Breaker & 6 AWG THHN Wiring Guide Bend OR",
     "category": "Electrical Calculations & Code",
     "readTime": "22 min read",
     "featuredImageSrc": "/images/blog/hero-60a-breaker-wiring-bend.webp",
