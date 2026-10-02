@@ -7,6 +7,8 @@ export interface Props {
   path: string;
   cityName?: string;
   zipCode?: string;
+  lat?: number;
+  lng?: number;
   pageType?: string;
   images: Array<{
     src: string;
@@ -23,6 +25,8 @@ const {
   path = '',
   cityName = SITE_CONFIG.location.city,
   zipCode = SITE_CONFIG.location.zip,
+  lat = SITE_CONFIG.location.latitude,
+  lng = SITE_CONFIG.location.longitude,
   images = [],
   faqs = [],
   articleAuthor = "Oregon Master Electrician Desk (CCB #248910)"
@@ -76,6 +80,11 @@ const localBusinessSchema: Record<string, unknown> = {
     "addressRegion": "OR",
     "postalCode": zipCode,
     "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": lat,
+    "longitude": lng
   }
 };
 
@@ -218,7 +227,7 @@ const definedTermsList = [
   { name: "NEMA 14-50R Receptacle", def: "50-amp 120/240-volt 4-wire grounding outlet commonly used for plug-in Level 2 EV chargers." },
   { name: "Overcurrent Protection Device (OCPD)", def: "Circuit breaker designed to automatically interrupt current flow when amperage exceeds rated capacity." },
   { name: "Equipment Grounding Conductor (EGC)", def: "Low-impedance grounding wire (10 AWG copper for 60A circuits) connecting metal enclosures back to service panel." },
-  { name: "Pacific Power Oregon EV Rebate", def: "Instant cash-back utility incentive ($500–$1,000) for Oregon CCB licensed Level 2 charger installations." }
+  { name: "Oregon Utility EV Rebate", def: "Cash-back utility incentive, amount set by the customer's own electric provider, for Oregon CCB licensed Level 2 charger installations." }
 ];
 
 const standaloneDefinedTermSchemas = definedTermsList.map((t, idx) => ({
@@ -241,7 +250,8 @@ const serviceSchema = {
   "areaServed": cityName
 };
 
-// ImageObject Nodes
+// ImageObject Nodes -- geo-tagged for image SEO so each photo is tied to
+// the real place it was taken/represents, not just the article it's on.
 const imageSchemas = images.map((img, idx) => ({
   "@context": "https://schema.org",
   "@type": "ImageObject",
@@ -251,7 +261,12 @@ const imageSchemas = images.map((img, idx) => ({
   "caption": img.caption,
   "description": img.alt,
   "width": 1280,
-  "height": 714
+  "height": 714,
+  "contentLocation": {
+    "@type": "Place",
+    "name": cityName,
+    "geo": { "@type": "GeoCoordinates", "latitude": lat, "longitude": lng }
+  }
 }));
 
 // Master array of real, defensible schema types: Google-recognized rich-result

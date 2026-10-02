@@ -1,6 +1,6 @@
 ---
 import { SITE_CONFIG } from '../config/site';
-import { LocationData } from '../config/locations';
+import { LocationData, LOCATIONS } from '../config/locations';
 import { getLocalizedPath } from '../utils/LinkHelper';
 
 import BrandLogo from './BrandLogo.astro';
@@ -14,6 +14,7 @@ const { location } = Astro.props;
 const phone = SITE_CONFIG.phone;
 const phoneClean = SITE_CONFIG.phoneClean;
 const cityName = location ? location.name : SITE_CONFIG.location.city;
+const serviceCities = Object.values(LOCATIONS);
 ---
 
 <footer class="bg-slate-950 text-white border-t border-slate-800 pt-16 pb-12 font-mono text-xs">
@@ -27,7 +28,7 @@ const cityName = location ? location.name : SITE_CONFIG.location.city;
           <BrandLogo light={true} />
         </div>
         <p class="text-slate-300 font-bold leading-relaxed text-xs">
-          Licensed Oregon CCB #248910 electrical contractor partner network specializing in continuous 48A Level 2 EV charging, Tesla Wall Connectors, and 200A main panel capacity upgrades across Bend, Redmond, Sisters, Sunriver, La Pine, and Prineville.
+          Licensed Oregon CCB #248910 electrical contractor partner network specializing in continuous 48A Level 2 EV charging, Tesla Wall Connectors, and 200A main panel capacity upgrades across {serviceCities.map((c) => c.name).join(', ')}.
         </p>
         <div class="pt-2">
           <a
@@ -56,12 +57,9 @@ const cityName = location ? location.name : SITE_CONFIG.location.city;
       <div class="space-y-3">
         <div class="font-black text-emerald-400 uppercase tracking-wider text-xs">// SERVICE CITIES</div>
         <ul class="space-y-2 text-slate-300 font-bold">
-          <li><a href="/locations/bend/" class="hover:text-white transition-colors">Bend, OR (97701)</a></li>
-          <li><a href="/locations/redmond/" class="hover:text-white transition-colors">Redmond, OR (97756)</a></li>
-          <li><a href="/locations/sisters/" class="hover:text-white transition-colors">Sisters, OR (97759)</a></li>
-          <li><a href="/locations/sunriver/" class="hover:text-white transition-colors">Sunriver, OR (97707)</a></li>
-          <li><a href="/locations/la-pine/" class="hover:text-white transition-colors">La Pine, OR (97739)</a></li>
-          <li><a href="/locations/prineville/" class="hover:text-white transition-colors">Prineville, OR (97754)</a></li>
+          {serviceCities.map((c) => (
+            <li><a href={`/locations/${c.slug}/`} class="hover:text-white transition-colors">{c.name}, {c.state} ({c.zipCodes[0]})</a></li>
+          ))}
         </ul>
       </div>
 

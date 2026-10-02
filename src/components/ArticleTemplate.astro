@@ -103,6 +103,9 @@ const bodyImages = images.slice(1);
     description={pageDescription}
     path={canonicalPath}
     cityName={cityName}
+    zipCode={location?.zipCodes[0]}
+    lat={location?.geo.lat}
+    lng={location?.geo.lng}
     pageType="blog"
     images={images}
     faqs={faqs}
@@ -128,7 +131,7 @@ const bodyImages = images.slice(1);
           </h1>
 
           <p class="tldr p-4 bg-slate-900/90 border-l-4 border-cyan-500 rounded-r-lg font-mono text-sm sm:text-base text-slate-200 leading-relaxed">
-            <strong>TL;DR / Quick Executive Summary:</strong> Hardwired 48A continuous Level 2 EV charging in {cityName} requires a dedicated 60A 2-pole breaker and 6 AWG THHN copper wire inside EMT conduit under NEC 625.42. Romex 6/3 NM-B is strictly limited to 55A (60°C column) and cannot legally be used. Pacific Power offers an instant $500–$1,000 cash-back rebate for licensed Oregon CCB #248910 installations.
+            <strong>TL;DR / Quick Executive Summary:</strong> Hardwired 48A continuous Level 2 EV charging in {cityName} requires a dedicated 60A 2-pole breaker and 6 AWG THHN copper wire inside EMT conduit under NEC 625.42. Romex 6/3 NM-B is strictly limited to 55A (60°C column) and cannot legally be used. Your local utility provider's cash-back rebate is handled directly by our licensed Oregon CCB #248910 electricians.
           </p>
         </div>
 

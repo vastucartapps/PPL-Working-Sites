@@ -102,6 +102,8 @@ const serviceFaqs = [
     path={`/locations/${location.slug}/services/${service}/`}
     cityName={localData.cityName}
     zipCode={location.zipCodes[0]}
+    lat={location.geo.lat}
+    lng={location.geo.lng}
     faqs={serviceFaqs}
   />
 

@@ -44,7 +44,15 @@ const pageDescription = description ?? (location
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
     <SEOHead title={pageTitle} description={pageDescription} faqs={faqs} />
-    {location && <LocalSEOHead location={location} />}
+    {location && (
+      <>
+        <meta name="geo.position" content={`${location.geo.lat};${location.geo.lng}`} />
+        <meta name="geo.placename" content={`${location.name}, ${location.state}`} />
+        <meta name="geo.region" content={`US-${location.state}`} />
+        <meta name="ICBM" content={`${location.geo.lat}, ${location.geo.lng}`} />
+        <LocalSEOHead location={location} />
+      </>
+    )}
     
     
     <!-- Non-Blocking Deferred Google Analytics 4 for 100/100 Core Web Vitals -->

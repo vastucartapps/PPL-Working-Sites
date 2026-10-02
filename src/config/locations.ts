@@ -152,6 +152,31 @@ export const LOCATIONS: Record<string, LocationData> = {
       utilityInterconnection: 'Midstate Electric Cooperative 240V grid interconnect verification.'
     }
   },
+  corvallis: {
+    slug: 'corvallis',
+    name: 'Corvallis',
+    state: 'OR',
+    county: 'Benton County',
+    utilityName: 'Pacific Power & Consumers Power Inc.',
+    rebateAmount: 'utility rebate',
+    electricianRate: '$100 – $135 / hr',
+    permitOffice: 'City of Corvallis Development Services Division',
+    zipCodes: ['97330', '97331', '97333'],
+    landmarks: ['Oregon State University', 'Avery Park', 'Willamette River', 'Downtown Corvallis'],
+    neighborhoods: ['Downtown', 'South Corvallis', 'North Corvallis', 'Timberhill'],
+    geo: { lat: 44.5646, lng: -123.2620 },
+    taglines: {
+      hero: 'Licensed Level 2 EV Charger Installer in Corvallis, OR',
+      cta: 'Get Your EV Charger Installed in Corvallis Today',
+      notice: 'Local Notice for Corvallis Residents: City of Corvallis trade permits and Pacific Power / Consumers Power utility rebate filing included.'
+    },
+    hyperLocalInjections: {
+      buildingCodes: 'City of Corvallis Development Services Division electrical permits (corvallispermits.com) under the 2023 Oregon Electrical Specialty Code.',
+      climateProtection: 'Willamette Valley wet-winter conduit sealing and moisture-rated EVSE enclosures for exterior garage installations.',
+      architecturalConstraints: 'Concealed conduit runs matched to Craftsman and mid-century siding common in Downtown Corvallis and South Corvallis.',
+      utilityInterconnection: 'Pacific Power or Consumers Power Inc. 240V grid interconnection with utility rebate cash-back filing, depending on service territory.'
+    }
+  },
   prineville: {
     slug: 'prineville',
     name: 'Prineville',

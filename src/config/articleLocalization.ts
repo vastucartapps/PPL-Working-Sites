@@ -170,6 +170,34 @@ export const LOCALIZED_ARTICLE_DATA: Record<string, LocalizedArticleContext> = {
     neighborhoods: ['Newberry Estate', 'Ponderosa Pines', 'Wickiup Junction', 'Downtown La Pine'],
     landmarks: ['Newberry National Volcanic Monument', 'Paulina Lake', 'Wickiup Reservoir']
   },
+  corvallis: {
+    citySlug: 'corvallis',
+    cityName: 'Corvallis',
+    state: 'OR',
+    county: 'Benton County',
+    utility: {
+      name: 'Pacific Power / Consumers Power Inc.',
+      type: 'Investor-Owned Utility & Electric Cooperative',
+      rebateAmount: 'utility rebate',
+      rebateProgram: 'Pacific Power Oregon EV Supply Equipment Incentive',
+      netMeteringRule: 'Schedule 135 Net Metering Service',
+      ratePerKWh: '$0.138 / kWh'
+    },
+    permit: {
+      office: 'City of Corvallis Development Services Division',
+      portalUrl: 'https://www.corvallispermits.com',
+      inspectionWindow: '24-48 Hours',
+      buildingCodeYear: '2023 Oregon Electrical Specialty Code (OESC)'
+    },
+    climate: {
+      elevationFeet: 230,
+      winterMinTempF: 36,
+      thermalPreheatOverheadPct: 2,
+      conduitDeratingFactor: 'Standard 75°C THHN Copper Derating Applied'
+    },
+    neighborhoods: ['Downtown', 'South Corvallis', 'North Corvallis', 'Timberhill'],
+    landmarks: ['Oregon State University', 'Avery Park', 'Willamette River']
+  },
   prineville: {
     citySlug: 'prineville',
     cityName: 'Prineville',

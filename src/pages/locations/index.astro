@@ -1,59 +1,20 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { LOCATIONS } from '../../config/locations';
 
 const pageTitle = "EV Charger Service Areas Near Bend, OR";
-const pageDescription = "Licensed Level 2 EV charger installation in Bend, Redmond, Sisters, Sunriver, La Pine & Prineville. Trade permits and utility rebates filed.";
+const pageDescription = "Licensed Level 2 EV charger installation across Central Oregon & the Willamette Valley. Trade permits and utility rebates filed.";
 
-const locations = [
-  {
-    city: "Bend, OR",
-    url: "/locations/bend/",
-    county: "Deschutes County",
-    zip: "97701",
-    landmarks: "Pilot Butte, Old Mill District, Cascade Lakes, Downtown Bend.",
-    badge: "DESCHUTES COUNTY"
-  },
-  {
-    city: "Redmond, OR",
-    url: "/locations/redmond/",
-    county: "Deschutes County",
-    zip: "97756",
-    landmarks: "Smith Rock State Park, Roberts Field Airport, Dry Canyon Trail.",
-    badge: "DESCHUTES COUNTY"
-  },
-  {
-    city: "Sisters, OR",
-    url: "/locations/sisters/",
-    county: "Deschutes County",
-    zip: "97759",
-    landmarks: "Three Sisters Mountains, Black Butte Ranch, Hood Avenue.",
-    badge: "DESCHUTES COUNTY"
-  },
-  {
-    city: "Sunriver, OR",
-    url: "/locations/sunriver/",
-    county: "Deschutes County",
-    zip: "97707",
-    landmarks: "Sunriver Resort, Benham Falls, Deschutes River.",
-    badge: "DESCHUTES COUNTY"
-  },
-  {
-    city: "La Pine, OR",
-    url: "/locations/la-pine/",
-    county: "Deschutes County",
-    zip: "97739",
-    landmarks: "Newberry National Volcanic Monument, Paulina Lake.",
-    badge: "DESCHUTES COUNTY"
-  },
-  {
-    city: "Prineville, OR",
-    url: "/locations/prineville/",
-    county: "Crook County",
-    zip: "97754",
-    landmarks: "Ochoco Reservoir, Bowman Dam, Crook County Courthouse.",
-    badge: "CROOK COUNTY"
-  }
-];
+// Derived directly from LOCATIONS (the SSOT) -- adding a city there is
+// now the only step needed for it to appear here too.
+const locations = Object.values(LOCATIONS).map((loc) => ({
+  city: `${loc.name}, ${loc.state}`,
+  url: `/locations/${loc.slug}/`,
+  county: loc.county,
+  zip: loc.zipCodes[0],
+  landmarks: loc.landmarks.join(', ') + '.',
+  badge: loc.county.toUpperCase()
+}));
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
@@ -65,7 +26,7 @@ const locations = [
           EV Charger Installation Locations
         </h1>
         <p class="text-base text-slate-800 font-semibold mt-3">
-          Network of independent licensed Oregon electrical contractors (Oregon CCB #248910 partner network) providing Level 2 Tesla Wall Connector & 240V NEMA 14-50 outlet installations across Deschutes and Crook Counties.
+          Network of independent licensed Oregon electrical contractors (Oregon CCB #248910 partner network) providing Level 2 Tesla Wall Connector & 240V NEMA 14-50 outlet installations across Deschutes, Crook, and Benton Counties.
         </p>
       </div>
     </div>

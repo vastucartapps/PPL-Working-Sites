@@ -66,7 +66,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "bluf": {
         "solution": "Hardwired 48A continuous Level 2 EV charger installation requires a dedicated 60A double-pole circuit breaker and 99.9% oxygen-free 6 AWG THHN copper conductors inside EMT conduit under NEC 2023 Article 625.",
         "priceRange": "$850 - $1,450 complete installed cost before Pacific Power Oregon utility rebates.",
-        "rebateInfo": "$500 Pacific Power Oregon Instant Cash-Back Rebate + $1,000 Income-Qualified Rebate (Handled directly by licensed Oregon CCB #248910 electrician).",
+        "rebateInfo": "Local utility cash-back rebate, amount confirmed at time of permit filing (handled directly by licensed Oregon CCB #248910 electrician).",
         "recommendation": "Always specify 6 AWG THHN copper wire in EMT conduit over Romex NM-B 6/3 due to NM-B 55A temperature rating limits under NEC 334.80."
     },
     "specs": [
@@ -96,7 +96,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         },
         {
             "label": "Utility Incentive",
-            "value": "$500 - $1,000 Pacific Power Residential Incentive"
+            "value": "Local Utility Cash-Back Incentive (Amount Varies By Provider)"
         }
     ],
     "sections": [
@@ -121,8 +121,8 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
             "content": "Under Oregon Revised Statutes (ORS 479.550), installing a 240V EV charger circuit requires an electrical permit issued by the City of Bend Building Safety Division or Deschutes County Community Development. All work must be performed by a licensed Oregon electrical contractor (CCB #248910). Rough-in and final inspections verify breaker sizing, conductor labeling, torque specifications, and conduit grounding.\n\nFiling for a trade permit in Central Oregon is conducted through the Oregon ePermitting online portal. Licensed electrical contractors submit single-line wiring diagrams, panel schedule load calculations, and equipment specifications before commencing work. Unpermitted 240V electrical installations pose severe legal, insurance, and safety liabilities for homeowners in Deschutes County.\n\nDuring the municipal electrical inspection, the City of Bend inspector reviews five critical technical checkpoints: 1) Breaker rating matching wire ampacity (60A breaker on 6 AWG THHN copper), 2) Terminal torque setting compliance using a calibrated torque screwdriver (typically 45 to 50 in-lbs on main panel lugs), 3) Conduit support intervals (EMT straps installed within 3 feet of every box and every 10 feet along runs under NEC 358.30), 4) Expansion fittings for conduit penetrating exterior walls to withstand Central Oregon frost heave, and 5) Proper green EGC ground bonding at both panel and EVSE enclosure. Upon successful inspection, the municipal inspector uploads the official Certificate of Inspection sign-off, which is required to claim Oregon utility rebates."
         },
         {
-            "heading": "Pacific Power Oregon $500\u2013$1,000 Utility Rebate Claim Walkthrough (2026)",
-            "content": "Pacific Power Oregon offers a $500 instant cash-back rebate for residential Level 2 EV charger installations in Central Oregon, with low-to-moderate income households qualifying for up to $1,000. To claim the rebate, the installation must be performed by a licensed electrical contractor (CCB #248910), use an ENERGY STAR certified Level 2 charger, and include a copy of the final City of Bend electrical permit.\n\nPacific Power's Oregon EV Charging Incentive Program provides significant financial relief for Central Oregon homeowners upgrading to 48A Level 2 charging. The rebate applies to both equipment purchase costs and contractor labor fees for hardwired EVSE installations.\n\nTo ensure 100% approval, licensed electrical contractors assist homeowners with the 4-step Pacific Power claim process: 1) Purchase an ENERGY STAR qualified hardwired EVSE (Tesla Wall Connector, ChargePoint Home Flex, or JuiceBox 48), 2) Have the unit installed by an active Oregon CCB #248910 licensed contractor with municipal permit sign-off, 3) Upload itemized contractor invoices showing line-item wire gauge, breaker sizing, and permit fees to the Pacific Power portal within 60 days of installation, and 4) Receive direct check reimbursement or utility bill credit within 3 to 4 weeks. Additionally, residential installations qualify for the Federal Section 30C Alternative Fuel Infrastructure Tax Credit, covering 30% of remaining out-of-pocket costs up to $1,000."
+            "heading": "Claiming Your Local Utility Rebate (2026)",
+            "content": "Oregon utility providers (including Pacific Power and local electric cooperatives) offer cash-back rebates for residential Level 2 EV charger installations, with exact amounts and eligibility varying by provider and household income. To claim a rebate, the installation must be performed by a licensed electrical contractor (CCB #248910) and include a copy of the final municipal electrical permit.\n\nOur licensed Oregon CCB #248910 electricians handle the rebate paperwork directly: confirming your utility's current program terms, submitting itemized contractor invoices showing wire gauge, breaker sizing, and permit fees, and following up until the credit or reimbursement is issued. Residential installations may also qualify for the Federal Section 30C Alternative Fuel Infrastructure Tax Credit -- consult a tax professional for current eligibility and amounts."
         }
     ],
     "faqs": [
@@ -140,11 +140,11 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
         },
         {
             "question": "How much does a 60A EV charger circuit installation cost in Bend & Central Oregon?",
-            "answer": "Standard 60A circuit installations in Bend range between $850 and $1,450 for labor, 6 AWG copper wire, EMT conduit, 60A breaker, and municipal permit fees. After applying the $500 Pacific Power rebate, net homeowner out-of-pocket cost is often between $350 and $950."
+            "answer": "Standard 60A circuit installations in Bend range between $850 and $1,450 for labor, 6 AWG copper wire, EMT conduit, 60A breaker, and municipal permit fees, before any utility rebate is applied."
         },
         {
-            "question": "Does Pacific Power Oregon require a licensed electrician to qualify for the $500 rebate?",
-            "answer": "Yes. Pacific Power Oregon mandates that EV charger installations must be completed by a licensed Oregon electrical contractor holding an active CCB license (#248910) with a closed municipal electrical permit."
+            "question": "Does Oregon's utility rebate require a licensed electrician?",
+            "answer": "Yes. Oregon utility rebate programs require EV charger installations to be completed by a licensed Oregon electrical contractor holding an active CCB license (#248910) with a closed municipal electrical permit."
         },
         {
             "question": "What electrical conduit size is required for 6 AWG THHN copper wire?",
@@ -177,7 +177,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
             "href": "/tesla-wall-connector-installation-bend-or/"
         },
         {
-            "text": "Pacific Power $500 EV Charger Rebate Oregon Guide",
+            "text": "Oregon Utility Rebate Guide for EV Chargers",
             "href": "/pacific-power-ev-charger-rebate-oregon-guide/"
         },
         {

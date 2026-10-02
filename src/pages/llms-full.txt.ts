@@ -13,7 +13,7 @@ export const GET: APIRoute = async () => {
 > Complete technical & compliance manual for ${SITE_CONFIG.brandName} -- Central Oregon's licensed EV charging installation network.
 
 ## System Overview
-${SITE_CONFIG.brandName} coordinates residential and commercial Level 2 EV charger installations across Deschutes and Crook County, Oregon. All electrical work is performed by licensed Oregon electrical contractors holding active CCB credentials (${SITE_CONFIG.ccbLicenseNumber} network).
+${SITE_CONFIG.brandName} coordinates residential and commercial Level 2 EV charger installations across Deschutes, Crook, and Benton County, Oregon. All electrical work is performed by licensed Oregon electrical contractors holding active CCB credentials (${SITE_CONFIG.ccbLicenseNumber} network).
 
 ## Core Services & Architecture
 - [Tesla Wall Connector (48A Hardwired)](${base}/services/tesla-wall-connector/): 11.52 kW continuous output on dedicated 60A breaker.

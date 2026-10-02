@@ -53,6 +53,8 @@ const locationFaqs = [
     path={`/locations/${location.slug}/`}
     cityName={location.name}
     zipCode={location.zipCodes[0]}
+    lat={location.geo.lat}
+    lng={location.geo.lng}
     imageUrl={`${SITE_CONFIG.baseUrl}/images/hero-ev-charger.webp`}
     faqs={locationFaqs}
   />
