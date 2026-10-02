@@ -91,7 +91,7 @@ const { location } = Astro.props;
             </div>
           </div>
 
-          <PricingDisclaimerBox />
+          <PricingDisclaimerBox locationName={location.name} utilityName={location.utilityName} rebateAmount={location.rebateAmount} />
         </div>
 
         <div class="lg:col-span-5">
