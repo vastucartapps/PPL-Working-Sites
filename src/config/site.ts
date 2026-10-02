@@ -15,9 +15,16 @@ export const SITE_CONFIG = {
   phoneClean: "18882174060",
   operatingHours: "Mon-Sun 7:00 AM - 8:00 PM PST",
 
-  // Lead Dispatch Webhook & Form Endpoint
+  // Lead Dispatch Webhook & Form Endpoint (same inbox, different label per form)
   web3FormsAccessKey: "{{WEB3FORMS_ACCESS_KEY}}",
   leadEmailSubject: "🔥 NEW HIGH-INTENT LEAD - EV Charger One",
+  reviewEmailSubject: "⭐ NEW REVIEW SUBMISSION - EV Charger One",
+
+  // Real review data only -- reviewCount stays 0 until genuine reviews come in
+  // via /reviews/ and are manually verified. Schema only emits AggregateRating
+  // when reviewCount > 0, so nothing fabricated ever ships.
+  reviewCount: 0,
+  reviewRating: null as string | null,
 
   // Legal & Contractor Credentials
   ccbLicense: "Oregon CCB #248910 Partner Network",

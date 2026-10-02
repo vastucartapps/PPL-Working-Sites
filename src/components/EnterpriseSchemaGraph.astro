@@ -57,7 +57,11 @@ const orgSchema = {
 };
 
 // 2. LocalBusiness
-const localBusinessSchema = {
+// aggregateRating is only added once SITE_CONFIG.reviewCount reflects real,
+// verified reviews collected via /reviews/ -- schema.org requires a real
+// rating to back this claim, and Google already flagged fabricated review
+// data on this property once. Never hardcode a rating here.
+const localBusinessSchema: Record<string, unknown> = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "@id": `${currentUrl}#localbusiness`,
@@ -74,6 +78,14 @@ const localBusinessSchema = {
     "addressCountry": "US"
   }
 };
+
+if (SITE_CONFIG.reviewCount > 0 && SITE_CONFIG.reviewRating) {
+  localBusinessSchema.aggregateRating = {
+    "@type": "AggregateRating",
+    "ratingValue": SITE_CONFIG.reviewRating,
+    "reviewCount": String(SITE_CONFIG.reviewCount)
+  };
+}
 
 // 3. WebSite
 const webSiteSchema = {

@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import EnterpriseSchemaGraph from '../components/EnterpriseSchemaGraph.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import ReviewForm from '../components/ReviewForm.astro';
+import { SITE_CONFIG } from '../config/site';
+
+const pageTitle = `Leave a Review | ${SITE_CONFIG.brandName}, Bend OR`;
+const pageDescription = `Had an EV charger installed by our network? Share your experience and help other Central Oregon homeowners choose with confidence.`;
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <EnterpriseSchemaGraph
+    title={pageTitle}
+    description={pageDescription}
+    path="/reviews/"
+    pageType="reviews"
+    images={[]}
+  />
+
+  <Breadcrumbs pathName="Leave a Review" />
+
+  <section class="py-16 sm:py-20 bg-brand-slate-50 grid-bg border-b border-brand-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-10 space-y-3">
+        <span class="mono-tag">⚡ CENTRAL OREGON EV CHARGER NETWORK</span>
+        <h1 class="text-3xl sm:text-5xl font-black text-slate-950 tracking-tight leading-tight">
+          Tell Us About Your Installation
+        </h1>
+        <p class="text-slate-700 text-base font-normal leading-relaxed">
+          Real feedback from real homeowners helps us improve and helps your neighbors
+          choose the right electrician. Every submission is read and verified before
+          anything is published.
+        </p>
+      </div>
+
+      <ReviewForm />
+    </div>
+  </section>
+</BaseLayout>

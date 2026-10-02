@@ -1,0 +1,202 @@
+---
+import { SITE_CONFIG } from '../config/site';
+import { LOCATIONS } from '../config/locations';
+
+const cities = Object.values(LOCATIONS);
+---
+
+<div class="bg-white border-2 border-brand-slate-200 rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden max-w-xl mx-auto">
+  <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500"></div>
+
+  <div class="border-b border-brand-slate-200 pb-5 mb-6">
+    <span class="mono-tag text-xs">⭐ SHARE YOUR EXPERIENCE</span>
+    <h2 class="text-2xl sm:text-3xl font-black text-slate-950 tracking-tight mt-3">
+      Leave a Review
+    </h2>
+    <p class="text-xs sm:text-sm text-slate-900 font-bold mt-1">
+      Had an EV charger installed by our network? Tell other homeowners about it.
+    </p>
+  </div>
+
+  <form id="review-form" class="space-y-4">
+    <input type="hidden" name="access_key" value={SITE_CONFIG.web3FormsAccessKey} />
+    <input type="hidden" name="subject" value={SITE_CONFIG.reviewEmailSubject} />
+    <input type="hidden" name="from_name" value={SITE_CONFIG.brandName} />
+    <input type="hidden" name="form_type" value="review" />
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div>
+        <label for="review-name" class="block font-mono text-xs font-black uppercase text-slate-950 mb-1">
+          Your Name *
+        </label>
+        <input
+          type="text"
+          id="review-name"
+          name="name"
+          required
+          aria-label="Your Name"
+          placeholder="e.g. Marcus Vance"
+          class="w-full bg-brand-slate-50 border-2 border-brand-slate-300 rounded-xl px-4 py-3 text-slate-950 font-bold text-xs sm:text-sm focus:outline-none focus:border-emerald-600 shadow-sm"
+        />
+      </div>
+
+      <div>
+        <label for="review-city" class="block font-mono text-xs font-black uppercase text-slate-950 mb-1">
+          Your City *
+        </label>
+        <select
+          id="review-city"
+          name="city"
+          required
+          aria-label="Your City"
+          class="w-full bg-white border-2 border-brand-slate-300 rounded-xl px-4 py-3 text-slate-950 font-bold text-xs sm:text-sm focus:outline-none focus:border-emerald-600 cursor-pointer shadow-sm"
+        >
+          {cities.map((c) => (
+            <option value={`${c.name}, ${c.state}`} class="bg-white text-slate-950 font-bold">{c.name}, {c.state}</option>
+          ))}
+        </select>
+      </div>
+    </div>
+
+    <div>
+      <label for="review-email" class="block font-mono text-xs font-black uppercase text-slate-950 mb-1">
+        Email (not published, verification only) *
+      </label>
+      <input
+        type="email"
+        id="review-email"
+        name="email"
+        required
+        aria-label="Email address"
+        placeholder="you@example.com"
+        class="w-full bg-brand-slate-50 border-2 border-brand-slate-300 rounded-xl px-4 py-3 text-slate-950 font-bold text-xs sm:text-sm focus:outline-none focus:border-emerald-600 shadow-sm"
+      />
+    </div>
+
+    <div>
+      <label class="block font-mono text-xs font-black uppercase text-slate-950 mb-2">
+        Your Rating *
+      </label>
+      <div class="flex items-center gap-1" id="star-picker" role="radiogroup" aria-label="Star rating">
+        {[1, 2, 3, 4, 5].map((n) => (
+          <button
+            type="button"
+            class="star-btn text-3xl leading-none text-brand-slate-300 hover:text-amber-400 transition-colors cursor-pointer"
+            data-value={n}
+            aria-label={`${n} star${n > 1 ? 's' : ''}`}
+          >★</button>
+        ))}
+      </div>
+      <input type="hidden" id="review-rating" name="rating" required value="" />
+    </div>
+
+    <div>
+      <label for="review-text" class="block font-mono text-xs font-black uppercase text-slate-950 mb-1">
+        Your Review *
+      </label>
+      <textarea
+        id="review-text"
+        name="review"
+        required
+        rows="4"
+        aria-label="Your Review"
+        placeholder="What was your experience with the installation?"
+        class="w-full bg-brand-slate-50 border-2 border-brand-slate-300 rounded-xl px-4 py-3 text-slate-950 font-bold text-xs sm:text-sm focus:outline-none focus:border-emerald-600 shadow-sm"
+      ></textarea>
+    </div>
+
+    <button
+      type="submit"
+      id="review-submit-btn"
+      aria-label="Submit your review"
+      class="btn-primary w-full py-4 px-6 text-center text-xs sm:text-sm font-black text-white shadow-xl mt-2 cursor-pointer"
+    >
+      <span>SUBMIT REVIEW →</span>
+    </button>
+
+    <div id="review-message" class="hidden p-4 rounded-xl text-center text-xs font-mono font-bold mt-2" data-phone={SITE_CONFIG.phone}></div>
+
+    <p class="text-xs text-slate-700 font-bold pt-2 text-center">
+      Reviews are read and verified before being published anywhere on this site.
+    </p>
+  </form>
+</div>
+
+<script is:inline>
+  (function() {
+    var form = document.getElementById('review-form');
+    var submitBtn = document.getElementById('review-submit-btn');
+    var msgBox = document.getElementById('review-message');
+    var ratingInput = document.getElementById('review-rating');
+    var starBtns = document.querySelectorAll('.star-btn');
+
+    function paintStars(value) {
+      starBtns.forEach(function(btn) {
+        var v = parseInt(btn.getAttribute('data-value'), 10);
+        btn.classList.toggle('text-amber-400', v <= value);
+        btn.classList.toggle('text-brand-slate-300', v > value);
+      });
+    }
+
+    starBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var v = btn.getAttribute('data-value');
+        ratingInput.value = v;
+        paintStars(parseInt(v, 10));
+      });
+    });
+
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        if (!ratingInput.value) {
+          if (msgBox) {
+            msgBox.classList.remove('hidden', 'bg-emerald-100', 'text-emerald-950');
+            msgBox.classList.add('bg-rose-100', 'text-rose-900');
+            msgBox.innerHTML = '⚠️ Please select a star rating before submitting.';
+          }
+          return;
+        }
+
+        if (submitBtn) submitBtn.setAttribute('disabled', 'true');
+
+        var formData = new FormData(form);
+        var reviewData = {};
+        formData.forEach(function(val, key) { reviewData[key] = val; });
+
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(reviewData)
+        })
+        .then(function(res) { return res.json(); })
+        .then(function(data) {
+          if (!data || data.success !== true) {
+            throw new Error((data && data.message) || 'Web3Forms did not confirm delivery');
+          }
+          if (msgBox) {
+            msgBox.classList.remove('hidden', 'bg-rose-100', 'text-rose-900');
+            msgBox.classList.add('bg-emerald-100', 'text-emerald-950');
+            msgBox.innerHTML = '✅ <strong>THANK YOU!</strong><br />Your review was submitted and will be read shortly.';
+          }
+          form.reset();
+          ratingInput.value = '';
+          paintStars(0);
+        })
+        .catch(function(err) {
+          console.error('Review submission failed:', err);
+          if (msgBox) {
+            var phone = msgBox.dataset.phone || '';
+            msgBox.classList.remove('hidden', 'bg-emerald-100', 'text-emerald-950');
+            msgBox.classList.add('bg-rose-100', 'text-rose-900');
+            msgBox.innerHTML = '⚠️ <strong>Something went wrong submitting this review.</strong><br />Please try again, or call us at ' + phone + '.';
+          }
+        })
+        .finally(function() {
+          if (submitBtn) submitBtn.removeAttribute('disabled');
+        });
+      });
+    }
+  })();
+</script>
