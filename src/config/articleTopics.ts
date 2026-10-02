@@ -170,19 +170,19 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "internalLinks": [
         {
             "text": "200A Electrical Panel Upgrade Bend OR Guide",
-            "href": "/200-amp-electrical-panel-upgrade-bend-or"
+            "href": "/200-amp-electrical-panel-upgrade-bend-or/"
         },
         {
             "text": "Tesla Wall Connector Installation Bend OR",
-            "href": "/tesla-wall-connector-installation-bend-or"
+            "href": "/tesla-wall-connector-installation-bend-or/"
         },
         {
             "text": "Pacific Power $500 EV Charger Rebate Oregon Guide",
-            "href": "/pacific-power-ev-charger-rebate-oregon-guide"
+            "href": "/pacific-power-ev-charger-rebate-oregon-guide/"
         },
         {
             "text": "City of Bend & Deschutes County Electrical Permits",
-            "href": "/permits-deschutes-county"
+            "href": "/permits-deschutes-county/"
         }
     ]
 },
@@ -299,19 +299,19 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "internalLinks": [
       {
         "text": "Tesla Wall Connector Installation Guide",
-        "href": "/tesla-wall-connector-installation-bend-or"
+        "href": "/tesla-wall-connector-installation-bend-or/"
       },
       {
         "text": "200A Electrical Panel Upgrade Guide",
-        "href": "/200-amp-electrical-panel-upgrade-bend-or"
+        "href": "/200-amp-electrical-panel-upgrade-bend-or/"
       },
       {
         "text": "EV Charger Repair & Troubleshooting",
-        "href": "/ev-charger-repair-and-troubleshooting-bend-or"
+        "href": "/ev-charger-repair-and-troubleshooting-bend-or/"
       },
       {
         "text": "Redmond EV Charger Installation",
-        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or"
+        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or/"
       }
     ]
   },
@@ -427,19 +427,19 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "internalLinks": [
       {
         "text": "Tesla Wall Connector Installation Guide",
-        "href": "/tesla-wall-connector-installation-bend-or"
+        "href": "/tesla-wall-connector-installation-bend-or/"
       },
       {
         "text": "200A Electrical Panel Upgrade Guide",
-        "href": "/200-amp-electrical-panel-upgrade-bend-or"
+        "href": "/200-amp-electrical-panel-upgrade-bend-or/"
       },
       {
         "text": "EV Charger Repair & Troubleshooting",
-        "href": "/ev-charger-repair-and-troubleshooting-bend-or"
+        "href": "/ev-charger-repair-and-troubleshooting-bend-or/"
       },
       {
         "text": "Redmond EV Charger Installation",
-        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or"
+        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or/"
       }
     ]
   },
@@ -555,19 +555,19 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "internalLinks": [
       {
         "text": "Tesla Wall Connector Installation Guide",
-        "href": "/tesla-wall-connector-installation-bend-or"
+        "href": "/tesla-wall-connector-installation-bend-or/"
       },
       {
         "text": "200A Electrical Panel Upgrade Guide",
-        "href": "/200-amp-electrical-panel-upgrade-bend-or"
+        "href": "/200-amp-electrical-panel-upgrade-bend-or/"
       },
       {
         "text": "EV Charger Repair & Troubleshooting",
-        "href": "/ev-charger-repair-and-troubleshooting-bend-or"
+        "href": "/ev-charger-repair-and-troubleshooting-bend-or/"
       },
       {
         "text": "Redmond EV Charger Installation",
-        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or"
+        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or/"
       }
     ]
   },
@@ -683,19 +683,19 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "internalLinks": [
       {
         "text": "Tesla Wall Connector Installation Guide",
-        "href": "/tesla-wall-connector-installation-bend-or"
+        "href": "/tesla-wall-connector-installation-bend-or/"
       },
       {
         "text": "200A Electrical Panel Upgrade Guide",
-        "href": "/200-amp-electrical-panel-upgrade-bend-or"
+        "href": "/200-amp-electrical-panel-upgrade-bend-or/"
       },
       {
         "text": "EV Charger Repair & Troubleshooting",
-        "href": "/ev-charger-repair-and-troubleshooting-bend-or"
+        "href": "/ev-charger-repair-and-troubleshooting-bend-or/"
       },
       {
         "text": "Redmond EV Charger Installation",
-        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or"
+        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or/"
       }
     ]
   },
@@ -811,19 +811,19 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "internalLinks": [
       {
         "text": "Tesla Wall Connector Installation Guide",
-        "href": "/tesla-wall-connector-installation-bend-or"
+        "href": "/tesla-wall-connector-installation-bend-or/"
       },
       {
         "text": "200A Electrical Panel Upgrade Guide",
-        "href": "/200-amp-electrical-panel-upgrade-bend-or"
+        "href": "/200-amp-electrical-panel-upgrade-bend-or/"
       },
       {
         "text": "EV Charger Repair & Troubleshooting",
-        "href": "/ev-charger-repair-and-troubleshooting-bend-or"
+        "href": "/ev-charger-repair-and-troubleshooting-bend-or/"
       },
       {
         "text": "Redmond EV Charger Installation",
-        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or"
+        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or/"
       }
     ]
   },
@@ -939,19 +939,19 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "internalLinks": [
       {
         "text": "Tesla Wall Connector Installation Guide",
-        "href": "/tesla-wall-connector-installation-bend-or"
+        "href": "/tesla-wall-connector-installation-bend-or/"
       },
       {
         "text": "200A Electrical Panel Upgrade Guide",
-        "href": "/200-amp-electrical-panel-upgrade-bend-or"
+        "href": "/200-amp-electrical-panel-upgrade-bend-or/"
       },
       {
         "text": "EV Charger Repair & Troubleshooting",
-        "href": "/ev-charger-repair-and-troubleshooting-bend-or"
+        "href": "/ev-charger-repair-and-troubleshooting-bend-or/"
       },
       {
         "text": "Redmond EV Charger Installation",
-        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or"
+        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or/"
       }
     ]
   },
@@ -1067,19 +1067,19 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "internalLinks": [
       {
         "text": "Tesla Wall Connector Installation Guide",
-        "href": "/tesla-wall-connector-installation-bend-or"
+        "href": "/tesla-wall-connector-installation-bend-or/"
       },
       {
         "text": "200A Electrical Panel Upgrade Guide",
-        "href": "/200-amp-electrical-panel-upgrade-bend-or"
+        "href": "/200-amp-electrical-panel-upgrade-bend-or/"
       },
       {
         "text": "EV Charger Repair & Troubleshooting",
-        "href": "/ev-charger-repair-and-troubleshooting-bend-or"
+        "href": "/ev-charger-repair-and-troubleshooting-bend-or/"
       },
       {
         "text": "Redmond EV Charger Installation",
-        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or"
+        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or/"
       }
     ]
   },
@@ -1195,19 +1195,19 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "internalLinks": [
       {
         "text": "Tesla Wall Connector Installation Guide",
-        "href": "/tesla-wall-connector-installation-bend-or"
+        "href": "/tesla-wall-connector-installation-bend-or/"
       },
       {
         "text": "200A Electrical Panel Upgrade Guide",
-        "href": "/200-amp-electrical-panel-upgrade-bend-or"
+        "href": "/200-amp-electrical-panel-upgrade-bend-or/"
       },
       {
         "text": "EV Charger Repair & Troubleshooting",
-        "href": "/ev-charger-repair-and-troubleshooting-bend-or"
+        "href": "/ev-charger-repair-and-troubleshooting-bend-or/"
       },
       {
         "text": "Redmond EV Charger Installation",
-        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or"
+        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or/"
       }
     ]
   },
@@ -1323,19 +1323,19 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "internalLinks": [
       {
         "text": "Tesla Wall Connector Installation Guide",
-        "href": "/tesla-wall-connector-installation-bend-or"
+        "href": "/tesla-wall-connector-installation-bend-or/"
       },
       {
         "text": "200A Electrical Panel Upgrade Guide",
-        "href": "/200-amp-electrical-panel-upgrade-bend-or"
+        "href": "/200-amp-electrical-panel-upgrade-bend-or/"
       },
       {
         "text": "EV Charger Repair & Troubleshooting",
-        "href": "/ev-charger-repair-and-troubleshooting-bend-or"
+        "href": "/ev-charger-repair-and-troubleshooting-bend-or/"
       },
       {
         "text": "Redmond EV Charger Installation",
-        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or"
+        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or/"
       }
     ]
   },
@@ -1451,19 +1451,19 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "internalLinks": [
       {
         "text": "Tesla Wall Connector Installation Guide",
-        "href": "/tesla-wall-connector-installation-bend-or"
+        "href": "/tesla-wall-connector-installation-bend-or/"
       },
       {
         "text": "200A Electrical Panel Upgrade Guide",
-        "href": "/200-amp-electrical-panel-upgrade-bend-or"
+        "href": "/200-amp-electrical-panel-upgrade-bend-or/"
       },
       {
         "text": "EV Charger Repair & Troubleshooting",
-        "href": "/ev-charger-repair-and-troubleshooting-bend-or"
+        "href": "/ev-charger-repair-and-troubleshooting-bend-or/"
       },
       {
         "text": "Redmond EV Charger Installation",
-        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or"
+        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or/"
       }
     ]
   },
@@ -1579,19 +1579,19 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "internalLinks": [
       {
         "text": "Tesla Wall Connector Installation Guide",
-        "href": "/tesla-wall-connector-installation-bend-or"
+        "href": "/tesla-wall-connector-installation-bend-or/"
       },
       {
         "text": "200A Electrical Panel Upgrade Guide",
-        "href": "/200-amp-electrical-panel-upgrade-bend-or"
+        "href": "/200-amp-electrical-panel-upgrade-bend-or/"
       },
       {
         "text": "EV Charger Repair & Troubleshooting",
-        "href": "/ev-charger-repair-and-troubleshooting-bend-or"
+        "href": "/ev-charger-repair-and-troubleshooting-bend-or/"
       },
       {
         "text": "Redmond EV Charger Installation",
-        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or"
+        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or/"
       }
     ]
   },
@@ -1707,19 +1707,19 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "internalLinks": [
       {
         "text": "Tesla Wall Connector Installation Guide",
-        "href": "/tesla-wall-connector-installation-bend-or"
+        "href": "/tesla-wall-connector-installation-bend-or/"
       },
       {
         "text": "200A Electrical Panel Upgrade Guide",
-        "href": "/200-amp-electrical-panel-upgrade-bend-or"
+        "href": "/200-amp-electrical-panel-upgrade-bend-or/"
       },
       {
         "text": "EV Charger Repair & Troubleshooting",
-        "href": "/ev-charger-repair-and-troubleshooting-bend-or"
+        "href": "/ev-charger-repair-and-troubleshooting-bend-or/"
       },
       {
         "text": "Redmond EV Charger Installation",
-        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or"
+        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or/"
       }
     ]
   },
@@ -1835,19 +1835,19 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "internalLinks": [
       {
         "text": "Tesla Wall Connector Installation Guide",
-        "href": "/tesla-wall-connector-installation-bend-or"
+        "href": "/tesla-wall-connector-installation-bend-or/"
       },
       {
         "text": "200A Electrical Panel Upgrade Guide",
-        "href": "/200-amp-electrical-panel-upgrade-bend-or"
+        "href": "/200-amp-electrical-panel-upgrade-bend-or/"
       },
       {
         "text": "EV Charger Repair & Troubleshooting",
-        "href": "/ev-charger-repair-and-troubleshooting-bend-or"
+        "href": "/ev-charger-repair-and-troubleshooting-bend-or/"
       },
       {
         "text": "Redmond EV Charger Installation",
-        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or"
+        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or/"
       }
     ]
   },
@@ -1963,19 +1963,19 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "internalLinks": [
       {
         "text": "Tesla Wall Connector Installation Guide",
-        "href": "/tesla-wall-connector-installation-bend-or"
+        "href": "/tesla-wall-connector-installation-bend-or/"
       },
       {
         "text": "200A Electrical Panel Upgrade Guide",
-        "href": "/200-amp-electrical-panel-upgrade-bend-or"
+        "href": "/200-amp-electrical-panel-upgrade-bend-or/"
       },
       {
         "text": "EV Charger Repair & Troubleshooting",
-        "href": "/ev-charger-repair-and-troubleshooting-bend-or"
+        "href": "/ev-charger-repair-and-troubleshooting-bend-or/"
       },
       {
         "text": "Redmond EV Charger Installation",
-        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or"
+        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or/"
       }
     ]
   },
@@ -2091,19 +2091,19 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "internalLinks": [
       {
         "text": "Tesla Wall Connector Installation Guide",
-        "href": "/tesla-wall-connector-installation-bend-or"
+        "href": "/tesla-wall-connector-installation-bend-or/"
       },
       {
         "text": "200A Electrical Panel Upgrade Guide",
-        "href": "/200-amp-electrical-panel-upgrade-bend-or"
+        "href": "/200-amp-electrical-panel-upgrade-bend-or/"
       },
       {
         "text": "EV Charger Repair & Troubleshooting",
-        "href": "/ev-charger-repair-and-troubleshooting-bend-or"
+        "href": "/ev-charger-repair-and-troubleshooting-bend-or/"
       },
       {
         "text": "Redmond EV Charger Installation",
-        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or"
+        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or/"
       }
     ]
   },
@@ -2219,19 +2219,19 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "internalLinks": [
       {
         "text": "Tesla Wall Connector Installation Guide",
-        "href": "/tesla-wall-connector-installation-bend-or"
+        "href": "/tesla-wall-connector-installation-bend-or/"
       },
       {
         "text": "200A Electrical Panel Upgrade Guide",
-        "href": "/200-amp-electrical-panel-upgrade-bend-or"
+        "href": "/200-amp-electrical-panel-upgrade-bend-or/"
       },
       {
         "text": "EV Charger Repair & Troubleshooting",
-        "href": "/ev-charger-repair-and-troubleshooting-bend-or"
+        "href": "/ev-charger-repair-and-troubleshooting-bend-or/"
       },
       {
         "text": "Redmond EV Charger Installation",
-        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or"
+        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or/"
       }
     ]
   },
@@ -2347,19 +2347,19 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "internalLinks": [
       {
         "text": "Tesla Wall Connector Installation Guide",
-        "href": "/tesla-wall-connector-installation-bend-or"
+        "href": "/tesla-wall-connector-installation-bend-or/"
       },
       {
         "text": "200A Electrical Panel Upgrade Guide",
-        "href": "/200-amp-electrical-panel-upgrade-bend-or"
+        "href": "/200-amp-electrical-panel-upgrade-bend-or/"
       },
       {
         "text": "EV Charger Repair & Troubleshooting",
-        "href": "/ev-charger-repair-and-troubleshooting-bend-or"
+        "href": "/ev-charger-repair-and-troubleshooting-bend-or/"
       },
       {
         "text": "Redmond EV Charger Installation",
-        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or"
+        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or/"
       }
     ]
   },
@@ -2475,19 +2475,19 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "internalLinks": [
       {
         "text": "Tesla Wall Connector Installation Guide",
-        "href": "/tesla-wall-connector-installation-bend-or"
+        "href": "/tesla-wall-connector-installation-bend-or/"
       },
       {
         "text": "200A Electrical Panel Upgrade Guide",
-        "href": "/200-amp-electrical-panel-upgrade-bend-or"
+        "href": "/200-amp-electrical-panel-upgrade-bend-or/"
       },
       {
         "text": "EV Charger Repair & Troubleshooting",
-        "href": "/ev-charger-repair-and-troubleshooting-bend-or"
+        "href": "/ev-charger-repair-and-troubleshooting-bend-or/"
       },
       {
         "text": "Redmond EV Charger Installation",
-        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or"
+        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or/"
       }
     ]
   },
@@ -2603,19 +2603,19 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "internalLinks": [
       {
         "text": "Tesla Wall Connector Installation Guide",
-        "href": "/tesla-wall-connector-installation-bend-or"
+        "href": "/tesla-wall-connector-installation-bend-or/"
       },
       {
         "text": "200A Electrical Panel Upgrade Guide",
-        "href": "/200-amp-electrical-panel-upgrade-bend-or"
+        "href": "/200-amp-electrical-panel-upgrade-bend-or/"
       },
       {
         "text": "EV Charger Repair & Troubleshooting",
-        "href": "/ev-charger-repair-and-troubleshooting-bend-or"
+        "href": "/ev-charger-repair-and-troubleshooting-bend-or/"
       },
       {
         "text": "Redmond EV Charger Installation",
-        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or"
+        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or/"
       }
     ]
   },
@@ -2731,19 +2731,19 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "internalLinks": [
       {
         "text": "Tesla Wall Connector Installation Guide",
-        "href": "/tesla-wall-connector-installation-bend-or"
+        "href": "/tesla-wall-connector-installation-bend-or/"
       },
       {
         "text": "200A Electrical Panel Upgrade Guide",
-        "href": "/200-amp-electrical-panel-upgrade-bend-or"
+        "href": "/200-amp-electrical-panel-upgrade-bend-or/"
       },
       {
         "text": "EV Charger Repair & Troubleshooting",
-        "href": "/ev-charger-repair-and-troubleshooting-bend-or"
+        "href": "/ev-charger-repair-and-troubleshooting-bend-or/"
       },
       {
         "text": "Redmond EV Charger Installation",
-        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or"
+        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or/"
       }
     ]
   },
@@ -2859,19 +2859,19 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "internalLinks": [
       {
         "text": "Tesla Wall Connector Installation Guide",
-        "href": "/tesla-wall-connector-installation-bend-or"
+        "href": "/tesla-wall-connector-installation-bend-or/"
       },
       {
         "text": "200A Electrical Panel Upgrade Guide",
-        "href": "/200-amp-electrical-panel-upgrade-bend-or"
+        "href": "/200-amp-electrical-panel-upgrade-bend-or/"
       },
       {
         "text": "EV Charger Repair & Troubleshooting",
-        "href": "/ev-charger-repair-and-troubleshooting-bend-or"
+        "href": "/ev-charger-repair-and-troubleshooting-bend-or/"
       },
       {
         "text": "Redmond EV Charger Installation",
-        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or"
+        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or/"
       }
     ]
   },
@@ -2987,19 +2987,19 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "internalLinks": [
       {
         "text": "Tesla Wall Connector Installation Guide",
-        "href": "/tesla-wall-connector-installation-bend-or"
+        "href": "/tesla-wall-connector-installation-bend-or/"
       },
       {
         "text": "200A Electrical Panel Upgrade Guide",
-        "href": "/200-amp-electrical-panel-upgrade-bend-or"
+        "href": "/200-amp-electrical-panel-upgrade-bend-or/"
       },
       {
         "text": "EV Charger Repair & Troubleshooting",
-        "href": "/ev-charger-repair-and-troubleshooting-bend-or"
+        "href": "/ev-charger-repair-and-troubleshooting-bend-or/"
       },
       {
         "text": "Redmond EV Charger Installation",
-        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or"
+        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or/"
       }
     ]
   },
@@ -3115,19 +3115,19 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "internalLinks": [
       {
         "text": "Tesla Wall Connector Installation Guide",
-        "href": "/tesla-wall-connector-installation-bend-or"
+        "href": "/tesla-wall-connector-installation-bend-or/"
       },
       {
         "text": "200A Electrical Panel Upgrade Guide",
-        "href": "/200-amp-electrical-panel-upgrade-bend-or"
+        "href": "/200-amp-electrical-panel-upgrade-bend-or/"
       },
       {
         "text": "EV Charger Repair & Troubleshooting",
-        "href": "/ev-charger-repair-and-troubleshooting-bend-or"
+        "href": "/ev-charger-repair-and-troubleshooting-bend-or/"
       },
       {
         "text": "Redmond EV Charger Installation",
-        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or"
+        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or/"
       }
     ]
   },
@@ -3243,19 +3243,19 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "internalLinks": [
       {
         "text": "Tesla Wall Connector Installation Guide",
-        "href": "/tesla-wall-connector-installation-bend-or"
+        "href": "/tesla-wall-connector-installation-bend-or/"
       },
       {
         "text": "200A Electrical Panel Upgrade Guide",
-        "href": "/200-amp-electrical-panel-upgrade-bend-or"
+        "href": "/200-amp-electrical-panel-upgrade-bend-or/"
       },
       {
         "text": "EV Charger Repair & Troubleshooting",
-        "href": "/ev-charger-repair-and-troubleshooting-bend-or"
+        "href": "/ev-charger-repair-and-troubleshooting-bend-or/"
       },
       {
         "text": "Redmond EV Charger Installation",
-        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or"
+        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or/"
       }
     ]
   },
@@ -3371,19 +3371,19 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "internalLinks": [
       {
         "text": "Tesla Wall Connector Installation Guide",
-        "href": "/tesla-wall-connector-installation-bend-or"
+        "href": "/tesla-wall-connector-installation-bend-or/"
       },
       {
         "text": "200A Electrical Panel Upgrade Guide",
-        "href": "/200-amp-electrical-panel-upgrade-bend-or"
+        "href": "/200-amp-electrical-panel-upgrade-bend-or/"
       },
       {
         "text": "EV Charger Repair & Troubleshooting",
-        "href": "/ev-charger-repair-and-troubleshooting-bend-or"
+        "href": "/ev-charger-repair-and-troubleshooting-bend-or/"
       },
       {
         "text": "Redmond EV Charger Installation",
-        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or"
+        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or/"
       }
     ]
   },
@@ -3499,19 +3499,19 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "internalLinks": [
       {
         "text": "Tesla Wall Connector Installation Guide",
-        "href": "/tesla-wall-connector-installation-bend-or"
+        "href": "/tesla-wall-connector-installation-bend-or/"
       },
       {
         "text": "200A Electrical Panel Upgrade Guide",
-        "href": "/200-amp-electrical-panel-upgrade-bend-or"
+        "href": "/200-amp-electrical-panel-upgrade-bend-or/"
       },
       {
         "text": "EV Charger Repair & Troubleshooting",
-        "href": "/ev-charger-repair-and-troubleshooting-bend-or"
+        "href": "/ev-charger-repair-and-troubleshooting-bend-or/"
       },
       {
         "text": "Redmond EV Charger Installation",
-        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or"
+        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or/"
       }
     ]
   },
@@ -3627,19 +3627,19 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "internalLinks": [
       {
         "text": "Tesla Wall Connector Installation Guide",
-        "href": "/tesla-wall-connector-installation-bend-or"
+        "href": "/tesla-wall-connector-installation-bend-or/"
       },
       {
         "text": "200A Electrical Panel Upgrade Guide",
-        "href": "/200-amp-electrical-panel-upgrade-bend-or"
+        "href": "/200-amp-electrical-panel-upgrade-bend-or/"
       },
       {
         "text": "EV Charger Repair & Troubleshooting",
-        "href": "/ev-charger-repair-and-troubleshooting-bend-or"
+        "href": "/ev-charger-repair-and-troubleshooting-bend-or/"
       },
       {
         "text": "Redmond EV Charger Installation",
-        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or"
+        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or/"
       }
     ]
   },
@@ -3755,19 +3755,19 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "internalLinks": [
       {
         "text": "Tesla Wall Connector Installation Guide",
-        "href": "/tesla-wall-connector-installation-bend-or"
+        "href": "/tesla-wall-connector-installation-bend-or/"
       },
       {
         "text": "200A Electrical Panel Upgrade Guide",
-        "href": "/200-amp-electrical-panel-upgrade-bend-or"
+        "href": "/200-amp-electrical-panel-upgrade-bend-or/"
       },
       {
         "text": "EV Charger Repair & Troubleshooting",
-        "href": "/ev-charger-repair-and-troubleshooting-bend-or"
+        "href": "/ev-charger-repair-and-troubleshooting-bend-or/"
       },
       {
         "text": "Redmond EV Charger Installation",
-        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or"
+        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or/"
       }
     ]
   },
@@ -3883,19 +3883,19 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "internalLinks": [
       {
         "text": "Tesla Wall Connector Installation Guide",
-        "href": "/tesla-wall-connector-installation-bend-or"
+        "href": "/tesla-wall-connector-installation-bend-or/"
       },
       {
         "text": "200A Electrical Panel Upgrade Guide",
-        "href": "/200-amp-electrical-panel-upgrade-bend-or"
+        "href": "/200-amp-electrical-panel-upgrade-bend-or/"
       },
       {
         "text": "EV Charger Repair & Troubleshooting",
-        "href": "/ev-charger-repair-and-troubleshooting-bend-or"
+        "href": "/ev-charger-repair-and-troubleshooting-bend-or/"
       },
       {
         "text": "Redmond EV Charger Installation",
-        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or"
+        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or/"
       }
     ]
   },
@@ -4011,19 +4011,19 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
     "internalLinks": [
       {
         "text": "Tesla Wall Connector Installation Guide",
-        "href": "/tesla-wall-connector-installation-bend-or"
+        "href": "/tesla-wall-connector-installation-bend-or/"
       },
       {
         "text": "200A Electrical Panel Upgrade Guide",
-        "href": "/200-amp-electrical-panel-upgrade-bend-or"
+        "href": "/200-amp-electrical-panel-upgrade-bend-or/"
       },
       {
         "text": "EV Charger Repair & Troubleshooting",
-        "href": "/ev-charger-repair-and-troubleshooting-bend-or"
+        "href": "/ev-charger-repair-and-troubleshooting-bend-or/"
       },
       {
         "text": "Redmond EV Charger Installation",
-        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or"
+        "href": "/locations/redmond/tesla-wall-connector-installation-bend-or/"
       }
     ]
   }

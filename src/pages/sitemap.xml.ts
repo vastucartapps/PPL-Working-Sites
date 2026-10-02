@@ -91,7 +91,7 @@ export const GET: APIRoute = async () => {
 ${pages
   .map(
     (page) => `  <url>
-    <loc>${SITE_CONFIG.baseUrl}${page}</loc>
+    <loc>${SITE_CONFIG.baseUrl}${page}/</loc>
     <lastmod>${lastMod}</lastmod>
     <changefreq>${page === '' ? 'daily' : 'weekly'}</changefreq>
     <priority>${page === '' ? '1.0' : page.startsWith('/services') || page.startsWith('/locations') ? '0.9' : '0.8'}</priority>

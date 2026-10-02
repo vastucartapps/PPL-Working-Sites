@@ -13,8 +13,8 @@ const currentSlug = location ? location.slug : 'bend';
 
 const items = [
   { name: 'Home', url: '/' },
-  { name: 'Locations', url: '/locations' },
-  { name: currentCity, url: `/locations/${currentSlug}` }
+  { name: 'Locations', url: '/locations/' },
+  { name: currentCity, url: `/locations/${currentSlug}/` }
 ];
 
 if (pathName) {
