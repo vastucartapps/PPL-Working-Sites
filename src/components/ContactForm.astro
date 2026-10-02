@@ -27,10 +27,7 @@ import { SITE_CONFIG } from '../config/site';
 
   <!-- Lead Capture Form Engine -->
   <form id="lead-form" class="space-y-4">
-    <!-- Web3Forms Key & Subject -->
-    <input type="hidden" name="access_key" value={SITE_CONFIG.web3FormsAccessKey} />
-    <input type="hidden" name="subject" value={SITE_CONFIG.leadEmailSubject} />
-    <input type="hidden" name="from_name" value={SITE_CONFIG.brandName} />
+    <input type="hidden" name="form_type" value="lead" />
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
       <div>
@@ -164,8 +161,7 @@ import { SITE_CONFIG } from '../config/site';
           leadData[key] = val;
         });
 
-        // Post directly to Web3Forms API
-        fetch('https://api.web3forms.com/submit', {
+        fetch('/api/submit', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -176,7 +172,7 @@ import { SITE_CONFIG } from '../config/site';
         .then(function(res) { return res.json(); })
         .then(function(data) {
           if (!data || data.success !== true) {
-            throw new Error((data && data.message) || 'Web3Forms did not confirm delivery');
+            throw new Error((data && data.message) || 'Delivery not confirmed');
           }
           if (msgBox) {
             msgBox.classList.remove('hidden', 'bg-rose-100', 'text-rose-900');

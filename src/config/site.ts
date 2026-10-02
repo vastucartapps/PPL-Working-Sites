@@ -15,10 +15,10 @@ export const SITE_CONFIG = {
   phoneClean: "18882174060",
   operatingHours: "Mon-Sun 7:00 AM - 8:00 PM PST",
 
-  // Lead Dispatch Webhook & Form Endpoint (same inbox, different label per form)
-  web3FormsAccessKey: "{{WEB3FORMS_ACCESS_KEY}}",
-  leadEmailSubject: "🔥 NEW HIGH-INTENT LEAD - EV Charger One",
-  reviewEmailSubject: "⭐ NEW REVIEW SUBMISSION - EV Charger One",
+  // Lead/review forms POST to /api/submit (a Cloudflare Pages Function) which
+  // sends the branded HTML email via Resend -- see functions/api/submit.js.
+  // The Resend API key lives only as a Cloudflare Pages environment
+  // variable, never in this repo.
 
   // Real review data only -- reviewCount stays 0 until genuine reviews come in
   // via /reviews/ and are manually verified. Schema only emits AggregateRating

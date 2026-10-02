@@ -19,9 +19,6 @@ const cities = Object.values(LOCATIONS);
   </div>
 
   <form id="review-form" class="space-y-4">
-    <input type="hidden" name="access_key" value={SITE_CONFIG.web3FormsAccessKey} />
-    <input type="hidden" name="subject" value={SITE_CONFIG.reviewEmailSubject} />
-    <input type="hidden" name="from_name" value={SITE_CONFIG.brandName} />
     <input type="hidden" name="form_type" value="review" />
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -165,7 +162,7 @@ const cities = Object.values(LOCATIONS);
         var reviewData = {};
         formData.forEach(function(val, key) { reviewData[key] = val; });
 
-        fetch('https://api.web3forms.com/submit', {
+        fetch('/api/submit', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify(reviewData)
@@ -173,7 +170,7 @@ const cities = Object.values(LOCATIONS);
         .then(function(res) { return res.json(); })
         .then(function(data) {
           if (!data || data.success !== true) {
-            throw new Error((data && data.message) || 'Web3Forms did not confirm delivery');
+            throw new Error((data && data.message) || 'Delivery not confirmed');
           }
           if (msgBox) {
             msgBox.classList.remove('hidden', 'bg-rose-100', 'text-rose-900');
