@@ -16,15 +16,18 @@ export interface Props {
   faqs?: Array<{ question: string; answer: string }>;
 }
 
-const {
-  title = SITE_CONFIG.defaultTitle,
-  description = SITE_CONFIG.defaultDescription,
-  location,
-  faqs
-} = Astro.props;
+const { title, description, location, faqs } = Astro.props;
 
-const pageTitle = location ? `Level 2 EV Charger Installation in ${location.name}, ${location.state} | ${SITE_CONFIG.brandName}` : title;
-const pageDescription = location ? `Licensed Level 2 EV charger installation in ${location.name}, ${location.state} (${location.zipCodes.join(', ')}). Tesla Wall Connectors, NEMA 14-50 240V outlets, and ${location.permitOffice} permits.` : description;
+// Only fall back to a computed title/description when the calling page didn't
+// pass its own -- previously this unconditionally overwrote whatever title/
+// description a page (article, service, contact) had already built whenever
+// `location` was present, silently discarding every per-page meta fix.
+const pageTitle = title ?? (location
+  ? `Level 2 EV Charger Install in ${location.name}, ${location.state} | Licensed`
+  : SITE_CONFIG.defaultTitle);
+const pageDescription = description ?? (location
+  ? `Licensed Level 2 EV charger installation in ${location.name}, ${location.state} (${location.zipCodes[0]}). Tesla Wall Connector & NEMA 14-50 installs, utility rebate filed for you.`
+  : SITE_CONFIG.defaultDescription);
 ---
 
 <!DOCTYPE html>

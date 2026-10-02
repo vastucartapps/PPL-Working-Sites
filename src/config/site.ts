@@ -3,8 +3,8 @@ export const SITE_CONFIG = {
   brandName: "EV Charger One",
   domain: "evchargerone.com",
   baseUrl: "https://evchargerone.com",
-  defaultTitle: "⚡ #1 Level 2 EV Charger Installation Bend OR | (888) 217-4060",
-  defaultDescription: "Licensed 240V Level 2 EV charger installation across Bend & Central Oregon. Same-day Tesla Wall Connector & NEMA 14-50 installers. Call (888) 217-4060 for instant estimate.",
+  defaultTitle: "Level 2 EV Charger Installation in Bend, OR | (888) 217-4060",
+  defaultDescription: "Licensed Level 2 EV charger installs in Bend & Central Oregon. Same-day Tesla Wall Connector & NEMA 14-50 setups, rebate filed for you. (888) 217-4060.",
 
   // GOOGLE ANALYTICS & GOOGLE SEARCH CONSOLE VERIFICATION
   googleAnalyticsId: "G-QZT2JJ7QXP",

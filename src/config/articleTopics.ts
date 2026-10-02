@@ -189,7 +189,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
 
   "200-amp-electrical-panel-upgrade-bend-or": {
     "slug": "200-amp-electrical-panel-upgrade-bend-or",
-    "title": "200 Amp Electrical Panel Upgrade Bend OR Technical Engineering Guide",
+    "title": "200 Amp Electrical Panel Upgrade Bend OR",
     "category": "Hardware Engineering",
     "readTime": "18 min read",
     "featuredImageSrc": "/images/electrical-panel-upgrade-200a-800w.webp",
@@ -317,7 +317,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
   },
   "bend-electrician-rates-2026": {
     "slug": "bend-electrician-rates-2026",
-    "title": "Bend Electrician Rates 2026 Technical Engineering Guide",
+    "title": "Bend Electrician Rates 2026",
     "category": "Hardware Engineering",
     "readTime": "18 min read",
     "featuredImageSrc": "/images/electrician-at-work-800w.webp",
@@ -445,7 +445,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
   },
   "central-electric-coop-ev-rebates-deschutes-county": {
     "slug": "central-electric-coop-ev-rebates-deschutes-county",
-    "title": "Central Electric Coop EV Rebates Deschutes County Technical Engineering Guide",
+    "title": "Central Electric Coop EV Rebates Deschutes County",
     "category": "Hardware Engineering",
     "readTime": "18 min read",
     "featuredImageSrc": "/images/hero-ev-charger-800w.webp",
@@ -573,7 +573,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
   },
   "chargepoint-home-flex-vs-tesla-wall-connector": {
     "slug": "chargepoint-home-flex-vs-tesla-wall-connector",
-    "title": "Chargepoint Home Flex Vs Tesla Wall Connector Technical Engineering Guide",
+    "title": "Chargepoint Home Flex Vs Tesla Wall Connector",
     "category": "Hardware Engineering",
     "readTime": "18 min read",
     "featuredImageSrc": "/images/nema-14-50-outlet-install-800w.webp",
@@ -701,7 +701,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
   },
   "outdoor-garage-ev-charger-installation-redmond-or": {
     "slug": "outdoor-garage-ev-charger-installation-redmond-or",
-    "title": "Outdoor Garage EV Charger Installation Redmond OR Technical Engineering Guide",
+    "title": "Outdoor Garage EV Charger Installation Redmond OR",
     "category": "Hardware Engineering",
     "readTime": "18 min read",
     "featuredImageSrc": "/images/hero-ev-charger.webp",
@@ -829,7 +829,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
   },
   "detached-garage-underground-conduit-ev-charger-bend-or": {
     "slug": "detached-garage-underground-conduit-ev-charger-bend-or",
-    "title": "Detached Garage Underground Conduit EV Charger Bend OR Technical Engineering Guide",
+    "title": "Detached Garage Underground Conduit EV Charger Bend OR",
     "category": "Hardware Engineering",
     "readTime": "18 min read",
     "featuredImageSrc": "/images/sectional-conduit-wiring-800w.webp",
@@ -957,7 +957,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
   },
   "do-i-need-200-amp-panel-for-ev-charger": {
     "slug": "do-i-need-200-amp-panel-for-ev-charger",
-    "title": "Do I Need 200 Amp Panel For EV Charger Technical Engineering Guide",
+    "title": "Do I Need 200 Amp Panel For EV Charger",
     "category": "Hardware Engineering",
     "readTime": "18 min read",
     "featuredImageSrc": "/images/emporia-ev-charger-install-800w.webp",
@@ -1085,7 +1085,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
   },
   "emporia-ev-charger-installation-guide": {
     "slug": "emporia-ev-charger-installation-guide",
-    "title": "Emporia EV Charger Installation Guide Technical Engineering Guide",
+    "title": "Emporia EV Charger Installation Guide",
     "category": "Hardware Engineering",
     "readTime": "18 min read",
     "featuredImageSrc": "/images/ev-repair-diagnostic-800w.webp",
@@ -1213,7 +1213,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
   },
   "ev-charger-installation-corvallis-or": {
     "slug": "ev-charger-installation-corvallis-or",
-    "title": "EV Charger Installation Corvallis OR Technical Engineering Guide",
+    "title": "EV Charger Installation Corvallis OR",
     "category": "Hardware Engineering",
     "readTime": "18 min read",
     "featuredImageSrc": "/images/solar-ev-integration-800w.webp",
@@ -1341,7 +1341,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
   },
   "ev-charger-installation-redmond-or": {
     "slug": "ev-charger-installation-redmond-or",
-    "title": "EV Charger Installation Redmond OR Technical Engineering Guide",
+    "title": "EV Charger Installation Redmond OR",
     "category": "Hardware Engineering",
     "readTime": "18 min read",
     "featuredImageSrc": "/images/ford-lightning-charger-800w.webp",
@@ -1469,7 +1469,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
   },
   "ev-charger-installation-salem-or": {
     "slug": "ev-charger-installation-salem-or",
-    "title": "EV Charger Installation Salem OR Technical Engineering Guide",
+    "title": "EV Charger Installation Salem OR",
     "category": "Hardware Engineering",
     "readTime": "18 min read",
     "featuredImageSrc": "/images/tesla-wall-connector-install-800w.webp",
@@ -1597,7 +1597,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
   },
   "ev-charger-repair-and-troubleshooting-bend-or": {
     "slug": "ev-charger-repair-and-troubleshooting-bend-or",
-    "title": "EV Charger Repair And Troubleshooting Bend OR Technical Engineering Guide",
+    "title": "EV Charger Repair And Troubleshooting Bend OR",
     "category": "Hardware Engineering",
     "readTime": "18 min read",
     "featuredImageSrc": "/images/rivian-charger-install-800w.webp",
@@ -1725,7 +1725,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
   },
   "federal-30c-tax-credit-ev-charger-installation": {
     "slug": "federal-30c-tax-credit-ev-charger-installation",
-    "title": "Federal 30c Tax Credit EV Charger Installation Technical Engineering Guide",
+    "title": "Federal 30c Tax Credit EV Charger Installation",
     "category": "Hardware Engineering",
     "readTime": "18 min read",
     "featuredImageSrc": "/images/vacation-rental-airbnb-charger-800w.webp",
@@ -1853,7 +1853,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
   },
   "ford-f150-lightning-charge-station-pro-bend-or": {
     "slug": "ford-f150-lightning-charge-station-pro-bend-or",
-    "title": "Ford F150 Lightning Charge Station Pro Bend OR Technical Engineering Guide",
+    "title": "Ford F150 Lightning Charge Station Pro Bend OR",
     "category": "Hardware Engineering",
     "readTime": "18 min read",
     "featuredImageSrc": "/images/electrical-panel-upgrade-200a-800w.webp",
@@ -1981,7 +1981,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
   },
   "garage-subpanel-installation-for-ev-charger-bend-or": {
     "slug": "garage-subpanel-installation-for-ev-charger-bend-or",
-    "title": "Garage Subpanel Installation For EV Charger Bend OR Technical Engineering Guide",
+    "title": "Garage Subpanel Installation For EV Charger Bend OR",
     "category": "Hardware Engineering",
     "readTime": "18 min read",
     "featuredImageSrc": "/images/electrician-at-work-800w.webp",
@@ -2109,7 +2109,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
   },
   "grizzl-e-smart-ev-charger-cold-weather-review": {
     "slug": "grizzl-e-smart-ev-charger-cold-weather-review",
-    "title": "Grizzl E Smart EV Charger Cold Weather Review Technical Engineering Guide",
+    "title": "Grizzl E Smart EV Charger Cold Weather Review",
     "category": "Hardware Engineering",
     "readTime": "18 min read",
     "featuredImageSrc": "/images/hero-ev-charger-800w.webp",
@@ -2237,7 +2237,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
   },
   "hardwired-vs-plugin-ev-charger": {
     "slug": "hardwired-vs-plugin-ev-charger",
-    "title": "Hardwired Vs Plugin EV Charger Technical Engineering Guide",
+    "title": "Hardwired Vs Plugin EV Charger",
     "category": "Hardware Engineering",
     "readTime": "18 min read",
     "featuredImageSrc": "/images/nema-14-50-outlet-install-800w.webp",
@@ -2365,7 +2365,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
   },
   "heat-pump-plus-ev-charger-electrical-panel-load-bend-or": {
     "slug": "heat-pump-plus-ev-charger-electrical-panel-load-bend-or",
-    "title": "Heat Pump Plus EV Charger Electrical Panel Load Bend OR Technical Engineering Guide",
+    "title": "Heat Pump Plus EV Charger Electrical Panel Load Bend OR",
     "category": "Hardware Engineering",
     "readTime": "18 min read",
     "featuredImageSrc": "/images/hero-ev-charger.webp",
@@ -2493,7 +2493,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
   },
   "how-much-does-it-cost-to-install-ev-charger-in-garage": {
     "slug": "how-much-does-it-cost-to-install-ev-charger-in-garage",
-    "title": "How Much Does It Cost To Install EV Charger In Garage Technical Engineering Guide",
+    "title": "How Much Does It Cost To Install EV Charger In Garage",
     "category": "Hardware Engineering",
     "readTime": "18 min read",
     "featuredImageSrc": "/images/sectional-conduit-wiring-800w.webp",
@@ -2621,7 +2621,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
   },
   "level-2-ev-charger-installation-bend-or": {
     "slug": "level-2-ev-charger-installation-bend-or",
-    "title": "Level 2 EV Charger Installation Bend OR Technical Engineering Guide",
+    "title": "Level 2 EV Charger Installation Bend OR",
     "category": "Hardware Engineering",
     "readTime": "18 min read",
     "featuredImageSrc": "/images/emporia-ev-charger-install-800w.webp",
@@ -2749,7 +2749,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
   },
   "nacs-vs-j1772-ev-charger-adapter-guide-2026": {
     "slug": "nacs-vs-j1772-ev-charger-adapter-guide-2026",
-    "title": "NACS Vs J1772 EV Charger Adapter Guide 2026 Technical Engineering Guide",
+    "title": "NACS Vs J1772 EV Charger Adapter Guide 2026",
     "category": "Hardware Engineering",
     "readTime": "18 min read",
     "featuredImageSrc": "/images/ev-repair-diagnostic-800w.webp",
@@ -2877,7 +2877,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
   },
   "nec-article-220-ev-charger-load-calculation": {
     "slug": "nec-article-220-ev-charger-load-calculation",
-    "title": "NEC Article 220 EV Charger Load Calculation Technical Engineering Guide",
+    "title": "NEC Article 220 EV Charger Load Calculation",
     "category": "Hardware Engineering",
     "readTime": "18 min read",
     "featuredImageSrc": "/images/solar-ev-integration-800w.webp",
@@ -3005,7 +3005,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
   },
   "pacific-power-ev-charger-rebate-oregon-guide": {
     "slug": "pacific-power-ev-charger-rebate-oregon-guide",
-    "title": "Pacific Power EV Charger Rebate ORegon Guide Technical Engineering Guide",
+    "title": "Pacific Power EV Charger Rebate ORegon Guide",
     "category": "Hardware Engineering",
     "readTime": "18 min read",
     "featuredImageSrc": "/images/ford-lightning-charger-800w.webp",
@@ -3133,7 +3133,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
   },
   "pacific-power-ev-rebates": {
     "slug": "pacific-power-ev-rebates",
-    "title": "Pacific Power EV Rebates Technical Engineering Guide",
+    "title": "Pacific Power EV Rebates",
     "category": "Hardware Engineering",
     "readTime": "18 min read",
     "featuredImageSrc": "/images/tesla-wall-connector-install-800w.webp",
@@ -3261,7 +3261,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
   },
   "permits-deschutes-county": {
     "slug": "permits-deschutes-county",
-    "title": "Permits Deschutes County Technical Engineering Guide",
+    "title": "Permits Deschutes County",
     "category": "Hardware Engineering",
     "readTime": "18 min read",
     "featuredImageSrc": "/images/rivian-charger-install-800w.webp",
@@ -3389,7 +3389,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
   },
   "rivian-r1t-r1s-level-2-charger-bend-or": {
     "slug": "rivian-r1t-r1s-level-2-charger-bend-or",
-    "title": "Rivian R1t R1s Level 2 Charger Bend OR Technical Engineering Guide",
+    "title": "Rivian R1t R1s Level 2 Charger Bend OR",
     "category": "Hardware Engineering",
     "readTime": "18 min read",
     "featuredImageSrc": "/images/vacation-rental-airbnb-charger-800w.webp",
@@ -3517,7 +3517,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
   },
   "solar-panel-ev-charger-integration-bend-or": {
     "slug": "solar-panel-ev-charger-integration-bend-or",
-    "title": "Solar Panel EV Charger Integration Bend OR Technical Engineering Guide",
+    "title": "Solar Panel EV Charger Integration Bend OR",
     "category": "Hardware Engineering",
     "readTime": "18 min read",
     "featuredImageSrc": "/images/electrical-panel-upgrade-200a-800w.webp",
@@ -3645,7 +3645,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
   },
   "tesla-cybertruck-ev-charger-installation-bend-or": {
     "slug": "tesla-cybertruck-ev-charger-installation-bend-or",
-    "title": "Tesla Cybertruck EV Charger Installation Bend OR Technical Engineering Guide",
+    "title": "Tesla Cybertruck EV Charger Installation Bend OR",
     "category": "Hardware Engineering",
     "readTime": "18 min read",
     "featuredImageSrc": "/images/electrician-at-work-800w.webp",
@@ -3773,7 +3773,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
   },
   "tesla-wall-connector-installation-bend-or": {
     "slug": "tesla-wall-connector-installation-bend-or",
-    "title": "Tesla Wall Connector Installation Bend OR Technical Engineering Guide",
+    "title": "Tesla Wall Connector Installation Bend OR",
     "category": "Hardware Engineering",
     "readTime": "18 min read",
     "featuredImageSrc": "/images/hero-ev-charger-800w.webp",
@@ -3901,7 +3901,7 @@ export const TOPIC_ARTICLES_DATA: Record<string, TopicContent> = {
   },
   "vacation-rental-airbnb-ev-charger-installation-sunriver-or": {
     "slug": "vacation-rental-airbnb-ev-charger-installation-sunriver-or",
-    "title": "Vacation Rental Airbnb EV Charger Installation Sunriver OR Technical Engineering Guide",
+    "title": "Vacation Rental Airbnb EV Charger Installation Sunriver OR",
     "category": "Hardware Engineering",
     "readTime": "18 min read",
     "featuredImageSrc": "/images/nema-14-50-outlet-install-800w.webp",

@@ -19,8 +19,8 @@ const { location } = Astro.props;
 ---
 
 <BaseLayout
-  title={`${location.name} EV Charging Speed & Cost Calculator | Oregon CCB #248910`}
-  description={`Calculate 48A Level 2 EV charging speed, monthly electricity savings, and installation costs in ${location.name}, ${location.state} with ${location.utilityName} rebates.`}
+  title={`EV Charging Calculator | ${location.name}, ${location.state}`}
+  description={`Calculate Level 2 EV charging speed, cost, and utility rebate savings for your home in ${location.name}, ${location.state}.`}
   location={location}
 >
   <section class="py-16 bg-white border-b border-brand-slate-200">
@@ -50,7 +50,7 @@ const { location } = Astro.props;
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <ArticleHeroCard
         title={`Ready to Install Your Home EV Charger in ${location.name}?`}
-        subtitle={`Claim your ${location.rebateAmount} ${location.utilityName} cash-back rebate before funds expire.`}
+        subtitle={`We handle your ${location.utilityName} cash-back rebate paperwork directly.`}
       />
     </div>
   </section>

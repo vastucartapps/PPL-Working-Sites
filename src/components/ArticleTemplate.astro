@@ -73,8 +73,19 @@ const {
   state = 'OR'
 } = Astro.props;
 
-const pageTitle = `${title} | EV Charger One`;
-const pageDescription = `Technical Level 2 EV charging engineering guide for ${cityName}, ${state}. Pacific Power & Midstate Electric rebate filings, NEC Article 625 code compliance, and 48A hardwired installation standards.`;
+// The on-page H1/alt text (`title`) is allowed to be fully descriptive;
+// the <title> tag needs its own, length-capped version.
+function capTitle(t: string, max: number): string {
+  if (t.length <= max) return t;
+  const truncated = t.slice(0, max);
+  const lastSpace = truncated.lastIndexOf(' ');
+  return (lastSpace > 0 ? truncated.slice(0, lastSpace) : truncated).trim();
+}
+const shortTitle = capTitle(title, 60);
+const brandedTitle = `${shortTitle} | EV Charger One`;
+const pageTitle = brandedTitle.length <= 60 ? brandedTitle : shortTitle;
+const cityForMeta = cityName.includes('Oregon') ? cityName : `${cityName}, ${state}`;
+const pageDescription = `Technical Level 2 EV charger guide for ${cityForMeta}. NEC Article 625 code compliance, 48A hardwiring, and local utility rebate filing explained.`;
 
 // Ensure we have 6 images (1 Hero + 5 Body Section Images)
 const heroImage = images[0] || {
@@ -291,7 +302,7 @@ const bodyImages = images.slice(1);
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <ArticleHeroCard
         title={`Ready to Install Your EV Charger in ${cityName}?`}
-        subtitle="Lock in your $500–$1,000 Pacific Power cash-back rebate before funds expire."
+        subtitle="We handle the utility rebate paperwork directly, so you get your cash-back without the hassle."
       />
     </div>
   </section>

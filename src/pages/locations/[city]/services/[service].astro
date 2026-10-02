@@ -50,12 +50,14 @@ const serviceTitles: Record<string, string> = {
   'tesla-wall-connector': 'Tesla Wall Connector Installation',
   'nema-14-50-upgrade': 'NEMA 14-50 240V Outlet Upgrade',
   'panel-capacity-upgrade': '200-Amp Electrical Panel Upgrade',
-  'commercial-ev-charging': 'Commercial Level 2 EV Charging Installation'
+  'commercial-ev-charging': 'Commercial EV Charging Install'
 };
 
 const titleText = serviceTitles[service] || 'EV Charger Installation Service';
-const pageTitle = `${titleText} in ${localData.cityName}, ${localData.state} | ${SITE_CONFIG.brandName}`;
-const pageDescription = `Licensed Oregon electrician ${titleText} in ${localData.cityName}, ${localData.state}. ${localData.utility.name} ${localData.utility.rebateAmount} rebate filing & ${localData.permit.office} trade permits.`;
+const bareTitle = `${titleText} in ${localData.cityName}, ${localData.state}`;
+const brandedTitle = `${bareTitle} | ${SITE_CONFIG.brandName}`;
+const pageTitle = brandedTitle.length <= 60 ? brandedTitle : bareTitle;
+const pageDescription = `Licensed ${titleText} in ${localData.cityName}, ${localData.state}. Utility rebate filing & local trade permits handled for you.`;
 
 const serviceFaqs = [
   {
