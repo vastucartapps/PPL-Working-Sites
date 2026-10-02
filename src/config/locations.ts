@@ -7,8 +7,6 @@ export interface LocationData {
   county: string;
   utilityName: string;
   rebateAmount: string;
-  phone: string;
-  phoneClean: string;
   electricianRate: string;
   permitOffice: string;
   zipCodes: string[];
@@ -26,11 +24,6 @@ export interface LocationData {
     architecturalConstraints: string;
     utilityInterconnection: string;
   };
-  reviewConsensus: {
-    reviewCount: number;
-    rating: string;
-    sentimentSummary: string;
-  };
 }
 
 export const LOCATIONS: Record<string, LocationData> = {
@@ -41,8 +34,6 @@ export const LOCATIONS: Record<string, LocationData> = {
     county: 'Deschutes County',
     utilityName: 'Pacific Power',
     rebateAmount: 'utility rebate',
-    phone: '(541) 555-0199',
-    phoneClean: '5415550199',
     electricianRate: '$110 – $145 / hr',
     permitOffice: 'City of Bend Building Safety Division & Deschutes County Community Development',
     zipCodes: ['97701', '97702', '97703'],
@@ -59,11 +50,6 @@ export const LOCATIONS: Record<string, LocationData> = {
       climateProtection: 'Sub-zero Cascade mountain winter thermal shore power pre-heating (-10°F to 10°F on Century Drive) preserves 100% of battery range before commuting.',
       architecturalConstraints: 'Concealed interior attic wiring and custom siding paint-matched EMT conduit for strict NW Crossing, Tetherow, Awbrey Butte, and Broken Top HOAs.',
       utilityInterconnection: 'Direct Pacific Power 240V grid interconnection with utility rebate cash-back residential rebate filing.'
-    },
-    reviewConsensus: {
-      reviewCount: 128,
-      rating: '4.9',
-      sentimentSummary: 'Based on over 128 verified local customer reviews in Bend, the consistent consensus is that our Oregon CCB #248910 master electricians complete installations within 4 hours, pull required City of Bend trade permits, and file direct local utility rebate checks without hidden fees.'
     }
   },
   redmond: {
@@ -73,8 +59,6 @@ export const LOCATIONS: Record<string, LocationData> = {
     county: 'Deschutes County',
     utilityName: 'Pacific Power',
     rebateAmount: 'utility rebate',
-    phone: '(541) 555-0199',
-    phoneClean: '5415550199',
     electricianRate: '$105 – $140 / hr',
     permitOffice: 'City of Redmond Building Department & Deschutes County Trade Permits',
     zipCodes: ['97756'],
@@ -91,11 +75,6 @@ export const LOCATIONS: Record<string, LocationData> = {
       climateProtection: 'High-desert wind dust sealing with NEMA 4X weather-rated EVSE enclosures for exterior garage installations near Roberts Field.',
       architecturalConstraints: 'Concealed attic runs and siding-matched conduit for Eagle Crest Resort and Ridgeview Estates HOAs.',
       utilityInterconnection: 'Pacific Power grid load verification ensuring 200A service panel capacity compliance.'
-    },
-    reviewConsensus: {
-      reviewCount: 94,
-      rating: '4.9',
-      sentimentSummary: 'Based on over 94 verified local customer reviews in Redmond, homeowners consistently highlight our punctual arrival within 45 minutes, transparent pricing, and 100% permit sign-off on first inspection.'
     }
   },
   sisters: {
@@ -105,8 +84,6 @@ export const LOCATIONS: Record<string, LocationData> = {
     county: 'Deschutes County',
     utilityName: 'Central Electric Cooperative (CEC) & Pacific Power',
     rebateAmount: 'utility rebate',
-    phone: '(541) 555-0199',
-    phoneClean: '5415550199',
     electricianRate: '$115 – $150 / hr',
     permitOffice: 'Deschutes County Building Safety Department',
     zipCodes: ['97759'],
@@ -123,11 +100,6 @@ export const LOCATIONS: Record<string, LocationData> = {
       climateProtection: 'Heavy sub-zero mountain snow load protection with cold-weather flexible 6 AWG THHN copper wiring rated down to -40°F.',
       architecturalConstraints: 'Strict 19th-century Western architectural theme concealed conduit runs in Downtown Sisters and Black Butte Ranch.',
       utilityInterconnection: 'Central Electric Cooperative (CEC) and Pacific Power utility rebate processing.'
-    },
-    reviewConsensus: {
-      reviewCount: 62,
-      rating: '5.0',
-      sentimentSummary: 'Based on over 62 verified customer reviews in Sisters and Black Butte Ranch, clients praise our master electricians for respectful historic architecture preservation, clean conduit placement, and fast utility rebate filing.'
     }
   },
   sunriver: {
@@ -137,8 +109,6 @@ export const LOCATIONS: Record<string, LocationData> = {
     county: 'Deschutes County',
     utilityName: 'Midstate Electric Cooperative & Pacific Power',
     rebateAmount: 'utility rebate',
-    phone: '(541) 555-0199',
-    phoneClean: '5415550199',
     electricianRate: '$115 – $150 / hr',
     permitOffice: 'Deschutes County Community Development Department',
     zipCodes: ['97707'],
@@ -155,11 +125,6 @@ export const LOCATIONS: Record<string, LocationData> = {
       climateProtection: 'High-altitude freeze-thaw conduit expansion fittings and heavy-duty commercial RFID access control for vacation rentals.',
       architecturalConstraints: 'Sunriver Resort SROA strict dark-sky and natural wood siding paint-matching guidelines.',
       utilityInterconnection: 'Midstate Electric Cooperative residential utility rebate cash-back incentive filings.'
-    },
-    reviewConsensus: {
-      reviewCount: 88,
-      rating: '4.9',
-      sentimentSummary: 'Based on over 88 verified resort owner reviews in Sunriver, vacation rental hosts note a 20% increase in EV guest bookings after our commercial 48A Level 2 installations.'
     }
   },
   'la-pine': {
@@ -169,8 +134,6 @@ export const LOCATIONS: Record<string, LocationData> = {
     county: 'Deschutes County',
     utilityName: 'Midstate Electric Cooperative',
     rebateAmount: 'utility rebate',
-    phone: '(541) 555-0199',
-    phoneClean: '5415550199',
     electricianRate: '$105 – $140 / hr',
     permitOffice: 'Deschutes County Community Development Department',
     zipCodes: ['97739'],
@@ -187,11 +150,6 @@ export const LOCATIONS: Record<string, LocationData> = {
       climateProtection: '36-inch deep frost line trenching for underground direct-burial Schedule 80 PVC feeder conduit to detached garages.',
       architecturalConstraints: 'Rural shop subpanel integration and high-amperage 100A feeder capacity upgrades.',
       utilityInterconnection: 'Midstate Electric Cooperative 240V grid interconnect verification.'
-    },
-    reviewConsensus: {
-      reviewCount: 45,
-      rating: '4.9',
-      sentimentSummary: 'Based on over 45 local customer reviews in La Pine, homeowners commend our master electricians for expert trenching, underground conduit runs, and flawless subpanel upgrades.'
     }
   },
   prineville: {
@@ -201,8 +159,6 @@ export const LOCATIONS: Record<string, LocationData> = {
     county: 'Crook County',
     utilityName: 'Central Electric Cooperative (CEC)',
     rebateAmount: 'utility rebate',
-    phone: '(541) 555-0199',
-    phoneClean: '5415550199',
     electricianRate: '$105 – $140 / hr',
     permitOffice: 'Crook County Community Development Department',
     zipCodes: ['97754'],
@@ -219,11 +175,6 @@ export const LOCATIONS: Record<string, LocationData> = {
       climateProtection: 'Agricultural and residential heavy 240V utility grid service panel capacity upgrades.',
       architecturalConstraints: 'IronHorse community HOA concealed conduit standards and Ochoco Heights shop subpanel feeders.',
       utilityInterconnection: 'Central Electric Cooperative (CEC) rebate application processing.'
-    },
-    reviewConsensus: {
-      reviewCount: 51,
-      rating: '5.0',
-      sentimentSummary: 'Based on over 51 verified local customer reviews in Prineville, clients consistently rate us 5 stars for fast 24-hour dispatch, transparent trade quotes, and complete Crook County trade sign-off.'
     }
   }
 };

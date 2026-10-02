@@ -89,7 +89,7 @@ const services = [
             <div class="lg:col-span-8 space-y-4">
               <div class="font-mono text-xs font-black text-emerald-800">// SERVICE {svc.num}</div>
               <h2 class="text-2xl sm:text-3xl font-black text-slate-950">
-                <a href={`/services/${svc.slug}`} class="hover:text-emerald-800 transition-colors">{svc.title}</a>
+                <a href={`/services/${svc.slug}/`} class="hover:text-emerald-800 transition-colors">{svc.title}</a>
               </h2>
               <p class="text-sm text-slate-900 font-bold leading-relaxed">
                 {svc.desc}
@@ -106,7 +106,7 @@ const services = [
             </div>
 
             <div class="lg:col-span-4 text-left lg:text-right">
-              <a href={`/services/${svc.slug}`} class="btn-primary w-full sm:w-auto inline-flex items-center justify-center py-4 px-6 text-xs font-black text-white shadow-xl">
+              <a href={`/services/${svc.slug}/`} class="btn-primary w-full sm:w-auto inline-flex items-center justify-center py-4 px-6 text-xs font-black text-white shadow-xl">
                 <span>VIEW SERVICE DETAILS →</span>
               </a>
             </div>

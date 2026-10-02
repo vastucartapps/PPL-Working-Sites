@@ -22,8 +22,8 @@ const {
   bullet3 = "✓ 99.9% Solid Copper Wire"
 } = Astro.props;
 
-const phone = location ? location.phone : SITE_CONFIG.phone;
-const phoneClean = location ? location.phoneClean : SITE_CONFIG.phoneClean;
+const phone = SITE_CONFIG.phone;
+const phoneClean = SITE_CONFIG.phoneClean;
 const cityName = location ? location.name : SITE_CONFIG.location.city;
 ---
 
@@ -56,7 +56,7 @@ const cityName = location ? location.name : SITE_CONFIG.location.city;
     </a>
 
     <a
-      href="/contact"
+      href="/contact/"
       aria-label="Request Free Fixed Price Estimate"
       class="w-full py-3.5 px-6 text-center text-xs font-black text-slate-950 bg-white hover:bg-slate-100 rounded-xl shadow-md transition-all border border-slate-300 flex items-center justify-center gap-1 min-h-[48px]"
     >

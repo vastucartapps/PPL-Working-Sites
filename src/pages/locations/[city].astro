@@ -50,7 +50,7 @@ const locationFaqs = [
   <EnterpriseSchemaGraph
     title={pageTitle}
     description={pageDescription}
-    path={`/locations/${location.slug}`}
+    path={`/locations/${location.slug}/`}
     cityName={location.name}
     zipCode={location.zipCodes[0]}
     imageUrl={`${SITE_CONFIG.baseUrl}/images/hero-ev-charger.webp`}
@@ -98,8 +98,8 @@ const locationFaqs = [
 
           <div class="flex flex-col sm:flex-row gap-4 pt-2">
             <PrimaryButton
-              href={`tel:${location.phoneClean}`}
-              text={`Call ${location.phone}`}
+              href={`tel:${SITE_CONFIG.phoneClean}`}
+              text={`Call ${SITE_CONFIG.phone}`}
               icon="phone"
             />
             <SecondaryButton
@@ -128,7 +128,7 @@ const locationFaqs = [
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <a href={`/locations/${location.slug}/services/tesla-wall-connector`} class="bg-white border-2 border-slate-900 rounded-2xl overflow-hidden shadow-xl card-hover block">
+        <a href={`/locations/${location.slug}/services/tesla-wall-connector/`} class="bg-white border-2 border-slate-900 rounded-2xl overflow-hidden shadow-xl card-hover block">
           <img src="/images/tesla-wall-connector-install.webp" alt={`Tesla Wall Connector in ${location.name}`} width="600" height="400" loading="lazy" decoding="async" class="w-full h-40 object-cover" />
           <div class="p-4 space-y-1">
             <span class="mono-tag text-[10px] py-0.5 px-2">Tesla 48A</span>
@@ -137,7 +137,7 @@ const locationFaqs = [
           </div>
         </a>
 
-        <a href={`/locations/${location.slug}/services/panel-capacity-upgrade`} class="bg-white border-2 border-slate-900 rounded-2xl overflow-hidden shadow-xl card-hover block">
+        <a href={`/locations/${location.slug}/services/panel-capacity-upgrade/`} class="bg-white border-2 border-slate-900 rounded-2xl overflow-hidden shadow-xl card-hover block">
           <img src="/images/electrical-panel-upgrade-200a.webp" alt={`200A Panel Upgrade in ${location.name}`} width="600" height="400" loading="lazy" decoding="async" class="w-full h-40 object-cover" />
           <div class="p-4 space-y-1">
             <span class="mono-tag text-[10px] py-0.5 px-2">200A Upgrade</span>
@@ -146,7 +146,7 @@ const locationFaqs = [
           </div>
         </a>
 
-        <a href={`/locations/${location.slug}/services/nema-14-50-upgrade`} class="bg-white border-2 border-slate-900 rounded-2xl overflow-hidden shadow-xl card-hover block">
+        <a href={`/locations/${location.slug}/services/nema-14-50-upgrade/`} class="bg-white border-2 border-slate-900 rounded-2xl overflow-hidden shadow-xl card-hover block">
           <img src="/images/nema-14-50-outlet-install.webp" alt={`NEMA 14-50 Outlet in ${location.name}`} width="600" height="400" loading="lazy" decoding="async" class="w-full h-40 object-cover" />
           <div class="p-4 space-y-1">
             <span class="mono-tag text-[10px] py-0.5 px-2">240V Receptacle</span>
@@ -155,7 +155,7 @@ const locationFaqs = [
           </div>
         </a>
 
-        <a href={`/locations/${location.slug}/services/commercial-ev-charging`} class="bg-white border-2 border-slate-900 rounded-2xl overflow-hidden shadow-xl card-hover block">
+        <a href={`/locations/${location.slug}/services/commercial-ev-charging/`} class="bg-white border-2 border-slate-900 rounded-2xl overflow-hidden shadow-xl card-hover block">
           <img src="/images/hero-ev-charger.webp" alt={`Residential Outdoor EV Charger in ${location.name}`} width="600" height="400" loading="lazy" decoding="async" class="w-full h-40 object-cover" />
           <div class="p-4 space-y-1">
             <span class="mono-tag text-[10px] py-0.5 px-2">Outdoor Posts</span>
@@ -185,14 +185,14 @@ const locationFaqs = [
           heading={`What Breaker Size is Required for Tesla Charging in ${location.name}?`}
           triggerPhrase="In summary,"
           answer={`installing a continuous 48-Amp Tesla Wall Connector in ${location.name} requires a dedicated 60-Amp 2-pole circuit breaker wired with 99.9% pure 6 AWG THHN copper conductors in rigid metal EMT conduit.`}
-          href="/tesla-wall-connector-installation-bend-or"
+          href="/tesla-wall-connector-installation-bend-or/"
         />
 
         <AtomicAnswerBlock
           heading={`How Do I Claim the ${location.rebateAmount} ${location.utilityName} Rebate?`}
           triggerPhrase="The key takeaway is"
           answer={`our licensed electricians file 100% of rebate paperwork with ${location.utilityName} directly on your behalf upon installation sign-off.`}
-          href="/pacific-power-ev-charger-rebate-oregon-guide"
+          href="/pacific-power-ev-charger-rebate-oregon-guide/"
         />
       </div>
     </div>

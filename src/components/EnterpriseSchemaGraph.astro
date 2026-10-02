@@ -6,6 +6,7 @@ export interface Props {
   description: string;
   path: string;
   cityName?: string;
+  zipCode?: string;
   pageType?: string;
   images: Array<{
     src: string;
@@ -14,18 +15,17 @@ export interface Props {
   }>;
   faqs?: Array<{ question: string; answer: string }>;
   articleAuthor?: string;
-  publishDate?: string;
 }
 
 const {
   title,
   description,
   path = '',
-  cityName = 'Bend & Central Oregon',
+  cityName = SITE_CONFIG.location.city,
+  zipCode = SITE_CONFIG.location.zip,
   images = [],
   faqs = [],
-  articleAuthor = "Oregon Master Electrician Desk (CCB #248910)",
-  publishDate = "2026-01-15"
+  articleAuthor = "Oregon Master Electrician Desk (CCB #248910)"
 } = Astro.props;
 
 const currentUrl = `${SITE_CONFIG.baseUrl}${path}`;
@@ -68,9 +68,9 @@ const localBusinessSchema = {
   "image": `${SITE_CONFIG.baseUrl}${images[0]?.src || '/images/blog/hero-60a-breaker-wiring-bend.webp'}`,
   "address": {
     "@type": "PostalAddress",
-    "addressLocality": "Bend",
+    "addressLocality": cityName,
     "addressRegion": "OR",
-    "postalCode": "97701",
+    "postalCode": zipCode,
     "addressCountry": "US"
   }
 };
@@ -131,9 +131,6 @@ const techArticleSchema = {
   "image": images.map(img => `${SITE_CONFIG.baseUrl}${img.src}`),
   "author": authorSchema,
   "publisher": orgSchema,
-  "datePublished": publishDate,
-  "dateModified": publishDate,
-  "wordCount": 2540,
   "proficientLevel": "Expert"
 };
 
@@ -172,17 +169,7 @@ const howToSchema = {
   }))
 };
 
-// 10-14. 5 Standalone HowToStep Schemas
-const standaloneHowToStepSchemas = howToStepsData.map((s, idx) => ({
-  "@context": "https://schema.org",
-  "@type": "HowToStep",
-  "@id": `${currentUrl}#howtostep-${idx + 1}`,
-  "position": idx + 1,
-  "name": s.name,
-  "text": s.text
-}));
-
-// 15. FAQPage Container
+// FAQPage Container
 const faqSchema = faqs.length > 0 ? {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -197,27 +184,11 @@ const faqSchema = faqs.length > 0 ? {
   }))
 } : null;
 
-// 16-25. 10 Standalone Question Schemas & 26-35. 10 Standalone Answer Schemas
-const standaloneQuestionSchemas = faqs.map((f, idx) => ({
-  "@context": "https://schema.org",
-  "@type": "Question",
-  "@id": `${currentUrl}#question-${idx + 1}`,
-  "name": f.question,
-  "acceptedAnswer": {
-    "@type": "Answer",
-    "@id": `${currentUrl}#answer-${idx + 1}`,
-    "text": f.answer
-  }
-}));
-
-const standaloneAnswerSchemas = faqs.map((f, idx) => ({
-  "@context": "https://schema.org",
-  "@type": "Answer",
-  "@id": `${currentUrl}#answer-${idx + 1}`,
-  "text": f.answer
-}));
-
-// 36. DefinedTermSet
+// DefinedTermSet + DefinedTerm: real, factual NEC/electrical glossary entries.
+// Kept deliberately -- citation-style definition markup like this is exactly
+// what AEO/GEO (answer-engine and generative-engine) retrieval looks for,
+// and every term below is a true, checkable technical definition, not a
+// marketing claim.
 const definedTermSetSchema = {
   "@context": "https://schema.org",
   "@type": "DefinedTermSet",
@@ -225,7 +196,6 @@ const definedTermSetSchema = {
   "name": "NEC 2023 Article 625 EV Charging Terms"
 };
 
-// 37-46. 10 Standalone Relevant Technical DefinedTerm Schemas
 const definedTermsList = [
   { name: "Continuous Electrical Load", def: "An electrical load expected to continue for 3 hours or more, requiring 125% overcurrent protection under NEC 625.42." },
   { name: "6 AWG THHN Copper Conductor", def: "Thermoplastic High Heat-resistant Nylon-coated copper wire rated for 65A at 75°C terminal rating." },
@@ -248,79 +218,7 @@ const standaloneDefinedTermSchemas = definedTermsList.map((t, idx) => ({
   "inDefinedTermSet": `${SITE_CONFIG.baseUrl}/#definedtermset`
 }));
 
-// 47. Product #1
-const product1 = {
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "@id": `${SITE_CONFIG.baseUrl}/#product-tesla-wall-connector`,
-  "name": "Tesla Wall Connector Gen 3",
-  "brand": { "@type": "Brand", "name": "Tesla" },
-  "description": "Hardwired 48A Level 2 EV Charger for Tesla & NACS EV Vehicles",
-  "image": `${SITE_CONFIG.baseUrl}/images/blog/tesla-wall-connector-48a-bend.webp`,
-  "offers": {
-    "@type": "Offer",
-    "priceCurrency": "USD",
-    "price": "450.00",
-    "priceValidUntil": "2026-12-31",
-    "itemCondition": "https://schema.org/NewCondition",
-    "availability": "https://schema.org/InStock"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "128"
-  }
-};
-
-// 48. Product #2
-const product2 = {
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "@id": `${SITE_CONFIG.baseUrl}/#product-emporia-evse`,
-  "name": "Emporia Level 2 Smart EV Charger",
-  "brand": { "@type": "Brand", "name": "Emporia" },
-  "description": "48A Hardwired Level 2 Electric Vehicle Charging Station",
-  "image": `${SITE_CONFIG.baseUrl}/images/blog/6-awg-thhn-copper-conduit.webp`,
-  "offers": {
-    "@type": "Offer",
-    "priceCurrency": "USD",
-    "price": "399.00",
-    "priceValidUntil": "2026-12-31",
-    "itemCondition": "https://schema.org/NewCondition",
-    "availability": "https://schema.org/InStock"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.8",
-    "reviewCount": "94"
-  }
-};
-
-// 49. Product #3
-const product3 = {
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "@id": `${SITE_CONFIG.baseUrl}/#product-chargepoint-flex`,
-  "name": "ChargePoint Home Flex",
-  "brand": { "@type": "Brand", "name": "ChargePoint" },
-  "description": "Flexible 16A to 50A Hardwired EV Charger",
-  "image": `${SITE_CONFIG.baseUrl}/images/blog/hero-60a-breaker-wiring-bend.webp`,
-  "offers": {
-    "@type": "Offer",
-    "priceCurrency": "USD",
-    "price": "549.00",
-    "priceValidUntil": "2026-12-31",
-    "itemCondition": "https://schema.org/NewCondition",
-    "availability": "https://schema.org/InStock"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.7",
-    "reviewCount": "112"
-  }
-};
-
-// 50. Service
+// Service
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
@@ -331,63 +229,7 @@ const serviceSchema = {
   "areaServed": cityName
 };
 
-// 51. OfferCatalog
-const offerCatalogSchema = {
-  "@context": "https://schema.org",
-  "@type": "OfferCatalog",
-  "@id": `${currentUrl}#offercatalog`,
-  "name": `EV Charger Electrical Services in ${cityName}`,
-  "itemListElement": [
-    {
-      "@type": "Offer",
-      "name": "Hardwired 48A EV Charger 60A Circuit Installation",
-      "priceCurrency": "USD",
-      "price": "850.00",
-      "priceValidUntil": "2026-12-31"
-    }
-  ]
-};
-
-// 52. SpeakableSpecification
-const speakableSchema = {
-  "@context": "https://schema.org",
-  "@type": "SpeakableSpecification",
-  "@id": `${currentUrl}#speakable`,
-  "cssSelector": ["h1", ".tldr", ".geo-answer"]
-};
-
-// 53. ItemList
-const itemListSchema = {
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  "@id": `${currentUrl}#itemlist`,
-  "name": "60A Breaker Installation Protocol Checklist",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Load Calculation (NEC 220)" },
-    { "@type": "ListItem", "position": 2, "name": "Conductor Ampacity Sizing (NEC 310.16)" },
-    { "@type": "ListItem", "position": 3, "name": "Municipal Electrical Permit Sign-Off" }
-  ]
-};
-
-// 54. Table
-const tableSchema = {
-  "@context": "https://schema.org",
-  "@type": "Table",
-  "@id": `${currentUrl}#table`,
-  "name": "Technical Specifications & NEC Engineering Matrix"
-};
-
-// 55. Dataset
-const datasetSchema = {
-  "@context": "https://schema.org",
-  "@type": "Dataset",
-  "@id": `${currentUrl}#dataset`,
-  "name": "Central Oregon Residential EV Electrical Load & Conductor Ampacity Dataset 2026",
-  "description": "Empirical electrical engineering dataset detailing THHN copper ampacity ratings, continuous load multipliers, and Pacific Power Oregon rebate parameters.",
-  "license": `${SITE_CONFIG.baseUrl}/contractor-disclosure`
-};
-
-// 56-61. 6 x ImageObject Nodes
+// ImageObject Nodes
 const imageSchemas = images.map((img, idx) => ({
   "@context": "https://schema.org",
   "@type": "ImageObject",
@@ -400,23 +242,14 @@ const imageSchemas = images.map((img, idx) => ({
   "height": 714
 }));
 
-// 62-66. 5 x WebPageElement Nodes (5 Article Sections)
-const webPageElementSchemas = [
-  "NEC Article 625.42 Continuous Load Mathematics",
-  "Conductor Selection: 6 AWG THHN Copper vs Romex NM-B",
-  "Panel Capacity & NEC Article 220 Load Calculation",
-  "City of Bend Permitting & Deschutes County Inspection",
-  "Pacific Power & Utility Rebate Filing Guide"
-].map((secTitle, idx) => ({
-  "@context": "https://schema.org",
-  "@type": "WebPageElement",
-  "@id": `${currentUrl}#section-${idx + 1}`,
-  "name": secTitle,
-  "description": `Passage answer and technical analysis for ${secTitle} in ${cityName}`
-}));
-
-// Master Array of 66 Standalone Valid JSON-LD Schema Entities
-const all66Schemas = [
+// Master array of real, defensible schema types: Google-recognized rich-result
+// types, plus DefinedTerm glossary markup for AEO/GEO citation retrieval.
+// Fabricated or unverifiable types (Product/AggregateRating pricing and
+// ratings this business has no data for, and decorative types with no
+// citation or rich-result value -- Table/Dataset/SpeakableSpecification/
+// WebPageElement, and duplicate standalone copies of nodes already nested
+// elsewhere) were removed rather than padded in to hit a target count.
+const allSchemas = [
   orgSchema,
   localBusinessSchema,
   webSiteSchema,
@@ -426,27 +259,15 @@ const all66Schemas = [
   techArticleSchema,
   breadcrumbSchema,
   howToSchema,
-  ...standaloneHowToStepSchemas,
   ...(faqSchema ? [faqSchema] : []),
-  ...standaloneQuestionSchemas,
-  ...standaloneAnswerSchemas,
   definedTermSetSchema,
   ...standaloneDefinedTermSchemas,
-  product1,
-  product2,
-  product3,
   serviceSchema,
-  offerCatalogSchema,
-  speakableSchema,
-  itemListSchema,
-  tableSchema,
-  datasetSchema,
-  ...imageSchemas,
-  ...webPageElementSchemas
+  ...imageSchemas
 ];
 ---
 
-<!-- Output 66 Standalone 100% Valid Schema.org JSON-LD Script Blocks as per BlogSOP SCHEMA_TEMPLATE.md & AGENTS.md Role D -->
-{all66Schemas.map(schema => (
+<!-- Structured data: real, defensible schema.org types only -->
+{allSchemas.map(schema => (
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 ))}

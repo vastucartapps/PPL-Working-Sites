@@ -3,6 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import ContactForm from '../../../components/ContactForm.astro';
 import PricingDisclaimerBox from '../../../components/PricingDisclaimerBox.astro';
 import { LOCATIONS, LocationData } from '../../../config/locations';
+import { SITE_CONFIG } from '../../../config/site';
 
 export function getStaticPaths() {
   return Object.values(LOCATIONS).map((loc) => ({
@@ -20,7 +21,7 @@ const { location } = Astro.props;
 
 <BaseLayout
   title={`Contact ${location.name} EV Charger Electricians | Oregon CCB #248910`}
-  description={`Schedule continuous 48A Level 2 EV charger installation in ${location.name}, ${location.state}. Call ${location.phone} for ${location.rebateAmount} ${location.utilityName} rebate filing & trade permits.`}
+  description={`Schedule continuous 48A Level 2 EV charger installation in ${location.name}, ${location.state}. Call ${SITE_CONFIG.phone} for ${location.rebateAmount} ${location.utilityName} rebate filing & trade permits.`}
   location={location}
 >
   <section class="py-16 bg-white border-b border-brand-slate-200">
@@ -47,11 +48,11 @@ const { location } = Astro.props;
               📞 Direct {location.name} Electrician Hotline
             </h2>
             <div class="flex items-center gap-4">
-              <a href={`tel:${location.phoneClean}`} style="background-color: #047857; color: #ffffff;" class="btn-primary px-8 py-4 text-base font-black shadow-lg inline-flex items-center gap-3">
+              <a href={`tel:${SITE_CONFIG.phoneClean}`} style="background-color: #047857; color: #ffffff;" class="btn-primary px-8 py-4 text-base font-black shadow-lg inline-flex items-center gap-3">
                 <svg class="w-5 h-5 fill-current text-emerald-300" viewBox="0 0 24 24">
                   <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
                 </svg>
-                <span style="color: #ffffff;" class="font-black">{location.phone}</span>
+                <span style="color: #ffffff;" class="font-black">{SITE_CONFIG.phone}</span>
               </a>
             </div>
             <p class="text-xs text-emerald-300 font-mono font-bold">

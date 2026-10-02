@@ -16,15 +16,8 @@ const schemaData = {
       "@id": `${SITE_CONFIG.baseUrl}/locations/${location.slug}/#organization`,
       "name": `${SITE_CONFIG.brandName} - ${location.name}`,
       "url": `https://${location.slug}.${SITE_CONFIG.domain}`,
-      "telephone": location.phone,
+      "telephone": SITE_CONFIG.phone,
       "priceRange": "$$",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "reviewCount": "48",
-        "bestRating": "5",
-        "worstRating": "1"
-      },
       "description": `Licensed Level 2 EV charger installation services in ${location.name}, ${location.state}. Tesla Wall Connector & 240V 50A NEMA 14-50 installers. ${location.rebateAmount} ${location.utilityName} rebates processed.`,
       "address": {
         "@type": "PostalAddress",

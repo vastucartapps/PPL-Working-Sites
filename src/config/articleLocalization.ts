@@ -27,8 +27,6 @@ export interface LocalizedArticleContext {
   };
   neighborhoods: string[];
   landmarks: string[];
-  phone: string;
-  phoneClean: string;
 }
 
 export const LOCALIZED_ARTICLE_DATA: Record<string, LocalizedArticleContext> = {
@@ -58,9 +56,7 @@ export const LOCALIZED_ARTICLE_DATA: Record<string, LocalizedArticleContext> = {
       conduitDeratingFactor: '75°C THHN Copper Derating Applied'
     },
     neighborhoods: ['Awbrey Butte', 'Northwest Crossing', 'Tetherow', 'Old Mill District', 'Southeast Bend'],
-    landmarks: ['Pilot Butte', 'Cascade Lakes Highway', 'Deschutes River Trail'],
-    phone: '(541) 555-0199',
-    phoneClean: '5415550199'
+    landmarks: ['Pilot Butte', 'Cascade Lakes Highway', 'Deschutes River Trail']
   },
   redmond: {
     citySlug: 'redmond',
@@ -88,9 +84,7 @@ export const LOCALIZED_ARTICLE_DATA: Record<string, LocalizedArticleContext> = {
       conduitDeratingFactor: 'Schedule 80 PVC Thermal Sleeve Protection'
     },
     neighborhoods: ['Dry Canyon', 'Eagle Crest', 'Canyon Rim', 'Northwest Redmond'],
-    landmarks: ['Redmond Municipal Airport (RDM)', 'Smith Rock State Park Access'],
-    phone: '(541) 555-0199',
-    phoneClean: '5415550199'
+    landmarks: ['Redmond Municipal Airport (RDM)', 'Smith Rock State Park Access']
   },
   sisters: {
     citySlug: 'sisters',
@@ -118,9 +112,7 @@ export const LOCALIZED_ARTICLE_DATA: Record<string, LocalizedArticleContext> = {
       conduitDeratingFactor: 'Cold-Weather Rigid EMT Conduit'
     },
     neighborhoods: ['Black Butte Ranch', 'Tollgate', 'Camp Sherman', 'Downtown Sisters'],
-    landmarks: ['Three Sisters Mountains', 'Santiam Pass Summit', 'Whychus Creek'],
-    phone: '(541) 555-0199',
-    phoneClean: '5415550199'
+    landmarks: ['Three Sisters Mountains', 'Santiam Pass Summit', 'Whychus Creek']
   },
   sunriver: {
     citySlug: 'sunriver',
@@ -148,9 +140,7 @@ export const LOCALIZED_ARTICLE_DATA: Record<string, LocalizedArticleContext> = {
       conduitDeratingFactor: 'High-Altitude Heavy Snow Enclosure'
     },
     neighborhoods: ['Sunriver Resort', 'Caldera Springs', 'Crosswater', 'Sunriver Marina'],
-    landmarks: ['Mt. Bachelor Highway', 'Sunriver Village', 'Deschutes River Lodge'],
-    phone: '(541) 555-0199',
-    phoneClean: '5415550199'
+    landmarks: ['Mt. Bachelor Highway', 'Sunriver Village', 'Deschutes River Lodge']
   },
   'la-pine': {
     citySlug: 'la-pine',
@@ -178,9 +168,7 @@ export const LOCALIZED_ARTICLE_DATA: Record<string, LocalizedArticleContext> = {
       conduitDeratingFactor: 'Sub-Zero Thermal Insulation Sleeve'
     },
     neighborhoods: ['Newberry Estate', 'Ponderosa Pines', 'Wickiup Junction', 'Downtown La Pine'],
-    landmarks: ['Newberry National Volcanic Monument', 'Paulina Lake', 'Wickiup Reservoir'],
-    phone: '(541) 555-0199',
-    phoneClean: '5415550199'
+    landmarks: ['Newberry National Volcanic Monument', 'Paulina Lake', 'Wickiup Reservoir']
   },
   prineville: {
     citySlug: 'prineville',
@@ -208,8 +196,6 @@ export const LOCALIZED_ARTICLE_DATA: Record<string, LocalizedArticleContext> = {
       conduitDeratingFactor: 'Heavy Industrial EMT Conduit'
     },
     neighborhoods: ['Ochoco West', 'Prineville Reservoir Corridors', 'IronHorse', 'Industrial Tech Park'],
-    landmarks: ['Ochoco National Forest', 'Prineville Reservoir State Park', 'Barnes Butte'],
-    phone: '(541) 555-0199',
-    phoneClean: '5415550199'
+    landmarks: ['Ochoco National Forest', 'Prineville Reservoir State Park', 'Barnes Butte']
   }
 };

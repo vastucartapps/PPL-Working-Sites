@@ -97,7 +97,7 @@ const serviceFaqs = [
   <EnterpriseSchemaGraph
     title={pageTitle}
     description={pageDescription}
-    path={`/locations/${location.slug}/services/${service}`}
+    path={`/locations/${location.slug}/services/${service}/`}
     cityName={localData.cityName}
     zipCode={location.zipCodes[0]}
     faqs={serviceFaqs}
@@ -134,8 +134,8 @@ const serviceFaqs = [
 
           <div class="flex flex-col sm:flex-row gap-4 pt-2">
             <PrimaryButton
-              href={`tel:${localData.phoneClean}`}
-              text={`Call ${localData.phone}`}
+              href={`tel:${SITE_CONFIG.phoneClean}`}
+              text={`Call ${SITE_CONFIG.phone}`}
               icon="phone"
             />
             <SecondaryButton

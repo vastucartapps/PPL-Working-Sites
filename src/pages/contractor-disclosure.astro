@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE_CONFIG } from '../config/site';
 
 const pageTitle = "Licensed Oregon Contractor Network Disclosure | EV Charger One";
 const pageDescription = "Independent licensed Oregon electrical contractor network disclosure. Oregon CCB #248910 partner network compliance for Deschutes County, Bend, and Redmond.";
@@ -58,7 +59,7 @@ const disclosureSchema = {
       <div class="bg-emerald-950 text-white rounded-2xl p-6 sm:p-8 font-mono text-xs space-y-2">
         <div class="text-emerald-400 font-bold uppercase tracking-wider mb-2">📞 PAY-PER-CALL & DISPATCH COMPLIANCE CONTACT</div>
         <div>EV Charger One Lead Operations & Network Compliance Division</div>
-        <div>Phone Support: (541) 555-0199 | Hours: Mon-Sun 7:00 AM - 8:00 PM PST</div>
+        <div>Phone Support: {SITE_CONFIG.phone} | Hours: Mon-Sun 7:00 AM - 8:00 PM PST</div>
         <div>Central Oregon Regional Hub: Bend, OR 97701</div>
       </div>
     </div>

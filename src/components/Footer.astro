@@ -11,8 +11,8 @@ export interface Props {
 
 const { location } = Astro.props;
 
-const phone = location ? location.phone : SITE_CONFIG.phone;
-const phoneClean = location ? location.phoneClean : SITE_CONFIG.phoneClean;
+const phone = SITE_CONFIG.phone;
+const phoneClean = SITE_CONFIG.phoneClean;
 const cityName = location ? location.name : SITE_CONFIG.location.city;
 ---
 
@@ -56,12 +56,12 @@ const cityName = location ? location.name : SITE_CONFIG.location.city;
       <div class="space-y-3">
         <div class="font-black text-emerald-400 uppercase tracking-wider text-xs">// SERVICE CITIES</div>
         <ul class="space-y-2 text-slate-300 font-bold">
-          <li><a href="/locations/bend" class="hover:text-white transition-colors">Bend, OR (97701)</a></li>
-          <li><a href="/locations/redmond" class="hover:text-white transition-colors">Redmond, OR (97756)</a></li>
-          <li><a href="/locations/sisters" class="hover:text-white transition-colors">Sisters, OR (97759)</a></li>
-          <li><a href="/locations/sunriver" class="hover:text-white transition-colors">Sunriver, OR (97707)</a></li>
-          <li><a href="/locations/la-pine" class="hover:text-white transition-colors">La Pine, OR (97739)</a></li>
-          <li><a href="/locations/prineville" class="hover:text-white transition-colors">Prineville, OR (97754)</a></li>
+          <li><a href="/locations/bend/" class="hover:text-white transition-colors">Bend, OR (97701)</a></li>
+          <li><a href="/locations/redmond/" class="hover:text-white transition-colors">Redmond, OR (97756)</a></li>
+          <li><a href="/locations/sisters/" class="hover:text-white transition-colors">Sisters, OR (97759)</a></li>
+          <li><a href="/locations/sunriver/" class="hover:text-white transition-colors">Sunriver, OR (97707)</a></li>
+          <li><a href="/locations/la-pine/" class="hover:text-white transition-colors">La Pine, OR (97739)</a></li>
+          <li><a href="/locations/prineville/" class="hover:text-white transition-colors">Prineville, OR (97754)</a></li>
         </ul>
       </div>
 
@@ -69,8 +69,8 @@ const cityName = location ? location.name : SITE_CONFIG.location.city;
       <div class="space-y-3">
         <div class="font-black text-emerald-400 uppercase tracking-wider text-xs">// COMPLIANCE</div>
         <ul class="space-y-2 text-slate-300 font-bold">
-          <li><a href="/contractor-disclosure" class="hover:text-white transition-colors">Contractor Disclosure</a></li>
-          <li><a href="/privacy" class="hover:text-white transition-colors">Privacy Policy</a></li>
+          <li><a href="/contractor-disclosure/" class="hover:text-white transition-colors">Contractor Disclosure</a></li>
+          <li><a href="/privacy/" class="hover:text-white transition-colors">Privacy Policy</a></li>
           <li><a href="/sitemap.xml" class="hover:text-white transition-colors">XML Sitemap</a></li>
         </ul>
       </div>

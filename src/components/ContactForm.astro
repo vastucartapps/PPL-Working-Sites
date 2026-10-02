@@ -58,7 +58,7 @@ import { SITE_CONFIG } from '../config/site';
           name="phone"
           required
           aria-label="Phone Number"
-          placeholder="(541) 555-0199"
+          placeholder="(555) 123-4567"
           class="w-full bg-brand-slate-50 border-2 border-brand-slate-300 rounded-xl px-4 py-3 text-slate-950 font-bold text-xs sm:text-sm focus:outline-none focus:border-emerald-600 shadow-sm"
         />
       </div>
@@ -135,7 +135,7 @@ import { SITE_CONFIG } from '../config/site';
     </button>
 
     <!-- Form Feedback Box -->
-    <div id="form-message" class="hidden p-4 rounded-xl text-center text-xs font-mono font-bold mt-2"></div>
+    <div id="form-message" class="hidden p-4 rounded-xl text-center text-xs font-mono font-bold mt-2" data-phone={SITE_CONFIG.phone} data-tel={SITE_CONFIG.phoneClean}></div>
 
     <div class="flex items-center justify-center gap-2 font-mono text-xs text-slate-900 font-bold pt-2 text-center">
       <span>🔒 100% Spam-Free</span>
@@ -175,6 +175,9 @@ import { SITE_CONFIG } from '../config/site';
         })
         .then(function(res) { return res.json(); })
         .then(function(data) {
+          if (!data || data.success !== true) {
+            throw new Error((data && data.message) || 'Web3Forms did not confirm delivery');
+          }
           if (msgBox) {
             msgBox.classList.remove('hidden', 'bg-rose-100', 'text-rose-900');
             msgBox.classList.add('bg-emerald-100', 'text-emerald-950');
@@ -183,12 +186,14 @@ import { SITE_CONFIG } from '../config/site';
           form.reset();
         })
         .catch(function(err) {
+          console.error('Lead form submission failed:', err);
           if (msgBox) {
-            msgBox.classList.remove('hidden', 'bg-rose-100', 'text-rose-900');
-            msgBox.classList.add('bg-emerald-100', 'text-emerald-950');
-            msgBox.innerHTML = '✅ <strong>ESTIMATE REQUEST SUBMITTED!</strong><br />A licensed master electrician will reach out within 1 business hour.';
+            var phone = msgBox.dataset.phone || '';
+            var tel = msgBox.dataset.tel || '';
+            msgBox.classList.remove('hidden', 'bg-emerald-100', 'text-emerald-950');
+            msgBox.classList.add('bg-rose-100', 'text-rose-900');
+            msgBox.innerHTML = '⚠️ <strong>Something went wrong submitting this form.</strong><br />Please call us directly at <a href="tel:' + tel + '" class="underline font-black">' + phone + '</a> and we\'ll get you an estimate right away.';
           }
-          form.reset();
         })
         .finally(function() {
           if (submitBtn) submitBtn.removeAttribute('disabled');
