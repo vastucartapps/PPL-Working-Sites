@@ -3,16 +3,16 @@ export const SITE_CONFIG = {
   brandName: "EV Charger One",
   domain: "evchargerone.com",
   baseUrl: "https://evchargerone.com",
-  defaultTitle: "Level 2 EV Charger Installation in Bend, OR | (888) 217-4060",
-  defaultDescription: "Licensed Level 2 EV charger installs in Bend & Central Oregon. Same-day Tesla Wall Connector & NEMA 14-50 setups, rebate filed for you. (888) 217-4060.",
+  defaultTitle: "Level 2 EV Charger Installation in Bend, OR | (888) 534-4943",
+  defaultDescription: "Licensed Level 2 EV charger installs in Bend & Central Oregon. Same-day Tesla Wall Connector & NEMA 14-50 setups, rebate filed for you. (888) 534-4943.",
 
   // GOOGLE ANALYTICS & GOOGLE SEARCH CONSOLE VERIFICATION
   googleAnalyticsId: "G-QZT2JJ7QXP",
   googleSiteVerification: "GSC_VERIFICATION_TOKEN",
 
   // SINGLE SOURCE OF TRUTH (SSOT) PAY-PER-CALL ROUTING
-  phone: "(888) 217-4060",
-  phoneClean: "18882174060",
+  phone: "(888) 534-4943",
+  phoneClean: "18885344943",
   operatingHours: "Mon-Sun 7:00 AM - 8:00 PM PST",
 
   // Lead/review forms POST to /api/submit (a Cloudflare Pages Function) which

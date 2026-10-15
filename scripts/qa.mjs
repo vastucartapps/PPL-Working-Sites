@@ -24,7 +24,16 @@ function walk(dir, out = []) {
   return out;
 }
 
-const REAL_PHONE_CLEAN = '18882174060';
+// Read the real number from the SSOT itself rather than duplicating the
+// literal here -- a hardcoded copy is exactly the bug this gate exists to
+// catch, and it went stale the moment the number last changed.
+const siteConfigSrc = fs.readFileSync(path.join(__dirname, '..', 'src', 'config', 'site.ts'), 'utf-8');
+const phoneMatch = siteConfigSrc.match(/phoneClean:\s*"(\d+)"/);
+if (!phoneMatch) {
+  console.error('Could not read phoneClean from src/config/site.ts');
+  process.exit(1);
+}
+const REAL_PHONE_CLEAN = phoneMatch[1];
 const htmlFiles = walk(distDir);
 const errors = [];
 

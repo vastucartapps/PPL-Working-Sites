@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE_CONFIG } from '../config/site';
 
 const pageTitle = "Privacy Policy & Terms of Service | EV Charger One";
 const pageDescription = "Comprehensive privacy policy, legal disclaimers, TCPA phone consent terms, and domain operator verification for EV Charger One in Central Oregon.";
@@ -50,7 +51,7 @@ const pageDescription = "Comprehensive privacy policy, legal disclaimers, TCPA p
       <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm">
         <h2 class="text-xl font-bold text-slate-900 mb-3">3. TCPA & E-SIGN Express Telephone Communication Consent</h2>
         <p class="mb-3">
-          By submitting a quote request form or initiating a phone call to any listed phone number on this website (including (888) 217-4060), you provide your express written consent under the Telephone Consumer Protection Act (TCPA, 47 U.S.C. § 227) and the E-SIGN Act to receive communications.
+          By submitting a quote request form or initiating a phone call to any listed phone number on this website (including {SITE_CONFIG.phone}), you provide your express written consent under the Telephone Consumer Protection Act (TCPA, 47 U.S.C. § 227) and the E-SIGN Act to receive communications.
         </p>
         <p>
           You agree that EV Charger One and its matched licensed electrical contractor partners may contact you via telephone calls, automated dialing systems, artificial voice messages, or SMS text messages at the phone number provided regarding your Level 2 EV charger inquiry. Consent is not a mandatory condition of purchasing any product or service.
