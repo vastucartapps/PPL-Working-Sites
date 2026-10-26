@@ -80,9 +80,13 @@ export const GET: APIRoute = async () => {
       pages.push(`/locations/${cityId}/services/${service}`);
     });
 
-    articleSlugs.forEach((slug) => {
-      pages.push(`/locations/${cityId}/${slug}`);
-    });
+    // No /locations/<cityId>/<articleSlug> entries here on purpose: that
+    // route no longer builds any pages (see
+    // src/pages/locations/[city]/[slug].astro) and every one of those old
+    // URLs now 301s to its real canonical article at /<articleSlug>/, which
+    // is already listed above under "Root Article Pages". Submitting a URL
+    // that immediately redirects is exactly the GSC "Page with redirect"
+    // issue this round is trying to eliminate, not create more of.
   });
 
   const lastMod = new Date().toISOString();

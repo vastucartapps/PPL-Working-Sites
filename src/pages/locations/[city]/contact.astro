@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import EnterpriseSchemaGraph from '../../../components/EnterpriseSchemaGraph.astro';
 import ContactForm from '../../../components/ContactForm.astro';
 import PricingDisclaimerBox from '../../../components/PricingDisclaimerBox.astro';
 import { LOCATIONS, LocationData } from '../../../config/locations';
@@ -24,6 +26,16 @@ const { location } = Astro.props;
   description={`Schedule Level 2 EV charger installation in ${location.name}, ${location.state}. Call ${SITE_CONFIG.phone} -- utility rebate filing & trade permits handled for you.`}
   location={location}
 >
+  <EnterpriseSchemaGraph
+    title={`Contact Us | EV Charger Install in ${location.name}, ${location.state}`}
+    description={`Schedule Level 2 EV charger installation in ${location.name}, ${location.state}. Call ${SITE_CONFIG.phone} -- utility rebate filing & trade permits handled for you.`}
+    path={`/locations/${location.slug}/contact/`}
+    cityName={location.name}
+    zipCode={location.zipCodes[0]}
+    lat={location.geo.lat}
+    lng={location.geo.lng}
+  />
+  <Breadcrumbs location={location} pathName="Contact" />
   <section class="py-16 bg-white border-b border-brand-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl">

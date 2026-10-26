@@ -16,52 +16,30 @@ import { SITE_CONFIG } from '../config/site';
         1-HR RESPONSE
       </span>
     </div>
-    
+
     <h2 class="text-2xl sm:text-3xl font-black text-slate-950 tracking-tight">
       Request Your Fixed-Price Quote
     </h2>
     <p class="text-xs sm:text-sm text-slate-900 font-bold mt-1">
       Lock in your local utility cash-back rebate. Zero obligations.
     </p>
+
+    <!-- Step indicator -->
+    <div class="flex items-center gap-2 mt-4" role="list" aria-label="Form progress">
+      <span class="step-dot flex-1 h-1.5 rounded-full bg-emerald-600" data-dot="1"></span>
+      <span class="step-dot flex-1 h-1.5 rounded-full bg-brand-slate-200" data-dot="2"></span>
+      <span class="step-dot flex-1 h-1.5 rounded-full bg-brand-slate-200" data-dot="3"></span>
+    </div>
   </div>
 
   <!-- Lead Capture Form Engine -->
-  <form id="lead-form" class="space-y-4">
+  <form id="lead-form" class="space-y-4" novalidate>
     <input type="hidden" name="form_type" value="lead" />
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-      <div>
-        <label for="lead-name" class="block font-mono text-xs font-black uppercase text-slate-950 mb-1">
-          Full Name *
-        </label>
-        <input
-          type="text"
-          id="lead-name"
-          name="name"
-          required
-          aria-label="Full Name"
-          placeholder="e.g. Marcus Vance"
-          class="w-full bg-brand-slate-50 border-2 border-brand-slate-300 rounded-xl px-4 py-3 text-slate-950 font-bold text-xs sm:text-sm focus:outline-none focus:border-emerald-600 shadow-sm"
-        />
-      </div>
+    <!-- Step 1: what and where -->
+    <fieldset class="form-step space-y-4" data-step="1">
+      <legend class="font-mono text-xs font-black uppercase text-emerald-800 mb-1">Step 1 of 3 — Your vehicle & location</legend>
 
-      <div>
-        <label for="lead-phone" class="block font-mono text-xs font-black uppercase text-slate-950 mb-1">
-          Phone Number *
-        </label>
-        <input
-          type="tel"
-          id="lead-phone"
-          name="phone"
-          required
-          aria-label="Phone Number"
-          placeholder="(555) 123-4567"
-          class="w-full bg-brand-slate-50 border-2 border-brand-slate-300 rounded-xl px-4 py-3 text-slate-950 font-bold text-xs sm:text-sm focus:outline-none focus:border-emerald-600 shadow-sm"
-        />
-      </div>
-    </div>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
       <div>
         <label for="lead-vehicle" class="block font-mono text-xs font-black uppercase text-slate-950 mb-1">
           Electric Vehicle Model *
@@ -73,12 +51,13 @@ import { SITE_CONFIG } from '../config/site';
           aria-label="Electric Vehicle Model"
           class="w-full bg-white border-2 border-brand-slate-300 rounded-xl px-4 py-3 text-slate-950 font-bold text-xs sm:text-sm focus:outline-none focus:border-emerald-600 cursor-pointer shadow-sm"
         >
-          <option value="Tesla Model Y / Model 3" class="bg-white text-slate-950 font-bold">Tesla Model Y / Model 3</option>
-          <option value="Tesla Cybertruck" class="bg-white text-slate-950 font-bold">Tesla Cybertruck</option>
-          <option value="Ford F-150 Lightning" class="bg-white text-slate-950 font-bold">Ford F-150 Lightning</option>
-          <option value="Rivian R1T / R1S" class="bg-white text-slate-950 font-bold">Rivian R1T / R1S</option>
-          <option value="Hyundai Ioniq 5 / Kia EV6" class="bg-white text-slate-950 font-bold">Hyundai Ioniq 5 / Kia EV6</option>
-          <option value="Other EV Model" class="bg-white text-slate-950 font-bold">Other EV Model</option>
+          <option value="" disabled selected>Select your EV</option>
+          <option value="Tesla Model Y / Model 3">Tesla Model Y / Model 3</option>
+          <option value="Tesla Cybertruck">Tesla Cybertruck</option>
+          <option value="Ford F-150 Lightning">Ford F-150 Lightning</option>
+          <option value="Rivian R1T / R1S">Rivian R1T / R1S</option>
+          <option value="Hyundai Ioniq 5 / Kia EV6">Hyundai Ioniq 5 / Kia EV6</option>
+          <option value="Other EV Model">Other EV Model</option>
         </select>
       </div>
 
@@ -93,43 +72,105 @@ import { SITE_CONFIG } from '../config/site';
           aria-label="City Location"
           class="w-full bg-white border-2 border-brand-slate-300 rounded-xl px-4 py-3 text-slate-950 font-bold text-xs sm:text-sm focus:outline-none focus:border-emerald-600 cursor-pointer shadow-sm"
         >
-          <option value="Bend, OR" class="bg-white text-slate-950 font-bold">Bend, OR</option>
-          <option value="Redmond, OR" class="bg-white text-slate-950 font-bold">Redmond, OR</option>
-          <option value="Sisters, OR" class="bg-white text-slate-950 font-bold">Sisters, OR</option>
-          <option value="Sunriver, OR" class="bg-white text-slate-950 font-bold">Sunriver, OR</option>
-          <option value="La Pine, OR" class="bg-white text-slate-950 font-bold">La Pine, OR</option>
-          <option value="Prineville, OR" class="bg-white text-slate-950 font-bold">Prineville, OR</option>
+          <option value="" disabled selected>Select your city</option>
+          <option value="Bend, OR">Bend, OR</option>
+          <option value="Redmond, OR">Redmond, OR</option>
+          <option value="Sisters, OR">Sisters, OR</option>
+          <option value="Sunriver, OR">Sunriver, OR</option>
+          <option value="La Pine, OR">La Pine, OR</option>
+          <option value="Prineville, OR">Prineville, OR</option>
         </select>
       </div>
-    </div>
 
-    <div>
-      <label for="lead-service" class="block font-mono text-xs font-black uppercase text-slate-950 mb-1">
-        Requested Service *
-      </label>
-      <select
-        id="lead-service"
-        name="service"
-        required
-        aria-label="Requested Service"
-        class="w-full bg-white border-2 border-brand-slate-300 rounded-xl px-4 py-3 text-slate-950 font-bold text-xs sm:text-sm focus:outline-none focus:border-emerald-600 cursor-pointer shadow-sm"
-      >
-        <option value="Tesla Wall Connector Hardwired (48A)" class="bg-white text-slate-950 font-bold">Tesla Wall Connector Hardwired (48A)</option>
-        <option value="NEMA 14-50 240V Outlet Upgrade (50A)" class="bg-white text-slate-950 font-bold">NEMA 14-50 240V Outlet Upgrade (50A)</option>
-        <option value="200A Electrical Panel Upgrade" class="bg-white text-slate-950 font-bold">200A Electrical Panel Upgrade</option>
-        <option value="Residential Level 2 Home Charger" class="bg-white text-slate-950 font-bold">Residential Level 2 Home Charger</option>
-      </select>
-    </div>
+      <button type="button" class="step-next btn-primary w-full py-4 px-6 text-center text-xs sm:text-sm font-black text-white shadow-xl cursor-pointer" data-next="2">
+        CONTINUE →
+      </button>
+    </fieldset>
 
-    <!-- Submit CTA Button -->
-    <button
-      type="submit"
-      id="form-submit-btn"
-      aria-label="Submit request for fixed price quote"
-      class="btn-primary w-full py-4 px-6 text-center text-xs sm:text-sm font-black text-white shadow-xl mt-2 cursor-pointer"
-    >
-      <span>CLAIM utility rebate & GET ESTIMATE →</span>
-    </button>
+    <!-- Step 2: what work -->
+    <fieldset class="form-step space-y-4 hidden" data-step="2">
+      <legend class="font-mono text-xs font-black uppercase text-emerald-800 mb-1">Step 2 of 3 — Requested service</legend>
+
+      <div>
+        <label for="lead-service" class="block font-mono text-xs font-black uppercase text-slate-950 mb-1">
+          Requested Service *
+        </label>
+        <select
+          id="lead-service"
+          name="service"
+          required
+          aria-label="Requested Service"
+          class="w-full bg-white border-2 border-brand-slate-300 rounded-xl px-4 py-3 text-slate-950 font-bold text-xs sm:text-sm focus:outline-none focus:border-emerald-600 cursor-pointer shadow-sm"
+        >
+          <option value="" disabled selected>Select a service</option>
+          <option value="Tesla Wall Connector Hardwired (48A)">Tesla Wall Connector Hardwired (48A)</option>
+          <option value="NEMA 14-50 240V Outlet Upgrade (50A)">NEMA 14-50 240V Outlet Upgrade (50A)</option>
+          <option value="200A Electrical Panel Upgrade">200A Electrical Panel Upgrade</option>
+          <option value="Commercial EV Charging Install">Commercial EV Charging Install</option>
+          <option value="Not sure yet">Not sure yet</option>
+        </select>
+      </div>
+
+      <div class="flex gap-3">
+        <button type="button" class="step-back flex-1 py-4 px-6 text-center text-xs sm:text-sm font-black text-slate-950 bg-brand-slate-100 border-2 border-brand-slate-300 rounded-xl cursor-pointer" data-back="1">
+          ← BACK
+        </button>
+        <button type="button" class="step-next flex-[2] btn-primary py-4 px-6 text-center text-xs sm:text-sm font-black text-white shadow-xl cursor-pointer" data-next="3">
+          CONTINUE →
+        </button>
+      </div>
+    </fieldset>
+
+    <!-- Step 3: contact info -->
+    <fieldset class="form-step space-y-4 hidden" data-step="3">
+      <legend class="font-mono text-xs font-black uppercase text-emerald-800 mb-1">Step 3 of 3 — Get your estimate</legend>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label for="lead-name" class="block font-mono text-xs font-black uppercase text-slate-950 mb-1">
+            Full Name *
+          </label>
+          <input
+            type="text"
+            id="lead-name"
+            name="name"
+            required
+            aria-label="Full Name"
+            placeholder="e.g. Marcus Vance"
+            class="w-full bg-brand-slate-50 border-2 border-brand-slate-300 rounded-xl px-4 py-3 text-slate-950 font-bold text-xs sm:text-sm focus:outline-none focus:border-emerald-600 shadow-sm"
+          />
+        </div>
+
+        <div>
+          <label for="lead-phone" class="block font-mono text-xs font-black uppercase text-slate-950 mb-1">
+            Phone Number *
+          </label>
+          <input
+            type="tel"
+            id="lead-phone"
+            name="phone"
+            required
+            aria-label="Phone Number"
+            placeholder="(555) 123-4567"
+            class="w-full bg-brand-slate-50 border-2 border-brand-slate-300 rounded-xl px-4 py-3 text-slate-950 font-bold text-xs sm:text-sm focus:outline-none focus:border-emerald-600 shadow-sm"
+          />
+        </div>
+      </div>
+
+      <div class="flex gap-3">
+        <button type="button" class="step-back flex-1 py-4 px-6 text-center text-xs sm:text-sm font-black text-slate-950 bg-brand-slate-100 border-2 border-brand-slate-300 rounded-xl cursor-pointer" data-back="2">
+          ← BACK
+        </button>
+        <button
+          type="submit"
+          id="form-submit-btn"
+          aria-label="Submit request for fixed price quote"
+          class="flex-[2] btn-primary py-4 px-6 text-center text-xs sm:text-sm font-black text-white shadow-xl cursor-pointer"
+        >
+          CLAIM utility rebate & GET ESTIMATE →
+        </button>
+      </div>
+    </fieldset>
 
     <!-- Form Feedback Box -->
     <div id="form-message" class="hidden p-4 rounded-xl text-center text-xs font-mono font-bold mt-2" data-phone={SITE_CONFIG.phone} data-tel={SITE_CONFIG.phoneClean}></div>
@@ -147,54 +188,94 @@ import { SITE_CONFIG } from '../config/site';
 <script is:inline>
   (function() {
     var form = document.getElementById('lead-form');
+    if (!form) return;
+
+    var steps = Array.prototype.slice.call(form.querySelectorAll('.form-step'));
+    var dots = Array.prototype.slice.call(document.querySelectorAll('.step-dot'));
     var submitBtn = document.getElementById('form-submit-btn');
     var msgBox = document.getElementById('form-message');
 
-    if (form) {
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        if (submitBtn) submitBtn.setAttribute('disabled', 'true');
-
-        var formData = new FormData(form);
-        var leadData = {};
-        formData.forEach(function(val, key) {
-          leadData[key] = val;
-        });
-
-        fetch('/api/submit', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify(leadData)
-        })
-        .then(function(res) { return res.json(); })
-        .then(function(data) {
-          if (!data || data.success !== true) {
-            throw new Error((data && data.message) || 'Delivery not confirmed');
-          }
-          if (msgBox) {
-            msgBox.classList.remove('hidden', 'bg-rose-100', 'text-rose-900');
-            msgBox.classList.add('bg-emerald-100', 'text-emerald-950');
-            msgBox.innerHTML = '✅ <strong>ESTIMATE REQUEST SUBMITTED!</strong><br />A licensed master electrician will reach out within 1 business hour.';
-          }
-          form.reset();
-        })
-        .catch(function(err) {
-          console.error('Lead form submission failed:', err);
-          if (msgBox) {
-            var phone = msgBox.dataset.phone || '';
-            var tel = msgBox.dataset.tel || '';
-            msgBox.classList.remove('hidden', 'bg-emerald-100', 'text-emerald-950');
-            msgBox.classList.add('bg-rose-100', 'text-rose-900');
-            msgBox.innerHTML = '⚠️ <strong>Something went wrong submitting this form.</strong><br />Please call us directly at <a href="tel:' + tel + '" class="underline font-black">' + phone + '</a> and we\'ll get you an estimate right away.';
-          }
-        })
-        .finally(function() {
-          if (submitBtn) submitBtn.removeAttribute('disabled');
-        });
+    function showStep(n) {
+      steps.forEach(function(step) {
+        var isActive = step.getAttribute('data-step') === String(n);
+        step.classList.toggle('hidden', !isActive);
+      });
+      dots.forEach(function(dot) {
+        var dotStep = Number(dot.getAttribute('data-dot'));
+        dot.classList.toggle('bg-emerald-600', dotStep <= n);
+        dot.classList.toggle('bg-brand-slate-200', dotStep > n);
       });
     }
+
+    function stepIsValid(stepEl) {
+      var fields = stepEl.querySelectorAll('[required]');
+      for (var i = 0; i < fields.length; i++) {
+        if (!fields[i].checkValidity()) {
+          fields[i].reportValidity();
+          return false;
+        }
+      }
+      return true;
+    }
+
+    form.querySelectorAll('.step-next').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var currentStep = btn.closest('.form-step');
+        if (!stepIsValid(currentStep)) return;
+        showStep(btn.getAttribute('data-next'));
+      });
+    });
+
+    form.querySelectorAll('.step-back').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        showStep(btn.getAttribute('data-back'));
+      });
+    });
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (submitBtn) submitBtn.setAttribute('disabled', 'true');
+
+      var formData = new FormData(form);
+      var leadData = {};
+      formData.forEach(function(val, key) {
+        leadData[key] = val;
+      });
+
+      fetch('/api/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(leadData)
+      })
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        if (!data || data.success !== true) {
+          throw new Error((data && data.message) || 'Delivery not confirmed');
+        }
+        if (msgBox) {
+          msgBox.classList.remove('hidden', 'bg-rose-100', 'text-rose-900');
+          msgBox.classList.add('bg-emerald-100', 'text-emerald-950');
+          msgBox.innerHTML = '✅ <strong>ESTIMATE REQUEST SUBMITTED!</strong><br />A licensed master electrician will reach out within 1 business hour.';
+        }
+        form.reset();
+        showStep(1);
+      })
+      .catch(function(err) {
+        console.error('Lead form submission failed:', err);
+        if (msgBox) {
+          var phone = msgBox.dataset.phone || '';
+          var tel = msgBox.dataset.tel || '';
+          msgBox.classList.remove('hidden', 'bg-emerald-100', 'text-emerald-950');
+          msgBox.classList.add('bg-rose-100', 'text-rose-900');
+          msgBox.innerHTML = '⚠️ <strong>Something went wrong submitting this form.</strong><br />Please call us directly at <a href="tel:' + tel + '" class="underline font-black">' + phone + '</a> and we\'ll get you an estimate right away.';
+        }
+      })
+      .finally(function() {
+        if (submitBtn) submitBtn.removeAttribute('disabled');
+      });
+    });
   })();
 </script>

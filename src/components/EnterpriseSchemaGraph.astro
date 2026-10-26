@@ -96,6 +96,15 @@ if (SITE_CONFIG.reviewCount > 0 && SITE_CONFIG.reviewRating) {
   };
 }
 
+// Real, already-public license number (stated on-page in /locations/,
+// /privacy, and every location's "about" page) -- not fabricated.
+localBusinessSchema.hasCredential = {
+  "@type": "EducationalOccupationalCredential",
+  "credentialCategory": "Contractor License",
+  "name": "Oregon CCB License",
+  "identifier": "248910"
+};
+
 // 3. WebSite
 const webSiteSchema = {
   "@context": "https://schema.org",

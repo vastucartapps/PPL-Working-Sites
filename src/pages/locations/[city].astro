@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import EnterpriseSchemaGraph from '../../components/EnterpriseSchemaGraph.astro';
 import ContactForm from '../../components/ContactForm.astro';
 import ArticleHeroCard from '../../components/ArticleHeroCard.astro';
@@ -47,6 +48,7 @@ const locationFaqs = [
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription} location={location}>
+  <Breadcrumbs location={location} />
   <EnterpriseSchemaGraph
     title={pageTitle}
     description={pageDescription}

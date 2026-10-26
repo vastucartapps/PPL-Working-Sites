@@ -226,7 +226,7 @@ const bodyImages = images.slice(1);
                   </h2>
                   
                   <div class="geo-answer p-4 bg-cyan-50/80 border-l-4 border-cyan-600 rounded-r-lg font-sans text-slate-900 font-medium text-base">
-                    <strong>Direct Answer / Machine Extract:</strong> {sec.content.split('\n\n')[0]}
+                    <strong>In short:</strong> {sec.content.split('\n\n')[0]}
                   </div>
 
                   <p class="font-normal text-slate-800 leading-relaxed whitespace-pre-line">
@@ -289,9 +289,9 @@ const bodyImages = images.slice(1);
     </div>
   </article>
 
-  <!-- 10 Topic-Specific Verified Technical FAQs -->
+  <!-- Topic-specific technical FAQs -->
   <FAQAccordion
-    title={`${title} FAQs (10 Verified Answers)`}
+    title={`${title} FAQs (${faqs.length} Answers)`}
     faqs={faqs}
   />
 

@@ -59,40 +59,157 @@ const brandedTitle = `${bareTitle} | ${SITE_CONFIG.brandName}`;
 const pageTitle = brandedTitle.length <= 60 ? brandedTitle : bareTitle;
 const pageDescription = `Licensed ${titleText} in ${localData.cityName}, ${localData.state}. Utility rebate filing & local trade permits handled for you.`;
 
-const serviceFaqs = [
-  {
-    question: `1. How Much Does ${titleText} Cost in ${localData.cityName}, ${localData.state}?`,
-    answer: `${titleText} in ${localData.cityName} ranges between standard garage installation costs depending on breaker panel distance and panel capacity. Homeowners in ${localData.utility.name} territory qualify for an instant ${localData.utility.rebateAmount} cash-back rebate, bringing net costs down to qualifying net installation costs.`
+/*
+ * Service-specific FAQ content.
+ *
+ * This used to be one FAQ array shared across all 4 services, swapping only
+ * the headline text ({titleText}). The answers themselves described a
+ * hardwired 48A Tesla Wall Connector on every page regardless of which
+ * service was selected -- so the NEMA 14-50 page (explicitly the PLUG-IN
+ * alternative to hardwiring) told readers it needed a 60A hardwired circuit,
+ * the panel-upgrade page (not about a charger circuit at all) got the same
+ * answer, and the commercial page claimed a 3-5 hour residential garage
+ * timeline. That's not just thin content, it's wrong content -- and it's
+ * exactly what makes 4 service pages read as one page with 4 headlines
+ * rather than 4 independently rankable pages about 4 different jobs.
+ */
+type ServiceFaqs = (local: LocalizedArticleContext) => Array<{ question: string; answer: string }>;
+
+const SERVICE_FAQS: Record<string, ServiceFaqs> = {
+  'tesla-wall-connector': (local) => [
+    { question: `1. How Much Does a Tesla Wall Connector Installation Cost in ${local.cityName}, ${local.state}?`,
+      answer: `A hardwired Tesla Wall Connector in ${local.cityName} is priced on breaker-panel distance, conduit run, and whether your panel already has a free 60A slot. Homeowners in ${local.utility.name} territory qualify for an instant ${local.utility.rebateAmount} cash-back rebate, which we file on your behalf.` },
+    { question: `2. Which Building Permit Office Issues the Trade Permit for a Wall Connector in ${local.cityName}?`,
+      answer: `${local.permit.office} issues the electrical trade permit under the ${local.permit.buildingCodeYear}. We pull it before any wire is run.` },
+    { question: `3. What Breaker and Wire Size Does a Tesla Wall Connector Need?`,
+      answer: `A continuous 48A Wall Connector requires a dedicated 60A 2-pole breaker, wired with 6 AWG THHN copper in EMT conduit (${local.climate.conduitDeratingFactor}) -- the full hardwired circuit, not a plug-in outlet.` },
+    { question: `4. Does ${local.utility.name} Rebate a Wall Connector Install in ${local.cityName}?`,
+      answer: `Yes, up to ${local.utility.rebateAmount} through the ${local.utility.rebateProgram}. We submit the paperwork directly.` },
+    { question: `5. Tesla Wall Connector vs. a NEMA 14-50 Outlet -- Which Should I Choose in ${local.cityName}?`,
+      answer: `The Wall Connector is hardwired and delivers the full 48A (11.5 kW) the vehicle can take. A NEMA 14-50 plug-in outlet is capped at 32-40A continuous (9.6 kW max) on a 50A breaker, but you can unplug it and use the same outlet for an RV or other 240V appliance. Most daily drivers in ${local.cityName} choose the Wall Connector for charging speed.` },
+    { question: `6. How Does ${local.cityName}'s Winter (${local.climate.winterMinTempF}°F low, ${local.climate.elevationFeet} ft elevation) Affect Charging Speed?`,
+      answer: `Cold packs draw extra power for thermal preheating before they'll accept a full charge. A hardwired 48A circuit has the headroom to cover that overhead without throttling your charge rate the way a lower-amperage outlet can.` },
+    { question: `7. Which Neighborhoods in ${local.cityName} Do You Serve?`,
+      answer: `${local.neighborhoods.join(', ')}, and the surrounding ${local.county} corridor.` },
+    { question: `8. How Long Does a Wall Connector Install Take?`,
+      answer: `A standard garage hardwire is a single 3-5 hour visit, including the permit paperwork walkthrough and rebate filing.` },
+  ],
+  'nema-14-50-upgrade': (local) => [
+    { question: `1. How Much Does a NEMA 14-50 Outlet Installation Cost in ${local.cityName}, ${local.state}?`,
+      answer: `Installing a dedicated NEMA 14-50 outlet in ${local.cityName} is typically less than a full Wall Connector hardwire, since it's a single receptacle rather than a hardwired run to the vehicle's charging equipment. ${local.utility.name}'s ${local.utility.rebateAmount} cash-back rebate applies to this circuit too, and we file it for you.` },
+    { question: `2. Which Permit Office Covers a NEMA 14-50 Install in ${local.cityName}?`,
+      answer: `${local.permit.office}, under the ${local.permit.buildingCodeYear} -- same trade-permit process as any other 240V circuit.` },
+    { question: `3. What Breaker Does a NEMA 14-50 Outlet Need?`,
+      answer: `A 50A 2-pole GFCI breaker on 6 AWG copper, which under the NEC's continuous-load rule caps the outlet at 32-40A continuous draw (9.6 kW max) -- lower than a hardwired 48A Wall Connector, because the plug-and-cord connection itself is the limiting factor, not the wire.` },
+    { question: `4. Is a NEMA 14-50 Outlet Eligible for the ${local.utility.name} Rebate?`,
+      answer: `Yes, the ${local.utility.rebateProgram} covers it the same as a hardwired install. We handle the submission.` },
+    { question: `5. Why Choose a Plug-in Outlet Over Hardwiring in ${local.cityName}?`,
+      answer: `A NEMA 14-50 is a standard receptacle, so the same circuit can power an RV, a welder, or another 240V appliance when you're not charging -- flexibility a hardwired Wall Connector doesn't offer. The tradeoff is a lower charging ceiling (9.6 kW vs. 11.5 kW).` },
+    { question: `6. Does ${local.cityName}'s Climate (${local.climate.winterMinTempF}°F winter low) Affect a Plug-in Charger?`,
+      answer: `The outlet and breaker are rated the same regardless of season; what changes is your car's own thermal preheating draw in cold weather, which a 40A-capable circuit can still comfortably supply.` },
+    { question: `7. Which Neighborhoods in ${local.cityName} Do You Serve?`,
+      answer: `${local.neighborhoods.join(', ')}, and the surrounding ${local.county} corridor.` },
+    { question: `8. How Long Does a NEMA 14-50 Install Take?`,
+      answer: `Most single-outlet installs close out in 2-4 hours on-site, including the permit walkthrough.` },
+  ],
+  'panel-capacity-upgrade': (local) => [
+    { question: `1. How Much Does a 200A Panel Upgrade Cost in ${local.cityName}, ${local.state}?`,
+      answer: `A panel upgrade is priced on your existing service size, meter/service-entrance work, and whether the utility needs to coordinate a temporary disconnect. It's a larger job than a single charger circuit, and it's a separate line item from ${local.utility.name}'s EV charger rebate -- ask us which parts of the job qualify for a utility incentive in ${local.cityName}.` },
+    { question: `2. Which Permit Office Signs Off on a Panel Upgrade in ${local.cityName}?`,
+      answer: `${local.permit.office}, under the ${local.permit.buildingCodeYear}. A service-entrance upgrade typically also requires a utility-coordinated inspection, not just the trade permit.` },
+    { question: `3. How Do You Know I Need a Panel Upgrade Instead of Just a New Circuit?`,
+      answer: `We run an NEC Article 220 load calculation on your existing panel: if your current service (often 100A-125A on older ${local.cityName} homes) is already near capacity with HVAC, range, and water heater loads, adding a 48-60A EV circuit can exceed what the panel is rated for -- that's what triggers a 200A upgrade rather than a simple new breaker.` },
+    { question: `4. Does ${local.utility.name} Help Cover Panel Upgrade Costs?`,
+      answer: `Utility EV rebates are generally scoped to the charging circuit itself, not a general service upgrade. We'll tell you plainly which part of the invoice is rebate-eligible before work starts, rather than assume the whole job qualifies.` },
+    { question: `5. What Does a Panel Upgrade Involve?`,
+      answer: `Replacing the main breaker panel and service-entrance conductors to raise your home's total capacity (commonly 100A to 200A), then adding the new EV circuit once the panel has room for it.` },
+    { question: `6. Panel Upgrade vs. a Subpanel -- Which Do I Need?`,
+      answer: `If your main panel is full but your service-entrance capacity (the wire from the utility to your meter) has headroom, a subpanel can sometimes add circuits without a full service upgrade. Our load calculation tells you which applies to your home.` },
+    { question: `7. Which Neighborhoods in ${local.cityName} Do You Serve?`,
+      answer: `${local.neighborhoods.join(', ')}, and the surrounding ${local.county} corridor.` },
+    { question: `8. How Long Does a Panel Upgrade Take?`,
+      answer: `Expect 1-2 days on-site plus utility coordination for the service-entrance work and inspection scheduling -- longer than a same-day charger circuit, since the whole home's power is briefly affected during the swap.` },
+  ],
+  'commercial-ev-charging': (local) => [
+    { question: `1. What Drives the Cost of a Commercial EV Charging Install in ${local.cityName}, ${local.state}?`,
+      answer: `Number of charging ports, the amperage per port, conduit/trenching distance from the electrical room to the parking area, and whether the building's service has spare capacity for the added load.` },
+    { question: `2. Which Permit Office Handles Commercial EV Charging in ${local.cityName}?`,
+      answer: `${local.permit.office} issues the commercial electrical trade permit under the ${local.permit.buildingCodeYear}; a multi-port or higher-amperage install typically also needs plan review before the permit issues, unlike a single residential circuit.` },
+    { question: `3. Do Commercial Installs Need a Panel or Service Capacity Study?`,
+      answer: `Yes -- before quoting a multi-port install we run a load study against the building's existing service and panel capacity, since commercial buildings often run closer to their service limit than a single-family home.` },
+    { question: `4. Are Commercial Installs Eligible for ${local.utility.name} Incentives in ${local.cityName}?`,
+      answer: `${local.utility.name} offers incentive programs for both residential and commercial EV infrastructure, though commercial tiers and paperwork differ from the residential rebate. Ask us for the current commercial program terms when you request a quote.` },
+    { question: `5. Does a Public-Facing Commercial Charging Station Need to Meet ADA Requirements?`,
+      answer: `Yes -- parking space dimensions, surface slope, and reach height to the connector are all ADA-governed for any publicly accessible stall, which is a design constraint a residential garage install doesn't have.` },
+    { question: `6. Single-Port vs. Multi-Port Commercial Stations -- What's the Tradeoff?`,
+      answer: `Multi-port stations share electrical infrastructure costs across more charging bays but need more total panel capacity up front; single-port units are cheaper to add incrementally but cost more per port if you're planning to scale up later.` },
+    { question: `7. Which Areas Around ${local.cityName} Do You Serve for Commercial Work?`,
+      answer: `${local.neighborhoods.join(', ')}, and the surrounding ${local.county} commercial corridors.` },
+    { question: `8. How Long Does a Commercial Installation Take?`,
+      answer: `Plan on a site assessment first, then installation timelines that scale with port count and whether service capacity work is needed -- we'll give you a firm schedule after the load study, not a one-size estimate.` },
+  ],
+};
+
+const serviceFaqs = (SERVICE_FAQS[service] ?? SERVICE_FAQS['tesla-wall-connector'])(localData);
+
+/*
+ * Hero copy was also shared across all 4 services (the BLUF block claimed
+ * "48A hardwired or 50A 240V circuit" and the intro paragraph listed every
+ * service regardless of which page it was) -- same genericness, fixed the
+ * same way: say what THIS service actually is.
+ */
+const SERVICE_BLURB: Record<string, { solution: string; recommendation: string; intro: string }> = {
+  'tesla-wall-connector': {
+    solution: `Continuous 48A hardwired Tesla Wall Connector install in ${localData.cityName} by licensed Oregon master electricians`,
+    recommendation: `Hardwired 60A circuit breaker with ${localData.permit.office} trade permit sign-off`,
+    intro: `Looking for a hardwired Tesla Wall Connector in ${localData.cityName}, ${localData.state}? We run the full 48A circuit, pull the trade permit, and file the utility rebate.`,
   },
-  {
-    question: `2. Which Building Permit Office Issues Trade Permits for ${localData.cityName}?`,
-    answer: `All 240V electrical installations in ${localData.cityName} require trade permits issued by the ${localData.permit.office} under the ${localData.permit.buildingCodeYear}. Our licensed master electricians pull all trade permits prior to work.`
+  'nema-14-50-upgrade': {
+    solution: `Dedicated 50A NEMA 14-50 plug-in outlet install in ${localData.cityName} by licensed Oregon master electricians`,
+    recommendation: `50A GFCI circuit breaker with ${localData.permit.office} trade permit sign-off`,
+    intro: `Need a NEMA 14-50 outlet for EV charging (or your RV) in ${localData.cityName}, ${localData.state}? We run the dedicated 240V circuit, pull the trade permit, and file the utility rebate.`,
   },
-  {
-    question: `3. What Circuit Breaker & Wire Size is Required for ${titleText}?`,
-    answer: `Hardwiring a continuous 48A charger requires a dedicated 60A 2-pole circuit breaker wired with 99.9% pure 6 AWG THHN copper conductors inside EMT metal conduit (${localData.climate.conduitDeratingFactor}).`
+  'panel-capacity-upgrade': {
+    solution: `200A main panel upgrade in ${localData.cityName}, sized by a real NEC load calculation, by licensed Oregon master electricians`,
+    recommendation: `Full service-entrance and panel upgrade with ${localData.permit.office} trade permit and utility coordination`,
+    intro: `Is your panel too full for an EV circuit in ${localData.cityName}, ${localData.state}? We run the load calculation, upgrade the service, and pull the trade permit.`,
   },
-  {
-    question: `4. Does ${localData.utility.name} Offer Cash-Back Rebates for EV Chargers in ${localData.cityName}?`,
-    answer: `Yes. ${localData.utility.name} offers up to ${localData.utility.rebateAmount} in instant cash-back rebates through the ${localData.utility.rebateProgram}. We handle 100% of paperwork submission for you.`
+  'commercial-ev-charging': {
+    solution: `Multi-port commercial EV charging install in ${localData.cityName}, sized to your building's service capacity, by licensed Oregon master electricians`,
+    recommendation: `Site load study, ADA-compliant stall layout, and ${localData.permit.office} commercial trade permit`,
+    intro: `Planning commercial EV charging for a property in ${localData.cityName}, ${localData.state}? We run the site load study, handle the commercial permit, and design the port layout.`,
   },
-  {
-    question: `5. How Does ${localData.cityName}'s Elevation (${localData.climate.elevationFeet} ft) Impact Winter EV Charging?`,
-    answer: `At ${localData.climate.elevationFeet} feet elevation in ${localData.cityName}, winter cold snaps reaching ${localData.climate.winterMinTempF}°F cause EV battery packs to consume thermal pre-heating power. Hardwired 48A charging ensures thermal pre-heating is powered directly from the grid.`
-  },
-  {
-    question: `6. Can I Install a NEMA 14-50 Plug-in Receptacle Instead of Hardwiring?`,
-    answer: `Yes. However, plug-in NEMA 14-50 outlets are capped at 32A–40A continuous draw (9.6 kW max) and require a 50A GFCI circuit breaker under Oregon code. Hardwiring delivers full 48A (11.5 kW output).`
-  },
-  {
-    question: `7. Which Neighborhoods in ${localData.cityName} Are Served by Our Electrician Network?`,
-    answer: `We dispatch certified master electricians across ${localData.cityName} including ${localData.neighborhoods.join(', ')} and surrounding ${localData.county} corridors.`
-  },
-  {
-    question: `8. How Fast Can an Electrician Complete My Service in ${localData.cityName}?`,
-    answer: `Standard residential garage installations take 3 to 5 hours on-site. We complete 100% of circuit wiring, main panel breaker installation, trade permit filings, and utility rebate application submission in a single visit.`
-  }
-];
+};
+const blurb = SERVICE_BLURB[service] ?? SERVICE_BLURB['tesla-wall-connector'];
+
+/** Real scope-of-work differences between the 4 services, not reused text. */
+const SERVICE_SCOPE: Record<string, string[]> = {
+  'tesla-wall-connector': [
+    'Dedicated 60A 2-pole breaker and 6 AWG THHN copper run to the mounting point',
+    'Wall Connector mounting, hardwire termination, and load testing at full 48A',
+    `${localData.permit.office} trade permit pulled and closed out`,
+    `${localData.utility.name} rebate paperwork filed on your behalf`,
+  ],
+  'nema-14-50-upgrade': [
+    'Dedicated 50A 2-pole GFCI breaker and 6 AWG copper run to the outlet location',
+    'NEMA 14-50 receptacle mount and load testing',
+    `${localData.permit.office} trade permit pulled and closed out`,
+    `${localData.utility.name} rebate paperwork filed on your behalf`,
+  ],
+  'panel-capacity-upgrade': [
+    'NEC Article 220 load calculation against your existing panel and service size',
+    'Main panel and service-entrance conductor replacement (commonly 100A to 200A)',
+    `Utility-coordinated service disconnect/reconnect and ${localData.permit.office} inspection`,
+    'New EV circuit added once the upgraded panel has capacity',
+  ],
+  'commercial-ev-charging': [
+    'Site electrical load study against the building’s existing service',
+    'Port count, amperage, and conduit/trenching plan sized to the property',
+    `ADA-compliant stall layout review and ${localData.permit.office} commercial permit`,
+    `${localData.utility.name} commercial incentive program paperwork, where applicable`,
+  ],
+};
+const serviceScope = SERVICE_SCOPE[service] ?? SERVICE_SCOPE['tesla-wall-connector'];
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription} location={location}>
@@ -126,14 +243,14 @@ const serviceFaqs = [
           <!-- BLUF Block -->
           <BLUFBlock
             locationName={`${localData.cityName}, ${localData.state}`}
-            solution={`Continuous 48A hardwired installation or 50A 240V circuit in ${localData.cityName} installed by licensed Oregon master electricians`}
+            solution={blurb.solution}
             priceRange="qualifying net installation costs net out-of-pocket after rebate"
             rebateInfo={`${localData.utility.rebateAmount} ${localData.utility.name} rebate handled directly by electrician`}
-            recommendation={`Hardwired 60A circuit breaker with ${localData.permit.office} trade permit sign-off`}
+            recommendation={blurb.recommendation}
           />
 
           <p class="text-base text-slate-800 leading-relaxed font-semibold">
-            Looking for certified electricians for {titleText.toLowerCase()} in {localData.cityName}, {localData.state}? We dispatch licensed master electricians for hardwired Level 2 chargers, 200A panel upgrades, and utility rebate filing.
+            {blurb.intro}
           </p>
 
           <div class="flex flex-col sm:flex-row gap-4 pt-2">
@@ -155,6 +272,24 @@ const serviceFaqs = [
         </div>
 
       </div>
+    </div>
+  </section>
+
+  <!-- Scope of Work -- genuinely distinct per service, not reused across the other 3 -->
+  <section class="py-16 bg-brand-slate-50 border-b border-brand-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="mono-tag mb-3">// WHAT'S INCLUDED</span>
+      <h2 class="text-2xl sm:text-3xl font-black text-slate-950 tracking-tight mb-4">
+        Scope of Work: {titleText}
+      </h2>
+      <ul class="space-y-3">
+        {serviceScope.map((item) => (
+          <li class="flex gap-3 text-base text-slate-800 font-semibold leading-relaxed">
+            <span class="text-emerald-700 font-black">&#10003;</span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   </section>
 
