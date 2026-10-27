@@ -51,7 +51,7 @@ const serviceTitles: Record<string, string> = {
   'tesla-wall-connector': 'Tesla Wall Connector Installation',
   'nema-14-50-upgrade': 'NEMA 14-50 240V Outlet Upgrade',
   'panel-capacity-upgrade': '200-Amp Electrical Panel Upgrade',
-  'commercial-ev-charging': 'Commercial EV Charging Install'
+  'commercial-ev-charging': 'Residential Outdoor EV Charger Posts'
 };
 
 /* Same deterministic per-city variant used on the hub page -- see nearbyLocations.ts. */
@@ -207,35 +207,57 @@ const SERVICE_FAQS: Record<string, ServiceFaqs> = {
         ? `This runs 1-2 days on-site, not a same-day job like a charger circuit, since the whole home's power is briefly affected during the swap. ${local.permit.office}'s coordination and inspection (typically ${local.permit.inspectionWindow}) happen alongside it.`
         : `Budget 1-2 days, longer than a charger circuit because the whole house loses power briefly during the swap. ${local.permit.office} coordinates the service-entrance inspection in that window too, usually ${local.permit.inspectionWindow}.` },
   ],
+  /*
+   * This slug was rewritten in Round 2 to describe genuine B2B commercial
+   * charging (ADA stalls, multi-port stations, business load studies) --
+   * but every other reference to "commercial-ev-charging" on this site
+   * (services/index.astro, locations/[city]/services/index.astro, the
+   * homepage, about.astro, and the original dedicated
+   * services/commercial-ev-charging.astro page) describes the same slug as
+   * residential outdoor charger posts for detached garages and driveways.
+   * That's not a style difference -- it's two different services under one
+   * URL, and this file was the one that drifted. Rewritten to match what
+   * the rest of the site, consistently, says this business actually offers.
+   * Not renaming the URL/slug itself: every link and redirect on the site
+   * already points at this path correctly, only the content was wrong.
+   */
   'commercial-ev-charging': (local, variant) => [
-    { question: `1. What Drives the Cost of a Commercial EV Charging Install in ${local.cityName}, ${local.state}?`,
-      answer: `Number of charging ports, the amperage per port, conduit/trenching distance from the electrical room to the parking area, and whether the building's service has spare capacity for the added load.` },
-    { question: `2. Which Permit Office Handles Commercial EV Charging in ${local.cityName}?`,
+    { question: `1. How Much Does an Outdoor EV Charger Post Cost in ${local.cityName}, ${local.state}?`,
       answer: variant === 0
-        ? `${local.permit.office} issues the commercial electrical trade permit under the ${local.permit.buildingCodeYear}; a multi-port or higher-amperage install typically also needs plan review before the permit issues, unlike a single residential circuit.`
+        ? `An outdoor post in ${local.cityName} is priced on trenching distance from the panel to the driveway or detached garage, plus the weatherproof enclosure itself. Homeowners in ${local.utility.name} territory qualify for an instant ${local.utility.rebateAmount} cash-back rebate, which we file on your behalf.`
         : variant === 1
-        ? `${local.permit.office} is the issuing office (${local.permit.buildingCodeYear}), but unlike a single residential circuit, a multi-port or higher-amperage job typically also needs plan review before that permit is issued.`
-        : `Commercial work in ${local.cityName} still goes through ${local.permit.office} under the ${local.permit.buildingCodeYear}, with one difference from a residential circuit: multi-port or higher-amperage jobs need plan review first.` },
-    { question: `3. Do Commercial Installs Need a Panel or Service Capacity Study?`,
-      answer: `Yes -- before quoting a multi-port install we run a load study against the building's existing service and panel capacity, since commercial buildings often run closer to their service limit than a single-family home.` },
-    { question: `4. Are Commercial Installs Eligible for ${local.utility.name} Incentives in ${local.cityName}?`,
+        ? `${local.utility.name}'s ${local.utility.rebateAmount} cash-back rebate applies here too -- we handle the filing. What actually drives the price in ${local.cityName} is trenching distance to the post location and the weatherproof enclosure.`
+        : `Trenching distance to the post and the NEMA 4X enclosure are what set the price for an outdoor install in ${local.cityName}. ${local.utility.name} rebates it at ${local.utility.rebateAmount} cash back, which we submit for you.` },
+    { question: `2. Which Permit Office Issues the Trade Permit for an Outdoor Post in ${local.cityName}?`,
       answer: variant === 0
-        ? `${local.utility.name} offers incentive programs for both residential and commercial EV infrastructure, though commercial tiers and paperwork differ from the residential rebate. Ask us for the current commercial program terms when you request a quote.`
+        ? `${local.permit.office} issues the electrical trade permit under the ${local.permit.buildingCodeYear}. We pull it before any trenching starts.`
         : variant === 1
-        ? `Yes, though the commercial tier is a separate program from ${local.utility.name}'s residential rebate, with its own paperwork. We'll bring the current terms to your ${local.cityName} quote.`
-        : `${local.utility.name} runs a commercial incentive track alongside its residential rebate -- different tiers, different paperwork. Current terms get quoted alongside your ${local.cityName} site assessment.` },
-    { question: `5. Does a Public-Facing Commercial Charging Station Need to Meet ADA Requirements?`,
-      answer: `Yes -- parking space dimensions, surface slope, and reach height to the connector are all ADA-governed for any publicly accessible stall, which is a design constraint a residential garage install doesn't have.` },
-    { question: `6. Single-Port vs. Multi-Port Commercial Stations -- What's the Tradeoff?`,
-      answer: `Multi-port stations share electrical infrastructure costs across more charging bays but need more total panel capacity up front; single-port units are cheaper to add incrementally but cost more per port if you're planning to scale up later.` },
-    { question: `7. Which Areas Around ${local.cityName} Do You Serve for Commercial Work?`,
-      answer: `${local.neighborhoods.join(', ')}, and the ${local.landmarks.join(', ')} commercial corridors in ${local.county}.` },
-    { question: `8. How Long Does a Commercial Installation Take in ${local.cityName}?`,
+        ? `Before we trench in ${local.cityName}, ${local.permit.office} has to issue the trade permit -- required under the ${local.permit.buildingCodeYear}.`
+        : `The permit for this job comes from ${local.permit.office} (${local.permit.buildingCodeYear}). We handle pulling it, and no trenching starts until it's issued.` },
+    { question: `3. What Breaker and Enclosure Does an Outdoor Charger Post Need?`,
+      answer: `A continuous 48A outdoor post requires a dedicated 60A 2-pole breaker wired with 6 AWG THHN copper, housed in a NEMA 4X weatherproof enclosure rated for direct outdoor exposure -- not the indoor-rated hardware a garage install uses.` },
+    { question: `4. Does ${local.utility.name} Rebate an Outdoor Post Install in ${local.cityName}?`,
       answer: variant === 0
-        ? `Plan on a site assessment first, then installation timelines that scale with port count. ${local.permit.office}'s commercial plan review adds time beyond their standard ${local.permit.inspectionWindow} residential turnaround -- we'll give you a firm schedule after the load study, not a one-size estimate.`
+        ? `Yes, up to ${local.utility.rebateAmount} through the ${local.utility.rebateProgram}. We submit the paperwork directly.`
         : variant === 1
-        ? `Timelines scale with port count after an initial site assessment. Because ${local.permit.office}'s commercial plan review runs longer than their ${local.permit.inspectionWindow} residential turnaround, we give you a firm schedule only after the load study.`
-        : `Expect a site assessment first, since port count drives the schedule from there. ${local.permit.office} adds commercial plan review on top of the usual ${local.permit.inspectionWindow} residential inspection window -- your firm timeline comes after the load study.` },
+        ? `It does -- the ${local.utility.rebateProgram} pays ${local.utility.rebateAmount} back on an outdoor post install, and we handle the submission so you don't have to.`
+        : `${local.utility.name} rebates this install through the ${local.utility.rebateProgram} (${local.utility.rebateAmount} cash back). We file the paperwork; you don't deal with ${local.utility.name} directly.` },
+    { question: `5. Outdoor Post vs. a Garage Wall Connector -- Which Should I Choose in ${local.cityName}?`,
+      answer: `An outdoor post makes sense when your panel is far from an attached garage, or you're charging from a detached garage, driveway, or carport with no indoor wall to mount to. If you have a garage wall within reach of your panel, a hardwired Wall Connector is usually simpler and cheaper to install.` },
+    { question: `6. How Does ${local.cityName}'s Winter (${local.climate.winterMinTempF}°F low, ${local.climate.elevationFeet} ft elevation) Affect an Outdoor Post?`,
+      answer: variant === 0
+        ? `At ${local.climate.elevationFeet} ft, an outdoor enclosure in ${local.cityName} has to handle both the cold pack's ${local.climate.thermalPreheatOverheadPct}% thermal preheating draw and direct weather exposure. We size the circuit to ${local.climate.conduitDeratingFactor} and use a NEMA 4X enclosure rated for it.`
+        : variant === 1
+        ? `${local.cityName} sits at ${local.climate.elevationFeet} ft, and winter cold adds about ${local.climate.thermalPreheatOverheadPct}% to your EV's preheating draw -- on top of the enclosure itself needing to handle direct outdoor exposure. We size every outdoor circuit here to ${local.climate.conduitDeratingFactor}.`
+        : `Two things matter for an outdoor post in ${local.cityName}: elevation (${local.climate.elevationFeet} ft) pushes up preheating draw by about ${local.climate.thermalPreheatOverheadPct}%, and the enclosure needs real outdoor weather protection, not just cold tolerance. We account for both with ${local.climate.conduitDeratingFactor} sizing and a NEMA 4X rating.` },
+    { question: `7. Which Neighborhoods in ${local.cityName} Do You Serve for Outdoor Post Installs?`,
+      answer: `${local.neighborhoods.join(', ')}, and the ${local.landmarks.join(', ')} corridor in ${local.county}.` },
+    { question: `8. How Long Does an Outdoor Post Install Take in ${local.cityName}?`,
+      answer: variant === 0
+        ? `A standard outdoor post with a short trenching run is a single 4-6 hour visit. ${local.permit.office} typically completes the inspection within ${local.permit.inspectionWindow}, which is what usually sets your total timeline.`
+        : variant === 1
+        ? `The install itself runs 4-6 hours for a typical trenching distance. What actually sets your timeline is ${local.permit.office}'s inspection turnaround -- typically ${local.permit.inspectionWindow}.`
+        : `Plan on 4-6 hours on-site for a standard trenching run. The bigger factor for your total timeline is ${local.permit.office}'s inspection window, usually ${local.permit.inspectionWindow}, not the install itself.` },
   ],
 };
 
@@ -264,9 +286,9 @@ const SERVICE_BLURB: Record<string, { solution: string; recommendation: string; 
     intro: `Is your panel too full for an EV circuit in ${localData.cityName}, ${localData.state}? We run the load calculation, upgrade the service, and pull the trade permit.`,
   },
   'commercial-ev-charging': {
-    solution: `Multi-port commercial EV charging install in ${localData.cityName}, sized to your building's service capacity, by licensed Oregon master electricians`,
-    recommendation: `Site load study, ADA-compliant stall layout, and ${localData.permit.office} commercial trade permit`,
-    intro: `Planning commercial EV charging for a property in ${localData.cityName}, ${localData.state}? We run the site load study, handle the commercial permit, and design the port layout.`,
+    solution: `Weatherproof 48A outdoor Level 2 charger post for ${localData.cityName}'s detached garages and driveways, installed by licensed Oregon master electricians`,
+    recommendation: `Dedicated 60A circuit breaker, NEMA 4X weatherproof enclosure, and ${localData.permit.office} trade permit sign-off`,
+    intro: `Need a charger post for a detached garage or driveway in ${localData.cityName}, ${localData.state}? We run the weatherproof 48A circuit, mount the post, and file the utility rebate.`,
   },
 };
 const blurb = SERVICE_BLURB[service] ?? SERVICE_BLURB['tesla-wall-connector'];
@@ -292,10 +314,10 @@ const SERVICE_SCOPE: Record<string, string[]> = {
     'New EV circuit added once the upgraded panel has capacity',
   ],
   'commercial-ev-charging': [
-    'Site electrical load study against the building’s existing service',
-    'Port count, amperage, and conduit/trenching plan sized to the property',
-    `ADA-compliant stall layout review and ${localData.permit.office} commercial permit`,
-    `${localData.utility.name} commercial incentive program paperwork, where applicable`,
+    'Dedicated 60A 2-pole breaker and 6 AWG THHN copper trenched to the post location',
+    'NEMA 4X weatherproof post mounting and load testing at full 48A',
+    `${localData.permit.office} trade permit pulled and closed out`,
+    `${localData.utility.name} rebate paperwork filed on your behalf`,
   ],
 };
 const serviceScope = SERVICE_SCOPE[service] ?? SERVICE_SCOPE['tesla-wall-connector'];

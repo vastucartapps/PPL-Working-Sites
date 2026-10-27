@@ -20,7 +20,7 @@ const { location } = Astro.props;
 const services = [
   {
     title: `Tesla Wall Connector Installation in ${location.name}`,
-    desc: `Continuous 48A hardwired Level 2 Tesla charging station installation for ${location.name} homeowners. Dedicated 60A circuit breaker & 6 AWG copper conductors.`,
+    desc: `Continuous 48A hardwired Level 2 Tesla charging station installation for ${location.name} homeowners. Dedicated 60A circuit breaker & 6 AWG copper conductors, with ${location.utilityName} rebate paperwork filed for you.`,
     link: `/locations/${location.slug}/services/tesla-wall-connector/`
   },
   {
@@ -35,7 +35,7 @@ const services = [
   },
   {
     title: `Residential Outdoor Garage Charger Posts in ${location.name}`,
-    desc: `Heavy-duty weatherproof Level 2 charging posts for single-family homes and detached garages in ${location.name}, ${location.state}.`,
+    desc: `Heavy-duty weatherproof NEMA 4X charging posts for single-family homes and detached garages in ${location.name}, ${location.state}. ${location.hyperLocalInjections.climateProtection}`,
     link: `/locations/${location.slug}/services/commercial-ev-charging/`
   }
 ];
