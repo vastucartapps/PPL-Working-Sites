@@ -5,6 +5,7 @@ export interface LocationData {
   name: string;
   state: string;
   county: string;
+  region: string;
   utilityName: string;
   rebateAmount: string;
   electricianRate: string;
@@ -32,6 +33,7 @@ export const LOCATIONS: Record<string, LocationData> = {
     name: 'Bend',
     state: 'OR',
     county: 'Deschutes County',
+    region: 'Central Oregon',
     utilityName: 'Pacific Power',
     rebateAmount: 'utility rebate',
     electricianRate: '$110 – $145 / hr',
@@ -57,6 +59,7 @@ export const LOCATIONS: Record<string, LocationData> = {
     name: 'Redmond',
     state: 'OR',
     county: 'Deschutes County',
+    region: 'Central Oregon',
     utilityName: 'Pacific Power',
     rebateAmount: 'utility rebate',
     electricianRate: '$105 – $140 / hr',
@@ -82,6 +85,7 @@ export const LOCATIONS: Record<string, LocationData> = {
     name: 'Sisters',
     state: 'OR',
     county: 'Deschutes County',
+    region: 'Central Oregon',
     utilityName: 'Central Electric Cooperative (CEC) & Pacific Power',
     rebateAmount: 'utility rebate',
     electricianRate: '$115 – $150 / hr',
@@ -107,6 +111,7 @@ export const LOCATIONS: Record<string, LocationData> = {
     name: 'Sunriver',
     state: 'OR',
     county: 'Deschutes County',
+    region: 'Central Oregon',
     utilityName: 'Midstate Electric Cooperative & Pacific Power',
     rebateAmount: 'utility rebate',
     electricianRate: '$115 – $150 / hr',
@@ -132,6 +137,7 @@ export const LOCATIONS: Record<string, LocationData> = {
     name: 'La Pine',
     state: 'OR',
     county: 'Deschutes County',
+    region: 'Central Oregon',
     utilityName: 'Midstate Electric Cooperative',
     rebateAmount: 'utility rebate',
     electricianRate: '$105 – $140 / hr',
@@ -157,6 +163,7 @@ export const LOCATIONS: Record<string, LocationData> = {
     name: 'Corvallis',
     state: 'OR',
     county: 'Benton County',
+    region: 'Willamette Valley',
     utilityName: 'Pacific Power & Consumers Power Inc.',
     rebateAmount: 'utility rebate',
     electricianRate: '$100 – $135 / hr',
@@ -182,6 +189,7 @@ export const LOCATIONS: Record<string, LocationData> = {
     name: 'Prineville',
     state: 'OR',
     county: 'Crook County',
+    region: 'Central Oregon',
     utilityName: 'Central Electric Cooperative (CEC)',
     rebateAmount: 'utility rebate',
     electricianRate: '$105 – $140 / hr',
@@ -200,6 +208,58 @@ export const LOCATIONS: Record<string, LocationData> = {
       climateProtection: 'Agricultural and residential heavy 240V utility grid service panel capacity upgrades.',
       architecturalConstraints: 'IronHorse community HOA concealed conduit standards and Ochoco Heights shop subpanel feeders.',
       utilityInterconnection: 'Central Electric Cooperative (CEC) rebate application processing.'
+    }
+  },
+  madras: {
+    slug: 'madras',
+    name: 'Madras',
+    state: 'OR',
+    county: 'Jefferson County',
+    region: 'Central Oregon',
+    utilityName: 'Central Electric Cooperative (CEC) & Pacific Power',
+    rebateAmount: 'utility rebate',
+    electricianRate: '$100 – $135 / hr',
+    permitOffice: 'Jefferson County Community Development Department',
+    zipCodes: ['97741'],
+    landmarks: ['Lake Billy Chinook', 'The Cove Palisades State Park', 'Crooked River National Grassland'],
+    neighborhoods: ['Downtown Madras', 'North Madras', 'South Madras'],
+    geo: { lat: 44.6306, lng: -121.1292 },
+    taglines: {
+      hero: 'Licensed Level 2 EV Charger Installer in Madras, OR',
+      cta: 'Get Your EV Charger Installed in Madras Today',
+      notice: 'Local Notice for Madras Residents: Jefferson County trade permits and Central Electric Cooperative / Pacific Power utility rebate filing included.'
+    },
+    hyperLocalInjections: {
+      buildingCodes: 'Jefferson County Community Development Department electrical permits under Oregon Specialty Code OAR 918-261-0020 for Madras and surrounding high-desert properties.',
+      climateProtection: 'High-desert Lake Billy Chinook canyon conditions (23°F average January lows at 2,242 ft elevation) call for standard thermal-rated conduit sizing, without the heavy snow-load hardware the Cascade mountain towns need.',
+      architecturalConstraints: 'Concealed conduit runs matched to Downtown Madras commercial-district storefronts and rural agricultural-property wiring standards.',
+      utilityInterconnection: 'Central Electric Cooperative and Pacific Power grid interconnection verification, depending on service territory.'
+    }
+  },
+  philomath: {
+    slug: 'philomath',
+    name: 'Philomath',
+    state: 'OR',
+    county: 'Benton County',
+    region: 'Willamette Valley',
+    utilityName: 'Pacific Power',
+    rebateAmount: 'utility rebate',
+    electricianRate: '$100 – $135 / hr',
+    permitOffice: 'City of Philomath Building Department',
+    zipCodes: ['97370'],
+    landmarks: ['Marys Peak', 'Benton County Fairgrounds', 'Benton County Historical Museum'],
+    neighborhoods: ['Downtown Philomath', 'North Philomath', 'South Philomath'],
+    geo: { lat: 44.5401, lng: -123.3676 },
+    taglines: {
+      hero: 'Licensed Level 2 EV Charger Installer in Philomath, OR',
+      cta: 'Get Your EV Charger Installed in Philomath Today',
+      notice: 'Local Notice for Philomath Residents: City of Philomath trade permits and Pacific Power utility rebate filing included.'
+    },
+    hyperLocalInjections: {
+      buildingCodes: 'City of Philomath Building Department electrical permits under the 2023 Oregon Electrical Specialty Code, processed through the state ePermitting portal.',
+      climateProtection: 'Willamette Valley wet-winter conduit sealing and moisture-rated EVSE enclosures, the same foothill-of-Marys-Peak rainfall exposure as the rest of Benton County.',
+      architecturalConstraints: 'Concealed conduit runs matched to Philomath older in-town housing stock and rural acreage properties toward Marys Peak.',
+      utilityInterconnection: 'Pacific Power 240V grid interconnection with utility rebate cash-back filing.'
     }
   }
 };

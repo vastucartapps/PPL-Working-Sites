@@ -26,15 +26,32 @@ export interface NearbyLocation {
   distanceMiles: number;
 }
 
-/** The `count` real-closest other served locations, nearest first. */
+/**
+ * The `count` real-closest other served locations, nearest first.
+ *
+ * Restricted to the same `region` first. Straight-line (haversine) distance
+ * alone picked Sunriver as Philomath's 3rd-nearest neighbor once Philomath
+ * (Willamette Valley) was added alongside the existing Central Oregon
+ * cluster -- true as the crow flies, but Sunriver is 100+ miles away across
+ * the Cascades, a different driving region entirely, and not a link a real
+ * service-area page should make. Same-region-first makes "nearby" mean
+ * something a reader would actually recognize as nearby; it only falls back
+ * to the full list if a region has fewer than `count` other members.
+ */
 export function nearestLocations(citySlug: string, count = 3): NearbyLocation[] {
   const here = LOCATIONS[citySlug];
   if (!here) return [];
-  return Object.values(LOCATIONS)
-    .filter((loc) => loc.slug !== citySlug)
-    .map((loc) => ({ location: loc, distanceMiles: milesBetween(here.geo, loc.geo) }))
-    .sort((a, b) => a.distanceMiles - b.distanceMiles)
-    .slice(0, count);
+  const byDistance = (pool: LocationData[]) =>
+    pool
+      .filter((loc) => loc.slug !== citySlug)
+      .map((loc) => ({ location: loc, distanceMiles: milesBetween(here.geo, loc.geo) }))
+      .sort((a, b) => a.distanceMiles - b.distanceMiles);
+
+  const sameRegion = byDistance(Object.values(LOCATIONS).filter((loc) => loc.region === here.region));
+  if (sameRegion.length >= count) return sameRegion.slice(0, count);
+
+  const rest = byDistance(Object.values(LOCATIONS).filter((loc) => loc.region !== here.region));
+  return [...sameRegion, ...rest].slice(0, count);
 }
 
 /**

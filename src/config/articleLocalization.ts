@@ -225,5 +225,61 @@ export const LOCALIZED_ARTICLE_DATA: Record<string, LocalizedArticleContext> = {
     },
     neighborhoods: ['Ochoco West', 'Prineville Reservoir Corridors', 'IronHorse', 'Industrial Tech Park'],
     landmarks: ['Ochoco National Forest', 'Prineville Reservoir State Park', 'Barnes Butte']
+  },
+  madras: {
+    citySlug: 'madras',
+    cityName: 'Madras',
+    state: 'OR',
+    county: 'Jefferson County',
+    utility: {
+      name: 'Central Electric Cooperative / Pacific Power',
+      type: 'Electric Cooperative & Investor-Owned Utility (mixed territory)',
+      rebateAmount: 'utility rebate',
+      rebateProgram: 'CEC & Pacific Power EV Charger Incentive',
+      netMeteringRule: 'CEC/Pacific Power Net Metering Agreement',
+      ratePerKWh: '$0.110 / kWh'
+    },
+    permit: {
+      office: 'Jefferson County Community Development Department',
+      portalUrl: 'https://www.jeffersoncountyor.gov/cd',
+      inspectionWindow: '48 Hours',
+      buildingCodeYear: '2023 Oregon Electrical Specialty Code (OESC)'
+    },
+    climate: {
+      elevationFeet: 2242,
+      winterMinTempF: 23,
+      thermalPreheatOverheadPct: 8,
+      conduitDeratingFactor: '75°C THHN Copper Derating Applied'
+    },
+    neighborhoods: ['Downtown Madras', 'North Madras', 'South Madras'],
+    landmarks: ['Lake Billy Chinook', 'The Cove Palisades State Park', 'Crooked River National Grassland']
+  },
+  philomath: {
+    citySlug: 'philomath',
+    cityName: 'Philomath',
+    state: 'OR',
+    county: 'Benton County',
+    utility: {
+      name: 'Pacific Power',
+      type: 'Investor-Owned Utility (IOU)',
+      rebateAmount: 'utility rebate',
+      rebateProgram: 'Pacific Power Oregon EV Supply Equipment Incentive',
+      netMeteringRule: 'Schedule 135 Net Metering Service',
+      ratePerKWh: '$0.138 / kWh'
+    },
+    permit: {
+      office: 'City of Philomath Building Department',
+      portalUrl: 'https://www.philomathoregon.gov/building',
+      inspectionWindow: '24-48 Hours',
+      buildingCodeYear: '2023 Oregon Electrical Specialty Code (OESC)'
+    },
+    climate: {
+      elevationFeet: 280,
+      winterMinTempF: 32,
+      thermalPreheatOverheadPct: 2,
+      conduitDeratingFactor: 'Standard 75°C THHN Copper Derating Applied'
+    },
+    neighborhoods: ['Downtown Philomath', 'North Philomath', 'South Philomath'],
+    landmarks: ['Marys Peak', 'Benton County Fairgrounds', 'Benton County Historical Museum']
   }
 };
