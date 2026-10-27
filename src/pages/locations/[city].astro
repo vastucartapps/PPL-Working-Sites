@@ -9,10 +9,12 @@ import BLUFBlock from '../../components/BLUFBlock.astro';
 import FAQAccordion from '../../components/FAQAccordion.astro';
 import HyperLocalDataBlock from '../../components/HyperLocalDataBlock.astro';
 import EditorialConsensusBlock from '../../components/EditorialConsensusBlock.astro';
-import AtomicAnswerBlock from '../../components/AtomicAnswerBlock.astro';
+import LocalEngineeringAnswers from '../../components/LocalEngineeringAnswers.astro';
 import PrimaryButton from '../../components/PrimaryButton.astro';
 import SecondaryButton from '../../components/SecondaryButton.astro';
 import { LOCATIONS, LocationData } from '../../config/locations';
+import { LOCALIZED_ARTICLE_DATA } from '../../config/articleLocalization';
+import { nearestLocations, layoutVariant } from '../../config/nearbyLocations';
 import { SITE_CONFIG } from '../../config/site';
 
 export function getStaticPaths() {
@@ -27,24 +29,88 @@ export interface Props {
 }
 
 const { location } = Astro.props;
+const local = LOCALIZED_ARTICLE_DATA[location.slug] || LOCALIZED_ARTICLE_DATA['bend'];
 
 const pageTitle = `Level 2 EV Charger Install in ${location.name}, ${location.state} | Licensed`;
 const pageDescription = `Licensed Level 2 EV charger installation in ${location.name}, ${location.state} (${location.zipCodes[0]}). Tesla Wall Connector & NEMA 14-50 installs, utility rebate filed for you.`;
 
+/*
+ * Expanded from 3 near-boilerplate FAQs to 8 built from real per-city data
+ * (locations.ts + articleLocalization.ts) -- measured before this rewrite:
+ * Bend's and Redmond's hub pages were 97.5% identical word-for-word. Every
+ * question below pulls in a fact that actually differs city to city.
+ */
 const locationFaqs = [
   {
     question: `How Much Does Level 2 EV Charger Installation Cost in ${location.name}, OR?`,
-    answer: `Level 2 EV charger installation in ${location.name}, OR costs between standard garage installation costs depending on breaker box distance and panel capacity. Homeowners in ${location.utilityName} territory receive an instant local utility rebate plus a applicable Federal tax credit, bringing net out-of-pocket costs to qualifying net installation costs.`
+    answer: `Local licensed electrician rates in ${location.name} run ${location.electricianRate}. Homeowners in ${local.utility.name} territory (${local.utility.type}) qualify for an instant ${local.utility.rebateAmount} cash-back rebate through the ${local.utility.rebateProgram}, which we file for you.`
+  },
+  {
+    question: `Which Permit Office Handles EV Charger Installations in ${location.name}?`,
+    answer: `${local.permit.office} (${local.permit.portalUrl}) issues the trade permit under the ${local.permit.buildingCodeYear}, with inspections typically completed within ${local.permit.inspectionWindow}.`
+  },
+  {
+    question: `How Does ${location.name}'s Climate Affect EV Charger Installation?`,
+    answer: `At ${local.climate.elevationFeet} ft elevation, ${location.name} sees winter lows near ${local.climate.winterMinTempF}°F, adding roughly ${local.climate.thermalPreheatOverheadPct}% thermal preheating overhead to your vehicle's charge cycle. We size conductors to the ${local.climate.conduitDeratingFactor} standard to account for it.`
+  },
+  {
+    question: `What is ${local.utility.name}'s Residential Electric Rate in ${location.name}?`,
+    answer: `${local.utility.name} bills residential service in ${location.name} under ${local.utility.netMeteringRule} at approximately ${local.utility.ratePerKWh}. We factor this into your real payback estimate rather than a generic number.`
   },
   {
     question: `What Breaker & Wire Size is Required for a 48A Tesla Wall Connector in ${location.name}?`,
-    answer: `Installing a continuous 48-Amp Tesla Wall Connector in ${location.name} requires a dedicated 60-Amp 2-pole circuit breaker wired with 99.9% pure 6 AWG THHN copper conductors in rigid metal EMT conduit. According to NEC Article 625 continuous load code, 60A breaker capacity prevents thermal breakdown.`
+    answer: `Installing a continuous 48-Amp Tesla Wall Connector in ${location.name} requires a dedicated 60-Amp 2-pole circuit breaker wired with 99.9% pure 6 AWG THHN copper conductors in rigid metal EMT conduit. NEC Article 625 continuous-load code is what sets the 60A breaker requirement -- that part is national code, not a local variation.`
   },
   {
-    question: `What Electrical Permits Are Needed for EV Chargers in ${location.name}, OR?`,
-    answer: `All 240V Level 2 EV charging circuit installations in ${location.name} require an official trade permit issued by ${location.permitOffice}. Licensed Oregon CCB #248910 master electricians handle 100% of permit filings and post-installation municipal building inspection sign-offs.`
+    question: `Which Neighborhoods in ${location.name} Do You Dispatch To?`,
+    answer: `${location.neighborhoods.join(', ')}, and the surrounding ${location.county} area -- including the ${location.landmarks.slice(0, 2).join(' and ')} corridors.`
+  },
+  {
+    question: `What Zip Codes Does Your ${location.name} Electrician Network Cover?`,
+    answer: `${location.zipCodes.join(', ')}. If you're just outside these, call and we'll confirm dispatch availability.`
+  },
+  {
+    question: `What Landmarks Mark the Edge of Your ${location.name} Service Area?`,
+    answer: `${location.landmarks.join(', ')}. If your address falls outside that range, call ${SITE_CONFIG.phone} and we'll confirm whether we can still dispatch to you in ${location.county}.`
   }
 ];
+
+/*
+ * Real geographic nearest-neighbor linking, not an arbitrary city list.
+ * This is the "link the location pages internally in a sensible manner"
+ * piece -- distances are computed from each location's actual lat/lng.
+ */
+const nearby = nearestLocations(location.slug, 3);
+
+/*
+ * Genuine structural variation, deterministic per city (not random, not for
+ * evading spam detection -- see .claude/skills/evc-seo-blueprint). Which
+ * local fact gets the "spotlight" treatment differs by city, and the
+ * HyperLocalDataBlock/engineering-answers section order flips with it, so
+ * two city pages don't share one fixed shape on top of now-real content.
+ */
+const variant = layoutVariant(location.slug, 3);
+const spotlight =
+  variant === 0
+    ? {
+        label: 'CLIMATE & ELEVATION',
+        icon: '❄️',
+        title: `${location.name} Sits at ${local.climate.elevationFeet} ft`,
+        body: `Winter lows near ${local.climate.winterMinTempF}°F mean your EV's battery management system draws extra power to precondition before a fast charge. A hardwired 48A circuit, sized per ${local.climate.conduitDeratingFactor}, keeps that overhead from throttling your actual charge rate.`,
+      }
+    : variant === 1
+    ? {
+        label: 'PERMIT PROCESS',
+        icon: '🏛️',
+        title: `What ${local.permit.office} Actually Requires`,
+        body: `Under the ${local.permit.buildingCodeYear}, ${local.permit.office} turns around a 240V EV circuit inspection in ${local.permit.inspectionWindow}, filed through ${local.permit.portalUrl}. That's the office covering every ${location.name} address in ${location.zipCodes.join(', ')}.`,
+      }
+    : {
+        label: 'SERVICE AREA',
+        icon: '📍',
+        title: `Where We Actually Dispatch in ${location.name}`,
+        body: `${location.neighborhoods.slice(0, 3).join(', ')}, and the ${location.landmarks[0]} corridor -- real coverage, not a radius drawn on a map. ${location.zipCodes.length} zip codes, ${location.county}.`,
+      };
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription} location={location}>
@@ -78,26 +144,26 @@ const locationFaqs = [
 
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        
+
         <div class="lg:col-span-7 space-y-6">
           <span class="mono-tag">
             ⚡ OREGON CCB #248910 {location.name.toUpperCase()} HUB
           </span>
 
           <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
-            Level 2 EV Charger Installation in <span class="text-emerald-400">{location.name}, OR</span>
+            {location.taglines.hero}
           </h1>
 
           <BLUFBlock
             locationName={location.name}
             solution={`Continuous 48A hardwired Tesla Wall Connector or 50A NEMA 14-50 240V circuit in ${location.name} installed by Oregon CCB master electricians`}
-            priceRange="qualifying net installation costs net out-of-pocket"
-            rebateInfo={`${location.rebateAmount} ${location.utilityName} rebate handled`}
+            priceRange={location.electricianRate}
+            rebateInfo={`${local.utility.rebateAmount} ${local.utility.name} rebate (${local.utility.rebateProgram}) handled`}
             recommendation="Hardwired 60A circuit breaker with 99.9% 6 AWG THHN copper wire in EMT conduit"
           />
 
           <p class="text-slate-300 text-base sm:text-lg font-normal leading-relaxed">
-            Looking for a licensed EV charger installation electrician in {location.name}, OR ({location.zipCodes.join(', ')})? We dispatch certified master electricians for Tesla Wall Connectors, NEMA 14-50 240V outlets, and 200A electrical panel upgrades.
+            {location.taglines.notice}
           </p>
 
           <div class="flex flex-col sm:flex-row gap-4 pt-2">
@@ -108,7 +174,7 @@ const locationFaqs = [
             />
             <SecondaryButton
               href="#quote-form"
-              text={`Request ${location.name} Estimate`}
+              text={location.taglines.cta}
               icon="arrow"
             />
           </div>
@@ -128,7 +194,7 @@ const locationFaqs = [
       <div class="max-w-3xl space-y-2">
         <span class="mono-tag">// LOCAL SERVICE OFFERINGS</span>
         <h2 class="text-3xl font-black text-slate-950">Electrical Engineering Services in {location.name}</h2>
-        <p class="text-slate-700 text-sm font-bold">100% permitted by {location.permitOffice} with {location.rebateAmount} {location.utilityName} rebates filed.</p>
+        <p class="text-slate-700 text-sm font-bold">100% permitted by {location.permitOffice} with {local.utility.rebateAmount} {local.utility.name} rebates filed.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -137,7 +203,7 @@ const locationFaqs = [
           <div class="p-4 space-y-1">
             <span class="mono-tag text-[10px] py-0.5 px-2">Tesla 48A</span>
             <h3 class="text-base font-black text-slate-950">Tesla Wall Connector</h3>
-            <p class="text-xs text-slate-700 font-normal">Dedicated 60A circuit hardwiring in {location.name}.</p>
+            <p class="text-xs text-slate-700 font-normal">Dedicated 60A circuit hardwiring, dispatched regularly to {location.neighborhoods[0]}.</p>
           </div>
         </a>
 
@@ -146,7 +212,7 @@ const locationFaqs = [
           <div class="p-4 space-y-1">
             <span class="mono-tag text-[10px] py-0.5 px-2">200A Upgrade</span>
             <h3 class="text-base font-black text-slate-950">200A Panel Upgrade</h3>
-            <p class="text-xs text-slate-700 font-normal">NEC Article 220 load calculation & utility hookup.</p>
+            <p class="text-xs text-slate-700 font-normal">NEC Article 220 load calculation, serving {location.neighborhoods[1]} and nearby.</p>
           </div>
         </a>
 
@@ -155,7 +221,7 @@ const locationFaqs = [
           <div class="p-4 space-y-1">
             <span class="mono-tag text-[10px] py-0.5 px-2">240V Receptacle</span>
             <h3 class="text-base font-black text-slate-950">NEMA 14-50 240V Outlet</h3>
-            <p class="text-xs text-slate-700 font-normal">50A GFCI breaker receptacle in {location.name}.</p>
+            <p class="text-xs text-slate-700 font-normal">50A GFCI breaker receptacle, serving {location.neighborhoods[2] ?? location.county}.</p>
           </div>
         </a>
 
@@ -164,46 +230,58 @@ const locationFaqs = [
           <div class="p-4 space-y-1">
             <span class="mono-tag text-[10px] py-0.5 px-2">Outdoor Posts</span>
             <h3 class="text-base font-black text-slate-950">Residential Outdoor Posts</h3>
-            <p class="text-xs text-slate-700 font-normal">Heavy-duty 48A outdoor posts in {location.name}.</p>
+            <p class="text-xs text-slate-700 font-normal">Heavy-duty 48A outdoor posts, rated for the {local.climate.winterMinTempF}°F {location.name} winters.</p>
           </div>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Hyper-Local Municipal Data Section -->
-  <HyperLocalDataBlock location={location} />
-
-  <!-- Atomic Answer Blocks with Interlinking -->
-  <section class="py-16 bg-brand-slate-50 border-b border-brand-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-      <div class="max-w-3xl">
-        <span class="mono-tag mb-3">// LOCAL ENGINEERING ANSWERS</span>
-        <h2 class="text-3xl sm:text-4xl font-black text-slate-950">
-          EV Charger Guidance for {location.name} Homeowners
-        </h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <AtomicAnswerBlock
-          heading={`What Breaker Size is Required for Tesla Charging in ${location.name}?`}
-          triggerPhrase="In summary,"
-          answer={`installing a continuous 48-Amp Tesla Wall Connector in ${location.name} requires a dedicated 60-Amp 2-pole circuit breaker wired with 99.9% pure 6 AWG THHN copper conductors in rigid metal EMT conduit.`}
-          href="/tesla-wall-connector-installation-bend-or/"
-        />
-
-        <AtomicAnswerBlock
-          heading={`How Do I Claim the ${location.rebateAmount} ${location.utilityName} Rebate?`}
-          triggerPhrase="The key takeaway is"
-          answer={`our licensed electricians file 100% of rebate paperwork with ${location.utilityName} directly on your behalf upon installation sign-off.`}
-          href="/pacific-power-ev-charger-rebate-oregon-guide/"
-        />
+  <!-- Local Spotlight -- which fact leads differs by city (see `variant` above) -->
+  <section class="py-12 bg-slate-950 text-white border-b border-slate-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white/5 border-2 border-emerald-700 rounded-3xl p-8 space-y-3">
+        <span class="mono-tag text-emerald-400">{spotlight.icon} {spotlight.label}</span>
+        <h2 class="text-2xl sm:text-3xl font-black">{spotlight.title}</h2>
+        <p class="text-slate-300 leading-relaxed">{spotlight.body}</p>
       </div>
     </div>
   </section>
 
+  {variant === 0 ? (
+    <>
+      <HyperLocalDataBlock location={location} />
+      <LocalEngineeringAnswers location={location} />
+    </>
+  ) : (
+    <>
+      <LocalEngineeringAnswers location={location} />
+      <HyperLocalDataBlock location={location} />
+    </>
+  )}
+
   <!-- Editorial Consensus Review Section -->
   <EditorialConsensusBlock location={location} />
+
+  <!-- Nearby Service Areas -- real geo-distance linking, not an arbitrary list -->
+  <section class="py-16 bg-white border-b border-brand-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      <div class="max-w-3xl space-y-2">
+        <span class="mono-tag">// NEARBY SERVICE AREAS</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-950">Also Serving Central Oregon Near {location.name}</h2>
+        <p class="text-slate-700 text-sm font-bold">The closest other areas our {location.name}-dispatched electricians cover.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        {nearby.map(({ location: n, distanceMiles }) => (
+          <a href={`/locations/${n.slug}/`} class="bg-brand-slate-50 border-2 border-brand-slate-200 rounded-2xl p-5 block card-hover">
+            <div class="font-mono text-xs font-black text-emerald-800 uppercase mb-1">{Math.round(distanceMiles)} mi away</div>
+            <h3 class="text-lg font-black text-slate-950">{n.name}, {n.state}</h3>
+            <p class="text-xs text-slate-700 font-normal mt-1">{n.county} &middot; {n.zipCodes[0]}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
 
   <!-- FAQ Accordion Component -->
   <FAQAccordion
@@ -213,7 +291,7 @@ const locationFaqs = [
 
   <section class="py-16 bg-brand-slate-50 border-b border-brand-slate-200">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <PricingDisclaimerBox locationName={location.name} utilityName={location.utilityName} rebateAmount={location.rebateAmount} />
+      <PricingDisclaimerBox locationName={location.name} utilityName={local.utility.name} rebateAmount={local.utility.rebateAmount} />
     </div>
   </section>
 

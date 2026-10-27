@@ -1,0 +1,45 @@
+---
+import AtomicAnswerBlock from './AtomicAnswerBlock.astro';
+import { LocationData } from '../config/locations';
+import { LOCALIZED_ARTICLE_DATA } from '../config/articleLocalization';
+
+export interface Props {
+  location: LocationData;
+}
+
+const { location } = Astro.props;
+const local = LOCALIZED_ARTICLE_DATA[location.slug] || LOCALIZED_ARTICLE_DATA['bend'];
+---
+
+<!--
+  Previously hardcoded href="/tesla-wall-connector-installation-bend-or/" on
+  every city's page regardless of which city it was -- an internal link
+  pointing to the wrong location's resource on every page except Bend's own.
+  Now points at this city's real per-city service page.
+-->
+<section class="py-16 bg-brand-slate-50 border-b border-brand-slate-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+    <div class="max-w-3xl">
+      <span class="mono-tag mb-3">// LOCAL ENGINEERING ANSWERS</span>
+      <h2 class="text-3xl sm:text-4xl font-black text-slate-950">
+        EV Charger Guidance for {location.name} Homeowners
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <AtomicAnswerBlock
+        heading={`Does ${location.name}'s Elevation Change the Tesla Wall Connector Spec?`}
+        triggerPhrase="In summary,"
+        answer={`no -- the 60A breaker and 6 AWG THHN sizing is set by NEC Article 625, the same at ${local.climate.elevationFeet} ft in ${location.name} as anywhere else. What changes locally is thermal preheating overhead: budget roughly ${local.climate.thermalPreheatOverheadPct}% more charge-cycle power on ${location.name}'s ${local.climate.winterMinTempF}°F winter mornings.`}
+        href={`/locations/${location.slug}/services/tesla-wall-connector/`}
+      />
+
+      <AtomicAnswerBlock
+        heading={`How Do I Claim the ${local.utility.name} Rebate in ${location.name}?`}
+        triggerPhrase="The key takeaway is"
+        answer={`${local.utility.name} runs the ${local.utility.rebateProgram} under ${local.utility.netMeteringRule}, billed at roughly ${local.utility.ratePerKWh}. Our electricians file that paperwork directly -- you don't submit anything to ${local.utility.name} yourself.`}
+        href={`/locations/${location.slug}/contact/`}
+      />
+    </div>
+  </div>
+</section>

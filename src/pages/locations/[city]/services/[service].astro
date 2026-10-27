@@ -14,6 +14,7 @@ import PrimaryButton from '../../../../components/PrimaryButton.astro';
 import SecondaryButton from '../../../../components/SecondaryButton.astro';
 import { LOCATIONS, LocationData } from '../../../../config/locations';
 import { LOCALIZED_ARTICLE_DATA, LocalizedArticleContext } from '../../../../config/articleLocalization';
+import { nearestLocations } from '../../../../config/nearbyLocations';
 import { SITE_CONFIG } from '../../../../config/site';
 
 export const SERVICE_SLUGS = [
@@ -88,11 +89,11 @@ const SERVICE_FAQS: Record<string, ServiceFaqs> = {
     { question: `5. Tesla Wall Connector vs. a NEMA 14-50 Outlet -- Which Should I Choose in ${local.cityName}?`,
       answer: `The Wall Connector is hardwired and delivers the full 48A (11.5 kW) the vehicle can take. A NEMA 14-50 plug-in outlet is capped at 32-40A continuous (9.6 kW max) on a 50A breaker, but you can unplug it and use the same outlet for an RV or other 240V appliance. Most daily drivers in ${local.cityName} choose the Wall Connector for charging speed.` },
     { question: `6. How Does ${local.cityName}'s Winter (${local.climate.winterMinTempF}°F low, ${local.climate.elevationFeet} ft elevation) Affect Charging Speed?`,
-      answer: `Cold packs draw extra power for thermal preheating before they'll accept a full charge. A hardwired 48A circuit has the headroom to cover that overhead without throttling your charge rate the way a lower-amperage outlet can.` },
+      answer: `At ${local.climate.elevationFeet} ft, ${local.cityName} cold packs draw roughly ${local.climate.thermalPreheatOverheadPct}% extra power for thermal preheating before they'll accept a full charge. We size the circuit to ${local.climate.conduitDeratingFactor}, so a hardwired 48A connector has the headroom to cover that overhead without throttling your charge rate.` },
     { question: `7. Which Neighborhoods in ${local.cityName} Do You Serve?`,
-      answer: `${local.neighborhoods.join(', ')}, and the surrounding ${local.county} corridor.` },
-    { question: `8. How Long Does a Wall Connector Install Take?`,
-      answer: `A standard garage hardwire is a single 3-5 hour visit, including the permit paperwork walkthrough and rebate filing.` },
+      answer: `${local.neighborhoods.join(', ')}, and the ${local.landmarks.join(', ')} corridor in ${local.county}.` },
+    { question: `8. How Long Does a Wall Connector Install Take in ${local.cityName}?`,
+      answer: `A standard garage hardwire is a single 3-5 hour visit. ${local.permit.office} typically completes the inspection within ${local.permit.inspectionWindow}, which is what usually sets your total timeline, not the wiring itself.` },
   ],
   'nema-14-50-upgrade': (local) => [
     { question: `1. How Much Does a NEMA 14-50 Outlet Installation Cost in ${local.cityName}, ${local.state}?`,
@@ -105,12 +106,12 @@ const SERVICE_FAQS: Record<string, ServiceFaqs> = {
       answer: `Yes, the ${local.utility.rebateProgram} covers it the same as a hardwired install. We handle the submission.` },
     { question: `5. Why Choose a Plug-in Outlet Over Hardwiring in ${local.cityName}?`,
       answer: `A NEMA 14-50 is a standard receptacle, so the same circuit can power an RV, a welder, or another 240V appliance when you're not charging -- flexibility a hardwired Wall Connector doesn't offer. The tradeoff is a lower charging ceiling (9.6 kW vs. 11.5 kW).` },
-    { question: `6. Does ${local.cityName}'s Climate (${local.climate.winterMinTempF}°F winter low) Affect a Plug-in Charger?`,
-      answer: `The outlet and breaker are rated the same regardless of season; what changes is your car's own thermal preheating draw in cold weather, which a 40A-capable circuit can still comfortably supply.` },
+    { question: `6. Does ${local.cityName}'s Climate (${local.climate.winterMinTempF}°F winter low, ${local.climate.elevationFeet} ft) Affect a Plug-in Charger?`,
+      answer: `The outlet and breaker are rated the same regardless of season; what changes is your car's own thermal preheating draw at ${local.cityName}'s elevation, which a 40A-capable circuit -- sized to ${local.climate.conduitDeratingFactor} -- can still comfortably supply.` },
     { question: `7. Which Neighborhoods in ${local.cityName} Do You Serve?`,
-      answer: `${local.neighborhoods.join(', ')}, and the surrounding ${local.county} corridor.` },
-    { question: `8. How Long Does a NEMA 14-50 Install Take?`,
-      answer: `Most single-outlet installs close out in 2-4 hours on-site, including the permit walkthrough.` },
+      answer: `${local.neighborhoods.join(', ')}, and the ${local.landmarks.join(', ')} corridor in ${local.county}.` },
+    { question: `8. How Long Does a NEMA 14-50 Install Take in ${local.cityName}?`,
+      answer: `Most single-outlet installs close out in 2-4 hours on-site. ${local.permit.office} inspection turnaround (${local.permit.inspectionWindow}) is usually the longer pole, not the wiring.` },
   ],
   'panel-capacity-upgrade': (local) => [
     { question: `1. How Much Does a 200A Panel Upgrade Cost in ${local.cityName}, ${local.state}?`,
@@ -126,9 +127,9 @@ const SERVICE_FAQS: Record<string, ServiceFaqs> = {
     { question: `6. Panel Upgrade vs. a Subpanel -- Which Do I Need?`,
       answer: `If your main panel is full but your service-entrance capacity (the wire from the utility to your meter) has headroom, a subpanel can sometimes add circuits without a full service upgrade. Our load calculation tells you which applies to your home.` },
     { question: `7. Which Neighborhoods in ${local.cityName} Do You Serve?`,
-      answer: `${local.neighborhoods.join(', ')}, and the surrounding ${local.county} corridor.` },
-    { question: `8. How Long Does a Panel Upgrade Take?`,
-      answer: `Expect 1-2 days on-site plus utility coordination for the service-entrance work and inspection scheduling -- longer than a same-day charger circuit, since the whole home's power is briefly affected during the swap.` },
+      answer: `${local.neighborhoods.join(', ')}, and the ${local.landmarks.join(', ')} corridor in ${local.county}.` },
+    { question: `8. How Long Does a Panel Upgrade Take in ${local.cityName}?`,
+      answer: `Expect 1-2 days on-site plus ${local.permit.office} coordination for the service-entrance work and inspection (typically ${local.permit.inspectionWindow}) -- longer than a same-day charger circuit, since the whole home's power is briefly affected during the swap.` },
   ],
   'commercial-ev-charging': (local) => [
     { question: `1. What Drives the Cost of a Commercial EV Charging Install in ${local.cityName}, ${local.state}?`,
@@ -144,9 +145,9 @@ const SERVICE_FAQS: Record<string, ServiceFaqs> = {
     { question: `6. Single-Port vs. Multi-Port Commercial Stations -- What's the Tradeoff?`,
       answer: `Multi-port stations share electrical infrastructure costs across more charging bays but need more total panel capacity up front; single-port units are cheaper to add incrementally but cost more per port if you're planning to scale up later.` },
     { question: `7. Which Areas Around ${local.cityName} Do You Serve for Commercial Work?`,
-      answer: `${local.neighborhoods.join(', ')}, and the surrounding ${local.county} commercial corridors.` },
-    { question: `8. How Long Does a Commercial Installation Take?`,
-      answer: `Plan on a site assessment first, then installation timelines that scale with port count and whether service capacity work is needed -- we'll give you a firm schedule after the load study, not a one-size estimate.` },
+      answer: `${local.neighborhoods.join(', ')}, and the ${local.landmarks.join(', ')} commercial corridors in ${local.county}.` },
+    { question: `8. How Long Does a Commercial Installation Take in ${local.cityName}?`,
+      answer: `Plan on a site assessment first, then installation timelines that scale with port count. ${local.permit.office}'s commercial plan review adds time beyond their standard ${local.permit.inspectionWindow} residential turnaround -- we'll give you a firm schedule after the load study, not a one-size estimate.` },
   ],
 };
 
@@ -210,6 +211,9 @@ const SERVICE_SCOPE: Record<string, string[]> = {
   ],
 };
 const serviceScope = SERVICE_SCOPE[service] ?? SERVICE_SCOPE['tesla-wall-connector'];
+
+/* Real geo-distance linking to the same service in nearby cities. */
+const nearbyForService = nearestLocations(location.slug, 3);
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription} location={location}>
@@ -298,6 +302,25 @@ const serviceScope = SERVICE_SCOPE[service] ?? SERVICE_SCOPE['tesla-wall-connect
 
   <!-- Editorial Consensus Review Section -->
   <EditorialConsensusBlock location={location} />
+
+  <!-- Same service, nearby areas -- real geo-distance linking -->
+  <section class="py-16 bg-white border-b border-brand-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      <div class="max-w-3xl space-y-2">
+        <span class="mono-tag">// ALSO AVAILABLE NEARBY</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-950">{titleText} in Nearby Areas</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        {nearbyForService.map(({ location: n, distanceMiles }) => (
+          <a href={`/locations/${n.slug}/services/${service}/`} class="bg-brand-slate-50 border-2 border-brand-slate-200 rounded-2xl p-5 block card-hover">
+            <div class="font-mono text-xs font-black text-emerald-800 uppercase mb-1">{Math.round(distanceMiles)} mi away</div>
+            <h3 class="text-lg font-black text-slate-950">{titleText} in {n.name}</h3>
+            <p class="text-xs text-slate-700 font-normal mt-1">{n.county} &middot; {n.zipCodes[0]}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
 
   <!-- 8 Dynamic Localized FAQs -->
   <FAQAccordion
