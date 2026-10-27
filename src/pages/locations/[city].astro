@@ -35,27 +35,73 @@ const pageTitle = `Level 2 EV Charger Install in ${location.name}, ${location.st
 const pageDescription = `Licensed Level 2 EV charger installation in ${location.name}, ${location.state} (${location.zipCodes[0]}). Tesla Wall Connector & NEMA 14-50 installs, utility rebate filed for you.`;
 
 /*
- * Expanded from 3 near-boilerplate FAQs to 8 built from real per-city data
- * (locations.ts + articleLocalization.ts) -- measured before this rewrite:
- * Bend's and Redmond's hub pages were 97.5% identical word-for-word. Every
- * question below pulls in a fact that actually differs city to city.
+ * Genuine structural variation, deterministic per city (moved up from below
+ * so the FAQ answers can use it too -- not random, not for evading spam
+ * detection, see .claude/skills/evc-seo-blueprint).
  */
+const variant = layoutVariant(location.slug, 3);
+
+/*
+ * Expanded from 3 near-boilerplate FAQs to 8 built from real per-city data
+ * (locations.ts + articleLocalization.ts) -- measured before that rewrite:
+ * Bend's and Redmond's hub pages were 97.5% identical word-for-word.
+ *
+ * Round 3 follow-up: even with every fact genuinely different per city, 4 of
+ * these 8 answers (cost, permit, climate, rate) were still one sentence
+ * *template* with only nouns swapped in -- which is most of why cross-city
+ * prose similarity stayed at 68% after the first fix. These 4 now have 3
+ * differently-structured phrasings (same real facts, different clause order
+ * and wording), assigned by `variant` so only 2-3 of the 7 cities share a
+ * sentence shape instead of all 7. Q5 (breaker/wire size) is left as one
+ * template on purpose -- it's genuine NEC Article 625 national code, not a
+ * local fact, so making it "sound different" per city would be the fake
+ * variation the gatekeeper doc explicitly warns against. Q6-8 were already
+ * pure per-city data (neighborhood/zip/landmark lists), nothing to vary.
+ */
+const faqCostAnswer =
+  variant === 0
+    ? `Local licensed electrician rates in ${location.name} run ${location.electricianRate}. Homeowners in ${local.utility.name} territory (${local.utility.type}) qualify for an instant ${local.utility.rebateAmount} cash-back rebate through the ${local.utility.rebateProgram}, which we file for you.`
+    : variant === 1
+    ? `${local.utility.rebateProgram} gives ${local.utility.name} customers in ${location.name} an instant ${local.utility.rebateAmount} cash-back rebate -- we handle that filing. On the labor side, expect ${location.electricianRate} for a licensed electrician here, since ${local.utility.type} territory pricing in ${location.county} runs close to that band.`
+    : `Two numbers matter for a ${location.name} installation: the electrician's rate (${location.electricianRate} locally) and the rebate. Because ${location.name} sits in ${local.utility.name} territory, a ${local.utility.type}, you qualify for the ${local.utility.rebateProgram} -- an instant ${local.utility.rebateAmount} cash-back rebate we submit on your behalf.`;
+
+const faqPermitAnswer =
+  variant === 0
+    ? `${local.permit.office} (${local.permit.portalUrl}) issues the trade permit under the ${local.permit.buildingCodeYear}, with inspections typically completed within ${local.permit.inspectionWindow}.`
+    : variant === 1
+    ? `Your trade permit comes from ${local.permit.office}, filed through ${local.permit.portalUrl}. They inspect under the ${local.permit.buildingCodeYear} and typically turn the inspection around in ${local.permit.inspectionWindow}.`
+    : `Before any wire is run in ${location.name}, the permit has to clear ${local.permit.office} -- a ${local.permit.buildingCodeYear} requirement, submitted via ${local.permit.portalUrl}. Most inspections close out in ${local.permit.inspectionWindow}.`;
+
+const faqClimateAnswer =
+  variant === 0
+    ? `At ${local.climate.elevationFeet} ft elevation, ${location.name} sees winter lows near ${local.climate.winterMinTempF}°F, adding roughly ${local.climate.thermalPreheatOverheadPct}% thermal preheating overhead to your vehicle's charge cycle. We size conductors to the ${local.climate.conduitDeratingFactor} standard to account for it.`
+    : variant === 1
+    ? `${location.name} sits at ${local.climate.elevationFeet} ft, with winters dropping to roughly ${local.climate.winterMinTempF}°F. That cold adds about ${local.climate.thermalPreheatOverheadPct}% to your EV's thermal preheating draw before it'll accept a full charge -- which is why we size every conductor here to ${local.climate.conduitDeratingFactor}.`
+    : `Elevation and cold both factor into a ${location.name} install: ${local.climate.elevationFeet} ft puts you at winter lows near ${local.climate.winterMinTempF}°F, and that translates to roughly ${local.climate.thermalPreheatOverheadPct}% extra preheating power your battery pulls before charging. Our wire sizing (${local.climate.conduitDeratingFactor}) already accounts for it.`;
+
+const faqRateAnswer =
+  variant === 0
+    ? `${local.utility.name} bills residential service in ${location.name} under ${local.utility.netMeteringRule} at approximately ${local.utility.ratePerKWh}. We factor this into your real payback estimate rather than a generic number.`
+    : variant === 1
+    ? `Figure roughly ${local.utility.ratePerKWh} for residential ${local.utility.name} service in ${location.name}, billed under ${local.utility.netMeteringRule}. That's the number we actually use when we calculate your charging payback, not a sitewide average.`
+    : `${location.name} residential customers of ${local.utility.name} pay around ${local.utility.ratePerKWh} under the utility's ${local.utility.netMeteringRule}. We plug that real rate into your payback math instead of a national average.`;
+
 const locationFaqs = [
   {
     question: `How Much Does Level 2 EV Charger Installation Cost in ${location.name}, OR?`,
-    answer: `Local licensed electrician rates in ${location.name} run ${location.electricianRate}. Homeowners in ${local.utility.name} territory (${local.utility.type}) qualify for an instant ${local.utility.rebateAmount} cash-back rebate through the ${local.utility.rebateProgram}, which we file for you.`
+    answer: faqCostAnswer
   },
   {
     question: `Which Permit Office Handles EV Charger Installations in ${location.name}?`,
-    answer: `${local.permit.office} (${local.permit.portalUrl}) issues the trade permit under the ${local.permit.buildingCodeYear}, with inspections typically completed within ${local.permit.inspectionWindow}.`
+    answer: faqPermitAnswer
   },
   {
     question: `How Does ${location.name}'s Climate Affect EV Charger Installation?`,
-    answer: `At ${local.climate.elevationFeet} ft elevation, ${location.name} sees winter lows near ${local.climate.winterMinTempF}°F, adding roughly ${local.climate.thermalPreheatOverheadPct}% thermal preheating overhead to your vehicle's charge cycle. We size conductors to the ${local.climate.conduitDeratingFactor} standard to account for it.`
+    answer: faqClimateAnswer
   },
   {
     question: `What is ${local.utility.name}'s Residential Electric Rate in ${location.name}?`,
-    answer: `${local.utility.name} bills residential service in ${location.name} under ${local.utility.netMeteringRule} at approximately ${local.utility.ratePerKWh}. We factor this into your real payback estimate rather than a generic number.`
+    answer: faqRateAnswer
   },
   {
     question: `What Breaker & Wire Size is Required for a 48A Tesla Wall Connector in ${location.name}?`,
@@ -83,13 +129,11 @@ const locationFaqs = [
 const nearby = nearestLocations(location.slug, 3);
 
 /*
- * Genuine structural variation, deterministic per city (not random, not for
- * evading spam detection -- see .claude/skills/evc-seo-blueprint). Which
- * local fact gets the "spotlight" treatment differs by city, and the
- * HyperLocalDataBlock/engineering-answers section order flips with it, so
- * two city pages don't share one fixed shape on top of now-real content.
+ * Which local fact gets the "spotlight" treatment differs by city (via the
+ * `variant` computed above), and the HyperLocalDataBlock/engineering-answers
+ * section order flips with it, so two city pages don't share one fixed shape
+ * on top of now-real content.
  */
-const variant = layoutVariant(location.slug, 3);
 const spotlight =
   variant === 0
     ? {
@@ -203,7 +247,7 @@ const spotlight =
           <div class="p-4 space-y-1">
             <span class="mono-tag text-[10px] py-0.5 px-2">Tesla 48A</span>
             <h3 class="text-base font-black text-slate-950">Tesla Wall Connector</h3>
-            <p class="text-xs text-slate-700 font-normal">Dedicated 60A circuit hardwiring, dispatched regularly to {location.neighborhoods[0]}.</p>
+            <p class="text-xs text-slate-700 font-normal">{variant === 0 ? `Dedicated 60A circuit hardwiring, dispatched regularly to ${location.neighborhoods[0]}.` : variant === 1 ? `60A dedicated circuit hardwiring -- a job we run often in ${location.neighborhoods[0]}.` : `We hardwire this 60A circuit regularly for ${location.neighborhoods[0]} homeowners.`}</p>
           </div>
         </a>
 
@@ -212,7 +256,7 @@ const spotlight =
           <div class="p-4 space-y-1">
             <span class="mono-tag text-[10px] py-0.5 px-2">200A Upgrade</span>
             <h3 class="text-base font-black text-slate-950">200A Panel Upgrade</h3>
-            <p class="text-xs text-slate-700 font-normal">NEC Article 220 load calculation, serving {location.neighborhoods[1]} and nearby.</p>
+            <p class="text-xs text-slate-700 font-normal">{variant === 0 ? `NEC Article 220 load calculation, serving ${location.neighborhoods[1]} and nearby.` : variant === 1 ? `Starts with an NEC Article 220 load calc -- a common request from ${location.neighborhoods[1]}.` : `Load-calculated under NEC Article 220, a frequent job near ${location.neighborhoods[1]}.`}</p>
           </div>
         </a>
 
@@ -221,7 +265,7 @@ const spotlight =
           <div class="p-4 space-y-1">
             <span class="mono-tag text-[10px] py-0.5 px-2">240V Receptacle</span>
             <h3 class="text-base font-black text-slate-950">NEMA 14-50 240V Outlet</h3>
-            <p class="text-xs text-slate-700 font-normal">50A GFCI breaker receptacle, serving {location.neighborhoods[2] ?? location.county}.</p>
+            <p class="text-xs text-slate-700 font-normal">{variant === 0 ? `50A GFCI breaker receptacle, serving ${location.neighborhoods[2] ?? location.county}.` : variant === 1 ? `A 50A GFCI receptacle install, regularly requested around ${location.neighborhoods[2] ?? location.county}.` : `50A GFCI-protected outlet, installed often near ${location.neighborhoods[2] ?? location.county}.`}</p>
           </div>
         </a>
 
@@ -230,7 +274,7 @@ const spotlight =
           <div class="p-4 space-y-1">
             <span class="mono-tag text-[10px] py-0.5 px-2">Outdoor Posts</span>
             <h3 class="text-base font-black text-slate-950">Residential Outdoor Posts</h3>
-            <p class="text-xs text-slate-700 font-normal">Heavy-duty 48A outdoor posts, rated for the {local.climate.winterMinTempF}°F {location.name} winters.</p>
+            <p class="text-xs text-slate-700 font-normal">{variant === 0 ? `Heavy-duty 48A outdoor posts, rated for the ${local.climate.winterMinTempF}°F ${location.name} winters.` : variant === 1 ? `Outdoor-rated 48A posts built for ${location.name}'s ${local.climate.winterMinTempF}°F winter lows.` : `48A posts engineered to hold up through ${location.name} winters down to ${local.climate.winterMinTempF}°F.`}</p>
           </div>
         </a>
       </div>

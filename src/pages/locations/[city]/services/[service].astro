@@ -14,7 +14,7 @@ import PrimaryButton from '../../../../components/PrimaryButton.astro';
 import SecondaryButton from '../../../../components/SecondaryButton.astro';
 import { LOCATIONS, LocationData } from '../../../../config/locations';
 import { LOCALIZED_ARTICLE_DATA, LocalizedArticleContext } from '../../../../config/articleLocalization';
-import { nearestLocations } from '../../../../config/nearbyLocations';
+import { nearestLocations, layoutVariant } from '../../../../config/nearbyLocations';
 import { SITE_CONFIG } from '../../../../config/site';
 
 export const SERVICE_SLUGS = [
@@ -54,6 +54,9 @@ const serviceTitles: Record<string, string> = {
   'commercial-ev-charging': 'Commercial EV Charging Install'
 };
 
+/* Same deterministic per-city variant used on the hub page -- see nearbyLocations.ts. */
+const variant = layoutVariant(location.slug, 3);
+
 const titleText = serviceTitles[service] || 'EV Charger Installation Service';
 const bareTitle = `${titleText} in ${localData.cityName}, ${localData.state}`;
 const brandedTitle = `${bareTitle} | ${SITE_CONFIG.brandName}`;
@@ -74,54 +77,123 @@ const pageDescription = `Licensed ${titleText} in ${localData.cityName}, ${local
  * exactly what makes 4 service pages read as one page with 4 headlines
  * rather than 4 independently rankable pages about 4 different jobs.
  */
-type ServiceFaqs = (local: LocalizedArticleContext) => Array<{ question: string; answer: string }>;
+type ServiceFaqs = (local: LocalizedArticleContext, variant: number) => Array<{ question: string; answer: string }>;
 
+/*
+ * Round 3 follow-up: within one service, all 7 cities' answers were a single
+ * sentence template with only local facts swapped in -- genuinely different
+ * facts, but a measured 96.8% prose similarity across cities because the
+ * surrounding wording never changed. The questions below that actually carry
+ * a per-city fact (cost, permit, rebate, climate, timeline) now branch on
+ * `variant` into 3 differently-structured phrasings of the same real facts,
+ * so only 2-3 of the 7 cities share a sentence shape per service instead of
+ * all 7. Questions that are genuinely identical nationwide (breaker/wire
+ * size, the Wall Connector-vs-outlet tradeoff, ADA rules, ...) are left as
+ * one template on purpose -- varying wording on a fact that doesn't vary
+ * would be the fake differentiation the gatekeeper doc warns against.
+ */
 const SERVICE_FAQS: Record<string, ServiceFaqs> = {
-  'tesla-wall-connector': (local) => [
+  'tesla-wall-connector': (local, variant) => [
     { question: `1. How Much Does a Tesla Wall Connector Installation Cost in ${local.cityName}, ${local.state}?`,
-      answer: `A hardwired Tesla Wall Connector in ${local.cityName} is priced on breaker-panel distance, conduit run, and whether your panel already has a free 60A slot. Homeowners in ${local.utility.name} territory qualify for an instant ${local.utility.rebateAmount} cash-back rebate, which we file on your behalf.` },
+      answer: variant === 0
+        ? `A hardwired Tesla Wall Connector in ${local.cityName} is priced on breaker-panel distance, conduit run, and whether your panel already has a free 60A slot. Homeowners in ${local.utility.name} territory qualify for an instant ${local.utility.rebateAmount} cash-back rebate, which we file on your behalf.`
+        : variant === 1
+        ? `${local.utility.name}'s ${local.utility.rebateAmount} cash-back rebate covers part of the cost automatically -- we file it for you. What's left depends on three things in ${local.cityName}: distance from your panel to the mounting point, the conduit run, and whether there's already a free 60A breaker slot.`
+        : `Three variables set the price of a Tesla Wall Connector install here: panel-to-mount distance, conduit routing, and open breaker capacity. ${local.cityName} homeowners also get an instant ${local.utility.rebateAmount} rebate through ${local.utility.name}, which we submit on your behalf so it's never out-of-pocket.` },
     { question: `2. Which Building Permit Office Issues the Trade Permit for a Wall Connector in ${local.cityName}?`,
-      answer: `${local.permit.office} issues the electrical trade permit under the ${local.permit.buildingCodeYear}. We pull it before any wire is run.` },
+      answer: variant === 0
+        ? `${local.permit.office} issues the electrical trade permit under the ${local.permit.buildingCodeYear}. We pull it before any wire is run.`
+        : variant === 1
+        ? `Before we run a single wire in ${local.cityName}, ${local.permit.office} has to issue the trade permit -- required under the ${local.permit.buildingCodeYear}.`
+        : `The permit for this job comes from ${local.permit.office} (${local.permit.buildingCodeYear}). We handle pulling it, and no wiring starts until it's issued.` },
     { question: `3. What Breaker and Wire Size Does a Tesla Wall Connector Need?`,
       answer: `A continuous 48A Wall Connector requires a dedicated 60A 2-pole breaker, wired with 6 AWG THHN copper in EMT conduit (${local.climate.conduitDeratingFactor}) -- the full hardwired circuit, not a plug-in outlet.` },
     { question: `4. Does ${local.utility.name} Rebate a Wall Connector Install in ${local.cityName}?`,
-      answer: `Yes, up to ${local.utility.rebateAmount} through the ${local.utility.rebateProgram}. We submit the paperwork directly.` },
+      answer: variant === 0
+        ? `Yes, up to ${local.utility.rebateAmount} through the ${local.utility.rebateProgram}. We submit the paperwork directly.`
+        : variant === 1
+        ? `It does -- the ${local.utility.rebateProgram} pays ${local.utility.rebateAmount} back on a Wall Connector install, and we handle the submission so you don't have to.`
+        : `${local.utility.name} rebates this install through the ${local.utility.rebateProgram} (${local.utility.rebateAmount} cash back). We file the paperwork; you don't deal with ${local.utility.name} directly.` },
     { question: `5. Tesla Wall Connector vs. a NEMA 14-50 Outlet -- Which Should I Choose in ${local.cityName}?`,
       answer: `The Wall Connector is hardwired and delivers the full 48A (11.5 kW) the vehicle can take. A NEMA 14-50 plug-in outlet is capped at 32-40A continuous (9.6 kW max) on a 50A breaker, but you can unplug it and use the same outlet for an RV or other 240V appliance. Most daily drivers in ${local.cityName} choose the Wall Connector for charging speed.` },
     { question: `6. How Does ${local.cityName}'s Winter (${local.climate.winterMinTempF}°F low, ${local.climate.elevationFeet} ft elevation) Affect Charging Speed?`,
-      answer: `At ${local.climate.elevationFeet} ft, ${local.cityName} cold packs draw roughly ${local.climate.thermalPreheatOverheadPct}% extra power for thermal preheating before they'll accept a full charge. We size the circuit to ${local.climate.conduitDeratingFactor}, so a hardwired 48A connector has the headroom to cover that overhead without throttling your charge rate.` },
+      answer: variant === 0
+        ? `At ${local.climate.elevationFeet} ft, ${local.cityName} cold packs draw roughly ${local.climate.thermalPreheatOverheadPct}% extra power for thermal preheating before they'll accept a full charge. We size the circuit to ${local.climate.conduitDeratingFactor}, so a hardwired 48A connector has the headroom to cover that overhead without throttling your charge rate.`
+        : variant === 1
+        ? `${local.cityName} sits at ${local.climate.elevationFeet} ft, and winter cold adds about ${local.climate.thermalPreheatOverheadPct}% to the preheating power your battery draws before it'll take a full charge. That's why every circuit we hardwire here is sized to ${local.climate.conduitDeratingFactor} -- the 48A connector keeps its full charge rate even with that overhead.`
+        : `Elevation (${local.climate.elevationFeet} ft) and winter temperature both push up preheating draw on your battery -- about ${local.climate.thermalPreheatOverheadPct}% in ${local.cityName}. We account for that by sizing to ${local.climate.conduitDeratingFactor}, so the connector's 48A output doesn't get throttled once the overhead is factored in.` },
     { question: `7. Which Neighborhoods in ${local.cityName} Do You Serve?`,
       answer: `${local.neighborhoods.join(', ')}, and the ${local.landmarks.join(', ')} corridor in ${local.county}.` },
     { question: `8. How Long Does a Wall Connector Install Take in ${local.cityName}?`,
-      answer: `A standard garage hardwire is a single 3-5 hour visit. ${local.permit.office} typically completes the inspection within ${local.permit.inspectionWindow}, which is what usually sets your total timeline, not the wiring itself.` },
+      answer: variant === 0
+        ? `A standard garage hardwire is a single 3-5 hour visit. ${local.permit.office} typically completes the inspection within ${local.permit.inspectionWindow}, which is what usually sets your total timeline, not the wiring itself.`
+        : variant === 1
+        ? `The wiring itself is a 3-5 hour job, done in one visit. What actually sets your timeline is ${local.permit.office}'s inspection turnaround -- typically ${local.permit.inspectionWindow}.`
+        : `Plan on 3-5 hours on-site for the hardwire. The bigger factor for your total timeline is ${local.permit.office}'s inspection window, usually ${local.permit.inspectionWindow}, not the install itself.` },
   ],
-  'nema-14-50-upgrade': (local) => [
+  'nema-14-50-upgrade': (local, variant) => [
     { question: `1. How Much Does a NEMA 14-50 Outlet Installation Cost in ${local.cityName}, ${local.state}?`,
-      answer: `Installing a dedicated NEMA 14-50 outlet in ${local.cityName} is typically less than a full Wall Connector hardwire, since it's a single receptacle rather than a hardwired run to the vehicle's charging equipment. ${local.utility.name}'s ${local.utility.rebateAmount} cash-back rebate applies to this circuit too, and we file it for you.` },
+      answer: variant === 0
+        ? `Installing a dedicated NEMA 14-50 outlet in ${local.cityName} is typically less than a full Wall Connector hardwire, since it's a single receptacle rather than a hardwired run to the vehicle's charging equipment. ${local.utility.name}'s ${local.utility.rebateAmount} cash-back rebate applies to this circuit too, and we file it for you.`
+        : variant === 1
+        ? `This circuit also qualifies for ${local.utility.name}'s ${local.utility.rebateAmount} cash-back rebate -- we file it the same as any other install. Cost-wise, a NEMA 14-50 outlet in ${local.cityName} typically runs less than a full Wall Connector hardwire, since it's one receptacle rather than a hardwired run to the vehicle equipment.`
+        : `Expect a lower price than a Wall Connector hardwire for this one in ${local.cityName} -- it's a single receptacle install, not a hardwired run. ${local.utility.name} rebates it too (${local.utility.rebateAmount} cash back), filed on your behalf.` },
     { question: `2. Which Permit Office Covers a NEMA 14-50 Install in ${local.cityName}?`,
-      answer: `${local.permit.office}, under the ${local.permit.buildingCodeYear} -- same trade-permit process as any other 240V circuit.` },
+      answer: variant === 0
+        ? `${local.permit.office}, under the ${local.permit.buildingCodeYear} -- same trade-permit process as any other 240V circuit.`
+        : variant === 1
+        ? `Same office as any other 240V circuit: ${local.permit.office}, filed under the ${local.permit.buildingCodeYear}.`
+        : `${local.permit.office} handles this permit too, under the ${local.permit.buildingCodeYear} -- no different process for a plug-in outlet versus a hardwire.` },
     { question: `3. What Breaker Does a NEMA 14-50 Outlet Need?`,
       answer: `A 50A 2-pole GFCI breaker on 6 AWG copper, which under the NEC's continuous-load rule caps the outlet at 32-40A continuous draw (9.6 kW max) -- lower than a hardwired 48A Wall Connector, because the plug-and-cord connection itself is the limiting factor, not the wire.` },
     { question: `4. Is a NEMA 14-50 Outlet Eligible for the ${local.utility.name} Rebate?`,
-      answer: `Yes, the ${local.utility.rebateProgram} covers it the same as a hardwired install. We handle the submission.` },
+      answer: variant === 0
+        ? `Yes, the ${local.utility.rebateProgram} covers it the same as a hardwired install. We handle the submission.`
+        : variant === 1
+        ? `It qualifies -- the ${local.utility.rebateProgram} treats a NEMA 14-50 the same as a hardwired circuit, and we submit it for you.`
+        : `${local.utility.name} doesn't distinguish plug-in from hardwired for the ${local.utility.rebateProgram}; this outlet qualifies the same way, and we file the paperwork.` },
     { question: `5. Why Choose a Plug-in Outlet Over Hardwiring in ${local.cityName}?`,
       answer: `A NEMA 14-50 is a standard receptacle, so the same circuit can power an RV, a welder, or another 240V appliance when you're not charging -- flexibility a hardwired Wall Connector doesn't offer. The tradeoff is a lower charging ceiling (9.6 kW vs. 11.5 kW).` },
     { question: `6. Does ${local.cityName}'s Climate (${local.climate.winterMinTempF}°F winter low, ${local.climate.elevationFeet} ft) Affect a Plug-in Charger?`,
-      answer: `The outlet and breaker are rated the same regardless of season; what changes is your car's own thermal preheating draw at ${local.cityName}'s elevation, which a 40A-capable circuit -- sized to ${local.climate.conduitDeratingFactor} -- can still comfortably supply.` },
+      answer: variant === 0
+        ? `The outlet and breaker are rated the same regardless of season; what changes is your car's own thermal preheating draw at ${local.cityName}'s elevation, which a 40A-capable circuit -- sized to ${local.climate.conduitDeratingFactor} -- can still comfortably supply.`
+        : variant === 1
+        ? `Season doesn't change the outlet or breaker rating. What does change is your EV's preheating draw at ${local.cityName}'s ${local.climate.elevationFeet} ft elevation -- a 40A-capable circuit sized to ${local.climate.conduitDeratingFactor} still covers it comfortably.`
+        : `A NEMA 14-50 circuit is rated the same year-round; the variable in ${local.cityName} is your car's preheating load at elevation (${local.climate.elevationFeet} ft). We size the circuit to ${local.climate.conduitDeratingFactor} so that 40A capacity isn't a bottleneck.` },
     { question: `7. Which Neighborhoods in ${local.cityName} Do You Serve?`,
       answer: `${local.neighborhoods.join(', ')}, and the ${local.landmarks.join(', ')} corridor in ${local.county}.` },
     { question: `8. How Long Does a NEMA 14-50 Install Take in ${local.cityName}?`,
-      answer: `Most single-outlet installs close out in 2-4 hours on-site. ${local.permit.office} inspection turnaround (${local.permit.inspectionWindow}) is usually the longer pole, not the wiring.` },
+      answer: variant === 0
+        ? `Most single-outlet installs close out in 2-4 hours on-site. ${local.permit.office} inspection turnaround (${local.permit.inspectionWindow}) is usually the longer pole, not the wiring.`
+        : variant === 1
+        ? `The outlet itself is a 2-4 hour on-site job. What stretches the total timeline is ${local.permit.office}'s inspection turnaround, usually ${local.permit.inspectionWindow}.`
+        : `Figure 2-4 hours for the wiring. ${local.permit.office}'s inspection window (${local.permit.inspectionWindow}) is almost always the longer wait, not the install itself.` },
   ],
-  'panel-capacity-upgrade': (local) => [
+  'panel-capacity-upgrade': (local, variant) => [
     { question: `1. How Much Does a 200A Panel Upgrade Cost in ${local.cityName}, ${local.state}?`,
-      answer: `A panel upgrade is priced on your existing service size, meter/service-entrance work, and whether the utility needs to coordinate a temporary disconnect. It's a larger job than a single charger circuit, and it's a separate line item from ${local.utility.name}'s EV charger rebate -- ask us which parts of the job qualify for a utility incentive in ${local.cityName}.` },
+      answer: variant === 0
+        ? `A panel upgrade is priced on your existing service size, meter/service-entrance work, and whether the utility needs to coordinate a temporary disconnect. It's a larger job than a single charger circuit, and it's a separate line item from ${local.utility.name}'s EV charger rebate -- ask us which parts of the job qualify for a utility incentive in ${local.cityName}.`
+        : variant === 1
+        ? `This is a bigger job than a single charger circuit, priced on your existing service size, meter/service-entrance work, and any utility-coordinated disconnect. Note that ${local.utility.name}'s EV charger rebate is a separate line item -- ask us which part of a ${local.cityName} panel job actually qualifies.`
+        : `Pricing here depends on three things: your current service size, the meter/service-entrance work involved, and whether ${local.utility.name} needs to schedule a temporary disconnect. Unlike a charger circuit, this job isn't itself rebate-eligible under ${local.utility.name}'s EV program -- we'll tell you upfront which part of a ${local.cityName} quote is.` },
     { question: `2. Which Permit Office Signs Off on a Panel Upgrade in ${local.cityName}?`,
-      answer: `${local.permit.office}, under the ${local.permit.buildingCodeYear}. A service-entrance upgrade typically also requires a utility-coordinated inspection, not just the trade permit.` },
+      answer: variant === 0
+        ? `${local.permit.office}, under the ${local.permit.buildingCodeYear}. A service-entrance upgrade typically also requires a utility-coordinated inspection, not just the trade permit.`
+        : variant === 1
+        ? `${local.permit.office} signs off under the ${local.permit.buildingCodeYear}, but a service-entrance job also needs a utility-coordinated inspection beyond the standard trade permit.`
+        : `This one needs two sign-offs: the ${local.permit.office} trade permit (${local.permit.buildingCodeYear}) and a utility-coordinated inspection for the service-entrance work itself.` },
     { question: `3. How Do You Know I Need a Panel Upgrade Instead of Just a New Circuit?`,
-      answer: `We run an NEC Article 220 load calculation on your existing panel: if your current service (often 100A-125A on older ${local.cityName} homes) is already near capacity with HVAC, range, and water heater loads, adding a 48-60A EV circuit can exceed what the panel is rated for -- that's what triggers a 200A upgrade rather than a simple new breaker.` },
+      answer: variant === 0
+        ? `We run an NEC Article 220 load calculation on your existing panel: if your current service (often 100A-125A on older ${local.cityName} homes) is already near capacity with HVAC, range, and water heater loads, adding a 48-60A EV circuit can exceed what the panel is rated for -- that's what triggers a 200A upgrade rather than a simple new breaker.`
+        : variant === 1
+        ? `An NEC Article 220 load calculation tells us. Older homes commonly run 100A-125A service; once HVAC, range, and water heater loads already use most of that in a ${local.cityName} house, a new 48-60A EV circuit can push past the panel's rating -- that's the trigger for a 200A upgrade instead of a plain new breaker.`
+        : `It comes down to an NEC Article 220 load calculation against what your panel already carries. In ${local.cityName}, a 100A-125A service that's already near its limit from HVAC, range, and water heater loads usually can't absorb a 48-60A EV circuit without a 200A upgrade.` },
     { question: `4. Does ${local.utility.name} Help Cover Panel Upgrade Costs?`,
-      answer: `Utility EV rebates are generally scoped to the charging circuit itself, not a general service upgrade. We'll tell you plainly which part of the invoice is rebate-eligible before work starts, rather than assume the whole job qualifies.` },
+      answer: variant === 0
+        ? `${local.utility.name}'s EV rebates are generally scoped to the charging circuit itself, not a general service upgrade. We'll tell you plainly which part of the invoice is rebate-eligible before work starts, rather than assume the whole job qualifies.`
+        : variant === 1
+        ? `No, not generally -- ${local.utility.name}'s EV rebate is scoped to the charging circuit, not the panel work. We split the invoice so you know exactly which line is rebate-eligible before we start.`
+        : `Only the charging-circuit portion qualifies for ${local.utility.name}'s EV rebate, not the panel upgrade itself. We itemize the quote up front so that distinction is clear before any work begins.` },
     { question: `5. What Does a Panel Upgrade Involve?`,
       answer: `Replacing the main breaker panel and service-entrance conductors to raise your home's total capacity (commonly 100A to 200A), then adding the new EV circuit once the panel has room for it.` },
     { question: `6. Panel Upgrade vs. a Subpanel -- Which Do I Need?`,
@@ -129,17 +201,29 @@ const SERVICE_FAQS: Record<string, ServiceFaqs> = {
     { question: `7. Which Neighborhoods in ${local.cityName} Do You Serve?`,
       answer: `${local.neighborhoods.join(', ')}, and the ${local.landmarks.join(', ')} corridor in ${local.county}.` },
     { question: `8. How Long Does a Panel Upgrade Take in ${local.cityName}?`,
-      answer: `Expect 1-2 days on-site plus ${local.permit.office} coordination for the service-entrance work and inspection (typically ${local.permit.inspectionWindow}) -- longer than a same-day charger circuit, since the whole home's power is briefly affected during the swap.` },
+      answer: variant === 0
+        ? `Expect 1-2 days on-site plus ${local.permit.office} coordination for the service-entrance work and inspection (typically ${local.permit.inspectionWindow}) -- longer than a same-day charger circuit, since the whole home's power is briefly affected during the swap.`
+        : variant === 1
+        ? `This runs 1-2 days on-site, not a same-day job like a charger circuit, since the whole home's power is briefly affected during the swap. ${local.permit.office}'s coordination and inspection (typically ${local.permit.inspectionWindow}) happen alongside it.`
+        : `Budget 1-2 days, longer than a charger circuit because the whole house loses power briefly during the swap. ${local.permit.office} coordinates the service-entrance inspection in that window too, usually ${local.permit.inspectionWindow}.` },
   ],
-  'commercial-ev-charging': (local) => [
+  'commercial-ev-charging': (local, variant) => [
     { question: `1. What Drives the Cost of a Commercial EV Charging Install in ${local.cityName}, ${local.state}?`,
       answer: `Number of charging ports, the amperage per port, conduit/trenching distance from the electrical room to the parking area, and whether the building's service has spare capacity for the added load.` },
     { question: `2. Which Permit Office Handles Commercial EV Charging in ${local.cityName}?`,
-      answer: `${local.permit.office} issues the commercial electrical trade permit under the ${local.permit.buildingCodeYear}; a multi-port or higher-amperage install typically also needs plan review before the permit issues, unlike a single residential circuit.` },
+      answer: variant === 0
+        ? `${local.permit.office} issues the commercial electrical trade permit under the ${local.permit.buildingCodeYear}; a multi-port or higher-amperage install typically also needs plan review before the permit issues, unlike a single residential circuit.`
+        : variant === 1
+        ? `${local.permit.office} is the issuing office (${local.permit.buildingCodeYear}), but unlike a single residential circuit, a multi-port or higher-amperage job typically also needs plan review before that permit is issued.`
+        : `Commercial work in ${local.cityName} still goes through ${local.permit.office} under the ${local.permit.buildingCodeYear}, with one difference from a residential circuit: multi-port or higher-amperage jobs need plan review first.` },
     { question: `3. Do Commercial Installs Need a Panel or Service Capacity Study?`,
       answer: `Yes -- before quoting a multi-port install we run a load study against the building's existing service and panel capacity, since commercial buildings often run closer to their service limit than a single-family home.` },
     { question: `4. Are Commercial Installs Eligible for ${local.utility.name} Incentives in ${local.cityName}?`,
-      answer: `${local.utility.name} offers incentive programs for both residential and commercial EV infrastructure, though commercial tiers and paperwork differ from the residential rebate. Ask us for the current commercial program terms when you request a quote.` },
+      answer: variant === 0
+        ? `${local.utility.name} offers incentive programs for both residential and commercial EV infrastructure, though commercial tiers and paperwork differ from the residential rebate. Ask us for the current commercial program terms when you request a quote.`
+        : variant === 1
+        ? `Yes, though the commercial tier is a separate program from ${local.utility.name}'s residential rebate, with its own paperwork. We'll bring the current terms to your ${local.cityName} quote.`
+        : `${local.utility.name} runs a commercial incentive track alongside its residential rebate -- different tiers, different paperwork. Current terms get quoted alongside your ${local.cityName} site assessment.` },
     { question: `5. Does a Public-Facing Commercial Charging Station Need to Meet ADA Requirements?`,
       answer: `Yes -- parking space dimensions, surface slope, and reach height to the connector are all ADA-governed for any publicly accessible stall, which is a design constraint a residential garage install doesn't have.` },
     { question: `6. Single-Port vs. Multi-Port Commercial Stations -- What's the Tradeoff?`,
@@ -147,11 +231,15 @@ const SERVICE_FAQS: Record<string, ServiceFaqs> = {
     { question: `7. Which Areas Around ${local.cityName} Do You Serve for Commercial Work?`,
       answer: `${local.neighborhoods.join(', ')}, and the ${local.landmarks.join(', ')} commercial corridors in ${local.county}.` },
     { question: `8. How Long Does a Commercial Installation Take in ${local.cityName}?`,
-      answer: `Plan on a site assessment first, then installation timelines that scale with port count. ${local.permit.office}'s commercial plan review adds time beyond their standard ${local.permit.inspectionWindow} residential turnaround -- we'll give you a firm schedule after the load study, not a one-size estimate.` },
+      answer: variant === 0
+        ? `Plan on a site assessment first, then installation timelines that scale with port count. ${local.permit.office}'s commercial plan review adds time beyond their standard ${local.permit.inspectionWindow} residential turnaround -- we'll give you a firm schedule after the load study, not a one-size estimate.`
+        : variant === 1
+        ? `Timelines scale with port count after an initial site assessment. Because ${local.permit.office}'s commercial plan review runs longer than their ${local.permit.inspectionWindow} residential turnaround, we give you a firm schedule only after the load study.`
+        : `Expect a site assessment first, since port count drives the schedule from there. ${local.permit.office} adds commercial plan review on top of the usual ${local.permit.inspectionWindow} residential inspection window -- your firm timeline comes after the load study.` },
   ],
 };
 
-const serviceFaqs = (SERVICE_FAQS[service] ?? SERVICE_FAQS['tesla-wall-connector'])(localData);
+const serviceFaqs = (SERVICE_FAQS[service] ?? SERVICE_FAQS['tesla-wall-connector'])(localData, variant);
 
 /*
  * Hero copy was also shared across all 4 services (the BLUF block claimed
